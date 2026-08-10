@@ -5,207 +5,279 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>⏰ Misión: Domina tu Tiempo</title>
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#061a35,#0b4770,#087f8c);
-    color:white;
-    min-height:100vh;
+  margin:0;
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#061a35,#087f8c,#35c8ec);
+  color:white;
 }
 .container{
-    width:95%;
-    max-width:1000px;
-    margin:auto;
-    padding:18px;
+  width:94%;
+  max-width:900px;
+  margin:auto;
+  padding:10px;
 }
-.screen{display:none}
-.screen.active{display:block}
+.screen{
+  display:none;
+}
+.screen.active{
+  display:block;
+}
 .card{
-    background:rgba(255,255,255,.11);
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:24px;
-    padding:25px;
-    margin:15px 0;
-    box-shadow:0 12px 35px rgba(0,0,0,.3);
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:24px;
+  padding:18px;
+  margin:8px 0;
+  box-shadow:0 10px 30px rgba(0,0,0,.28);
 }
 h1{
-    text-align:center;
-    font-size:clamp(32px,8vw,60px);
-    margin:15px 0;
+  text-align:center;
+  font-size:clamp(30px,8vw,55px);
+  margin:10px 0;
 }
-h2{text-align:center}
+h2{
+  text-align:center;
+  margin:8px 0 12px;
+}
+.center{
+  text-align:center;
+}
 .subtitle{
-    text-align:center;
-    font-size:18px;
-    opacity:.9;
-}
-.center{text-align:center}
-button{
-    border:0;
-    border-radius:15px;
-    padding:15px 20px;
-    margin:7px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
-}
-button:hover{transform:scale(1.03)}
-.medium{
-    background:#35c8ec;
-    color:#06233b;
-}
-.hard{
-    background:#ff5c69;
-    color:white;
-}
-.white{
-    background:white;
-    color:#092d49;
-}
-.dark{
-    background:#10253b;
-    color:white;
-}
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    margin-bottom:12px;
-}
-.stat{
-    background:rgba(0,0,0,.28);
-    border-radius:15px;
-    padding:12px;
-    text-align:center;
-}
-.stat strong{
-    display:block;
-    font-size:25px;
-    margin-top:4px;
-}
-.bar{
-    height:14px;
-    background:rgba(255,255,255,.2);
-    border-radius:20px;
-    overflow:hidden;
-    margin:8px 0 18px;
-}
-.bar div{
-    height:100%;
-    width:100%;
-    background:#35e68b;
-    transition:.3s;
-}
-.task{
-    background:white;
-    color:#102a43;
-    padding:20px;
-    border-radius:20px;
-    margin:15px 0;
-}
-.task h3{margin-top:0}
-.tag{
-    display:inline-block;
-    padding:6px 10px;
-    border-radius:20px;
-    margin:3px;
-    font-size:12px;
-    font-weight:bold;
-}
-.red{background:#ffb0b0}
-.yellow{background:#ffe08b}
-.green{background:#b9f1d0}
-.gray{background:#ddd}
-.choices{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:8px;
-}
-.feedback{
-    min-height:32px;
-    text-align:center;
-    font-size:18px;
-    font-weight:bold;
-}
-.scoreFinal{
-    font-size:60px;
-    text-align:center;
-    font-weight:bold;
-}
-.eisenhower{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:15px;
-}
-.quadrant{
-    min-height:130px;
-    border:2px dashed rgba(255,255,255,.6);
-    border-radius:15px;
-    padding:10px;
-    text-align:center;
-}
-.q1{background:rgba(255,80,80,.25)}
-.q2{background:rgba(255,220,70,.22)}
-.q3{background:rgba(80,180,255,.22)}
-.q4{background:rgba(100,220,150,.20)}
-.taskChoice{
-    background:white;
-    color:#123;
-    padding:12px;
-    border-radius:12px;
-    margin:8px 0;
-    cursor:pointer;
-    font-weight:bold;
-}
-.taskChoice:hover{
-    transform:scale(1.02);
+  text-align:center;
+  font-size:18px;
 }
 .info{
-    background:rgba(0,0,0,.22);
-    padding:12px;
-    border-radius:12px;
-    margin:10px 0;
+  background:rgba(0,0,0,.22);
+  border-radius:15px;
+  padding:12px;
+  line-height:1.5;
+  margin:12px 0;
 }
-@media(max-width:650px){
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-    .choices{
-        grid-template-columns:1fr;
-    }
-    .eisenhower{
-        grid-template-columns:1fr;
-    }
-    button{
-        width:100%;
-        margin:5px 0;
-    }
+button{
+  border:0;
+  border-radius:14px;
+  padding:14px;
+  margin:4px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:active{
+  transform:scale(.97);
+}
+.menuButton{
+  width:90%;
+  max-width:420px;
+  display:block;
+  margin:10px auto;
+  font-size:19px;
+  padding:17px;
+}
+.medium{
+  background:#35c8ec;
+  color:#06233b;
+}
+.hard{
+  background:#ff5c69;
+  color:white;
+}
+.white{
+  background:white;
+  color:#092d49;
+}
+.dark{
+  background:#10253b;
+  color:white;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
+  margin-bottom:7px;
+}
+.stat{
+  background:rgba(0,0,0,.28);
+  border-radius:13px;
+  padding:8px 3px;
+  text-align:center;
+  font-size:12px;
+}
+.stat strong{
+  display:block;
+  font-size:22px;
+  margin-top:2px;
+}
+.bar{
+  height:10px;
+  background:rgba(255,255,255,.2);
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:9px;
+}
+.bar div{
+  width:100%;
+  height:100%;
+  background:#35e68b;
+  transition:.3s;
+}
+/* PERSONAJES */
+.characterBox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:white;
+  color:#102a43;
+  border-radius:18px;
+  padding:10px;
+  margin-bottom:8px;
+}
+.character{
+  width:65px;
+  min-width:65px;
+  text-align:center;
+  font-size:48px;
+  animation:flotar 2s ease-in-out infinite;
+}
+@keyframes flotar{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+.characterInfo{
+  flex:1;
+}
+.characterName{
+  color:#087f8c;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:3px;
+}
+.dialog{
+  font-size:14px;
+  line-height:1.3;
+}
+/* SITUACIÓN */
+.question{
+  background:white;
+  color:#102a43;
+  border-radius:18px;
+  padding:14px;
+  margin-bottom:8px;
+}
+.question h3{
+  margin:0 0 7px;
+  font-size:16px;
+}
+.question p{
+  margin:0;
+  line-height:1.35;
+}
+/* BOTONES */
+.choices{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+.choice{
+  margin:0;
+  min-height:58px;
+  font-size:14px;
+}
+.doNow{
+  background:#ff7777;
+  color:white;
+}
+.plan{
+  background:#ffd96a;
+  color:#352900;
+}
+.delegate{
+  background:#78c9ff;
+  color:#062b45;
+}
+.delete{
+  background:#bce9c8;
+  color:#123b1d;
+}
+.feedback{
+  min-height:25px;
+  text-align:center;
+  font-size:16px;
+  font-weight:bold;
+  margin:6px 0 0;
+}
+/* FINAL */
+.finalEmoji{
+  font-size:70px;
+  text-align:center;
+}
+.finalScore{
+  text-align:center;
+  font-size:58px;
+  font-weight:bold;
+}
+/* CELULAR */
+@media(max-width:600px){
+  .container{
+    width:96%;
+    padding:6px;
+  }
+  .card{
+    padding:12px;
+    border-radius:20px;
+  }
+  .stats{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .stat{
+    font-size:10px;
+  }
+  .stat strong{
+    font-size:18px;
+  }
+  .character{
+    width:55px;
+    min-width:55px;
+    font-size:40px;
+  }
+  .dialog{
+    font-size:13px;
+  }
+  .question{
+    padding:12px;
+  }
+  .choice{
+    min-height:55px;
+    padding:8px 5px;
+    font-size:13px;
+  }
 }
 </style>
 </head>
 <body>
 <div class="container">
-<!-- ================= INICIO ================= -->
+<!-- ================= MENÚ ================= -->
 <section id="menu" class="screen active">
 <div class="card center">
-<h1>⏰</h1>
-<h1>MISIÓN: DOMINA TU TIEMPO</h1>
+<div style="font-size:65px">⏰</div>
+<h1>MISIÓN:<br>DOMINA TU TIEMPO</h1>
 <p class="subtitle">
 ¿Tienes lo necesario para organizar tu día?
 </p>
 <div class="info">
-🧠 Aprende a diferenciar lo urgente de lo importante.<br>
-🎯 Toma decisiones bajo presión.<br>
-🏆 Consigue la mayor puntuación posible.
+🧠 Aprende a priorizar.<br>
+🎯 Toma decisiones inteligentes.<br>
+🏆 ¡Demuestra cuánto sabes administrar tu tiempo!
 </div>
-<h2>Elige tu nivel</h2>
-<button class="medium" onclick="startMedium()">
+<h2>ELIGE TU NIVEL</h2>
+<button class="medium menuButton" onclick="startMedium()">
 🟦 NIVEL MEDIO
 </button>
-<button class="hard" onclick="startHard()">
+<button class="hard menuButton" onclick="startHard()">
 🔴 NIVEL DIFÍCIL
 </button>
 </div>
@@ -214,19 +286,19 @@ button:hover{transform:scale(1.03)}
 <section id="mediumGame" class="screen">
 <div class="stats">
 <div class="stat">
-⏱️ Tiempo
+⏱️
 <strong id="mTime">90</strong>
 </div>
 <div class="stat">
-❤️ Energía
+❤️
 <strong id="mEnergy">100</strong>
 </div>
 <div class="stat">
-⭐ Puntos
+⭐
 <strong id="mScore">0</strong>
 </div>
 <div class="stat">
-📋 Tarea
+📋
 <strong id="mCounter">1/10</strong>
 </div>
 </div>
@@ -234,19 +306,23 @@ button:hover{transform:scale(1.03)}
 <div id="mEnergyBar"></div>
 </div>
 <div class="card">
-<h2>NIVEL MEDIO 🟦</h2>
+<h2>🟦 NIVEL MEDIO</h2>
 <div id="mTask"></div>
 <div class="choices">
-<button class="medium" onclick="mediumChoose('do')">
-✅ Hacer ahora
+<button class="choice doNow"
+onclick="mediumChoose('do')">
+🚨 Hacer ahora
 </button>
-<button class="white" onclick="mediumChoose('plan')">
-📅 Planificar
+<button class="choice plan"
+onclick="mediumChoose('plan')">
+⭐ Planificar
 </button>
-<button class="white" onclick="mediumChoose('delegate')">
-🤝 Delegar
+<button class="choice delegate"
+onclick="mediumChoose('delegate')">
+📞 Delegar
 </button>
-<button class="dark" onclick="mediumChoose('delete')">
+<button class="choice delete"
+onclick="mediumChoose('delete')">
 🗑️ Eliminar
 </button>
 </div>
@@ -257,19 +333,19 @@ button:hover{transform:scale(1.03)}
 <section id="hardGame" class="screen">
 <div class="stats">
 <div class="stat">
-⏱️ Tiempo
+⏱️
 <strong id="hTime">60</strong>
 </div>
 <div class="stat">
-❤️ Energía
+❤️
 <strong id="hEnergy">100</strong>
 </div>
 <div class="stat">
-⭐ Puntos
+⭐
 <strong id="hScore">0</strong>
 </div>
 <div class="stat">
-🔥 Racha
+🔥
 <strong id="hStreak">0</strong>
 </div>
 </div>
@@ -279,31 +355,9 @@ button:hover{transform:scale(1.03)}
 <div class="card">
 <h2>🔴 NIVEL DIFÍCIL</h2>
 <p class="center">
-Clasifica cada situación en el cuadrante correcto.
+Lee la situación y decide rápidamente.
 </p>
 <div id="hTask"></div>
-<div class="eisenhower">
-<div class="quadrant q1">
-<h3>🚨 Q1</h3>
-<strong>URGENTE + IMPORTANTE</strong>
-<br><small>Hazlo ahora</small>
-</div>
-<div class="quadrant q2">
-<h3>⭐ Q2</h3>
-<strong>NO URGENTE + IMPORTANTE</strong>
-<br><small>Planifícalo</small>
-</div>
-<div class="quadrant q3">
-<h3>📞 Q3</h3>
-<strong>URGENTE + NO IMPORTANTE</strong>
-<br><small>Delega</small>
-</div>
-<div class="quadrant q4">
-<h3>🗑️ Q4</h3>
-<strong>NO URGENTE + NO IMPORTANTE</strong>
-<br><small>Elimina</small>
-</div>
-</div>
 <div id="hChoices"></div>
 <p id="hFeedback" class="feedback"></p>
 </div>
@@ -311,19 +365,19 @@ Clasifica cada situación en el cuadrante correcto.
 <!-- ================= FINAL ================= -->
 <section id="final" class="screen">
 <div class="card center">
-<h1>🏆</h1>
+<div class="finalEmoji" id="finalEmoji">🏆</div>
 <h2 id="finalTitle"></h2>
 <p>Tu puntuación:</p>
-<div id="finalScore" class="scoreFinal">0</div>
+<div id="finalScore" class="finalScore">0</div>
 <p id="finalMessage"></p>
 <div class="info">
-🧠 La buena gestión del tiempo no consiste en hacer
-todo rápidamente, sino en saber qué merece tu atención.
+🧠 Gestionar el tiempo no significa hacer todo.
+Significa saber qué merece tu atención primero.
 </div>
-<button class="medium" onclick="goMenu()">
+<button class="medium menuButton" onclick="goMenu()">
 🏠 Volver al menú
 </button>
-<button class="hard" onclick="replayLevel()">
+<button class="hard menuButton" onclick="replayLevel()">
 🔄 Repetir nivel
 </button>
 </div>
@@ -331,16 +385,52 @@ todo rápidamente, sino en saber qué merece tu atención.
 </div>
 <script>
 /* =====================================================
-   VARIABLES GENERALES
+   CONTROL
 ===================================================== */
 let timer=null;
-let currentMode="";
 let finalMode="";
 function show(id){
 document.querySelectorAll(".screen")
 .forEach(s=>s.classList.remove("active"));
 document.getElementById(id).classList.add("active");
 }
+/* =====================================================
+   PERSONAJES
+===================================================== */
+const characters={
+boss:{
+emoji:"👨‍💼",
+name:"JEFE"
+},
+client:{
+emoji:"🧑‍💼",
+name:"CLIENTE"
+},
+coworker:{
+emoji:"👩‍💻",
+name:"COMPAÑERA"
+},
+assistant:{
+emoji:"🧑‍💻",
+name:"AUXILIAR"
+},
+worker:{
+emoji:"👩‍💼",
+name:"TÚ"
+},
+distractor:{
+emoji:"😎",
+name:"DISTRACTOR"
+},
+team:{
+emoji:"👥",
+name:"EQUIPO"
+},
+teacher:{
+emoji:"👩‍🏫",
+name:"CAPACITADORA"
+}
+};
 /* =====================================================
    NIVEL MEDIO
 ===================================================== */
@@ -349,69 +439,79 @@ const mediumTasks=[
 title:"🚨 Informe para entregar en 20 minutos",
 desc:"Tu jefe necesita el informe para una reunión que comienza en pocos minutos.",
 answer:"do",
-tags:["URGENTE","IMPORTANTE"]
+person:"boss",
+dialog:"Necesito el informe antes de la reunión."
 },
 {
 title:"📚 Preparar una capacitación para el próximo mes",
-desc:"Es importante para tu crecimiento, pero todavía tienes tiempo para prepararla.",
+desc:"Es importante para tu crecimiento, pero todavía tienes tiempo.",
 answer:"plan",
-tags:["IMPORTANTE","NO URGENTE"]
+person:"worker",
+dialog:"Puedo organizar esto con tiempo."
 },
 {
-title:"📞 Contestar una llamada que puede atender tu compañero",
-desc:"Es urgente, pero tu compañero tiene autorización para resolverla.",
+title:"📞 Contestar una llamada que puede atender tu compañera",
+desc:"La llamada es urgente, pero ella está autorizada para resolverla.",
 answer:"delegate",
-tags:["URGENTE","NO IMPORTANTE"]
+person:"coworker",
+dialog:"Yo puedo encargarme de esa llamada."
 },
 {
 title:"📱 Revisar redes sociales durante el trabajo",
 desc:"No existe ninguna consecuencia si lo dejas para después.",
 answer:"delete",
-tags:["NO URGENTE","NO IMPORTANTE"]
+person:"distractor",
+dialog:"¡Solo mira un momentico! 😂"
 },
 {
 title:"🚨 Cliente esperando una solución",
-desc:"El cliente está esperando y el problema afecta directamente al negocio.",
+desc:"El problema afecta directamente al negocio.",
 answer:"do",
-tags:["URGENTE","IMPORTANTE"]
+person:"client",
+dialog:"Necesito una solución lo antes posible."
 },
 {
 title:"🎯 Organizar tus metas del próximo trimestre",
-desc:"Es importante para mejorar tu desempeño, pero no necesita hacerse hoy.",
+desc:"Es importante, pero no necesita hacerse hoy.",
 answer:"plan",
-tags:["IMPORTANTE","NO URGENTE"]
+person:"worker",
+dialog:"Quiero organizar bien mis objetivos."
 },
 {
-title:"📦 Ordenar unos archivos que puede organizar otra persona",
-desc:"Necesitan atención, pero no es necesario que tú lo hagas.",
+title:"📦 Ordenar archivos que puede organizar otra persona",
+desc:"La tarea puede ser realizada por un auxiliar.",
 answer:"delegate",
-tags:["URGENTE","NO IMPORTANTE"]
+person:"assistant",
+dialog:"Puedo ayudarte organizando esos archivos."
 },
 {
 title:"🎮 Jugar durante la jornada laboral",
 desc:"No contribuye a ninguna meta laboral.",
 answer:"delete",
-tags:["NO URGENTE","NO IMPORTANTE"]
+person:"distractor",
+dialog:"¡Vamos! Solo una partida. 😂"
 },
 {
 title:"🚨 Corregir un error antes de enviar un documento",
-desc:"El documento se enviará en 10 minutos y el error puede causar problemas.",
+desc:"El documento se enviará en 10 minutos.",
 answer:"do",
-tags:["URGENTE","IMPORTANTE"]
+person:"boss",
+dialog:"Hay poco tiempo para corregirlo."
 },
 {
 title:"💡 Crear una idea para mejorar el proceso de trabajo",
-desc:"Puede mejorar mucho tu trabajo, pero no existe una fecha límite inmediata.",
+desc:"Es importante, pero no existe una fecha límite inmediata.",
 answer:"plan",
-tags:["IMPORTANTE","NO URGENTE"]
+person:"worker",
+dialog:"Esta idea merece tiempo para desarrollarla."
 }
 ];
+/* VARIABLES MEDIO */
 let mIndex=0;
 let mScore=0;
 let mEnergy=100;
 let mTime=90;
 function startMedium(){
-currentMode="medium";
 finalMode="medium";
 mIndex=0;
 mScore=0;
@@ -424,7 +524,7 @@ timer=setInterval(()=>{
 mTime--;
 updateMedium();
 if(mTime<=0){
-finish( "medium" );
+finish("medium");
 }
 },1000);
 }
@@ -434,19 +534,26 @@ finish("medium");
 return;
 }
 const t=mediumTasks[mIndex];
+const p=characters[t.person];
 document.getElementById("mCounter").textContent=
 `${mIndex+1}/${mediumTasks.length}`;
 document.getElementById("mTask").innerHTML=`
-<div class="task">
+<div class="characterBox">
+<div class="character">
+${p.emoji}
+</div>
+<div class="characterInfo">
+<div class="characterName">
+${p.name}
+</div>
+<div class="dialog">
+💬 "${t.dialog}"
+</div>
+</div>
+</div>
+<div class="question">
 <h3>${t.title}</h3>
 <p>${t.desc}</p>
-${t.tags.map(x=>`
-<span class="tag ${
-x==="URGENTE" ? "red" : "yellow"
-}">
-${x}
-</span>
-`).join("")}
 </div>
 `;
 document.getElementById("mFeedback").textContent="";
@@ -456,12 +563,12 @@ const t=mediumTasks[mIndex];
 if(choice===t.answer){
 mScore+=100;
 document.getElementById("mFeedback").textContent=
-"🎯 ¡Correcto! Buena priorización.";
+"🎉 ¡Excelente decisión! +100";
 }else{
 mScore=Math.max(0,mScore-50);
 mEnergy-=15;
 document.getElementById("mFeedback").textContent=
-"⚠️ No es la mejor decisión.";
+"😵 ¡No era la mejor decisión!";
 }
 mEnergy-=5;
 mTime-=4;
@@ -470,10 +577,10 @@ if(mTime<0)mTime=0;
 updateMedium();
 mIndex++;
 if(mEnergy<=0 || mTime<=0){
-setTimeout(()=>finish("medium"),500);
+setTimeout(()=>finish("medium"),450);
 return;
 }
-setTimeout(showMediumTask,500);
+setTimeout(showMediumTask,450);
 }
 function updateMedium(){
 document.getElementById("mTime").textContent=
@@ -485,7 +592,8 @@ mScore;
 document.getElementById("mEnergyBar").style.width=
 Math.max(0,mEnergy)+"%";
 if(mEnergy<30){
-document.getElementById("mEnergyBar").style.background="#ff5c69";
+document.getElementById("mEnergyBar").style.background=
+"#ff5c69";
 }
 }
 /* =====================================================
@@ -493,86 +601,127 @@ document.getElementById("mEnergyBar").style.background="#ff5c69";
 ===================================================== */
 const hardTasks=[
 {
-title:"🚨 El cliente llama por un error en una factura que vence hoy.",
-answer:"q1"
+title:"🚨 Hay un error en una factura que vence hoy.",
+answer:"do",
+person:"client",
+dialog:"Necesito que solucionen este problema hoy."
 },
 {
-title:"📚 Diseñar un plan para mejorar tus habilidades profesionales durante los próximos meses.",
-answer:"q2"
+title:"📚 Diseñar un plan para mejorar tus habilidades durante los próximos meses.",
+answer:"plan",
+person:"worker",
+dialog:"Esto es importante para mi futuro."
 },
 {
-title:"📞 Un compañero necesita que respondas inmediatamente un mensaje que él mismo puede contestar.",
-answer:"q3"
+title:"📞 Un compañero pide ayuda con algo que él mismo puede resolver.",
+answer:"delegate",
+person:"coworker",
+dialog:"Yo también puedo encargarme de esto."
 },
 {
-title:"📱 Revisar memes durante tu jornada.",
-answer:"q4"
+title:"📱 Revisar memes durante tu jornada laboral.",
+answer:"delete",
+person:"distractor",
+dialog:"¡Solo serán cinco minutos! 😂"
 },
 {
-title:"🚨 Tu jefe necesita corregir un informe antes de una reunión que empieza en 10 minutos.",
-answer:"q1"
+title:"🚨 Tu jefe necesita corregir un informe antes de una reunión en 10 minutos.",
+answer:"do",
+person:"boss",
+dialog:"Necesito este informe antes de la reunión."
 },
 {
 title:"🎯 Planificar las metas del próximo semestre.",
-answer:"q2"
+answer:"plan",
+person:"worker",
+dialog:"Quiero organizar mis objetivos con tiempo."
 },
 {
 title:"📦 Organizar documentos que puede ordenar un auxiliar.",
-answer:"q3"
+answer:"delegate",
+person:"assistant",
+dialog:"Puedo encargarme de esos documentos."
 },
 {
 title:"🎮 Ver una serie durante el horario de trabajo.",
-answer:"q4"
+answer:"delete",
+person:"distractor",
+dialog:"¡Nadie se va a enterar! 😂"
 },
 {
-title:"🚨 Resolver una falla que está deteniendo el trabajo de todo el equipo.",
-answer:"q1"
+title:"🚨 Una falla está deteniendo el trabajo de todo el equipo.",
+answer:"do",
+person:"team",
+dialog:"¡Necesitamos solucionar esto cuanto antes!"
 },
 {
 title:"📖 Preparar un curso que debes realizar dentro de dos meses.",
-answer:"q2"
+answer:"plan",
+person:"teacher",
+dialog:"Todavía tienes tiempo para prepararte."
 },
 {
-title:"📞 Responder una solicitud sencilla que puede resolver otro compañero.",
-answer:"q3"
+title:"📞 Responder una solicitud sencilla que puede resolver otra persona.",
+answer:"delegate",
+person:"coworker",
+dialog:"Yo puedo responderla."
 },
 {
 title:"🛍️ Revisar una tienda online mientras trabajas.",
-answer:"q4"
+answer:"delete",
+person:"distractor",
+dialog:"¡Mira esta oferta! 😂"
 },
 {
 title:"🚨 Entregar un documento obligatorio que vence en una hora.",
-answer:"q1"
+answer:"do",
+person:"boss",
+dialog:"Este documento tiene que estar listo."
 },
 {
-title:"💡 Crear una propuesta para mejorar la productividad del equipo el próximo trimestre.",
-answer:"q2"
+title:"💡 Crear una propuesta para mejorar la productividad.",
+answer:"plan",
+person:"worker",
+dialog:"Es una buena idea, pero puedo planificarla."
 },
 {
 title:"📧 Responder correos rutinarios que otra persona puede gestionar.",
-answer:"q3"
+answer:"delegate",
+person:"coworker",
+dialog:"Déjame responder esos correos."
 },
 {
 title:"🎥 Ver videos sin relación con el trabajo.",
-answer:"q4"
+answer:"delete",
+person:"distractor",
+dialog:"¡Este video es buenísimo! 😂"
 },
 {
-title:"🚨 Un sistema importante dejó de funcionar y el equipo necesita una solución inmediata.",
-answer:"q1"
+title:"🚨 Un sistema importante dejó de funcionar.",
+answer:"do",
+person:"team",
+dialog:"¡El sistema está detenido!"
 },
 {
 title:"🧠 Diseñar una estrategia para alcanzar tus objetivos del próximo año.",
-answer:"q2"
+answer:"plan",
+person:"worker",
+dialog:"Quiero pensar esto con calma."
 },
 {
 title:"📞 Atender una solicitud urgente que no requiere tus conocimientos.",
-answer:"q3"
+answer:"delegate",
+person:"assistant",
+dialog:"Yo tengo los conocimientos para resolverlo."
 },
 {
-title:"🗑️ Una tarea que no aporta valor y no tiene ninguna consecuencia si se elimina.",
-answer:"q4"
+title:"🗑️ Una tarea no aporta valor y no tiene consecuencias si se elimina.",
+answer:"delete",
+person:"worker",
+dialog:"Realmente no necesito hacer esto."
 }
 ];
+/* VARIABLES DIFÍCIL */
 let hTasks=[];
 let hIndex=0;
 let hScore=0;
@@ -580,7 +729,6 @@ let hEnergy=100;
 let hTime=60;
 let hStreak=0;
 function startHard(){
-currentMode="hard";
 finalMode="hard";
 hTasks=[...hardTasks].sort(()=>Math.random()-.5);
 hIndex=0;
@@ -605,24 +753,46 @@ finish("hard");
 return;
 }
 const t=hTasks[hIndex];
+const p=characters[t.person];
 document.getElementById("hTask").innerHTML=`
-<div class="task">
-<h3>Situación ${hIndex+1} de ${hTasks.length}</h3>
+<div class="characterBox">
+<div class="character">
+${p.emoji}
+</div>
+<div class="characterInfo">
+<div class="characterName">
+${p.name}
+</div>
+<div class="dialog">
+💬 "${t.dialog}"
+</div>
+</div>
+</div>
+<div class="question">
+<h3>
+Situación ${hIndex+1} de ${hTasks.length}
+</h3>
 <p>${t.title}</p>
 </div>
 `;
 document.getElementById("hChoices").innerHTML=`
-<div class="taskChoice" onclick="hardChoose('q1')">
-🚨 Q1 — Urgente + Importante
-</div>
-<div class="taskChoice" onclick="hardChoose('q2')">
-⭐ Q2 — No urgente + Importante
-</div>
-<div class="taskChoice" onclick="hardChoose('q3')">
-📞 Q3 — Urgente + No importante
-</div>
-<div class="taskChoice" onclick="hardChoose('q4')">
-🗑️ Q4 — No urgente + No importante
+<div class="choices">
+<button class="choice doNow"
+onclick="hardChoose('do')">
+🚨 Hacer ahora
+</button>
+<button class="choice plan"
+onclick="hardChoose('plan')">
+⭐ Planificar
+</button>
+<button class="choice delegate"
+onclick="hardChoose('delegate')">
+📞 Delegar
+</button>
+<button class="choice delete"
+onclick="hardChoose('delete')">
+🗑️ Eliminar
+</button>
 </div>
 `;
 document.getElementById("hFeedback").textContent="";
@@ -633,12 +803,12 @@ if(choice===t.answer){
 hStreak++;
 let points=100;
 if(hStreak>=3){
-points+=50;
+points=150;
 document.getElementById("hFeedback").textContent=
 "🔥 ¡RACHA! +150 puntos";
 }else{
 document.getElementById("hFeedback").textContent=
-"🎯 ¡Correcto!";
+"🎉 ¡Correcto! +100 puntos";
 }
 hScore+=points;
 hEnergy-=3;
@@ -648,32 +818,31 @@ hScore=Math.max(0,hScore-100);
 hEnergy-=20;
 hTime-=5;
 document.getElementById("hFeedback").textContent=
-"💥 ¡Error! -100 puntos y -5 segundos.";
+"😵 ¡Error! -100 puntos y -5 segundos.";
 }
 hIndex++;
 updateHard();
 if(hEnergy<=0 || hTime<=0){
-setTimeout(()=>finish("hard"),500);
+setTimeout(()=>finish("hard"),450);
 return;
 }
-setTimeout(showHardTask,450);
+setTimeout(showHardTask,400);
 }
-/* =====================================================
-   IMPREVISTOS DEL NIVEL DIFÍCIL
-===================================================== */
 function randomEvent(){
-if(currentMode!=="hard")return;
+if(finalMode!=="hard")return;
 if(Math.random()<0.20){
 const events=[
-"📞 ¡Interrupción! Un compañero te pide ayuda. Pierdes 3 segundos.",
-"📧 ¡Nuevo correo urgente! Pierdes 4 segundos.",
+"📞 ¡Interrupción! Pierdes 3 segundos.",
+"📧 ¡Nuevo correo! Pierdes 4 segundos.",
 "🚨 ¡Problema inesperado! Pierdes 5 segundos.",
 "🔔 ¡Notificación! Pierdes 2 segundos."
 ];
 const event=
 events[Math.floor(Math.random()*events.length)];
-document.getElementById("hFeedback").textContent=event;
+document.getElementById("hFeedback").textContent=
+event;
 hTime-=Math.floor(Math.random()*4)+2;
+updateHard();
 }
 }
 function updateHard(){
@@ -693,52 +862,72 @@ document.getElementById("hEnergyBar").style.background=
 }
 }
 /* =====================================================
+   IMPREVISTOS
+===================================================== */
+setInterval(()=>{
+randomEvent();
+},7000);
+/* =====================================================
    FINAL
 ===================================================== */
 function finish(mode){
 if(document.getElementById("final").classList.contains("active"))
 return;
 clearInterval(timer);
-let score=mode==="medium"?mScore:hScore;
+let score=
+mode==="medium"?mScore:hScore;
 show("final");
-document.getElementById("finalScore").textContent=score;
+document.getElementById("finalScore").textContent=
+score;
 let title="";
 let message="";
+let emoji="🏆";
 if(mode==="hard"){
 if(score>=1600){
 title="🧠 MAESTRO ESTRATEGA";
 message=
-"Impresionante. Puedes tomar decisiones rápidas incluso bajo presión.";
+"¡Impresionante! Tomas decisiones excelentes bajo presión.";
+emoji="🤩";
 }else if(score>=1100){
 title="🔥 EXPERTO EN PRIORIDADES";
 message=
-"Muy buen manejo de la Matriz de Eisenhower.";
+"¡Muy buen manejo de tu tiempo!";
+emoji="😎";
 }else if(score>=600){
 title="🥈 BUEN INTENTO";
 message=
-"Con un poco más de práctica puedes mejorar tus decisiones.";
+"Vas por buen camino. Puedes mejorar con más práctica.";
+emoji="🙂";
 }else{
 title="💀 EL TIEMPO TE GANÓ";
 message=
-"Necesitas practicar más la diferencia entre urgente e importante.";
+"Necesitas practicar un poco más. ¡Inténtalo otra vez!";
+emoji="😵";
 }
 }else{
 if(score>=800){
 title="🏆 EXCELENTE GESTOR";
 message=
-"Has demostrado una muy buena capacidad para priorizar.";
+"Has demostrado una gran capacidad para priorizar.";
+emoji="🤩";
 }else if(score>=500){
 title="🥇 BUEN TRABAJO";
 message=
 "Vas por buen camino.";
+emoji="😎";
 }else{
 title="📚 EN ENTRENAMIENTO";
 message=
-"Practica la Matriz de Eisenhower y vuelve a intentarlo.";
+"Practica y vuelve a intentarlo.";
+emoji="🙂";
 }
 }
-document.getElementById("finalTitle").textContent=title;
-document.getElementById("finalMessage").textContent=message;
+document.getElementById("finalEmoji").textContent=
+emoji;
+document.getElementById("finalTitle").textContent=
+title;
+document.getElementById("finalMessage").textContent=
+message;
 }
 function goMenu(){
 clearInterval(timer);
@@ -751,12 +940,6 @@ startMedium();
 startHard();
 }
 }
-/* =====================================================
-   IMPREVISTOS AUTOMÁTICOS
-===================================================== */
-setInterval(()=>{
-randomEvent();
-},7000);
 </script>
 </body>
 </html>
