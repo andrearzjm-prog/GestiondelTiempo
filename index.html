@@ -3,9 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Time Quest 💙💜🩷</title>
+
+<title>TIME QUEST | Un día, muchas decisiones</title>
 
 <style>
+
+:root{
+  --navy:#17243b;
+  --blue:#3b82a8;
+  --cyan:#62c7df;
+  --purple:#7768a8;
+  --cream:#f5f1e8;
+  --office:#ebe7df;
+  --white:#ffffff;
+  --text:#344054;
+  --muted:#748092;
+  --green:#5caa82;
+  --red:#d87878;
+  --gold:#d5a84c;
+}
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -14,67 +31,81 @@
 
 body{
   font-family:"Trebuchet MS",Arial,sans-serif;
+  background:#dfe5e8;
+  color:var(--text);
   min-height:100vh;
-  background:linear-gradient(135deg,#dff5ff,#eee4ff,#ffe5f0);
-  color:#47516b;
-  padding:12px;
+  padding:20px;
 }
 
 .game{
-  max-width:1000px;
+  max-width:1050px;
   margin:auto;
-  min-height:700px;
   background:white;
-  border-radius:32px;
+  min-height:720px;
+  border-radius:22px;
   overflow:hidden;
-  box-shadow:0 20px 70px rgba(83,76,120,.2);
+  box-shadow:0 18px 55px rgba(30,45,65,.18);
 }
 
 /* ================= HEADER ================= */
 
 header{
-  background:linear-gradient(110deg,#69bfe8,#9d83df,#ec8fb3);
+  background:var(--navy);
   color:white;
-  padding:18px 25px;
+  padding:17px 25px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
 .logo{
-  font-size:27px;
+  font-size:25px;
   font-weight:900;
+  letter-spacing:1px;
+}
+
+.logo span{
+  color:var(--cyan);
 }
 
 .logo small{
   display:block;
-  font-size:12px;
-  margin-top:4px;
-  font-weight:normal;
-}
-
-.score{
-  background:rgba(255,255,255,.22);
-  padding:8px 18px;
-  border-radius:18px;
-  text-align:center;
-}
-
-.score small{
   font-size:11px;
+  color:#aeb8c8;
+  margin-top:4px;
+  letter-spacing:.5px;
 }
 
-.score b{
+.hud{
+  display:flex;
+  gap:10px;
+}
+
+.hud-box{
+  min-width:75px;
+  text-align:center;
+  background:#24344f;
+  border-radius:10px;
+  padding:6px 10px;
+}
+
+.hud-box small{
   display:block;
-  font-size:25px;
+  color:#aeb8c8;
+  font-size:9px;
+}
+
+.hud-box b{
+  font-size:20px;
+  color:var(--cyan);
 }
 
 /* ================= PANTALLAS ================= */
 
 .screen{
   display:none;
-  min-height:610px;
-  padding:30px;
+  min-height:640px;
+  padding:35px;
 }
 
 .screen.active{
@@ -85,563 +116,61 @@ header{
   text-align:center;
 }
 
-h1{
-  font-size:38px;
-  color:#555b83;
+/* ================= INICIO ================= */
+
+.office-hero{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+}
+
+.eyebrow{
+  color:var(--blue);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:3px;
   margin-bottom:10px;
 }
 
-h2{
-  color:#596080;
+.title{
+  font-size:52px;
+  color:var(--navy);
+  font-weight:900;
 }
 
-p{
-  color:#737b8e;
-  line-height:1.5;
+.title span{
+  color:var(--blue);
 }
 
-/* ================= BOTONES ================= */
-
-.btn{
-  border:none;
-  padding:16px 30px;
-  border-radius:20px;
-  color:white;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  background:linear-gradient(135deg,#63bfe8,#9b82dc,#ea8faf);
-  box-shadow:0 9px 25px rgba(120,120,200,.25);
-  transition:.2s;
+.subtitle{
+  font-size:19px;
+  color:var(--muted);
+  max-width:650px;
+  margin:15px auto 25px;
 }
 
-.btn:hover{
-  transform:translateY(-3px) scale(1.03);
-}
+/* escritorio */
 
-/* ================= PERSONAJE ================= */
-
-.character{
-  width:220px;
-  height:255px;
+.desk-scene{
+  height:230px;
+  background:
+  linear-gradient(#dcecf0 0 62%,#c9c3b8 62%);
+  border-radius:18px;
+  border:1px solid #d1d7da;
   position:relative;
-  margin:auto;
-  animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-7px)}
-}
-
-/* cabeza */
-
-.char-head{
-  position:absolute;
-  width:106px;
-  height:100px;
-  left:57px;
-  top:15px;
-  background:#ffd0b8;
-  border:4px solid #50576c;
-  border-radius:50%;
-  z-index:6;
-}
-
-/* cabello */
-
-.hair{
-  position:absolute;
-  width:120px;
-  height:82px;
-  left:50px;
-  top:5px;
-  background:#765fa6;
-  border-radius:65px 65px 28px 30px;
-  z-index:8;
-}
-
-.fringe{
-  position:absolute;
-  width:80px;
-  height:38px;
-  left:70px;
-  top:27px;
-  background:#765fa6;
-  border-radius:0 0 40px 40px;
-  z-index:9;
-}
-
-/* cara */
-
-.eye{
-  position:absolute;
-  width:10px;
-  height:14px;
-  background:#40495d;
-  border-radius:50%;
-  top:61px;
-  z-index:12;
-}
-
-.eye.left{left:77px}
-.eye.right{right:77px}
-
-.brow{
-  position:absolute;
-  width:19px;
-  border-top:3px solid #624f62;
-  top:52px;
-  z-index:12;
-}
-
-.brow.left{
-  left:70px;
-  transform:rotate(-8deg);
-}
-
-.brow.right{
-  right:70px;
-  transform:rotate(8deg);
-}
-
-.blush{
-  position:absolute;
-  width:18px;
-  height:8px;
-  background:#ef8cae;
-  opacity:.5;
-  border-radius:50%;
-  top:76px;
-  z-index:12;
-}
-
-.blush.left{left:63px}
-.blush.right{right:63px}
-
-.mouth{
-  position:absolute;
-  width:28px;
-  height:14px;
-  left:90px;
-  top:79px;
-  border-bottom:4px solid #c36c84;
-  border-radius:0 0 50% 50%;
-  z-index:12;
-}
-
-/* expresiones */
-
-.happy .mouth{
-  height:21px;
-}
-
-.sad .mouth{
-  border-bottom:none;
-  border-top:4px solid #c36c84;
-  top:86px;
-}
-
-.surprised .mouth{
-  width:18px;
-  height:21px;
-  border:4px solid #c36c84;
-  border-radius:50%;
-  left:95px;
-  top:77px;
-}
-
-.thinking .mouth{
-  border-bottom:0;
-  border-top:3px solid #c36c84;
-  top:84px;
-}
-
-.happy .brow.left{
-  transform:rotate(8deg);
-}
-
-.happy .brow.right{
-  transform:rotate(-8deg);
-}
-
-/* cuello */
-
-.neck{
-  position:absolute;
-  width:28px;
-  height:28px;
-  left:96px;
-  top:96px;
-  background:#ffd0b8;
-  z-index:3;
-}
-
-/* cuerpo */
-
-.body{
-  position:absolute;
-  width:112px;
-  height:108px;
-  left:54px;
-  top:105px;
-  background:#62bde1;
-  border:4px solid #50576c;
-  border-radius:40px 40px 22px 22px;
-  z-index:4;
-}
-
-.shirt{
-  position:absolute;
-  width:36px;
-  height:35px;
-  left:34px;
-  top:4px;
-  background:white;
-  clip-path:polygon(0 0,100% 0,50% 100%);
-}
-
-.badge{
-  position:absolute;
-  width:23px;
-  height:28px;
-  right:15px;
-  top:35px;
-  background:#ffd8e8;
-  border:2px solid #d57d9d;
-  border-radius:6px;
-}
-
-/* brazos */
-
-.arm{
-  position:absolute;
-  width:27px;
-  height:82px;
-  background:#62bde1;
-  border:4px solid #50576c;
-  border-radius:20px;
-  top:116px;
-  z-index:3;
-}
-
-.arm.left{
-  left:30px;
-  transform:rotate(20deg);
-}
-
-.arm.right{
-  right:30px;
-  transform:rotate(-20deg);
-}
-
-/* manos */
-
-.hand{
-  position:absolute;
-  width:25px;
-  height:27px;
-  background:#ffd0b8;
-  border:3px solid #50576c;
-  border-radius:50%;
-  top:182px;
-  z-index:8;
-}
-
-.hand.left{left:20px}
-.hand.right{right:20px}
-
-/* piernas */
-
-.leg{
-  position:absolute;
-  width:30px;
-  height:65px;
-  background:#6570aa;
-  top:200px;
-  border-radius:16px;
-  z-index:1;
-}
-
-.leg.left{left:80px}
-.leg.right{right:80px}
-
-.shoe{
-  position:absolute;
-  width:48px;
-  height:20px;
-  background:#4c5369;
-  border-radius:20px;
-  top:242px;
-  z-index:2;
-}
-
-.shoe.left{left:60px}
-.shoe.right{right:60px}
-
-/* ================= VARIACIONES ================= */
-
-/* PERSONAJE 1 */
-
-.style1 .hair{
-  background:#6f5aa4;
-}
-
-/* PERSONAJE 2 */
-
-.style2 .hair{
-  background:#e28eae;
-  border-radius:55px 55px 18px 18px;
-}
-
-.style2 .fringe{
-  background:#e28eae;
-}
-
-.style2 .body{
-  background:#8e82d9;
-}
-
-/* PERSONAJE 3 */
-
-.style3 .hair{
-  background:#4f8fc2;
-  border-radius:50%;
-}
-
-.style3 .fringe{
-  background:#4f8fc2;
-}
-
-.style3 .body{
-  background:#f09ab9;
-}
-
-/* PERSONAJE 4 */
-
-.style4 .hair{
-  background:#704f88;
-  width:130px;
-  left:45px;
-}
-
-.style4 .fringe{
-  background:#704f88;
-}
-
-.style4 .body{
-  background:#65bfe3;
-}
-
-/* PERSONAJE 5 */
-
-.style5 .hair{
-  background:#d9789b;
-}
-
-.style5 .fringe{
-  background:#d9789b;
-}
-
-.style5 .body{
-  background:#8c7dd2;
-}
-
-/* PERSONAJE 6 */
-
-.style6 .hair{
-  background:#4f79ad;
-}
-
-.style6 .fringe{
-  background:#4f79ad;
-}
-
-.style6 .body{
-  background:#72c7ad;
-}
-
-/* PERSONAJE 7 */
-
-.style7 .hair{
-  background:#865b99;
-}
-
-.style7 .fringe{
-  background:#865b99;
-}
-
-.style7 .body{
-  background:#ee8dac;
-}
-
-/* PERSONAJE 8 */
-
-.style8 .hair{
-  background:#527da8;
-}
-
-.style8 .fringe{
-  background:#527da8;
-}
-
-.style8 .body{
-  background:#6ebfe3;
-}
-
-/* accesorios */
-
-.accessory{
-  position:absolute;
-  z-index:20;
-}
-
-/* gafas */
-
-.glasses{
-  display:none;
-  top:53px;
-  left:70px;
-  width:82px;
-  height:23px;
-}
-
-.glasses:before,
-.glasses:after{
-  content:"";
-  position:absolute;
-  width:25px;
-  height:18px;
-  border:3px solid #59627d;
-  border-radius:50%;
-}
-
-.glasses:before{left:0}
-.glasses:after{right:0}
-
-.has-glasses .glasses{
-  display:block;
-}
-
-/* moño */
-
-.bow{
-  display:none;
-  top:9px;
-  right:42px;
-  width:40px;
-  height:25px;
-}
-
-.bow:before,
-.bow:after{
-  content:"";
-  position:absolute;
-  width:25px;
-  height:25px;
-  background:#ef8eae;
-  border-radius:50%;
-}
-
-.bow:before{left:0}
-.bow:after{right:0}
-
-.has-bow .bow{
-  display:block;
-}
-
-/* audífonos */
-
-.headphones{
-  display:none;
-  top:48px;
-  left:47px;
-  width:125px;
-  height:75px;
-  border:6px solid #69bde5;
-  border-bottom:0;
-  border-radius:70px 70px 0 0;
-}
-
-.has-headphones .headphones{
-  display:block;
-}
-
-/* ================= MATRIZ ================= */
-
-.matrix{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  max-width:760px;
+  overflow:hidden;
   margin:25px auto;
-}
-
-.box{
-  padding:22px;
-  border-radius:22px;
-  min-height:135px;
-  border:3px solid;
-}
-
-.blue{
-  background:#e4f6ff;
-  border-color:#70c4e7;
-}
-
-.purple{
-  background:#eee8ff;
-  border-color:#9d88db;
-}
-
-.pink{
-  background:#ffeaf2;
-  border-color:#e697b4;
-}
-
-/* ================= JUEGO ================= */
-
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  color:#7a8194;
-}
-
-.progress{
-  height:11px;
-  background:#edf0f4;
-  border-radius:20px;
-  overflow:hidden;
-  margin:8px 0 22px;
-}
-
-.progress-fill{
-  height:100%;
-  width:0;
-  background:linear-gradient(90deg,#67c3e7,#9d87dc,#eb91b2);
-  transition:.4s;
-}
-
-/* escena */
-
-.office{
-  height:250px;
-  position:relative;
-  overflow:hidden;
-  border-radius:26px;
-  background:linear-gradient(#e9f8ff 0 65%,#e5e3fa 65%);
-  border:3px solid #dfe6f0;
-  margin-bottom:18px;
 }
 
 .window{
   position:absolute;
-  width:145px;
-  height:90px;
-  left:20px;
-  top:18px;
-  background:#c8efff;
+  width:180px;
+  height:95px;
+  top:20px;
+  left:25px;
+  background:#c7e8ef;
   border:8px solid white;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 
 .window:before{
@@ -649,8 +178,8 @@ p{
   position:absolute;
   width:4px;
   height:100%;
-  left:50%;
   background:white;
+  left:50%;
 }
 
 .window:after{
@@ -658,191 +187,564 @@ p{
   position:absolute;
   height:4px;
   width:100%;
-  top:50%;
   background:white;
+  top:50%;
 }
 
-.desk{
+.wall-clock{
   position:absolute;
-  width:290px;
-  height:18px;
-  background:#8e9dc5;
-  left:50%;
-  bottom:25px;
-  transform:translateX(-50%);
-  border-radius:8px;
+  right:35px;
+  top:25px;
+  width:70px;
+  height:70px;
+  border:5px solid #6c7784;
+  background:white;
+  border-radius:50%;
 }
 
-.desk:after{
+.wall-clock:before{
+  content:"";
+  position:absolute;
+  width:3px;
+  height:25px;
+  background:#445061;
+  left:31px;
+  top:11px;
+  transform:rotate(30deg);
+  transform-origin:bottom;
+}
+
+.wall-clock:after{
+  content:"";
+  position:absolute;
+  width:3px;
+  height:20px;
+  background:#445061;
+  left:31px;
+  top:18px;
+  transform:rotate(115deg);
+  transform-origin:bottom;
+}
+
+.office-desk{
+  position:absolute;
+  width:430px;
+  height:20px;
+  background:#8d765e;
+  bottom:35px;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:5px;
+}
+
+.office-desk:after{
   content:"";
   position:absolute;
   width:18px;
-  height:58px;
-  left:25px;
-  top:15px;
-  background:#7381a8;
-  box-shadow:222px 0 #7381a8;
+  height:65px;
+  background:#715d4d;
+  left:35px;
+  top:18px;
+  box-shadow:342px 0 #715d4d;
 }
 
 .laptop{
   position:absolute;
-  width:72px;
-  height:43px;
+  width:95px;
+  height:55px;
+  background:#303b4b;
+  bottom:55px;
   left:50%;
-  bottom:43px;
   transform:translateX(-50%);
-  background:#4e5c78;
-  border-radius:6px;
-  z-index:3;
+  border-radius:5px;
 }
 
-.question-character{
+.laptop:after{
+  content:"";
   position:absolute;
-  bottom:-10px;
+  width:120px;
+  height:7px;
+  background:#495466;
+  bottom:-7px;
+  left:-12px;
+  border-radius:5px;
+}
+
+/* ================= BOTONES ================= */
+
+.btn{
+  border:none;
+  background:var(--navy);
+  color:white;
+  padding:15px 28px;
+  border-radius:10px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  background:var(--blue);
+  transform:translateY(-2px);
+}
+
+.btn.secondary{
+  background:#e8edf0;
+  color:var(--navy);
+}
+
+/* ================= INTRO ================= */
+
+.intro-card{
+  max-width:750px;
+  margin:20px auto;
+  background:#f7f8f8;
+  border:1px solid #dde2e5;
+  border-radius:15px;
+  padding:22px;
+  text-align:left;
+}
+
+.intro-card h3{
+  color:var(--navy);
+  margin-bottom:8px;
+}
+
+.intro-card p{
+  color:var(--muted);
+  line-height:1.5;
+}
+
+/* ================= JORNADA ================= */
+
+.day-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.day-header h1{
+  color:var(--navy);
+  font-size:30px;
+}
+
+.time{
+  background:#edf6f8;
+  border:1px solid #c7e4ea;
+  color:#28768a;
+  padding:8px 13px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.progress{
+  height:8px;
+  background:#e9edf0;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+
+.progress-bar{
+  width:0%;
+  height:100%;
+  background:var(--blue);
+  transition:.4s;
+}
+
+/* ================= OFICINA ================= */
+
+.office{
+  height:250px;
+  background:
+  linear-gradient(#e2eef0 0 62%,#d4cec4 62%);
+  border-radius:17px;
+  border:1px solid #d4dadd;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+
+.office-window{
+  position:absolute;
+  left:25px;
+  top:20px;
+  width:150px;
+  height:80px;
+  background:#c6e9ef;
+  border:7px solid white;
+}
+
+.office-window:before{
+  content:"";
+  position:absolute;
+  height:100%;
+  width:3px;
+  background:white;
   left:50%;
-  margin-left:-110px;
-  transform:scale(.72);
-  transform-origin:bottom center;
+}
+
+.office-window:after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:3px;
+  background:white;
+  top:50%;
+}
+
+.office-desk2{
+  position:absolute;
+  bottom:32px;
+  left:50%;
+  transform:translateX(-50%);
+  width:430px;
+  height:17px;
+  background:#8b745e;
+  border-radius:5px;
+}
+
+.office-desk2:after{
+  content:"";
+  position:absolute;
+  left:35px;
+  top:15px;
+  width:17px;
+  height:60px;
+  background:#705b4b;
+  box-shadow:343px 0 #705b4b;
+}
+
+.office-laptop{
+  position:absolute;
+  width:82px;
+  height:48px;
+  bottom:48px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#303c4e;
+  border-radius:5px;
+}
+
+/* personaje oficina */
+
+.person{
+  position:absolute;
+  bottom:42px;
+  left:50%;
+  transform:translateX(-50%);
+  width:110px;
+  height:150px;
   z-index:5;
 }
 
-/* ================= TARJETA ================= */
+.person .head{
+  position:absolute;
+  width:62px;
+  height:62px;
+  background:#efc1a4;
+  border-radius:50%;
+  left:24px;
+  top:5px;
+  border:3px solid #596271;
+}
 
-.card{
+.person .hair{
+  position:absolute;
+  width:68px;
+  height:42px;
+  background:#4b4056;
+  border-radius:40px 40px 15px 15px;
+  left:21px;
+  top:0;
+  z-index:2;
+}
+
+.person .eye{
+  position:absolute;
+  width:6px;
+  height:8px;
+  background:#384253;
+  border-radius:50%;
+  top:30px;
+  z-index:3;
+}
+
+.person .eye.one{
+  left:40px;
+}
+
+.person .eye.two{
+  right:40px;
+}
+
+.person .body{
+  position:absolute;
+  width:76px;
+  height:70px;
+  left:17px;
+  top:63px;
+  background:#587ca0;
+  border-radius:22px 22px 10px 10px;
+  border:3px solid #596271;
+}
+
+.person .collar{
+  position:absolute;
+  width:30px;
+  height:25px;
   background:white;
-  border:2px solid #e7eaf0;
-  border-radius:24px;
-  padding:22px;
+  left:23px;
+  top:2px;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+}
+
+.person .arm{
+  position:absolute;
+  width:20px;
+  height:55px;
+  background:#587ca0;
+  border:3px solid #596271;
+  border-radius:15px;
+  top:70px;
+}
+
+.person .arm.left{
+  left:5px;
+  transform:rotate(15deg);
+}
+
+.person .arm.right{
+  right:5px;
+  transform:rotate(-15deg);
+}
+
+.person.nova .hair{
+  background:#493d62;
+}
+
+.person.nova .body{
+  background:#7669a2;
+}
+
+.person.max .hair{
+  background:#5a4638;
+}
+
+.person.max .body{
+  background:#3f7594;
+}
+
+.person.lia .hair{
+  background:#75485e;
+}
+
+.person.lia .body{
+  background:#628b7a;
+}
+
+.person.timi{
+  width:90px;
+}
+
+.person.timi .head{
+  background:#dce7ee;
+  border-radius:18px;
+  width:65px;
+  left:13px;
+}
+
+.person.timi .hair{
+  display:none;
+}
+
+.person.timi .body{
+  background:#4f6479;
+  width:65px;
+  left:13px;
+}
+
+.person.timi .eye{
+  background:var(--blue);
+}
+
+/* ================= TARJETA PREGUNTA ================= */
+
+.question-card{
+  background:white;
+  border:1px solid #dfe4e7;
+  border-radius:17px;
+  padding:24px;
+}
+
+.question-label{
+  color:var(--blue);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.question-card h2{
+  color:var(--navy);
+  font-size:25px;
+  margin:7px 0;
+}
+
+.context{
+  color:var(--muted);
+  margin-bottom:14px;
 }
 
 .situation{
-  background:#fff0f5;
-  border-left:7px solid #e391b1;
+  background:#f5f7f7;
+  border-left:5px solid var(--blue);
+  border-radius:8px;
   padding:18px;
-  border-radius:14px;
-  font-size:18px;
-  line-height:1.5;
-  margin:17px 0;
+  color:#435064;
+  font-size:17px;
+  line-height:1.55;
+  margin-bottom:18px;
+}
+
+.ask{
+  font-weight:bold;
+  color:var(--navy);
 }
 
 .answers{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px;
+  gap:11px;
+  margin-top:14px;
 }
 
 .answer{
-  border:3px solid #e5e8ef;
   background:white;
-  border-radius:17px;
-  padding:17px;
-  cursor:pointer;
+  border:2px solid #e1e6e9;
+  border-radius:11px;
+  padding:15px;
   text-align:left;
-  color:#505b72;
-  font-size:15px;
+  color:#3f4b5d;
+  cursor:pointer;
   transition:.2s;
 }
 
 .answer:hover{
-  transform:translateY(-3px);
-  border-color:#8e83d9;
-  background:#f5f2ff;
+  border-color:var(--blue);
+  background:#f4fafb;
 }
 
-.answer:disabled{
-  cursor:default;
+.answer b{
+  color:var(--navy);
 }
 
-/* ================= RESULTADO ================= */
+/* ================= FEEDBACK ================= */
 
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(56,59,86,.7);
+  background:rgba(22,33,52,.65);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:999;
-  backdrop-filter:blur(6px);
+  z-index:100;
+  padding:20px;
 }
 
 .feedback{
-  width:min(430px,90vw);
   background:white;
-  border-radius:34px;
-  padding:32px 25px;
+  max-width:430px;
+  width:100%;
+  padding:30px;
+  border-radius:18px;
   text-align:center;
   box-shadow:0 25px 70px rgba(0,0,0,.25);
 }
 
 .feedback.correct{
-  border-top:12px solid #65bfe2;
-  animation:pop .35s ease;
+  border-top:7px solid var(--green);
 }
 
 .feedback.incorrect{
-  border-top:12px solid #e58cae;
-  animation:shake .45s ease;
+  border-top:7px solid var(--red);
 }
 
-@keyframes pop{
-  0%{transform:scale(.5);opacity:0}
-  80%{transform:scale(1.08);opacity:1}
-  100%{transform:scale(1);opacity:1}
-}
-
-@keyframes shake{
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-11px)}
-  40%{transform:translateX(11px)}
-  60%{transform:translateX(-8px)}
-  80%{transform:translateX(8px)}
-}
-
-.icon{
-  font-size:105px;
-  line-height:1;
+.feedback-icon{
+  font-size:55px;
 }
 
 .feedback h2{
-  font-size:32px;
-  margin:10px 0;
+  color:var(--navy);
+  margin:8px 0;
 }
 
-.feedback.correct h2{
-  color:#56a9cf;
+.feedback p{
+  color:var(--muted);
+  line-height:1.5;
 }
 
-.feedback.incorrect h2{
-  color:#d97c9b;
-}
-
-.celebration{
-  font-size:28px;
-  margin-top:14px;
+.feedback-tip{
+  background:#f4f6f7;
+  padding:12px;
+  border-radius:9px;
+  margin-top:15px;
+  font-size:13px;
 }
 
 /* ================= FINAL ================= */
 
 .final{
-  max-width:600px;
+  max-width:700px;
   margin:auto;
-  padding:30px;
-  background:linear-gradient(145deg,#eaf8ff,#f0eaff,#ffeaf2);
-  border-radius:30px;
+  background:#f7f8f8;
+  border:1px solid #dce2e5;
+  border-radius:20px;
+  padding:35px;
   text-align:center;
+}
+
+.final h1{
+  color:var(--navy);
 }
 
 .final-score{
   font-size:70px;
-  color:#7f78c9;
   font-weight:900;
-  margin:10px;
+  color:var(--blue);
+  margin:12px;
 }
 
-.stars{
-  font-size:35px;
-  letter-spacing:4px;
+.level{
+  font-size:21px;
+  font-weight:bold;
+  color:var(--gold);
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:25px 0;
+}
+
+.stat{
+  background:white;
+  border:1px solid #dde2e5;
+  padding:15px;
+  border-radius:10px;
+}
+
+.stat b{
+  display:block;
+  color:var(--navy);
+  font-size:22px;
+}
+
+.stat span{
+  font-size:12px;
+  color:var(--muted);
 }
 
 /* ================= CELULAR ================= */
@@ -862,41 +764,47 @@ p{
   }
 
   .logo{
-    font-size:20px;
+    font-size:19px;
+  }
+
+  .hud-box{
+    min-width:60px;
   }
 
   .screen{
-    padding:20px 14px;
+    padding:22px 14px;
   }
 
-  h1{
-    font-size:29px;
+  .title{
+    font-size:40px;
   }
 
-  .matrix,
-  .answers{
+  .answers,
+  .stats{
     grid-template-columns:1fr;
   }
 
-  .office{
-    height:225px;
+  .office,
+  .desk-scene{
+    height:220px;
   }
 
+  .office-desk2,
+  .office-desk{
+    width:310px;
+  }
+
+  .office-window,
   .window{
     width:105px;
-    height:70px;
+    height:65px;
   }
 
-  .icon{
-    font-size:85px;
-  }
-
-  .feedback h2{
-    font-size:28px;
-  }
 }
+
 </style>
 </head>
+
 
 <body>
 
@@ -905,13 +813,22 @@ p{
 <header>
 
   <div class="logo">
-    ⏱️ TIME QUEST
-    <small>El reto de la Gestión del Tiempo</small>
+    TIME <span>QUEST</span>
+    <small>UN DÍA, MUCHAS DECISIONES</small>
   </div>
 
-  <div class="score">
-    <small>PUNTOS</small>
-    <b id="score">0</b>
+  <div class="hud">
+
+    <div class="hud-box">
+      <small>DECISIONES</small>
+      <b id="score">0</b>
+    </div>
+
+    <div class="hud-box">
+      <small>ACERTADAS</small>
+      <b id="correctas">0</b>
+    </div>
+
   </div>
 
 </header>
@@ -921,51 +838,51 @@ p{
 
 <section class="screen active" id="inicio">
 
-<div class="hero center">
+<div class="office-hero">
 
-<div class="character happy style1">
+<div class="eyebrow">
+LUNES · 8:00 A. M.
+</div>
 
-  <div class="hair"></div>
-  <div class="fringe"></div>
-  <div class="neck"></div>
+<div class="title">
+TIME <span>QUEST</span>
+</div>
 
-  <div class="char-head">
-    <div class="brow left"></div>
-    <div class="brow right"></div>
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="blush left"></div>
-    <div class="blush right"></div>
-    <div class="mouth"></div>
-  </div>
+<p class="subtitle">
+Un día de trabajo. Muchas tareas. Una sola misión:
+<strong>administrar bien tu tiempo.</strong>
+</p>
 
-  <div class="body">
-    <div class="shirt"></div>
-    <div class="badge"></div>
-  </div>
 
-  <div class="arm left"></div>
-  <div class="arm right"></div>
-  <div class="hand left"></div>
-  <div class="hand right"></div>
+<div class="desk-scene">
 
-  <div class="leg left"></div>
-  <div class="leg right"></div>
-  <div class="shoe left"></div>
-  <div class="shoe right"></div>
+<div class="window"></div>
+
+<div class="wall-clock"></div>
+
+<div class="office-desk"></div>
+
+<div class="laptop"></div>
 
 </div>
 
-<h1>¡Bienvenida a TIME QUEST! 💙💜🩷</h1>
 
-<p style="max-width:650px;margin:0 auto 25px;font-size:17px;">
-Pon a prueba tus conocimientos sobre la
-<b>Gestión del Tiempo</b> y la
-<b>Matriz de Eisenhower</b>.
+<div class="intro-card">
+
+<h3>📋 Tu jornada comienza ahora</h3>
+
+<p>
+Hoy tendrás que tomar decisiones sobre informes,
+clientes, reuniones, tareas y distracciones.
+Cada situación pondrá a prueba tu capacidad para
+distinguir lo urgente de lo importante.
 </p>
 
-<button class="btn" onclick="mostrarMatriz()">
-COMENZAR MISIÓN 🚀
+</div>
+
+
+<button class="btn" onclick="mostrarIntroduccion()">
+ENTRAR A LA OFICINA
 </button>
 
 </div>
@@ -973,60 +890,82 @@ COMENZAR MISIÓN 🚀
 </section>
 
 
-<!-- ================= MATRIZ ================= -->
+<!-- ================= INTRO ================= -->
 
-<section class="screen" id="matriz">
+<section class="screen" id="introduccion">
 
 <div class="center">
 
-<h1>🧠 Matriz de Eisenhower</h1>
+<div class="eyebrow">
+ANTES DE COMENZAR
+</div>
+
+<h1>
+Tu equipo cuenta contigo
+</h1>
 
 <p>
-Recuerda estas cuatro opciones antes de comenzar:
+Durante la jornada tendrás que ayudar a tu equipo
+a decidir qué hacer primero.
 </p>
 
 </div>
 
-<div class="matrix">
 
-<div class="box blue">
-<h3>🔥 HACER</h3>
+<div class="intro-card">
+
+<h3>🧠 Recuerda la Matriz de Eisenhower</h3>
+
 <p>
-Urgente + importante.
-Hazlo inmediatamente.
+<strong>Urgente + importante:</strong>
+hazlo ahora.
 </p>
-</div>
 
-<div class="box purple">
-<h3>📅 PLANIFICAR</h3>
 <p>
-Importante pero no urgente.
-Organízalo para después.
+<strong>Importante + no urgente:</strong>
+planifícalo.
 </p>
-</div>
 
-<div class="box pink">
-<h3>👥 DELEGAR</h3>
 <p>
-Urgente pero no necesariamente importante.
-Otra persona puede hacerlo.
+<strong>Urgente + no importante:</strong>
+delega cuando sea posible.
 </p>
-</div>
 
-<div class="box purple">
-<h3>🗑️ ELIMINAR</h3>
 <p>
-No urgente y no importante.
-Evita gastar tiempo en ello.
+<strong>No urgente + no importante:</strong>
+elimínalo.
 </p>
-</div>
 
 </div>
+
+
+<div class="intro-card">
+
+<h3>👥 Tu equipo</h3>
+
+<p>
+<strong>Nova</strong> — organizada y estratégica.
+</p>
+
+<p>
+<strong>Max</strong> — tiene muchas tareas pendientes.
+</p>
+
+<p>
+<strong>Lia</strong> — trabaja con clientes.
+</p>
+
+<p>
+<strong>Timi</strong> — asistente de oficina.
+</p>
+
+</div>
+
 
 <div class="center">
 
 <button class="btn" onclick="comenzar()">
-¡ESTOY LISTA! 🎯
+COMENZAR LA JORNADA
 </button>
 
 </div>
@@ -1038,120 +977,124 @@ Evita gastar tiempo en ello.
 
 <section class="screen" id="juego">
 
-<div class="topbar">
 
-<span id="contador">
-Situación 1 de 8
-</span>
+<div class="day-header">
 
-<span id="porcentaje">
-0%
-</span>
+<h1 id="horaTitulo">
+8:00 A. M.
+</h1>
+
+<div class="time" id="momento">
+Inicio de jornada
+</div>
 
 </div>
 
+
 <div class="progress">
-<div class="progress-fill" id="barra"></div>
+
+<div class="progress-bar" id="barra"></div>
+
 </div>
 
 
 <div class="office">
 
-<div class="window"></div>
-<div class="desk"></div>
-<div class="laptop"></div>
+<div class="office-window"></div>
+
+<div class="office-desk2"></div>
+
+<div class="office-laptop"></div>
 
 
-<!-- MUÑEQUITO DE CADA PREGUNTA -->
-
-<div id="questionCharacter"
-class="character question-character style1 happy">
+<div class="person" id="personaje">
 
 <div class="hair"></div>
-<div class="fringe"></div>
-<div class="neck"></div>
 
-<div class="char-head">
+<div class="head">
 
-<div class="brow left"></div>
-<div class="brow right"></div>
-
-<div class="eye left"></div>
-<div class="eye right"></div>
-
-<div class="blush left"></div>
-<div class="blush right"></div>
-
-<div class="mouth"></div>
+<div class="eye one"></div>
+<div class="eye two"></div>
 
 </div>
 
 <div class="body">
-<div class="shirt"></div>
-<div class="badge"></div>
+
+<div class="collar"></div>
+
 </div>
 
 <div class="arm left"></div>
 <div class="arm right"></div>
 
-<div class="hand left"></div>
-<div class="hand right"></div>
-
-<div class="leg left"></div>
-<div class="leg right"></div>
-
-<div class="shoe left"></div>
-<div class="shoe right"></div>
-
-<div class="accessory glasses"></div>
-<div class="accessory bow"></div>
-<div class="accessory headphones"></div>
-
 </div>
 
 </div>
 
 
-<div class="card">
+<div class="question-card">
 
-<div class="center">
+<div class="question-label">
+SITUACIÓN <span id="numero">1</span> DE 8
+</div>
 
-<h2 id="titulo">Situación</h2>
+<h2 id="titulo">
+</h2>
 
-<p id="contexto">
-Analiza cuidadosamente.
+<p class="context" id="contexto">
 </p>
 
+<div class="situation" id="situacion">
 </div>
 
-<div class="situation" id="situacion"></div>
-
-<div class="center">
-<b>¿Qué debería hacer?</b>
+<div class="ask">
+¿Qué debería hacerse primero?
 </div>
 
-<br>
 
 <div class="answers">
 
 <button class="answer" onclick="responder('hacer')">
-<b>🔥 HACER AHORA</b><br>
-Es urgente e importante.
+
+<b>🔥 HACER AHORA</b>
+
+<br>
+
+Atender inmediatamente.
+
 </button>
+
 
 <button class="answer" onclick="responder('planificar')">
-<b>📅 PLANIFICAR</b><br>
-Organizarlo para después.
+
+<b>📅 PLANIFICAR</b>
+
+<br>
+
+Programarlo para después.
+
 </button>
+
 
 <button class="answer" onclick="responder('delegar')">
-<b>👥 DELEGAR</b><br>
-Pedir ayuda a otra persona.
+
+<b>👥 DELEGAR</b>
+
+<br>
+
+Pedir apoyo a otra persona.
+
 </button>
 
+
 <button class="answer" onclick="responder('eliminar')">
-<b>🗑️ ELIMINAR</b><br>
+
+<b>🗑️ ELIMINAR</b>
+
+<br>
+
 No dedicarle tiempo.
+
 </button>
 
 </div>
@@ -1161,24 +1104,23 @@ No dedicarle tiempo.
 </section>
 
 
-<!-- ================= RESULTADO ================= -->
+<!-- ================= FEEDBACK ================= -->
 
 <div class="overlay" id="overlay">
 
 <div class="feedback" id="feedback">
 
-<div class="icon" id="feedbackIcon">
-✔️
+<div class="feedback-icon" id="feedbackIcon">
+✓
 </div>
 
 <h2 id="feedbackTitle">
-¡ACERTASTE!
 </h2>
 
-<p id="feedbackText"></p>
+<p id="feedbackText">
+</p>
 
-<div class="celebration" id="celebration">
-🎉👏💙👏🎉
+<div class="feedback-tip" id="feedbackTip">
 </div>
 
 </div>
@@ -1192,254 +1134,294 @@ No dedicarle tiempo.
 
 <div class="final">
 
-<h1>🏆 ¡MISIÓN COMPLETADA!</h1>
-
-<div class="stars" id="stars">
-⭐⭐⭐⭐⭐
+<div class="eyebrow">
+FIN DE LA JORNADA
 </div>
+
+<h1>
+¡DÍA COMPLETADO!
+</h1>
 
 <div class="final-score">
-<span id="resultado">0</span>/80
+
+<span id="resultado">
+0
+</span>
+
+/ 8
+
 </div>
 
-<h2 id="mensaje">
-¡Excelente trabajo!
-</h2>
+<div class="level" id="nivel">
+</div>
 
-<p id="consejo"></p>
+<p id="mensaje">
+</p>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<b id="statCorrectas">
+0
+</b>
+
+<span>
+DECISIONES CORRECTAS
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b id="statErrores">
+0
+</b>
+
+<span>
+DECISIONES POR MEJORAR
+</span>
+
+</div>
+
+</div>
+
+
+<p id="consejo">
+</p>
 
 <br>
 
 <button class="btn" onclick="reiniciar()">
-VOLVER A JUGAR 🔄
+NUEVA JORNADA
 </button>
 
 </div>
 
 </section>
 
+
 </div>
 
 
 <script>
 
-/* ==============================
+/* =========================================
    PREGUNTAS
-============================== */
+========================================= */
 
-const preguntas=[
+const preguntas = [
 
 {
-titulo:"El informe para el jefe",
-contexto:"Son las 4:30 de la tarde.",
-situacion:"Tu jefe necesita un informe importante en 30 minutos y todavía falta terminar una parte fundamental.",
+hora:"8:00 A. M.",
+momento:"Inicio de jornada",
+personaje:"nova",
+
+titulo:"El informe de la mañana",
+
+contexto:"Nova acaba de llegar a la oficina.",
+
+situacion:
+"Su jefe necesita un informe importante en 30 minutos y todavía falta terminar una parte fundamental. También tiene varios correos que puede revisar más tarde.",
+
 correcta:"hacer",
-explicacion:"Es urgente e importante porque debe entregarse pronto.",
-style:"style1",
-pose:"pose-computer",
-expresion:"surprised",
-accessory:"has-glasses"
+
+explicacion:
+"El informe es urgente e importante porque tiene una entrega inmediata.",
+
+tip:
+"Prioriza lo que tiene una consecuencia inmediata y es realmente importante."
+
 },
 
+
 {
+hora:"9:30 A. M.",
+momento:"Planificación",
+
+personaje:"max",
+
 titulo:"La capacitación del próximo mes",
-contexto:"Estás organizando las actividades del equipo.",
-situacion:"Debes preparar una capacitación que se realizará dentro de tres semanas.",
+
+contexto:"Max está organizando las actividades del equipo.",
+
+situacion:
+"Debe preparar una capacitación que se realizará dentro de tres semanas. Todavía no hay una fecha límite cercana.",
+
 correcta:"planificar",
-explicacion:"Es importante, pero todavía no es urgente.",
-style:"style2",
-pose:"pose-thinking",
-expresion:"thinking",
-accessory:"has-bow"
+
+explicacion:
+"La capacitación es importante, pero todavía no es urgente.",
+
+tip:
+"Las tareas importantes que pueden esperar deben entrar en tu planificación."
+
 },
 
+
 {
-titulo:"Una tarea repetitiva",
-contexto:"Tienes un proyecto importante que terminar.",
-situacion:"Una compañera tiene tiempo disponible y sabe realizar perfectamente una tarea administrativa repetitiva.",
+hora:"11:00 A. M.",
+momento:"Trabajo en equipo",
+
+personaje:"max",
+
+titulo:"Una tarea administrativa",
+
+contexto:"Max tiene varias actividades importantes pendientes.",
+
+situacion:
+"Una compañera tiene tiempo disponible y sabe realizar perfectamente una tarea administrativa repetitiva que Max debe completar.",
+
 correcta:"delegar",
-explicacion:"Delegar permite concentrarte en las actividades más importantes.",
-style:"style3",
-pose:"pose-talking",
-expresion:"happy",
-accessory:"has-headphones"
+
+explicacion:
+"Delegar permite que Max utilice su tiempo en actividades de mayor prioridad.",
+
+tip:
+"No todo tienes que hacerlo tú. Delegar también es administrar el tiempo."
+
 },
 
+
 {
-titulo:"Una distracción",
-contexto:"Estás preparando una exposición.",
-situacion:"Empiezas a mirar videos y redes sociales que no tienen relación con la exposición.",
+hora:"12:30 P. M.",
+momento:"Antes del almuerzo",
+
+personaje:"timi",
+
+titulo:"Una pequeña distracción",
+
+contexto:"Tienes una exposición importante que preparar.",
+
+situacion:
+"Abres las redes sociales para revisar una notificación y terminas viendo contenido que no tiene ninguna relación con tu trabajo.",
+
 correcta:"eliminar",
-explicacion:"No es importante ni urgente y puede quitarte mucho tiempo.",
-style:"style4",
-pose:"pose-phone",
-expresion:"surprised",
-accessory:""
+
+explicacion:
+"La actividad no es importante ni urgente y puede convertirse en una pérdida de tiempo.",
+
+tip:
+"Identificar las distracciones también forma parte de una buena gestión del tiempo."
+
 },
 
+
 {
+hora:"2:00 P. M.",
+momento:"Después del almuerzo",
+
+personaje:"lia",
+
 titulo:"El cliente esperando",
-contexto:"Estás trabajando en varias actividades.",
-situacion:"Un cliente importante necesita una respuesta para poder continuar con su pedido hoy.",
+
+contexto:"Lia está trabajando en varias actividades.",
+
+situacion:
+"Un cliente importante necesita una respuesta para poder continuar con su pedido durante la tarde.",
+
 correcta:"hacer",
-explicacion:"Es urgente e importante porque afecta directamente al cliente.",
-style:"style5",
-pose:"pose-point",
-expresion:"surprised",
-accessory:"has-glasses"
+
+explicacion:
+"La respuesta es urgente e importante porque afecta directamente al cliente.",
+
+tip:
+"Cuando una tarea afecta directamente a otra persona o proceso, revisa su prioridad."
+
 },
 
+
 {
-titulo:"Organizar la próxima semana",
+hora:"3:30 P. M.",
+momento:"Organización",
+
+personaje:"nova",
+
+titulo:"Preparar la próxima semana",
+
 contexto:"Es viernes en la tarde.",
-situacion:"Quieres organizar tus actividades de la próxima semana para evitar trabajar a última hora.",
+
+situacion:
+"Nova quiere organizar las actividades de la próxima semana para evitar trabajar a última hora.",
+
 correcta:"planificar",
-explicacion:"No es urgente, pero sí importante. Planificar ayuda a trabajar mejor.",
-style:"style6",
-pose:"pose-calendar",
-expresion:"happy",
-accessory:"has-bow"
+
+explicacion:
+"No es urgente, pero sí importante. Planificar ahora ayuda a prevenir problemas después.",
+
+tip:
+"Planificar con anticipación evita que lo importante se convierta en urgente."
+
 },
 
+
 {
+hora:"4:30 P. M.",
+momento:"Trabajo en equipo",
+
+personaje:"lia",
+
 titulo:"Confirmar un dato",
-contexto:"Estás concentrada en una tarea importante.",
-situacion:"Un compañero puede confirmar rápidamente un dato sencillo que otra persona necesita.",
+
+contexto:"Lia está concentrada en una tarea importante.",
+
+situacion:
+"Un compañero necesita confirmar rápidamente un dato sencillo que Lia conoce, pero otra persona del equipo también puede comprobarlo.",
+
 correcta:"delegar",
-explicacion:"Puedes delegar y mantener tu concentración.",
-style:"style7",
-pose:"pose-talking",
-expresion:"happy",
-accessory:"has-headphones"
+
+explicacion:
+"Delegar la comprobación permite mantener la concentración en la tarea principal.",
+
+tip:
+"Delegar puede ayudarte a proteger tu concentración."
+
 },
 
+
 {
-titulo:"Una hora perdida",
-contexto:"Tienes una tarea importante pendiente.",
-situacion:"Decides pasar una hora viendo contenido que no aporta nada a tu trabajo ni a tus objetivos.",
+hora:"5:30 P. M.",
+momento:"Fin de jornada",
+
+personaje:"timi",
+
+titulo:"La última hora",
+
+contexto:"Ya casi termina tu jornada.",
+
+situacion:
+"En lugar de terminar una tarea importante pendiente, decides dedicar una hora a revisar contenido que no aporta a tu trabajo ni a tus objetivos.",
+
 correcta:"eliminar",
-explicacion:"No es urgente ni importante. Es mejor eliminar esa distracción.",
-style:"style8",
-pose:"pose-phone",
-expresion:"sad",
-accessory:""
+
+explicacion:
+"El contenido no es urgente ni importante y puede impedirte terminar una tarea relevante.",
+
+tip:
+"Una buena gestión del tiempo también significa saber qué NO hacer."
+
 }
 
 ];
 
-let actual=0;
-let puntos=0;
-let respondida=false;
+
+let actual = 0;
+let correctas = 0;
+let respondida = false;
 
 
-/* ==============================
-   AUDIO DE ACIERTO
-============================== */
-
-function sonidoVictoria(){
-
-const AudioContext=window.AudioContext||window.webkitAudioContext;
-
-if(!AudioContext)return;
-
-const audio=new AudioContext();
-const now=audio.currentTime;
-
-const notas=[
-[523.25,0],
-[659.25,.13],
-[783.99,.26],
-[1046.5,.40]
-];
-
-notas.forEach(([freq,time])=>{
-
-const osc=audio.createOscillator();
-const gain=audio.createGain();
-
-osc.type="sine";
-osc.frequency.value=freq;
-
-gain.gain.setValueAtTime(.001,now+time);
-gain.gain.linearRampToValueAtTime(.2,now+time+.03);
-gain.gain.exponentialRampToValueAtTime(.001,now+time+.35);
-
-osc.connect(gain);
-gain.connect(audio.destination);
-
-osc.start(now+time);
-osc.stop(now+time+.4);
-
-});
-
-setTimeout(()=>{
-audio.close();
-},1500);
-
-}
-
-
-/* ==============================
-   AUDIO DE ERROR
-============================== */
-
-function sonidoError(){
-
-const AudioContext=window.AudioContext||window.webkitAudioContext;
-
-if(!AudioContext)return;
-
-const audio=new AudioContext();
-const now=audio.currentTime;
-
-[330,240,170].forEach((freq,i)=>{
-
-const osc=audio.createOscillator();
-const gain=audio.createGain();
-
-osc.type="sawtooth";
-osc.frequency.value=freq;
-
-gain.gain.setValueAtTime(.001,now+i*.16);
-gain.gain.linearRampToValueAtTime(.15,now+i*.16+.03);
-gain.gain.exponentialRampToValueAtTime(.001,now+i*.16+.22);
-
-osc.connect(gain);
-gain.connect(audio.destination);
-
-osc.start(now+i*.16);
-osc.stop(now+i*.16+.25);
-
-});
-
-}
-
-
-/* ==============================
-   VIBRACIÓN
-============================== */
-
-function vibrar(){
-
-if(navigator.vibrate){
-
-navigator.vibrate([
-80,50,80,50,120
-]);
-
-}
-
-}
-
-
-/* ==============================
-   PANTALLAS
-============================== */
+/* =========================================
+   CAMBIAR PANTALLA
+========================================= */
 
 function pantalla(id){
 
 document.querySelectorAll(".screen")
-.forEach(x=>x.classList.remove("active"));
+.forEach(screen=>{
+screen.classList.remove("active");
+});
 
 document.getElementById(id)
 .classList.add("active");
@@ -1449,18 +1431,31 @@ window.scrollTo(0,0);
 }
 
 
-function mostrarMatriz(){
-pantalla("matriz");
+/* =========================================
+   INTRO
+========================================= */
+
+function mostrarIntroduccion(){
+
+pantalla("introduccion");
+
 }
 
 
+/* =========================================
+   COMENZAR
+========================================= */
+
 function comenzar(){
 
-actual=0;
-puntos=0;
+actual = 0;
+correctas = 0;
 
 document.getElementById("score")
-.textContent="0";
+.textContent = "0";
+
+document.getElementById("correctas")
+.textContent = "0";
 
 pantalla("juego");
 
@@ -1469,163 +1464,193 @@ cargarPregunta();
 }
 
 
-/* ==============================
+/* =========================================
    CARGAR PREGUNTA
-============================== */
+========================================= */
 
 function cargarPregunta(){
 
-respondida=false;
+respondida = false;
 
-const q=preguntas[actual];
+const q = preguntas[actual];
+
+
+document.getElementById("horaTitulo")
+.textContent = q.hora;
+
+
+document.getElementById("momento")
+.textContent = q.momento;
+
+
+document.getElementById("numero")
+.textContent = actual + 1;
+
 
 document.getElementById("titulo")
-.textContent=q.titulo;
+.textContent = q.titulo;
+
 
 document.getElementById("contexto")
-.textContent=q.contexto;
+.textContent = q.contexto;
+
 
 document.getElementById("situacion")
-.textContent=q.situacion;
+.textContent = q.situacion;
 
-document.getElementById("contador")
-.textContent=
-"Situación "+
-(actual+1)+
-" de "+
-preguntas.length;
 
-const porcentaje=Math.round(
-actual/preguntas.length*100
-);
+/* PROGRESO */
 
-document.getElementById("porcentaje")
-.textContent=porcentaje+"%";
+const porcentaje =
+Math.round((actual / preguntas.length) * 100);
 
 document.getElementById("barra")
-.style.width=porcentaje+"%";
+.style.width = porcentaje + "%";
 
 
-/* CAMBIO DEL MUÑEQUITO */
+/* PERSONAJE */
 
-const personaje=
-document.getElementById(
-"questionCharacter"
-);
+const personaje =
+document.getElementById("personaje");
 
-personaje.className=
-"character question-character "+
-q.style+" "+
-q.pose+" "+
-q.expresion+" "+
-q.accessory;
+personaje.className =
+"person " + q.personaje;
 
+
+/* REACTIVAR BOTONES */
 
 document.querySelectorAll(".answer")
-.forEach(b=>{
-b.disabled=false;
-b.style.opacity="1";
+.forEach(button=>{
+
+button.disabled = false;
+
+button.style.opacity = "1";
+
 });
 
 }
 
 
-/* ==============================
+/* =========================================
    RESPONDER
-============================== */
+========================================= */
 
 function responder(opcion){
 
-if(respondida)return;
+if(respondida) return;
 
-respondida=true;
+respondida = true;
 
-const q=preguntas[actual];
+
+const q = preguntas[actual];
+
 
 document.querySelectorAll(".answer")
-.forEach(b=>{
-b.disabled=true;
+.forEach(button=>{
+button.disabled = true;
 });
 
-const overlay=document.getElementById("overlay");
-const feedback=document.getElementById("feedback");
 
-const icon=document.getElementById("feedbackIcon");
-const title=document.getElementById("feedbackTitle");
-const text=document.getElementById("feedbackText");
-const celebration=document.getElementById("celebration");
+const overlay =
+document.getElementById("overlay");
+
+const feedback =
+document.getElementById("feedback");
 
 
-if(opcion===q.correcta){
+const icon =
+document.getElementById("feedbackIcon");
 
-puntos+=10;
+const title =
+document.getElementById("feedbackTitle");
+
+const text =
+document.getElementById("feedbackText");
+
+const tip =
+document.getElementById("feedbackTip");
+
+
+if(opcion === q.correcta){
+
+correctas++;
+
 
 document.getElementById("score")
-.textContent=puntos;
+.textContent = correctas;
 
-feedback.className="feedback correct";
+document.getElementById("correctas")
+.textContent = correctas;
 
-icon.textContent="✔️";
 
-title.textContent="¡ACERTASTE!";
+feedback.className =
+"feedback correct";
 
-text.textContent=q.explicacion;
 
-celebration.textContent="🎉👏💙👏💜👏🩷";
+icon.textContent = "✓";
 
-sonidoVictoria();
+title.textContent =
+"DECISIÓN CORRECTA";
 
-}
-
-else{
-
-feedback.className="feedback incorrect";
-
-icon.textContent="❌";
-
-title.textContent="¡CASI!";
-
-text.textContent=
-"La respuesta correcta era: "+
-nombre(q.correcta)+
-". "+
+text.textContent =
 q.explicacion;
 
-celebration.textContent="🩷 ¡SIGUE INTENTANDO! 🩷";
+tip.textContent =
+q.tip;
 
-sonidoError();
 
-vibrar();
+}else{
+
+
+feedback.className =
+"feedback incorrect";
+
+
+icon.textContent = "×";
+
+title.textContent =
+"PUEDES MEJORARLA";
+
+text.textContent =
+"La mejor decisión era: " +
+nombre(q.correcta) +
+". " +
+q.explicacion;
+
+tip.textContent =
+q.tip;
 
 }
 
-overlay.style.display="flex";
 
+overlay.style.display = "flex";
 
-/* PASA AUTOMÁTICAMENTE */
 
 setTimeout(()=>{
 
-overlay.style.display="none";
+overlay.style.display = "none";
 
 siguiente();
 
-},1700);
+},1900);
 
 }
 
 
-/* ==============================
-   NOMBRE DE RESPUESTA
-============================== */
+/* =========================================
+   NOMBRE RESPUESTA
+========================================= */
 
 function nombre(opcion){
 
-return{
+return {
 
 hacer:"🔥 HACER AHORA",
+
 planificar:"📅 PLANIFICAR",
+
 delegar:"👥 DELEGAR",
+
 eliminar:"🗑️ ELIMINAR"
 
 }[opcion];
@@ -1633,15 +1658,16 @@ eliminar:"🗑️ ELIMINAR"
 }
 
 
-/* ==============================
+/* =========================================
    SIGUIENTE
-============================== */
+========================================= */
 
 function siguiente(){
 
 actual++;
 
-if(actual>=preguntas.length){
+
+if(actual >= preguntas.length){
 
 terminar();
 
@@ -1656,91 +1682,113 @@ cargarPregunta();
 }
 
 
-/* ==============================
+/* =========================================
    FINAL
-============================== */
+========================================= */
 
 function terminar(){
 
 pantalla("final");
 
+
 document.getElementById("resultado")
-.textContent=puntos;
+.textContent = correctas;
 
 
-if(puntos===80){
+document.getElementById("statCorrectas")
+.textContent = correctas;
 
-document.getElementById("stars")
-.textContent="⭐⭐⭐⭐⭐";
 
-document.getElementById("mensaje")
-.textContent="¡PERFECTO! 🏆";
+document.getElementById("statErrores")
+.textContent =
+preguntas.length - correctas;
 
-document.getElementById("consejo")
-.textContent=
-"¡Dominaste la Matriz de Eisenhower!";
 
-}
+let nivel;
+let mensaje;
+let consejo;
 
-else if(puntos>=60){
 
-document.getElementById("stars")
-.textContent="⭐⭐⭐⭐";
+if(correctas === 8){
 
-document.getElementById("mensaje")
-.textContent=
-"¡MUY BUEN TRABAJO! 🌟";
+nivel = "⭐ EXCELENTE GESTIÓN";
 
-document.getElementById("consejo")
-.textContent=
-"Tienes muy buen manejo de tus prioridades.";
+mensaje =
+"Terminaste la jornada tomando decisiones muy acertadas.";
+
+consejo =
+"Dominas muy bien la diferencia entre lo urgente y lo importante.";
 
 }
 
-else if(puntos>=40){
 
-document.getElementById("stars")
-.textContent="⭐⭐⭐";
+else if(correctas >= 6){
 
-document.getElementById("mensaje")
-.textContent=
-"¡VAS MUY BIEN! 💙";
+nivel = "🏆 MUY BUENA GESTIÓN";
 
-document.getElementById("consejo")
-.textContent=
-"Sigue practicando para mejorar tus decisiones.";
+mensaje =
+"Tu jornada terminó bastante bien.";
+
+consejo =
+"Tu criterio de priorización es bueno. Sigue practicando para perfeccionarlo.";
 
 }
+
+
+else if(correctas >= 4){
+
+nivel = "📋 EN PROCESO";
+
+mensaje =
+"Has tomado buenas decisiones, pero todavía hay oportunidades de mejora.";
+
+consejo =
+"Antes de actuar, pregúntate: ¿es urgente?, ¿es importante?";
+
+}
+
 
 else{
 
-document.getElementById("stars")
-.textContent="⭐⭐";
+nivel = "🌱 APRENDIENDO";
+
+mensaje =
+"Cada jornada es una oportunidad para mejorar.";
+
+consejo =
+"Recuerda: no todo lo urgente es importante y no todo lo importante es urgente.";
+
+}
+
+
+document.getElementById("nivel")
+.textContent = nivel;
+
 
 document.getElementById("mensaje")
-.textContent=
-"¡A SEGUIR PRACTICANDO! 🩷";
+.textContent = mensaje;
+
 
 document.getElementById("consejo")
-.textContent=
-"Recuerda analizar siempre qué es urgente y qué es importante.";
+.textContent = consejo;
 
 }
 
-}
 
-
-/* ==============================
+/* =========================================
    REINICIAR
-============================== */
+========================================= */
 
 function reiniciar(){
 
-actual=0;
-puntos=0;
+actual = 0;
+correctas = 0;
 
 document.getElementById("score")
-.textContent="0";
+.textContent = "0";
+
+document.getElementById("correctas")
+.textContent = "0";
 
 pantalla("inicio");
 
