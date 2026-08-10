@@ -3,567 +3,634 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Mi Jornada Laboral</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    font-family:Arial, sans-serif;
-    min-height:100vh;
-    background:
-        linear-gradient(135deg,#f6eee5,#eee5dc);
-    color:#40362f;
+font-family:Arial,Helvetica,sans-serif;
+background:#f4eee8;
+color:#40352d;
+min-height:100vh;
 }
 
-/* ---------- PANTALLA INICIAL ---------- */
+/* ================= INICIO ================= */
 
-.start-screen{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:25px;
+.start{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
-.start-card{
-    width:min(1000px,95%);
-    min-height:600px;
-    background:#fffdfb;
-    border-radius:30px;
-    overflow:hidden;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    box-shadow:0 20px 60px rgba(75,55,40,.15);
+.start-box{
+width:min(1050px,95%);
+min-height:620px;
+background:#fff;
+border-radius:30px;
+overflow:hidden;
+display:grid;
+grid-template-columns:45% 55%;
+box-shadow:0 20px 60px rgba(70,50,35,.16);
 }
 
-.start-info{
-    padding:55px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.start-text{
+padding:55px;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
-.small-title{
-    color:#a27d5d;
-    font-size:14px;
-    font-weight:bold;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:15px;
+.tag{
+font-size:13px;
+font-weight:bold;
+letter-spacing:2px;
+color:#a07959;
+margin-bottom:15px;
 }
 
-.start-info h1{
-    font-size:48px;
-    line-height:1.05;
-    margin-bottom:18px;
-    color:#49382c;
+.start-text h1{
+font-size:48px;
+line-height:1.05;
+color:#49382c;
+margin-bottom:20px;
 }
 
-.start-info p{
-    font-size:18px;
-    line-height:1.6;
-    color:#776c63;
-    margin-bottom:30px;
+.start-text p{
+font-size:18px;
+line-height:1.6;
+color:#756b63;
+margin-bottom:30px;
 }
 
-.start-btn{
-    width:max-content;
-    border:0;
-    background:#71533e;
-    color:white;
-    padding:17px 35px;
-    border-radius:13px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
-    box-shadow:0 7px 15px rgba(90,65,45,.2);
+.start-button{
+border:0;
+background:#73533d;
+color:white;
+padding:17px 32px;
+border-radius:13px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+width:max-content;
+transition:.2s;
 }
 
-.start-btn:hover{
-    transform:translateY(-3px);
-    background:#5c4231;
+.start-button:hover{
+background:#583f2f;
+transform:translateY(-3px);
 }
 
-/* ---------- OFICINA ---------- */
+/* ================= OFICINA INICIO ================= */
 
 .office{
-    position:relative;
-    min-height:600px;
-    background:
-        linear-gradient(#eadfd2 0 72%,#b58e69 72%);
-    overflow:hidden;
+position:relative;
+background:linear-gradient(#e7ddd2 0 72%,#a97e59 72%);
+overflow:hidden;
 }
 
-/* ventana */
-
 .window{
-    position:absolute;
-    top:55px;
-    left:50%;
-    transform:translateX(-50%);
-    width:260px;
-    height:155px;
-    background:#d9eef4;
-    border:10px solid #fff;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+position:absolute;
+top:60px;
+left:50%;
+transform:translateX(-50%);
+width:260px;
+height:155px;
+background:#dceff3;
+border:10px solid white;
 }
 
 .window:before{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:0;
-    width:5px;
-    height:100%;
-    background:white;
+content:"";
+position:absolute;
+left:50%;
+height:100%;
+width:5px;
+background:white;
 }
 
 .window:after{
-    content:"";
-    position:absolute;
-    left:0;
-    top:50%;
-    width:100%;
-    height:5px;
-    background:white;
+content:"";
+position:absolute;
+top:50%;
+width:100%;
+height:5px;
+background:white;
 }
 
-/* escritorio */
-
 .desk{
-    position:absolute;
-    bottom:100px;
-    left:8%;
-    width:84%;
-    height:18px;
-    background:#815e43;
-    border-radius:5px;
+position:absolute;
+bottom:100px;
+left:7%;
+width:86%;
+height:18px;
+background:#79563e;
+border-radius:5px;
 }
 
 .desk:before,
 .desk:after{
-    content:"";
-    position:absolute;
-    top:15px;
-    width:12px;
-    height:120px;
-    background:#684936;
+content:"";
+position:absolute;
+top:15px;
+width:12px;
+height:125px;
+background:#624532;
 }
 
 .desk:before{left:25px}
 .desk:after{right:25px}
 
-/* computador */
-
 .monitor{
-    position:absolute;
-    bottom:125px;
-    left:50%;
-    transform:translateX(-50%);
-    width:180px;
-    height:110px;
-    background:#3f4145;
-    border-radius:10px;
-    border:7px solid #292b2e;
+position:absolute;
+bottom:125px;
+left:50%;
+transform:translateX(-50%);
+width:180px;
+height:110px;
+background:#343638;
+border:7px solid #252729;
+border-radius:10px;
 }
 
 .monitor:after{
-    content:"";
-    position:absolute;
-    width:55px;
-    height:18px;
-    bottom:-28px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#4a4b4e;
+content:"";
+position:absolute;
+width:60px;
+height:17px;
+background:#444;
+bottom:-28px;
+left:50%;
+transform:translateX(-50%);
 }
 
-/* taza */
-
-.coffee{
-    position:absolute;
-    bottom:135px;
-    right:13%;
-    width:45px;
-    height:38px;
-    background:#fff;
-    border-radius:5px 5px 12px 12px;
-    border:3px solid #ddd;
+.cup{
+position:absolute;
+bottom:135px;
+right:13%;
+width:42px;
+height:35px;
+background:white;
+border-radius:5px 5px 12px 12px;
 }
 
-.coffee:after{
-    content:"";
-    position:absolute;
-    right:-13px;
-    top:7px;
-    width:15px;
-    height:18px;
-    border:4px solid #ddd;
-    border-left:0;
-    border-radius:0 10px 10px 0;
+.cup:after{
+content:"";
+position:absolute;
+right:-12px;
+top:7px;
+width:14px;
+height:17px;
+border:4px solid white;
+border-left:0;
+border-radius:0 10px 10px 0;
 }
 
-/* ---------- PERSONAJE SVG ---------- */
+/* ================= PERSONAJES ================= */
 
-.character{
-    position:absolute;
-    bottom:105px;
-    left:50%;
-    transform:translateX(-50%);
-    width:190px;
-    z-index:5;
+.person{
+position:absolute;
+bottom:105px;
+left:50%;
+transform:translateX(-50%);
+width:190px;
+height:300px;
 }
 
-.head{
-    width:88px;
-    height:100px;
-    margin:auto;
-    background:#f3c8a9;
-    border-radius:45% 45% 48% 48%;
-    position:relative;
-    z-index:3;
+.person .head{
+position:absolute;
+top:25px;
+left:51px;
+width:88px;
+height:95px;
+background:#f0c3a2;
+border-radius:45%;
+z-index:3;
 }
 
-/* cabello */
-
-.hair{
-    position:absolute;
-    width:105px;
-    height:105px;
-    left:50%;
-    transform:translateX(-50%);
-    top:-13px;
-    background:#5b3829;
-    border-radius:50% 50% 40% 45%;
-    z-index:2;
+.person .hair{
+position:absolute;
+top:5px;
+left:40px;
+width:110px;
+height:105px;
+background:#543528;
+border-radius:55% 55% 40% 45%;
+z-index:2;
 }
 
-.hair-front{
-    position:absolute;
-    width:65px;
-    height:45px;
-    top:8px;
-    left:8px;
-    background:#5b3829;
-    border-radius:50%;
+.person .eye{
+position:absolute;
+top:68px;
+width:8px;
+height:10px;
+background:#352720;
+border-radius:50%;
+z-index:4;
 }
 
-/* ojos */
+.person .eye.one{left:68px}
+.person .eye.two{left:117px}
 
-.eye{
-    position:absolute;
-    width:8px;
-    height:10px;
-    background:#3d2b25;
-    border-radius:50%;
-    top:47px;
+.person .mouth{
+position:absolute;
+top:91px;
+left:84px;
+width:23px;
+height:10px;
+border-bottom:3px solid #914d48;
+border-radius:50%;
+z-index:4;
 }
 
-.eye.left{left:24px}
-.eye.right{right:24px}
-
-/* sonrisa */
-
-.mouth{
-    position:absolute;
-    width:22px;
-    height:10px;
-    border-bottom:3px solid #8f4d4a;
-    border-radius:50%;
-    left:50%;
-    transform:translateX(-50%);
-    top:69px;
+.person .body{
+position:absolute;
+top:125px;
+left:32px;
+width:128px;
+height:150px;
+background:#6e5443;
+border-radius:28px 28px 12px 12px;
 }
 
-/* cuello */
-
-.neck{
-    width:30px;
-    height:22px;
-    background:#efbd9e;
-    margin:-3px auto 0;
+.person .shirt{
+position:absolute;
+left:44px;
+top:0;
+width:40px;
+height:90px;
+background:white;
+clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);
 }
 
-/* blazer */
-
-.body-character{
-    width:125px;
-    height:145px;
-    margin:auto;
-    background:#705745;
-    border-radius:28px 28px 10px 10px;
-    position:relative;
+.person .arm{
+position:absolute;
+top:10px;
+width:27px;
+height:105px;
+background:#6e5443;
+border-radius:20px;
 }
 
-.shirt{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    top:0;
-    width:42px;
-    height:80px;
-    background:#fffaf4;
-    clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);
+.person .arm.left{
+left:-17px;
+transform:rotate(12deg);
 }
 
-.badge{
-    position:absolute;
-    right:14px;
-    top:45px;
-    background:#f5eee7;
-    border-radius:4px;
-    padding:4px 6px;
-    font-size:7px;
-    color:#72533c;
+.person .arm.right{
+right:-17px;
+transform:rotate(-12deg);
 }
 
-/* brazos */
-
-.arm{
-    position:absolute;
-    width:27px;
-    height:95px;
-    background:#705745;
-    border-radius:20px;
-    top:12px;
+.person .badge{
+position:absolute;
+right:12px;
+top:48px;
+font-size:7px;
+background:white;
+padding:5px;
+border-radius:4px;
+color:#71513b;
 }
 
-.arm.left{
-    left:-17px;
-    transform:rotate(12deg);
+/* Diferencias de personajes */
+
+.p2 .hair{background:#2f2927}
+.p2 .body{background:#40566a}
+.p2 .shirt{background:#e8eef1}
+
+.p3 .hair{
+background:#6d442d;
+height:115px;
 }
 
-.arm.right{
-    right:-17px;
-    transform:rotate(-12deg);
+.p3 .body{background:#80604b}
+
+.p4 .hair{background:#3c302c}
+.p4 .body{background:#53656d}
+
+.p5 .hair{background:#8a5a3b}
+.p5 .body{background:#76543f}
+
+.p6 .hair{background:#302927}
+.p6 .body{background:#4c5f50}
+
+.p7 .hair{background:#54352d}
+.p7 .body{background:#765d78}
+
+.p8 .hair{background:#30343a}
+.p8 .body{background:#72523d}
+
+/* ================= JUEGO ================= */
+
+.game{
+display:none;
+min-height:100vh;
+padding:20px;
 }
 
-/* ---------- JUEGO ---------- */
-
-.game-screen{
-    display:none;
-    min-height:100vh;
-    padding:20px;
-}
-
-.game-header{
-    max-width:1000px;
-    margin:auto;
-    background:white;
-    border-radius:18px;
-    padding:16px 22px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 5px 20px rgba(70,50,35,.08);
+.header{
+max-width:1050px;
+margin:auto;
+background:white;
+border-radius:18px;
+padding:16px 22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(70,50,35,.08);
 }
 
 .logo{
-    font-weight:bold;
-    color:#70533d;
+font-weight:bold;
+color:#70513b;
 }
 
-.score{
-    background:#f2e8dd;
-    padding:9px 15px;
-    border-radius:20px;
-    font-weight:bold;
+.points{
+background:#f2e7dc;
+padding:9px 16px;
+border-radius:20px;
+font-weight:bold;
 }
 
-.game-content{
-    max-width:1000px;
-    margin:25px auto;
-    display:grid;
-    grid-template-columns:250px 1fr;
-    gap:22px;
+.content{
+max-width:1050px;
+margin:25px auto;
+display:grid;
+grid-template-columns:300px 1fr;
+gap:22px;
 }
 
-.character-card{
-    background:white;
-    border-radius:22px;
-    padding:15px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(70,50,35,.08);
+.scene{
+background:white;
+border-radius:23px;
+min-height:540px;
+position:relative;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(70,50,35,.08);
 }
 
-.character-small{
-    transform:scale(.75);
-    transform-origin:top center;
-    height:230px;
-    position:relative;
+.scene-office{
+position:absolute;
+inset:0;
+background:linear-gradient(#e7ddd2 0 73%,#ae8460 73%);
 }
 
-.character-card p{
-    color:#766c64;
-    font-size:14px;
+.scene .window{
+top:40px;
+width:190px;
+height:110px;
 }
 
-.question-card{
-    background:white;
-    border-radius:22px;
-    padding:35px;
-    box-shadow:0 5px 20px rgba(70,50,35,.08);
+.scene .desk{
+bottom:90px;
+width:90%;
+left:5%;
+}
+
+.scene .monitor{
+bottom:115px;
+width:120px;
+height:75px;
+}
+
+.scene .cup{
+bottom:120px;
+}
+
+.scene .person{
+transform:translateX(-50%) scale(.8);
+transform-origin:bottom center;
+bottom:90px;
+}
+
+.character-name{
+position:absolute;
+bottom:22px;
+width:100%;
+text-align:center;
+font-weight:bold;
+color:#5d493b;
+z-index:10;
+}
+
+/* pregunta */
+
+.card{
+background:white;
+border-radius:23px;
+padding:38px;
+box-shadow:0 5px 20px rgba(70,50,35,.08);
 }
 
 .progress{
-    font-size:13px;
-    color:#a17b5c;
-    font-weight:bold;
-    margin-bottom:13px;
+font-size:13px;
+font-weight:bold;
+color:#a07959;
+letter-spacing:1px;
+margin-bottom:14px;
 }
 
 .question{
-    font-size:25px;
-    line-height:1.4;
-    margin-bottom:25px;
+font-size:26px;
+line-height:1.4;
+margin-bottom:25px;
 }
 
 .answers{
-    display:grid;
-    gap:12px;
+display:grid;
+gap:12px;
 }
 
 .answer{
-    border:2px solid #e4dcd4;
-    background:#fcfaf8;
-    border-radius:13px;
-    padding:16px;
-    text-align:left;
-    cursor:pointer;
-    font-size:15px;
-    transition:.2s;
+width:100%;
+padding:16px;
+border:2px solid #e3dbd3;
+background:#fcfaf8;
+border-radius:13px;
+font-size:15px;
+text-align:left;
+cursor:pointer;
+transition:.2s;
 }
 
 .answer:hover{
-    border-color:#a37c5c;
-    transform:translateX(3px);
+border-color:#a57c5a;
+transform:translateX(3px);
 }
 
 .answer.correct{
-    background:#e6f3e9;
-    border-color:#70a27c;
+background:#e7f3e9;
+border-color:#6d9e76;
 }
 
 .answer.wrong{
-    background:#f8e6e4;
-    border-color:#bb7169;
+background:#f8e6e3;
+border-color:#bb7067;
 }
 
 .feedback{
-    margin-top:18px;
-    min-height:25px;
-    font-weight:bold;
+min-height:25px;
+margin-top:18px;
+font-weight:bold;
 }
 
 .next{
-    margin-top:20px;
-    background:#70533d;
-    color:white;
-    border:0;
-    border-radius:10px;
-    padding:13px 25px;
-    cursor:pointer;
-    display:none;
+display:none;
+margin-top:18px;
+border:0;
+border-radius:10px;
+padding:13px 25px;
+background:#70513b;
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
 
 .result{
-    text-align:center;
+text-align:center;
+padding:35px 10px;
+}
+
+.result .trophy{
+font-size:65px;
+margin-bottom:15px;
 }
 
 .result h2{
-    font-size:34px;
-    margin-bottom:12px;
+font-size:35px;
+margin-bottom:12px;
 }
 
 .result p{
-    color:#777;
-    margin:10px;
+color:#777;
+margin:10px;
+line-height:1.5;
 }
 
 .restart{
-    margin-top:20px;
-    background:#70533d;
-    color:white;
-    border:0;
-    border-radius:10px;
-    padding:14px 28px;
-    cursor:pointer;
+margin-top:20px;
+border:0;
+background:#70513b;
+color:white;
+padding:14px 28px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ================= CELULAR ================= */
 
 @media(max-width:750px){
 
-    .start-card{
-        grid-template-columns:1fr;
-    }
+.start-box{
+grid-template-columns:1fr;
+}
 
-    .start-info{
-        padding:35px 25px;
-        order:2;
-    }
+.start-text{
+padding:35px 25px;
+order:2;
+}
 
-    .start-info h1{
-        font-size:37px;
-    }
+.start-text h1{
+font-size:38px;
+}
 
-    .office{
-        min-height:420px;
-        order:1;
-    }
+.office{
+min-height:420px;
+order:1;
+}
 
-    .game-content{
-        grid-template-columns:1fr;
-    }
+.content{
+grid-template-columns:1fr;
+}
 
-    .character-card{
-        display:none;
-    }
+.scene{
+min-height:300px;
+}
 
-    .question-card{
-        padding:24px 18px;
-    }
+.card{
+padding:24px 18px;
+}
 
-    .question{
-        font-size:21px;
-    }
+.question{
+font-size:21px;
+}
+
+}
+
+/* ocultar escenario en celular para dejar más espacio */
+@media(max-width:500px){
+
+.scene{
+min-height:270px;
+}
+
+.scene .person{
+transform:translateX(-50%) scale(.62);
+bottom:65px;
+}
+
+.scene .desk{
+bottom:65px;
+}
+
+.scene .monitor{
+bottom:90px;
+}
+
+.scene .cup{
+bottom:95px;
+}
+
+.character-name{
+bottom:10px;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= INICIO ================= -->
 
-<section class="start-screen" id="startScreen">
+<!-- =====================================================
+     INICIO
+===================================================== -->
 
-<div class="start-card">
+<section class="start" id="start">
 
-<div class="start-info">
+<div class="start-box">
 
-<div class="small-title">JUEGO • GESTIÓN DEL TIEMPO</div>
+<div class="start-text">
 
-<h1>¡Buenos días!</h1>
+<div class="tag">
+JUEGO INTERACTIVO · GESTIÓN DEL TIEMPO
+</div>
+
+<h1>
+¡Buenos días!
+</h1>
 
 <p>
-Tu jornada laboral está a punto de comenzar.
-Tienes reuniones, pendientes, clientes y muchas decisiones por tomar.
+Una nueva jornada laboral comienza.
+Tendrás que enfrentarte a diferentes situaciones,
+organizar tus prioridades y tomar decisiones.
 <br><br>
-<strong>¿Estás listo para organizar tu día?</strong>
+
+<strong>
+¿Estás listo para comenzar?
+</strong>
 </p>
 
-<button class="start-btn" onclick="startGame()">
+<button class="start-button" onclick="startGame()">
 ▶ EMPEZAR JORNADA
 </button>
 
 </div>
+
 
 <div class="office">
 
@@ -573,28 +640,31 @@ Tienes reuniones, pendientes, clientes y muchas decisiones por tomar.
 
 <div class="monitor"></div>
 
-<div class="coffee"></div>
+<div class="cup"></div>
 
-<div class="character">
+
+<!-- PERSONAJE INICIAL -->
+
+<div class="person p1">
 
 <div class="hair"></div>
 
 <div class="head">
 
-<div class="eye left"></div>
-<div class="eye right"></div>
+<div class="eye one"></div>
+<div class="eye two"></div>
 
 <div class="mouth"></div>
 
 </div>
 
-<div class="neck"></div>
-
-<div class="body-character">
+<div class="body">
 
 <div class="shirt"></div>
 
-<div class="badge">ANDY</div>
+<div class="badge">
+GESTIÓN
+</div>
 
 <div class="arm left"></div>
 <div class="arm right"></div>
@@ -610,47 +680,63 @@ Tienes reuniones, pendientes, clientes y muchas decisiones por tomar.
 </section>
 
 
-<!-- ================= JUEGO ================= -->
+<!-- =====================================================
+     JUEGO
+===================================================== -->
 
-<section class="game-screen" id="gameScreen">
+<section class="game" id="game">
 
-<header class="game-header">
+<header class="header">
 
 <div class="logo">
 ☕ MI JORNADA LABORAL
 </div>
 
-<div class="score" id="score">
+<div class="points" id="points">
 ⭐ 0 puntos
 </div>
 
 </header>
 
 
-<div class="game-content">
+<div class="content">
 
-<div class="character-card">
 
-<div class="character-small">
+<!-- ESCENA -->
+
+<div class="scene">
+
+<div class="scene-office">
+
+<div class="window"></div>
+
+<div class="desk"></div>
+
+<div class="monitor"></div>
+
+<div class="cup"></div>
+
+
+<div class="person" id="character">
 
 <div class="hair"></div>
 
 <div class="head">
 
-<div class="eye left"></div>
-<div class="eye right"></div>
+<div class="eye one"></div>
+<div class="eye two"></div>
 
 <div class="mouth"></div>
 
 </div>
 
-<div class="neck"></div>
-
-<div class="body-character">
+<div class="body">
 
 <div class="shirt"></div>
 
-<div class="badge">ANDY</div>
+<div class="badge">
+OFICINA
+</div>
 
 <div class="arm left"></div>
 <div class="arm right"></div>
@@ -659,15 +745,18 @@ Tienes reuniones, pendientes, clientes y muchas decisiones por tomar.
 
 </div>
 
-<p>
-<strong>¡Vamos!</strong><br>
-Ayúdame a tomar las mejores decisiones durante la jornada.
-</p>
+</div>
+
+<div class="character-name" id="characterName">
+Tu compañera
+</div>
 
 </div>
 
 
-<div class="question-card" id="questionCard"></div>
+<!-- PREGUNTA -->
+
+<div class="card" id="card"></div>
 
 </div>
 
@@ -676,200 +765,321 @@ Ayúdame a tomar las mejores decisiones durante la jornada.
 
 <script>
 
-/* ================= PREGUNTAS ================= */
+/* =====================================================
+   8 PERSONAJES
+===================================================== */
 
-const questions = [
+const characters=[
 
 {
-q:"Llegas a la oficina y encuentras un correo de un cliente con un problema que debe solucionarse hoy. ¿Qué haces?",
+name:"Laura · Atención al cliente",
+class:"p1"
+},
+
+{
+name:"Daniel · Tecnología",
+class:"p2"
+},
+
+{
+name:"Camila · Comunicaciones",
+class:"p3"
+},
+
+{
+name:"Andrés · Coordinador",
+class:"p4"
+},
+
+{
+name:"Valentina · Recursos Humanos",
+class:"p5"
+},
+
+{
+name:"Sebastián · Finanzas",
+class:"p6"
+},
+
+{
+name:"Mariana · Asistente",
+class:"p7"
+},
+
+{
+name:"Carlos · Gerencia",
+class:"p8"
+}
+
+];
+
+
+/* =====================================================
+   PREGUNTAS
+===================================================== */
+
+const questions=[
+
+{
+q:"Laura acaba de recibir un mensaje de un cliente que tiene un problema y necesita solución hoy. ¿Qué debería hacer?",
+
 a:[
-"Lo dejo para el final del día.",
-"Lo atiendo porque es importante y urgente.",
-"Me pongo a revisar redes sociales.",
-"Empiezo otra tarea que puede esperar."
+"Dejarlo para el final de la jornada.",
+"Atenderlo porque es importante y urgente.",
+"Revisar primero las redes sociales.",
+"Esperar a que alguien más lo solucione."
 ],
+
 correct:1
 },
 
 {
-q:"Tienes una presentación importante para mañana, pero todavía tienes tiempo para prepararla. ¿Cómo la manejas?",
+q:"Daniel tiene una presentación importante para mañana. Todavía tiene tiempo para prepararla. ¿Qué debería hacer?",
+
 a:[
-"La dejo para mañana en la mañana.",
-"La considero importante y comienzo a planificarla.",
-"La ignoro.",
-"Me pongo a hacer tareas sin importancia."
+"Esperar hasta mañana.",
+"Planificarla y comenzar a trabajar con anticipación.",
+"Ignorarla por ahora.",
+"Hacer solamente tareas fáciles."
 ],
+
 correct:1
 },
 
 {
-q:"Mientras trabajas recibes varias notificaciones que no son urgentes. ¿Qué haces?",
+q:"Camila está concentrada en una tarea cuando recibe varias notificaciones que no son urgentes. ¿Qué debería hacer?",
+
 a:[
-"Las reviso inmediatamente.",
-"Dejo todo lo que estoy haciendo.",
-"Las reviso cuando termine mi tarea actual.",
-"Respondo solamente las más divertidas."
+"Revisarlas inmediatamente.",
+"Dejar todo lo que está haciendo.",
+"Continuar con su tarea y revisarlas después.",
+"Responderlas todas al mismo tiempo."
 ],
+
 correct:2
 },
 
 {
-q:"Tu jefe te asigna una tarea que otra persona del equipo puede realizar y tiene las habilidades necesarias. ¿Qué puedes hacer?",
+q:"Andrés tiene una tarea que puede realizar otro integrante del equipo que cuenta con las habilidades necesarias. ¿Qué puede hacer?",
+
 a:[
 "Delegarla adecuadamente.",
-"Hacerla aunque tengas otras prioridades.",
+"Hacerla siempre él.",
 "Ignorarla.",
 "Esperar hasta el último minuto."
 ],
+
 correct:0
 },
 
 {
-q:"Tienes cinco tareas pendientes. ¿Cuál es una buena forma de comenzar?",
+q:"Valentina tiene cinco tareas pendientes. ¿Cuál es una buena forma de empezar?",
+
 a:[
 "Hacerlas todas al mismo tiempo.",
-"Elegirlas al azar.",
+"Escoger una al azar.",
 "Identificar cuáles son importantes y urgentes.",
-"Empezar por la más fácil aunque pueda esperar."
+"Comenzar por la más sencilla."
 ],
+
 correct:2
 },
 
 {
-q:"Una reunión empieza en 10 minutos y todavía debes terminar una tarea urgente. ¿Qué haces?",
+q:"Sebastián tiene una tarea urgente justo antes de una reunión. ¿Qué debería hacer?",
+
 a:[
 "Ignorar la reunión.",
-"Organizar rápidamente la prioridad y comunicar la situación si es necesario.",
-"Abandonar todo sin avisar.",
-"Ponerte a hacer otra tarea."
+"Organizar la prioridad y comunicar la situación si es necesario.",
+"Abandonar ambas tareas.",
+"Empezar otra actividad."
 ],
+
 correct:1
 },
 
 {
-q:"Una actividad no aporta mucho y tampoco tiene urgencia. ¿Qué opción puede ser adecuada?",
+q:"Mariana tiene una actividad que no es importante ni urgente. ¿Qué puede hacer?",
+
 a:[
 "Priorizarla.",
 "Eliminarla o dejarla para después.",
-"Hacerla antes que todo.",
-"Convertirla en una emergencia."
+"Hacerla inmediatamente.",
+"Convertirla en urgente."
 ],
+
 correct:1
 },
 
 {
-q:"¿Cuál es el objetivo principal de una buena gestión del tiempo?",
+q:"Carlos quiere mejorar la productividad de su equipo. ¿Cuál es uno de los principales beneficios de gestionar bien el tiempo?",
+
 a:[
-"Tener más trabajo.",
+"Tener más tareas.",
 "Estar ocupado todo el día.",
-"Organizar prioridades y utilizar mejor el tiempo.",
-"No tener descansos."
+"Organizar prioridades y aprovechar mejor el tiempo.",
+"Trabajar siempre bajo presión."
 ],
+
 correct:2
 }
 
 ];
 
+
 let current=0;
-let points=0;
+let score=0;
 let answered=false;
 
 
-/* ================= SONIDOS ================= */
+/* =====================================================
+   SONIDOS
+===================================================== */
 
-function sound(type){
+function playSound(type){
 
-const AudioContext=window.AudioContext||window.webkitAudioContext;
+const AudioContext=
+window.AudioContext||window.webkitAudioContext;
 
 if(!AudioContext)return;
 
 const ctx=new AudioContext();
 
-const osc=ctx.createOscillator();
+const oscillator=ctx.createOscillator();
 const gain=ctx.createGain();
 
-osc.connect(gain);
+oscillator.connect(gain);
 gain.connect(ctx.destination);
 
 if(type==="correct"){
 
-osc.frequency.setValueAtTime(600,ctx.currentTime);
-osc.frequency.setValueAtTime(800,ctx.currentTime+.12);
-osc.frequency.setValueAtTime(1000,ctx.currentTime+.24);
+oscillator.frequency.setValueAtTime(
+600,ctx.currentTime
+);
+
+oscillator.frequency.setValueAtTime(
+800,ctx.currentTime+.12
+);
+
+oscillator.frequency.setValueAtTime(
+1000,ctx.currentTime+.24
+);
 
 }
 
 if(type==="wrong"){
 
-osc.frequency.setValueAtTime(250,ctx.currentTime);
-osc.frequency.setValueAtTime(180,ctx.currentTime+.15);
+oscillator.frequency.setValueAtTime(
+250,ctx.currentTime
+);
+
+oscillator.frequency.setValueAtTime(
+170,ctx.currentTime+.16
+);
 
 }
 
 if(type==="finish"){
 
-osc.frequency.setValueAtTime(500,ctx.currentTime);
-osc.frequency.setValueAtTime(650,ctx.currentTime+.12);
-osc.frequency.setValueAtTime(800,ctx.currentTime+.24);
-osc.frequency.setValueAtTime(1000,ctx.currentTime+.36);
+oscillator.frequency.setValueAtTime(
+500,ctx.currentTime
+);
+
+oscillator.frequency.setValueAtTime(
+650,ctx.currentTime+.12
+);
+
+oscillator.frequency.setValueAtTime(
+800,ctx.currentTime+.24
+);
+
+oscillator.frequency.setValueAtTime(
+1000,ctx.currentTime+.36
+);
 
 }
 
-gain.gain.setValueAtTime(.001,ctx.currentTime);
+gain.gain.setValueAtTime(
+0.001,
+ctx.currentTime
+);
 
-gain.gain.exponentialRampToValueAtTime(.15,ctx.currentTime+.02);
+gain.gain.exponentialRampToValueAtTime(
+0.15,
+ctx.currentTime+.02
+);
 
-gain.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.5);
+gain.gain.exponentialRampToValueAtTime(
+0.001,
+ctx.currentTime+.5
+);
 
-osc.start();
+oscillator.start();
 
-osc.stop(ctx.currentTime+.5);
+oscillator.stop(
+ctx.currentTime+.5
+);
 
 }
 
 
-/* ================= INICIAR ================= */
+/* =====================================================
+   INICIAR
+===================================================== */
 
 function startGame(){
 
-document.getElementById("startScreen").style.display="none";
+document.getElementById("start").style.display="none";
 
-document.getElementById("gameScreen").style.display="block";
+document.getElementById("game").style.display="block";
 
 current=0;
-points=0;
+score=0;
 
 showQuestion();
 
 }
 
 
-/* ================= MOSTRAR PREGUNTA ================= */
+/* =====================================================
+   MOSTRAR PREGUNTA
+===================================================== */
 
 function showQuestion(){
 
 answered=false;
 
-const question=questions[current];
+const q=questions[current];
 
-const card=document.getElementById("questionCard");
+const character=characters[current];
 
-card.innerHTML=`
+const person=document.getElementById("character");
+
+person.className=
+"person "+character.class;
+
+document.getElementById("characterName").textContent=
+character.name;
+
+document.getElementById("card").innerHTML=`
 
 <div class="progress">
-JORNADA ${current+1} DE ${questions.length}
+SITUACIÓN ${current+1} DE ${questions.length}
 </div>
 
 <div class="question">
-${question.q}
+${q.q}
 </div>
 
 <div class="answers">
 
-${question.a.map((answer,index)=>`
+${q.a.map((answer,index)=>`
 
-<button class="answer" onclick="answer(${index})">
+<button class="answer"
+onclick="checkAnswer(${index})">
+
 ${answer}
+
 </button>
 
 `).join("")}
@@ -878,7 +1088,8 @@ ${answer}
 
 <div class="feedback" id="feedback"></div>
 
-<button class="next" id="nextButton"
+<button class="next"
+id="nextButton"
 onclick="nextQuestion()">
 
 ${current===questions.length-1
@@ -892,55 +1103,67 @@ ${current===questions.length-1
 }
 
 
-/* ================= RESPONDER ================= */
+/* =====================================================
+   RESPUESTA
+===================================================== */
 
-function answer(selected){
+function checkAnswer(selected){
 
 if(answered)return;
 
 answered=true;
 
-const question=questions[current];
+const q=questions[current];
 
-const buttons=document.querySelectorAll(".answer");
+const buttons=
+document.querySelectorAll(".answer");
 
-const feedback=document.getElementById("feedback");
+const feedback=
+document.getElementById("feedback");
 
-if(selected===question.correct){
+if(selected===q.correct){
 
-points++;
+score++;
 
-buttons[selected].classList.add("correct");
+buttons[selected]
+.classList.add("correct");
 
-feedback.textContent="✓ ¡Muy bien! Buena decisión.";
+feedback.textContent=
+"✓ ¡Excelente decisión!";
 
-feedback.style.color="#4e8159";
+feedback.style.color="#4f8159";
 
-sound("correct");
+playSound("correct");
 
 }else{
 
-buttons[selected].classList.add("wrong");
+buttons[selected]
+.classList.add("wrong");
 
-buttons[question.correct].classList.add("correct");
+buttons[q.correct]
+.classList.add("correct");
 
-feedback.textContent="✕ No es la mejor decisión.";
+feedback.textContent=
+"✕ No es la mejor opción.";
 
 feedback.style.color="#a04f48";
 
-sound("wrong");
+playSound("wrong");
 
 }
 
-document.getElementById("score").textContent=
-"⭐ "+points+" puntos";
+document.getElementById("points").textContent=
+"⭐ "+score+" puntos";
 
-document.getElementById("nextButton").style.display="inline-block";
+document.getElementById("nextButton").style.display=
+"inline-block";
 
 }
 
 
-/* ================= SIGUIENTE ================= */
+/* =====================================================
+   SIGUIENTE
+===================================================== */
 
 function nextQuestion(){
 
@@ -959,71 +1182,91 @@ showQuestion();
 }
 
 
-/* ================= RESULTADO ================= */
+/* =====================================================
+   RESULTADO
+===================================================== */
 
 function finish(){
 
-sound("finish");
+playSound("finish");
 
-const percentage=(points/questions.length)*100;
+let message="";
 
-let message;
+const percentage=
+(score/questions.length)*100;
 
 if(percentage===100){
 
-message="¡Increíble! Organizaste perfectamente tu jornada.";
+message=
+"¡Perfecto! Has demostrado un excelente manejo de las prioridades.";
 
 }else if(percentage>=75){
 
-message="¡Excelente trabajo! Tienes muy buenas habilidades para priorizar.";
+message=
+"¡Muy bien! Tienes excelentes bases para gestionar tu tiempo.";
 
 }else if(percentage>=50){
 
-message="¡Bien hecho! Ya tienes buenas bases para mejorar tu gestión del tiempo.";
+message=
+"¡Buen trabajo! Con un poco más de práctica podrás mejorar.";
 
 }else{
 
-message="¡A seguir practicando! Cada jornada es una oportunidad para mejorar.";
+message=
+"¡No te preocupes! Cada jornada es una oportunidad para aprender.";
 
 }
 
-document.getElementById("questionCard").innerHTML=`
+document.getElementById("card").innerHTML=`
 
 <div class="result">
 
-<div style="font-size:60px;margin-bottom:15px;">
+<div class="trophy">
 🏆
 </div>
 
-<h2>¡Jornada completada!</h2>
+<h2>
+¡Jornada completada!
+</h2>
 
 <p>
-Obtuviste
-<strong>${points} de ${questions.length}</strong>
+Conseguiste
+<strong>${score} de ${questions.length}</strong>
 respuestas correctas.
 </p>
 
-<p>${message}</p>
+<p>
+${message}
+</p>
 
-<button class="restart" onclick="restart()">
+<button class="restart"
+onclick="restart()">
+
 🔄 COMENZAR OTRA JORNADA
+
 </button>
 
 </div>
 
 `;
 
+document.getElementById("characterName").textContent=
+"¡Excelente jornada!";
+
 }
 
 
-/* ================= REINICIAR ================= */
+/* =====================================================
+   REINICIAR
+===================================================== */
 
 function restart(){
 
 current=0;
-points=0;
+score=0;
 
-document.getElementById("score").textContent="⭐ 0 puntos";
+document.getElementById("points").textContent=
+"⭐ 0 puntos";
 
 showQuestion();
 
