@@ -2,28 +2,31 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Time Quest | Gestión del Tiempo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIME QUEST - Gestión del Tiempo</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 body{
   font-family:Arial,sans-serif;
   min-height:100vh;
-  background:
-    radial-gradient(circle at 10% 10%,#ffffff 0 7%,transparent 8%),
-    linear-gradient(135deg,#dff8ef,#d9edff);
+  background:linear-gradient(135deg,#dff8ef,#d9edff);
   color:#234b53;
   padding:15px;
 }
 .game{
   max-width:1000px;
   margin:auto;
-  background:#fff;
+  background:white;
   min-height:700px;
   border-radius:32px;
   overflow:hidden;
-  box-shadow:0 20px 60px #42717b25;
+  box-shadow:0 20px 60px rgba(50,100,110,.18);
 }
+/* HEADER */
 header{
   min-height:90px;
   padding:18px 25px;
@@ -45,21 +48,31 @@ header{
   opacity:.9;
 }
 .points{
-  background:#ffffff25;
-  border:2px solid #ffffff40;
+  background:rgba(255,255,255,.18);
+  border:2px solid rgba(255,255,255,.25);
   padding:8px 18px;
   border-radius:18px;
   text-align:center;
 }
-.points small{font-size:11px}
-.points b{display:block;font-size:25px}
+.points small{
+  font-size:11px;
+}
+.points b{
+  display:block;
+  font-size:25px;
+}
+/* PANTALLAS */
 .screen{
   display:none;
   min-height:610px;
   padding:35px;
 }
-.screen.active{display:block}
-.center{text-align:center}
+.screen.active{
+  display:block;
+}
+.center{
+  text-align:center;
+}
 h1{
   font-size:39px;
   color:#215661;
@@ -73,8 +86,24 @@ p{
   color:#60757b;
   line-height:1.5;
 }
+/* BOTÓN */
+.btn{
+  border:0;
+  padding:16px 30px;
+  border-radius:18px;
+  color:white;
+  background:linear-gradient(135deg,#39ad91,#398fd0);
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(56,143,160,.2);
+  transition:.2s;
+}
+.btn:hover{
+  transform:translateY(-3px);
+}
 /* =========================
-   PERSONAJE 2D
+   PERSONAJE
 ========================= */
 .avatar{
   width:210px;
@@ -84,10 +113,14 @@ p{
   animation:float 3s ease-in-out infinite;
 }
 @keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
 }
-/* piernas */
+/* PIERNAS */
 .leg{
   position:absolute;
   width:30px;
@@ -97,8 +130,12 @@ p{
   border-radius:15px;
   z-index:1;
 }
-.leg.left{left:76px}
-.leg.right{right:76px}
+.leg.left{
+  left:76px;
+}
+.leg.right{
+  right:76px;
+}
 .shoe{
   position:absolute;
   width:47px;
@@ -108,9 +145,13 @@ p{
   top:242px;
   z-index:2;
 }
-.shoe.left{left:57px}
-.shoe.right{right:57px}
-/* cuerpo */
+.shoe.left{
+  left:57px;
+}
+.shoe.right{
+  right:57px;
+}
+/* CUERPO */
 .torso{
   position:absolute;
   width:112px;
@@ -126,7 +167,7 @@ p{
   position:absolute;
   width:37px;
   height:37px;
-  background:#f8ffff;
+  background:white;
   left:34px;
   top:3px;
   clip-path:polygon(0 0,100% 0,50% 100%);
@@ -141,16 +182,7 @@ p{
   top:35px;
   border:2px solid #277d79;
 }
-/* brazos */
-.hand{
-  position:absolute;
-  width:25px;
-  height:27px;
-  background:#f6c7aa;
-  border:3px solid #285762;
-  border-radius:50%;
-  z-index:6;
-}
+/* BRAZOS */
 .arm{
   position:absolute;
   width:28px;
@@ -169,6 +201,15 @@ p{
   right:27px;
   transform:rotate(-22deg);
 }
+.hand{
+  position:absolute;
+  width:25px;
+  height:27px;
+  background:#f6c7aa;
+  border:3px solid #285762;
+  border-radius:50%;
+  z-index:6;
+}
 .hand.left{
   left:18px;
   top:180px;
@@ -177,7 +218,7 @@ p{
   right:18px;
   top:180px;
 }
-/* cuello */
+/* CUELLO */
 .neck{
   position:absolute;
   width:30px;
@@ -187,7 +228,7 @@ p{
   top:88px;
   z-index:2;
 }
-/* cabeza */
+/* CARA */
 .face{
   position:absolute;
   width:112px;
@@ -199,7 +240,7 @@ p{
   border-radius:50% 50% 45% 45%;
   z-index:5;
 }
-/* cabello */
+/* CABELLO */
 .hair-main{
   position:absolute;
   width:120px;
@@ -220,7 +261,6 @@ p{
   border-radius:20px;
   z-index:6;
 }
-/* flequillo */
 .fringe{
   position:absolute;
   width:80px;
@@ -231,7 +271,7 @@ p{
   border-radius:0 0 40px 40px;
   z-index:8;
 }
-/* ojos */
+/* OJOS */
 .eye{
   position:absolute;
   width:11px;
@@ -241,9 +281,13 @@ p{
   top:60px;
   z-index:10;
 }
-.eye.left{left:75px}
-.eye.right{right:75px}
-/* cejas */
+.eye.left{
+  left:75px;
+}
+.eye.right{
+  right:75px;
+}
+/* CEJAS */
 .brow{
   position:absolute;
   width:20px;
@@ -252,9 +296,15 @@ p{
   top:51px;
   z-index:11;
 }
-.brow.left{left:70px;transform:rotate(-8deg)}
-.brow.right{right:70px;transform:rotate(8deg)}
-/* boca feliz */
+.brow.left{
+  left:70px;
+  transform:rotate(-8deg);
+}
+.brow.right{
+  right:70px;
+  transform:rotate(8deg);
+}
+/* BOCA */
 .mouth{
   position:absolute;
   width:30px;
@@ -265,18 +315,22 @@ p{
   border-radius:0 0 50% 50%;
   z-index:10;
 }
-/* rubor */
+/* RUBOR */
 .blush{
   position:absolute;
   width:17px;
   height:8px;
-  background:#ef8f9e70;
+  background:rgba(239,143,158,.45);
   border-radius:50%;
   top:75px;
   z-index:10;
 }
-.blush.left{left:61px}
-.blush.right{right:61px}
+.blush.left{
+  left:61px;
+}
+.blush.right{
+  right:61px;
+}
 /* =========================
    INICIO
 ========================= */
@@ -289,21 +343,6 @@ p{
   max-width:650px;
   margin:0 auto 25px;
   font-size:17px;
-}
-.btn{
-  border:0;
-  padding:16px 30px;
-  border-radius:18px;
-  color:white;
-  background:linear-gradient(135deg,#39ad91,#398fd0);
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 8px 20px #388fa033;
-  transition:.2s;
-}
-.btn:hover{
-  transform:translateY(-3px);
 }
 /* =========================
    MATRIZ
@@ -324,10 +363,22 @@ p{
 .matrix-box h3{
   margin-bottom:9px;
 }
-.m1{background:#e1f8ed;border-color:#65c8aa}
-.m2{background:#e1f1ff;border-color:#70aee0}
-.m3{background:#eafaf5;border-color:#81cdb7}
-.m4{background:#e8f4ff;border-color:#8abbe5}
+.m1{
+  background:#e1f8ed;
+  border-color:#65c8aa;
+}
+.m2{
+  background:#e1f1ff;
+  border-color:#70aee0;
+}
+.m3{
+  background:#eafaf5;
+  border-color:#81cdb7;
+}
+.m4{
+  background:#e8f4ff;
+  border-color:#8abbe5;
+}
 .tip{
   background:#f2fbf8;
   padding:15px;
@@ -357,10 +408,10 @@ p{
   background:linear-gradient(90deg,#3caf94,#3c91d0);
   transition:.4s;
 }
+/* OFICINA */
 .office{
   position:relative;
-  background:
-    linear-gradient(#edfaff 0 63%,#d9eee7 63% 100%);
+  background:linear-gradient(#edfaff 0 63%,#d9eee7 63% 100%);
   border:3px solid #d4e7ea;
   border-radius:28px;
   min-height:210px;
@@ -372,10 +423,9 @@ p{
   width:150px;
   height:95px;
   background:#cdeeff;
-  border:8px solid #fff;
+  border:8px solid white;
   top:20px;
   left:25px;
-  box-shadow:0 5px 15px #4a899922;
 }
 .window:before{
   content:"";
@@ -434,21 +484,22 @@ p{
   bottom:-6px;
   border-radius:5px;
 }
-.avatar.game-avatar{
+.game-avatar{
   position:absolute;
   transform:scale(.72);
   transform-origin:bottom center;
   bottom:-8px;
   left:50%;
-  margin:0;
+  margin-left:-105px;
   z-index:4;
 }
+/* TARJETA */
 .situation-card{
-  background:#fff;
+  background:white;
   border:2px solid #dfecef;
   border-radius:25px;
   padding:25px;
-  box-shadow:0 8px 25px #3c727d10;
+  box-shadow:0 8px 25px rgba(60,114,125,.06);
 }
 .situation{
   background:#f0f9ff;
@@ -485,12 +536,24 @@ p{
   font-size:17px;
   margin-bottom:5px;
 }
+/* FEEDBACK */
 .feedback{
   display:none;
   margin-top:20px;
   padding:20px;
   border-radius:18px;
   text-align:center;
+  animation:appear .3s ease;
+}
+@keyframes appear{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 .good{
   background:#e2f8ed;
@@ -500,19 +563,7 @@ p{
   background:#e6f2fb;
   color:#396d8d;
 }
-.next{
-  margin-top:13px;
-  border:0;
-  padding:12px 24px;
-  border-radius:14px;
-  background:#245863;
-  color:white;
-  cursor:pointer;
-  font-weight:bold;
-}
-/* =========================
-   FINAL
-========================= */
+/* FINAL */
 .final-card{
   max-width:600px;
   margin:auto;
@@ -530,11 +581,11 @@ p{
   font-size:35px;
   letter-spacing:5px;
 }
-/* =========================
-   RESPONSIVE
-========================= */
+/* CELULAR */
 @media(max-width:650px){
-  body{padding:0}
+  body{
+    padding:0;
+  }
   .game{
     border-radius:0;
     min-height:100vh;
@@ -580,7 +631,7 @@ p{
     <b id="score">0</b>
   </div>
 </header>
-<!-- ================= INICIO ================= -->
+<!-- INICIO -->
 <section class="screen active" id="inicio">
   <div class="hero center">
     <div class="avatar">
@@ -621,7 +672,7 @@ p{
     </button>
   </div>
 </section>
-<!-- ================= MATRIZ ================= -->
+<!-- MATRIZ -->
 <section class="screen" id="matriz">
   <div class="center">
     <h1>La Matriz de Eisenhower</h1>
@@ -660,8 +711,8 @@ p{
     </div>
   </div>
   <div class="tip center">
-    💡 <b>Consejo:</b> no respondas rápido.
-    Analiza primero la situación.
+    💡 <b>Consejo:</b>
+    no respondas rápido. Analiza primero la situación.
   </div>
   <div class="center">
     <button class="btn" onclick="comenzar()">
@@ -669,14 +720,21 @@ p{
     </button>
   </div>
 </section>
-<!-- ================= JUEGO ================= -->
+<!-- JUEGO -->
 <section class="screen" id="juego">
   <div class="topbar">
-    <span id="contador">Situación 1 de 8</span>
-    <span id="porcentaje">0%</span>
+    <span id="contador">
+      Situación 1 de 8
+    </span>
+    <span id="porcentaje">
+      0%
+    </span>
   </div>
   <div class="progress">
-    <div class="progress-fill" id="barra"></div>
+    <div
+      class="progress-fill"
+      id="barra">
+    </div>
   </div>
   <div class="office">
     <div class="window"></div>
@@ -712,44 +770,58 @@ p{
   </div>
   <div class="situation-card">
     <div class="center">
-      <h2 id="titulo">Situación</h2>
+      <h2 id="titulo">
+        Situación
+      </h2>
       <p id="contexto">
         Analiza cuidadosamente.
       </p>
     </div>
-    <div class="situation" id="situacion"></div>
+    <div
+      class="situation"
+      id="situacion">
+    </div>
     <div class="center">
-      <b>¿Qué debería hacer?</b>
+      <b>
+        ¿Qué debería hacer?
+      </b>
     </div>
     <br>
     <div class="answers">
-      <button class="answer" onclick="responder('hacer')">
+      <button
+        class="answer"
+        onclick="responder('hacer')">
         <b>🔥 HACER AHORA</b>
         Es urgente e importante.
       </button>
-      <button class="answer" onclick="responder('planificar')">
+      <button
+        class="answer"
+        onclick="responder('planificar')">
         <b>📅 PLANIFICAR</b>
         Organizarlo para después.
       </button>
-      <button class="answer" onclick="responder('delegar')">
+      <button
+        class="answer"
+        onclick="responder('delegar')">
         <b>👥 DELEGAR</b>
         Pedir ayuda a otra persona.
       </button>
-      <button class="answer" onclick="responder('eliminar')">
+      <button
+        class="answer"
+        onclick="responder('eliminar')">
         <b>🗑️ ELIMINAR</b>
         No dedicarle tiempo.
       </button>
     </div>
-    <div class="feedback" id="feedback">
+    <div
+      class="feedback"
+      id="feedback">
       <h3 id="feedbackTitulo"></h3>
       <p id="feedbackTexto"></p>
-      <button class="next" onclick="siguiente()">
-        CONTINUAR →
-      </button>
     </div>
   </div>
 </section>
-<!-- ================= FINAL ================= -->
+<!-- FINAL -->
 <section class="screen" id="final">
   <div class="final-card center">
     <div class="avatar">
@@ -779,150 +851,256 @@ p{
       <div class="shoe left"></div>
       <div class="shoe right"></div>
     </div>
-    <h1>¡MISIÓN COMPLETADA!</h1>
-    <div class="stars" id="stars">⭐⭐⭐⭐⭐</div>
-    <div class="final-score">
-      <span id="resultado">0</span>/80
+    <h1>
+      ¡MISIÓN COMPLETADA!
+    </h1>
+    <div
+      class="stars"
+      id="stars">
+      ⭐⭐⭐⭐⭐
     </div>
-    <h2 id="mensaje">¡Excelente!</h2>
+    <div class="final-score">
+      <span id="resultado">
+        0
+      </span>/80
+    </div>
+    <h2 id="mensaje">
+      ¡Excelente!
+    </h2>
     <p id="consejo">
       Has terminado el reto.
     </p>
     <br>
-    <button class="btn" onclick="reiniciar()">
+    <button
+      class="btn"
+      onclick="reiniciar()">
       VOLVER A JUGAR
     </button>
   </div>
 </section>
 </div>
 <script>
+/* =========================
+   PREGUNTAS
+========================= */
 const preguntas=[
 {
 titulo:"El informe para el jefe",
 contexto:"Son las 4:30 de la tarde.",
-situacion:"Tu jefe necesita un informe importante en 30 minutos y todavía falta terminar una parte fundamental.",
+situacion:
+"Tu jefe necesita un informe importante en 30 minutos y todavía falta terminar una parte fundamental.",
 correcta:"hacer",
-explicacion:"Es urgente porque debe entregarse pronto y es importante porque afecta directamente al trabajo."
+explicacion:
+"Es urgente porque debe entregarse pronto y es importante porque afecta directamente al trabajo."
 },
 {
 titulo:"La capacitación del próximo mes",
 contexto:"Estás organizando las actividades del equipo.",
-situacion:"Debes preparar una capacitación que se realizará dentro de tres semanas.",
+situacion:
+"Debes preparar una capacitación que se realizará dentro de tres semanas.",
 correcta:"planificar",
-explicacion:"Es importante, pero no es urgente. Lo ideal es organizarla con anticipación."
+explicacion:
+"Es importante, pero no es urgente. Lo ideal es organizarla con anticipación."
 },
 {
 titulo:"Una tarea repetitiva",
 contexto:"Tienes un proyecto importante que terminar.",
-situacion:"Una compañera tiene tiempo disponible y sabe realizar perfectamente una tarea administrativa repetitiva.",
+situacion:
+"Una compañera tiene tiempo disponible y sabe realizar perfectamente una tarea administrativa repetitiva.",
 correcta:"delegar",
-explicacion:"Delegar permite que otra persona haga la tarea mientras tú te concentras en actividades más importantes."
+explicacion:
+"Delegar permite que otra persona haga la tarea mientras tú te concentras en actividades más importantes."
 },
 {
 titulo:"Una distracción",
 contexto:"Estás preparando una exposición.",
-situacion:"Empiezas a mirar videos y redes sociales que no tienen ninguna relación con la exposición.",
+situacion:
+"Empiezas a mirar videos y redes sociales que no tienen ninguna relación con la exposición.",
 correcta:"eliminar",
-explicacion:"No es importante ni urgente. Es una distracción que puede quitarte mucho tiempo."
+explicacion:
+"No es importante ni urgente. Es una distracción que puede quitarte mucho tiempo."
 },
 {
 titulo:"El cliente esperando",
 contexto:"Estás trabajando en varias actividades.",
-situacion:"Un cliente importante necesita una respuesta para poder continuar con su pedido hoy.",
+situacion:
+"Un cliente importante necesita una respuesta para poder continuar con su pedido hoy.",
 correcta:"hacer",
-explicacion:"Es urgente e importante porque afecta directamente al cliente."
+explicacion:
+"Es urgente e importante porque afecta directamente al cliente."
 },
 {
 titulo:"Organizar la próxima semana",
 contexto:"Es viernes en la tarde.",
-situacion:"Quieres organizar tus actividades de la próxima semana para evitar trabajar a última hora.",
+situacion:
+"Quieres organizar tus actividades de la próxima semana para evitar trabajar a última hora.",
 correcta:"planificar",
-explicacion:"No es urgente, pero sí importante. Planificar te ayudará a trabajar mejor."
+explicacion:
+"No es urgente, pero sí importante. Planificar te ayudará a trabajar mejor."
 },
 {
 titulo:"Confirmar un dato",
 contexto:"Estás concentrada en una tarea importante.",
-situacion:"Un compañero puede confirmar rápidamente un dato sencillo que otra persona necesita.",
+situacion:
+"Un compañero puede confirmar rápidamente un dato sencillo que otra persona necesita.",
 correcta:"delegar",
-explicacion:"Si alguien más puede resolverlo correctamente, puedes delegar y mantener tu concentración."
+explicacion:
+"Si alguien más puede resolverlo correctamente, puedes delegar y mantener tu concentración."
 },
 {
 titulo:"Una hora perdida",
 contexto:"Tienes una tarea importante pendiente.",
-situacion:"Decides pasar una hora viendo contenido que no aporta nada a tu trabajo ni a tus objetivos.",
+situacion:
+"Decides pasar una hora viendo contenido que no aporta nada a tu trabajo ni a tus objetivos.",
 correcta:"eliminar",
-explicacion:"No es urgente ni importante. Es mejor eliminar esa distracción."
+explicacion:
+"No es urgente ni importante. Es mejor eliminar esa distracción."
 }
 ];
+/* =========================
+   VARIABLES
+========================= */
 let actual=0;
 let puntos=0;
 let respondida=false;
+/* =========================
+   CAMBIAR PANTALLA
+========================= */
 function pantalla(id){
-  document.querySelectorAll(".screen")
-  .forEach(x=>x.classList.remove("active"));
-  document.getElementById(id)
+  document
+  .querySelectorAll(".screen")
+  .forEach(x=>{
+    x.classList.remove("active");
+  });
+  document
+  .getElementById(id)
   .classList.add("active");
   window.scrollTo(0,0);
 }
+/* =========================
+   MATRIZ
+========================= */
 function mostrarMatriz(){
   pantalla("matriz");
 }
+/* =========================
+   COMENZAR
+========================= */
 function comenzar(){
   actual=0;
   puntos=0;
-  document.getElementById("score").textContent="0";
+  document
+  .getElementById("score")
+  .textContent="0";
   pantalla("juego");
   cargar();
 }
+/* =========================
+   CARGAR PREGUNTA
+========================= */
 function cargar(){
   respondida=false;
   const q=preguntas[actual];
-  document.getElementById("titulo").textContent=q.titulo;
-  document.getElementById("contexto").textContent=q.contexto;
-  document.getElementById("situacion").textContent=q.situacion;
-  document.getElementById("contador").textContent=
-  "Situación "+(actual+1)+" de "+preguntas.length;
-  const porcentaje=Math.round(
-    actual/preguntas.length*100
+  document
+  .getElementById("titulo")
+  .textContent=q.titulo;
+  document
+  .getElementById("contexto")
+  .textContent=q.contexto;
+  document
+  .getElementById("situacion")
+  .textContent=q.situacion;
+  document
+  .getElementById("contador")
+  .textContent=
+  "Situación "+
+  (actual+1)+
+  " de "+
+  preguntas.length;
+  const porcentaje=
+  Math.round(
+    actual/
+    preguntas.length*
+    100
   );
-  document.getElementById("porcentaje").textContent=
+  document
+  .getElementById("porcentaje")
+  .textContent=
   porcentaje+"%";
-  document.getElementById("barra").style.width=
+  document
+  .getElementById("barra")
+  .style.width=
   porcentaje+"%";
-  document.getElementById("feedback").style.display="none";
-  document.querySelectorAll(".answer").forEach(b=>{
+  document
+  .getElementById("feedback")
+  .style.display="none";
+  document
+  .querySelectorAll(".answer")
+  .forEach(b=>{
     b.disabled=false;
     b.style.opacity="1";
   });
 }
+/* =========================
+   RESPONDER
+========================= */
 function responder(opcion){
   if(respondida)return;
   respondida=true;
-  const q=preguntas[actual];
-  const feedback=document.getElementById("feedback");
-  const titulo=document.getElementById("feedbackTitulo");
-  const texto=document.getElementById("feedbackTexto");
-  document.querySelectorAll(".answer").forEach(b=>{
+  const q=
+  preguntas[actual];
+  const feedback=
+  document
+  .getElementById("feedback");
+  const titulo=
+  document
+  .getElementById("feedbackTitulo");
+  const texto=
+  document
+  .getElementById("feedbackTexto");
+  document
+  .querySelectorAll(".answer")
+  .forEach(b=>{
     b.disabled=true;
     b.style.opacity=".6";
   });
+  /* RESPUESTA CORRECTA */
   if(opcion===q.correcta){
     puntos+=10;
-    document.getElementById("score").textContent=puntos;
-    feedback.className="feedback good";
-    titulo.textContent="¡MUY BIEN! 🎉";
-    texto.textContent=q.explicacion;
-  }else{
-    feedback.className="feedback bad";
-    titulo.textContent="¡CUIDADO! 💡";
+    document
+    .getElementById("score")
+    .textContent=puntos;
+    feedback.className=
+    "feedback good";
+    titulo.textContent=
+    "¡MUY BIEN! 🎉";
     texto.textContent=
-      "La mejor opción era "+
-      nombre(q.correcta)+
-      ". "+
-      q.explicacion;
+    q.explicacion;
+  }
+  /* RESPUESTA INCORRECTA */
+  else{
+    feedback.className=
+    "feedback bad";
+    titulo.textContent=
+    "¡CUIDADO! 💡";
+    texto.textContent=
+    "La mejor opción era "+
+    nombre(q.correcta)+
+    ". "+
+    q.explicacion;
   }
   feedback.style.display="block";
+  /*
+  ESPERA 1.5 SEGUNDOS
+  Y PASA AUTOMÁTICAMENTE
+  */
+  setTimeout(()=>{
+    siguiente();
+  },1500);
 }
+/* =========================
+   NOMBRE RESPUESTA
+========================= */
 function nombre(x){
   return{
     hacer:"HACER AHORA",
@@ -931,48 +1109,88 @@ function nombre(x){
     eliminar:"ELIMINAR"
   }[x];
 }
+/* =========================
+   SIGUIENTE
+========================= */
 function siguiente(){
   actual++;
   if(actual>=preguntas.length){
     terminar();
-  }else{
+  }
+  else{
     cargar();
   }
 }
+/* =========================
+   FINAL
+========================= */
 function terminar(){
   pantalla("final");
-  document.getElementById("resultado")
+  document
+  .getElementById("resultado")
   .textContent=puntos;
   if(puntos===80){
-    document.getElementById("stars").textContent="★★★★★";
-    document.getElementById("mensaje").textContent=
+    document
+    .getElementById("stars")
+    .textContent="★★★★★";
+    document
+    .getElementById("mensaje")
+    .textContent=
     "¡ERES UNA EXPERTA! 🏆";
-    document.getElementById("consejo").textContent=
+    document
+    .getElementById("consejo")
+    .textContent=
     "Excelente trabajo. Sabes diferenciar muy bien lo urgente de lo importante.";
-  }else if(puntos>=60){
-    document.getElementById("stars").textContent="★★★★☆";
-    document.getElementById("mensaje").textContent=
+  }
+  else if(puntos>=60){
+    document
+    .getElementById("stars")
+    .textContent="★★★★☆";
+    document
+    .getElementById("mensaje")
+    .textContent=
     "¡MUY BUEN TRABAJO! 🌟";
-    document.getElementById("consejo").textContent=
+    document
+    .getElementById("consejo")
+    .textContent=
     "Tienes buenas habilidades para organizar tus prioridades.";
-  }else if(puntos>=40){
-    document.getElementById("stars").textContent="★★★☆☆";
-    document.getElementById("mensaje").textContent=
+  }
+  else if(puntos>=40){
+    document
+    .getElementById("stars")
+    .textContent="★★★☆☆";
+    document
+    .getElementById("mensaje")
+    .textContent=
     "¡VAS POR BUEN CAMINO! 💪";
-    document.getElementById("consejo").textContent=
+    document
+    .getElementById("consejo")
+    .textContent=
     "Sigue practicando cómo diferenciar lo urgente de lo importante.";
-  }else{
-    document.getElementById("stars").textContent="★★☆☆☆";
-    document.getElementById("mensaje").textContent=
+  }
+  else{
+    document
+    .getElementById("stars")
+    .textContent="★★☆☆☆";
+    document
+    .getElementById("mensaje")
+    .textContent=
     "¡A SEGUIR PRACTICANDO! 🌱";
-    document.getElementById("consejo").textContent=
-    "Antes de actuar, analiza siempre la urgencia y la importancia de cada tarea.";
+    document
+    .getElementById("consejo")
+    .textContent=
+    "Antes de actuar, analiza siempre la urgencia y la importancia.";
   }
 }
+/* =========================
+   REINICIAR
+========================= */
 function reiniciar(){
   actual=0;
   puntos=0;
-  document.getElementById("score").textContent="0";
+  document
+  .getElementById("score")
+  .textContent="0";
   pantalla("inicio");
 }
 </script>
