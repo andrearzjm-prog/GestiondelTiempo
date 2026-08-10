@@ -3,13 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TIME QUEST - Gestión del Tiempo</title>
+
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
+
 body{
   font-family:Arial,sans-serif;
   min-height:100vh;
@@ -17,6 +21,7 @@ body{
   color:#234b53;
   padding:15px;
 }
+
 .game{
   max-width:1000px;
   margin:auto;
@@ -26,7 +31,9 @@ body{
   overflow:hidden;
   box-shadow:0 20px 60px rgba(50,100,110,.18);
 }
+
 /* HEADER */
+
 header{
   min-height:90px;
   padding:18px 25px;
@@ -36,10 +43,12 @@ header{
   justify-content:space-between;
   align-items:center;
 }
+
 .logo{
   font-size:27px;
   font-weight:900;
 }
+
 .logo span{
   display:block;
   font-size:13px;
@@ -47,6 +56,7 @@ header{
   margin-top:4px;
   opacity:.9;
 }
+
 .points{
   background:rgba(255,255,255,.18);
   border:2px solid rgba(255,255,255,.25);
@@ -54,39 +64,50 @@ header{
   border-radius:18px;
   text-align:center;
 }
+
 .points small{
   font-size:11px;
 }
+
 .points b{
   display:block;
   font-size:25px;
 }
+
 /* PANTALLAS */
+
 .screen{
   display:none;
   min-height:610px;
   padding:35px;
 }
+
 .screen.active{
   display:block;
 }
+
 .center{
   text-align:center;
 }
+
 h1{
   font-size:39px;
   color:#215661;
   margin-bottom:12px;
 }
+
 h2{
   color:#245863;
   margin-bottom:8px;
 }
+
 p{
   color:#60757b;
   line-height:1.5;
 }
+
 /* BOTÓN */
+
 .btn{
   border:0;
   padding:16px 30px;
@@ -99,12 +120,15 @@ p{
   box-shadow:0 8px 20px rgba(56,143,160,.2);
   transition:.2s;
 }
+
 .btn:hover{
   transform:translateY(-3px);
 }
+
 /* =========================
    PERSONAJE
 ========================= */
+
 .avatar{
   width:210px;
   height:260px;
@@ -112,15 +136,19 @@ p{
   margin:0 auto 15px;
   animation:float 3s ease-in-out infinite;
 }
+
 @keyframes float{
+
   0%,100%{
     transform:translateY(0);
   }
+
   50%{
     transform:translateY(-8px);
   }
+
 }
-/* PIERNAS */
+
 .leg{
   position:absolute;
   width:30px;
@@ -130,12 +158,15 @@ p{
   border-radius:15px;
   z-index:1;
 }
+
 .leg.left{
   left:76px;
 }
+
 .leg.right{
   right:76px;
 }
+
 .shoe{
   position:absolute;
   width:47px;
@@ -145,13 +176,15 @@ p{
   top:242px;
   z-index:2;
 }
+
 .shoe.left{
   left:57px;
 }
+
 .shoe.right{
   right:57px;
 }
-/* CUERPO */
+
 .torso{
   position:absolute;
   width:112px;
@@ -163,6 +196,7 @@ p{
   border-radius:42px 42px 24px 24px;
   z-index:3;
 }
+
 .shirt-detail{
   position:absolute;
   width:37px;
@@ -172,6 +206,7 @@ p{
   top:3px;
   clip-path:polygon(0 0,100% 0,50% 100%);
 }
+
 .badge{
   position:absolute;
   width:22px;
@@ -182,7 +217,7 @@ p{
   top:35px;
   border:2px solid #277d79;
 }
-/* BRAZOS */
+
 .arm{
   position:absolute;
   width:28px;
@@ -193,14 +228,17 @@ p{
   top:115px;
   z-index:2;
 }
+
 .arm.left{
   left:27px;
   transform:rotate(22deg);
 }
+
 .arm.right{
   right:27px;
   transform:rotate(-22deg);
 }
+
 .hand{
   position:absolute;
   width:25px;
@@ -210,15 +248,17 @@ p{
   border-radius:50%;
   z-index:6;
 }
+
 .hand.left{
   left:18px;
   top:180px;
 }
+
 .hand.right{
   right:18px;
   top:180px;
 }
-/* CUELLO */
+
 .neck{
   position:absolute;
   width:30px;
@@ -228,7 +268,7 @@ p{
   top:88px;
   z-index:2;
 }
-/* CARA */
+
 .face{
   position:absolute;
   width:112px;
@@ -240,7 +280,7 @@ p{
   border-radius:50% 50% 45% 45%;
   z-index:5;
 }
-/* CABELLO */
+
 .hair-main{
   position:absolute;
   width:120px;
@@ -251,6 +291,7 @@ p{
   border-radius:65px 65px 25px 30px;
   z-index:7;
 }
+
 .hair-side{
   position:absolute;
   width:28px;
@@ -261,6 +302,7 @@ p{
   border-radius:20px;
   z-index:6;
 }
+
 .fringe{
   position:absolute;
   width:80px;
@@ -271,7 +313,7 @@ p{
   border-radius:0 0 40px 40px;
   z-index:8;
 }
-/* OJOS */
+
 .eye{
   position:absolute;
   width:11px;
@@ -281,13 +323,15 @@ p{
   top:60px;
   z-index:10;
 }
+
 .eye.left{
   left:75px;
 }
+
 .eye.right{
   right:75px;
 }
-/* CEJAS */
+
 .brow{
   position:absolute;
   width:20px;
@@ -296,15 +340,17 @@ p{
   top:51px;
   z-index:11;
 }
+
 .brow.left{
   left:70px;
   transform:rotate(-8deg);
 }
+
 .brow.right{
   right:70px;
   transform:rotate(8deg);
 }
-/* BOCA */
+
 .mouth{
   position:absolute;
   width:30px;
@@ -315,7 +361,7 @@ p{
   border-radius:0 0 50% 50%;
   z-index:10;
 }
-/* RUBOR */
+
 .blush{
   position:absolute;
   width:17px;
@@ -325,28 +371,35 @@ p{
   top:75px;
   z-index:10;
 }
+
 .blush.left{
   left:61px;
 }
+
 .blush.right{
   right:61px;
 }
+
 /* =========================
    INICIO
 ========================= */
+
 .hero{
   background:linear-gradient(145deg,#f1fcf8,#eff7ff);
   border-radius:28px;
   padding:30px;
 }
+
 .intro{
   max-width:650px;
   margin:0 auto 25px;
   font-size:17px;
 }
+
 /* =========================
    MATRIZ
 ========================= */
+
 .matrix{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -354,31 +407,38 @@ p{
   max-width:760px;
   margin:25px auto;
 }
+
 .matrix-box{
   padding:22px;
   border-radius:22px;
   min-height:140px;
   border:3px solid;
 }
+
 .matrix-box h3{
   margin-bottom:9px;
 }
+
 .m1{
   background:#e1f8ed;
   border-color:#65c8aa;
 }
+
 .m2{
   background:#e1f1ff;
   border-color:#70aee0;
 }
+
 .m3{
   background:#eafaf5;
   border-color:#81cdb7;
 }
+
 .m4{
   background:#e8f4ff;
   border-color:#8abbe5;
 }
+
 .tip{
   background:#f2fbf8;
   padding:15px;
@@ -386,15 +446,18 @@ p{
   margin:18px auto;
   max-width:700px;
 }
+
 /* =========================
    JUEGO
 ========================= */
+
 .topbar{
   display:flex;
   justify-content:space-between;
   color:#668087;
   font-size:14px;
 }
+
 .progress{
   height:12px;
   background:#e6eff1;
@@ -402,13 +465,14 @@ p{
   overflow:hidden;
   margin:8px 0 25px;
 }
+
 .progress-fill{
   width:0;
   height:100%;
   background:linear-gradient(90deg,#3caf94,#3c91d0);
   transition:.4s;
 }
-/* OFICINA */
+
 .office{
   position:relative;
   background:linear-gradient(#edfaff 0 63%,#d9eee7 63% 100%);
@@ -418,6 +482,7 @@ p{
   overflow:hidden;
   margin-bottom:20px;
 }
+
 .window{
   position:absolute;
   width:150px;
@@ -427,6 +492,7 @@ p{
   top:20px;
   left:25px;
 }
+
 .window:before{
   content:"";
   position:absolute;
@@ -435,6 +501,7 @@ p{
   background:white;
   left:50%;
 }
+
 .window:after{
   content:"";
   position:absolute;
@@ -443,6 +510,7 @@ p{
   background:white;
   top:50%;
 }
+
 .desk{
   position:absolute;
   bottom:24px;
@@ -453,6 +521,7 @@ p{
   background:#7eaa9f;
   border-radius:8px;
 }
+
 .desk:after{
   content:"";
   position:absolute;
@@ -463,6 +532,7 @@ p{
   top:15px;
   box-shadow:202px 0 #638b83;
 }
+
 .laptop{
   position:absolute;
   width:70px;
@@ -474,6 +544,7 @@ p{
   border-radius:6px;
   z-index:3;
 }
+
 .laptop:after{
   content:"";
   position:absolute;
@@ -484,6 +555,7 @@ p{
   bottom:-6px;
   border-radius:5px;
 }
+
 .game-avatar{
   position:absolute;
   transform:scale(.72);
@@ -493,7 +565,11 @@ p{
   margin-left:-105px;
   z-index:4;
 }
-/* TARJETA */
+
+/* =========================
+   RESPUESTAS
+========================= */
+
 .situation-card{
   background:white;
   border:2px solid #dfecef;
@@ -501,6 +577,7 @@ p{
   padding:25px;
   box-shadow:0 8px 25px rgba(60,114,125,.06);
 }
+
 .situation{
   background:#f0f9ff;
   border-left:7px solid #469bd1;
@@ -510,11 +587,13 @@ p{
   line-height:1.5;
   margin:17px 0 20px;
 }
+
 .answers{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:13px;
 }
+
 .answer{
   border:3px solid #e0eaed;
   background:white;
@@ -526,44 +605,104 @@ p{
   font-size:15px;
   transition:.2s;
 }
+
 .answer:hover{
   border-color:#45aa9a;
   background:#f0fbf8;
   transform:translateY(-3px);
 }
-.answer b{
-  display:block;
-  font-size:17px;
-  margin-bottom:5px;
+
+.answer:disabled{
+  cursor:default;
 }
-/* FEEDBACK */
-.feedback{
+
+/* =========================
+   FEEDBACK GRANDE
+========================= */
+
+.feedback-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(25,75,82,.72);
   display:none;
-  margin-top:20px;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
   padding:20px;
-  border-radius:18px;
+  backdrop-filter:blur(5px);
+}
+
+.feedback-box{
+  width:min(430px,90vw);
+  background:white;
+  border-radius:35px;
+  padding:35px 25px;
   text-align:center;
-  animation:appear .3s ease;
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
+  animation:pop .35s ease;
 }
-@keyframes appear{
-  from{
+
+@keyframes pop{
+
+  0%{
+    transform:scale(.5);
     opacity:0;
-    transform:translateY(8px);
   }
-  to{
+
+  80%{
+    transform:scale(1.08);
     opacity:1;
-    transform:translateY(0);
   }
+
+  100%{
+    transform:scale(1);
+  }
+
 }
-.good{
-  background:#e2f8ed;
-  color:#27765e;
+
+.feedback-icon{
+  font-size:105px;
+  line-height:1;
+  margin-bottom:12px;
 }
-.bad{
-  background:#e6f2fb;
-  color:#396d8d;
+
+.feedback-box.correct{
+  border-top:12px solid #43ae98;
 }
-/* FINAL */
+
+.feedback-box.incorrect{
+  border-top:12px solid #398fd0;
+}
+
+.feedback-title{
+  font-size:34px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.feedback-box.correct .feedback-title{
+  color:#35a284;
+}
+
+.feedback-box.incorrect .feedback-title{
+  color:#347eb4;
+}
+
+.feedback-text{
+  color:#60757b;
+  font-size:16px;
+  line-height:1.5;
+}
+
+.feedback-celebration{
+  font-size:28px;
+  margin-top:15px;
+}
+
+/* =========================
+   FINAL
+========================= */
+
 .final-card{
   max-width:600px;
   margin:auto;
@@ -571,445 +710,796 @@ p{
   border-radius:28px;
   padding:30px;
 }
+
 .final-score{
   font-size:70px;
   color:#39a98e;
   font-weight:900;
   margin:12px;
 }
+
 .stars{
   font-size:35px;
   letter-spacing:5px;
 }
+
 /* CELULAR */
+
 @media(max-width:650px){
+
   body{
     padding:0;
   }
+
   .game{
     border-radius:0;
     min-height:100vh;
   }
+
   header{
     padding:15px;
   }
+
   .logo{
     font-size:19px;
   }
+
   .screen{
     padding:22px 15px;
   }
+
   h1{
     font-size:30px;
   }
+
   .matrix,
   .answers{
     grid-template-columns:1fr;
   }
+
   .situation-card{
     padding:17px;
   }
+
   .office{
     min-height:190px;
   }
+
   .window{
     width:110px;
     height:75px;
   }
+
+  .feedback-icon{
+    font-size:85px;
+  }
+
+  .feedback-title{
+    font-size:29px;
+  }
+
 }
+
 </style>
 </head>
+
 <body>
+
 <div class="game">
+
 <header>
+
   <div class="logo">
     ⏱️ TIME QUEST
     <span>El reto de la Gestión del Tiempo</span>
   </div>
+
   <div class="points">
     <small>PUNTOS</small>
     <b id="score">0</b>
   </div>
+
 </header>
-<!-- INICIO -->
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
 <section class="screen active" id="inicio">
+
   <div class="hero center">
+
     <div class="avatar">
+
       <div class="hair-main"></div>
       <div class="hair-side"></div>
       <div class="fringe"></div>
+
       <div class="neck"></div>
+
       <div class="face">
+
         <div class="brow left"></div>
         <div class="brow right"></div>
+
         <div class="eye left"></div>
         <div class="eye right"></div>
+
         <div class="blush left"></div>
         <div class="blush right"></div>
+
         <div class="mouth"></div>
+
       </div>
+
       <div class="torso">
+
         <div class="shirt-detail"></div>
         <div class="badge"></div>
+
       </div>
+
       <div class="arm left"></div>
       <div class="arm right"></div>
+
       <div class="hand left"></div>
       <div class="hand right"></div>
+
       <div class="leg left"></div>
       <div class="leg right"></div>
+
       <div class="shoe left"></div>
       <div class="shoe right"></div>
+
     </div>
-    <h1>¡Bienvenida a TIME QUEST!</h1>
+
+
+    <h1>
+      ¡Bienvenida a TIME QUEST!
+    </h1>
+
+
     <p class="intro">
       Hoy tendrás que tomar decisiones en diferentes
       situaciones de trabajo. Tu misión es aprender a
       distinguir lo urgente de lo importante.
     </p>
-    <button class="btn" onclick="mostrarMatriz()">
+
+
+    <button
+      class="btn"
+      onclick="mostrarMatriz()">
+
       COMENZAR MISIÓN
+
     </button>
+
   </div>
+
 </section>
-<!-- MATRIZ -->
+
+
+<!-- =========================
+     MATRIZ
+========================= -->
+
 <section class="screen" id="matriz">
+
   <div class="center">
-    <h1>La Matriz de Eisenhower</h1>
+
+    <h1>
+      La Matriz de Eisenhower
+    </h1>
+
     <p>
       Antes de empezar, recuerda estas cuatro opciones:
     </p>
+
   </div>
+
+
   <div class="matrix">
+
     <div class="matrix-box m1">
+
       <h3>🔥 HACER</h3>
+
       <p>
         Urgente + importante.
         Debes actuar inmediatamente.
       </p>
+
     </div>
+
+
     <div class="matrix-box m2">
+
       <h3>📅 PLANIFICAR</h3>
+
       <p>
         Importante pero no urgente.
         Organízalo para después.
       </p>
+
     </div>
+
+
     <div class="matrix-box m3">
+
       <h3>👥 DELEGAR</h3>
+
       <p>
         Urgente pero no necesariamente importante.
         Otra persona puede hacerlo.
       </p>
+
     </div>
+
+
     <div class="matrix-box m4">
+
       <h3>🗑️ ELIMINAR</h3>
+
       <p>
         No urgente y no importante.
         Evita gastar tiempo en ello.
       </p>
+
     </div>
+
   </div>
+
+
   <div class="tip center">
+
     💡 <b>Consejo:</b>
     no respondas rápido. Analiza primero la situación.
+
   </div>
+
+
   <div class="center">
-    <button class="btn" onclick="comenzar()">
+
+    <button
+      class="btn"
+      onclick="comenzar()">
+
       ¡LISTA! 🎯
+
     </button>
+
   </div>
+
 </section>
-<!-- JUEGO -->
+
+
+<!-- =========================
+     JUEGO
+========================= -->
+
 <section class="screen" id="juego">
+
   <div class="topbar">
+
     <span id="contador">
       Situación 1 de 8
     </span>
+
     <span id="porcentaje">
       0%
     </span>
+
   </div>
+
+
   <div class="progress">
+
     <div
       class="progress-fill"
       id="barra">
     </div>
+
   </div>
+
+
   <div class="office">
+
     <div class="window"></div>
+
     <div class="desk"></div>
+
     <div class="laptop"></div>
+
+
     <div class="avatar game-avatar">
+
       <div class="hair-main"></div>
       <div class="hair-side"></div>
       <div class="fringe"></div>
+
       <div class="neck"></div>
+
       <div class="face">
+
         <div class="brow left"></div>
         <div class="brow right"></div>
+
         <div class="eye left"></div>
         <div class="eye right"></div>
+
         <div class="blush left"></div>
         <div class="blush right"></div>
+
         <div class="mouth"></div>
+
       </div>
+
+
       <div class="torso">
+
         <div class="shirt-detail"></div>
         <div class="badge"></div>
+
       </div>
+
+
       <div class="arm left"></div>
       <div class="arm right"></div>
+
       <div class="hand left"></div>
       <div class="hand right"></div>
+
       <div class="leg left"></div>
       <div class="leg right"></div>
+
       <div class="shoe left"></div>
       <div class="shoe right"></div>
+
     </div>
+
   </div>
+
+
   <div class="situation-card">
+
     <div class="center">
+
       <h2 id="titulo">
         Situación
       </h2>
+
       <p id="contexto">
         Analiza cuidadosamente.
       </p>
+
     </div>
+
+
     <div
       class="situation"
       id="situacion">
     </div>
+
+
     <div class="center">
+
       <b>
         ¿Qué debería hacer?
       </b>
+
     </div>
+
     <br>
+
+
     <div class="answers">
+
       <button
         class="answer"
         onclick="responder('hacer')">
+
         <b>🔥 HACER AHORA</b>
+
         Es urgente e importante.
+
       </button>
+
+
       <button
         class="answer"
         onclick="responder('planificar')">
+
         <b>📅 PLANIFICAR</b>
+
         Organizarlo para después.
+
       </button>
+
+
       <button
         class="answer"
         onclick="responder('delegar')">
+
         <b>👥 DELEGAR</b>
+
         Pedir ayuda a otra persona.
+
       </button>
+
+
       <button
         class="answer"
         onclick="responder('eliminar')">
+
         <b>🗑️ ELIMINAR</b>
+
         No dedicarle tiempo.
+
       </button>
+
     </div>
-    <div
-      class="feedback"
-      id="feedback">
-      <h3 id="feedbackTitulo"></h3>
-      <p id="feedbackTexto"></p>
-    </div>
+
   </div>
+
 </section>
-<!-- FINAL -->
+
+
+<!-- =========================
+     RESULTADO GRANDE
+========================= -->
+
+<div
+  class="feedback-overlay"
+  id="feedbackOverlay">
+
+  <div
+    class="feedback-box"
+    id="feedbackBox">
+
+    <div
+      class="feedback-icon"
+      id="feedbackIcon">
+      ✔️
+    </div>
+
+
+    <div
+      class="feedback-title"
+      id="feedbackTitle">
+
+      ¡ACERTASTE!
+
+    </div>
+
+
+    <div
+      class="feedback-text"
+      id="feedbackText">
+
+      ¡Excelente decisión!
+
+    </div>
+
+
+    <div
+      class="feedback-celebration"
+      id="feedbackCelebration">
+
+      🎉👏🎉👏🎉
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
 <section class="screen" id="final">
+
   <div class="final-card center">
+
     <div class="avatar">
+
       <div class="hair-main"></div>
       <div class="hair-side"></div>
       <div class="fringe"></div>
+
       <div class="neck"></div>
+
       <div class="face">
+
         <div class="brow left"></div>
         <div class="brow right"></div>
+
         <div class="eye left"></div>
         <div class="eye right"></div>
+
         <div class="blush left"></div>
         <div class="blush right"></div>
+
         <div class="mouth"></div>
+
       </div>
+
+
       <div class="torso">
+
         <div class="shirt-detail"></div>
         <div class="badge"></div>
+
       </div>
+
+
       <div class="arm left"></div>
       <div class="arm right"></div>
+
       <div class="hand left"></div>
       <div class="hand right"></div>
+
       <div class="leg left"></div>
       <div class="leg right"></div>
+
       <div class="shoe left"></div>
       <div class="shoe right"></div>
+
     </div>
+
+
     <h1>
       ¡MISIÓN COMPLETADA!
     </h1>
+
+
     <div
       class="stars"
       id="stars">
       ⭐⭐⭐⭐⭐
     </div>
+
+
     <div class="final-score">
+
       <span id="resultado">
         0
       </span>/80
+
     </div>
+
+
     <h2 id="mensaje">
       ¡Excelente!
     </h2>
+
+
     <p id="consejo">
       Has terminado el reto.
     </p>
+
+
     <br>
+
+
     <button
       class="btn"
       onclick="reiniciar()">
+
       VOLVER A JUGAR
+
     </button>
+
   </div>
+
 </section>
+
 </div>
+
+
 <script>
+
 /* =========================
    PREGUNTAS
 ========================= */
+
 const preguntas=[
+
 {
 titulo:"El informe para el jefe",
+
 contexto:"Son las 4:30 de la tarde.",
+
 situacion:
 "Tu jefe necesita un informe importante en 30 minutos y todavía falta terminar una parte fundamental.",
+
 correcta:"hacer",
+
 explicacion:
-"Es urgente porque debe entregarse pronto y es importante porque afecta directamente al trabajo."
+"Es urgente e importante porque debe entregarse pronto y afecta directamente al trabajo."
 },
+
 {
 titulo:"La capacitación del próximo mes",
+
 contexto:"Estás organizando las actividades del equipo.",
+
 situacion:
 "Debes preparar una capacitación que se realizará dentro de tres semanas.",
+
 correcta:"planificar",
+
 explicacion:
 "Es importante, pero no es urgente. Lo ideal es organizarla con anticipación."
 },
+
 {
 titulo:"Una tarea repetitiva",
+
 contexto:"Tienes un proyecto importante que terminar.",
+
 situacion:
 "Una compañera tiene tiempo disponible y sabe realizar perfectamente una tarea administrativa repetitiva.",
+
 correcta:"delegar",
+
 explicacion:
 "Delegar permite que otra persona haga la tarea mientras tú te concentras en actividades más importantes."
 },
+
 {
 titulo:"Una distracción",
+
 contexto:"Estás preparando una exposición.",
+
 situacion:
 "Empiezas a mirar videos y redes sociales que no tienen ninguna relación con la exposición.",
+
 correcta:"eliminar",
+
 explicacion:
 "No es importante ni urgente. Es una distracción que puede quitarte mucho tiempo."
 },
+
 {
 titulo:"El cliente esperando",
+
 contexto:"Estás trabajando en varias actividades.",
+
 situacion:
 "Un cliente importante necesita una respuesta para poder continuar con su pedido hoy.",
+
 correcta:"hacer",
+
 explicacion:
 "Es urgente e importante porque afecta directamente al cliente."
 },
+
 {
 titulo:"Organizar la próxima semana",
+
 contexto:"Es viernes en la tarde.",
+
 situacion:
 "Quieres organizar tus actividades de la próxima semana para evitar trabajar a última hora.",
+
 correcta:"planificar",
+
 explicacion:
 "No es urgente, pero sí importante. Planificar te ayudará a trabajar mejor."
 },
+
 {
 titulo:"Confirmar un dato",
+
 contexto:"Estás concentrada en una tarea importante.",
+
 situacion:
 "Un compañero puede confirmar rápidamente un dato sencillo que otra persona necesita.",
+
 correcta:"delegar",
+
 explicacion:
 "Si alguien más puede resolverlo correctamente, puedes delegar y mantener tu concentración."
 },
+
 {
 titulo:"Una hora perdida",
+
 contexto:"Tienes una tarea importante pendiente.",
+
 situacion:
 "Decides pasar una hora viendo contenido que no aporta nada a tu trabajo ni a tus objetivos.",
+
 correcta:"eliminar",
+
 explicacion:
 "No es urgente ni importante. Es mejor eliminar esa distracción."
 }
+
 ];
-/* =========================
-   VARIABLES
-========================= */
+
+
+/* VARIABLES */
+
 let actual=0;
 let puntos=0;
 let respondida=false;
-/* =========================
-   CAMBIAR PANTALLA
-========================= */
+
+
+/* CAMBIAR PANTALLA */
+
 function pantalla(id){
+
   document
   .querySelectorAll(".screen")
   .forEach(x=>{
     x.classList.remove("active");
   });
+
   document
   .getElementById(id)
   .classList.add("active");
+
   window.scrollTo(0,0);
+
 }
-/* =========================
-   MATRIZ
-========================= */
+
+
+/* MATRIZ */
+
 function mostrarMatriz(){
+
   pantalla("matriz");
+
 }
-/* =========================
-   COMENZAR
-========================= */
+
+
+/* COMENZAR */
+
 function comenzar(){
+
   actual=0;
+
   puntos=0;
+
   document
   .getElementById("score")
   .textContent="0";
+
   pantalla("juego");
+
   cargar();
+
 }
-/* =========================
-   CARGAR PREGUNTA
-========================= */
+
+
+/* CARGAR PREGUNTA */
+
 function cargar(){
+
   respondida=false;
+
   const q=preguntas[actual];
+
+
   document
   .getElementById("titulo")
   .textContent=q.titulo;
+
+
   document
   .getElementById("contexto")
   .textContent=q.contexto;
+
+
   document
   .getElementById("situacion")
   .textContent=q.situacion;
+
+
   document
   .getElementById("contador")
   .textContent=
@@ -1017,182 +1507,330 @@ function cargar(){
   (actual+1)+
   " de "+
   preguntas.length;
+
+
   const porcentaje=
   Math.round(
     actual/
     preguntas.length*
     100
   );
+
+
   document
   .getElementById("porcentaje")
   .textContent=
   porcentaje+"%";
+
+
   document
   .getElementById("barra")
   .style.width=
   porcentaje+"%";
-  document
-  .getElementById("feedback")
-  .style.display="none";
+
+
   document
   .querySelectorAll(".answer")
   .forEach(b=>{
+
     b.disabled=false;
+
     b.style.opacity="1";
+
   });
+
 }
+
+
 /* =========================
    RESPONDER
 ========================= */
+
 function responder(opcion){
-  if(respondida)return;
+
+  if(respondida){
+    return;
+  }
+
   respondida=true;
-  const q=
-  preguntas[actual];
-  const feedback=
+
+
+  const q=preguntas[actual];
+
+
+  const overlay=
   document
-  .getElementById("feedback");
-  const titulo=
+  .getElementById("feedbackOverlay");
+
+
+  const box=
   document
-  .getElementById("feedbackTitulo");
-  const texto=
+  .getElementById("feedbackBox");
+
+
+  const icon=
   document
-  .getElementById("feedbackTexto");
+  .getElementById("feedbackIcon");
+
+
+  const title=
+  document
+  .getElementById("feedbackTitle");
+
+
+  const text=
+  document
+  .getElementById("feedbackText");
+
+
+  const celebration=
+  document
+  .getElementById("feedbackCelebration");
+
+
   document
   .querySelectorAll(".answer")
   .forEach(b=>{
+
     b.disabled=true;
-    b.style.opacity=".6";
+
   });
-  /* RESPUESTA CORRECTA */
+
+
+  /* CORRECTA */
+
   if(opcion===q.correcta){
+
     puntos+=10;
+
+
     document
     .getElementById("score")
     .textContent=puntos;
-    feedback.className=
-    "feedback good";
-    titulo.textContent=
-    "¡MUY BIEN! 🎉";
-    texto.textContent=
+
+
+    box.className=
+    "feedback-box correct";
+
+
+    icon.textContent="✔️";
+
+
+    title.textContent=
+    "¡ACERTASTE!";
+
+
+    text.textContent=
     q.explicacion;
+
+
+    celebration.textContent=
+    "🎉👏🎉👏🎉";
+
   }
-  /* RESPUESTA INCORRECTA */
+
+
+  /* INCORRECTA */
+
   else{
-    feedback.className=
-    "feedback bad";
-    titulo.textContent=
-    "¡CUIDADO! 💡";
-    texto.textContent=
-    "La mejor opción era "+
+
+    box.className=
+    "feedback-box incorrect";
+
+
+    icon.textContent="❌";
+
+
+    title.textContent=
+    "¡CASI!";
+
+
+    text.textContent=
+    "La respuesta correcta era "+
     nombre(q.correcta)+
-    ". "+
-    q.explicacion;
+    ". "+q.explicacion;
+
+
+    celebration.textContent=
+    "💙 ¡SIGUE INTENTANDO! 💙";
+
   }
-  feedback.style.display="block";
+
+
+  overlay.style.display="flex";
+
+
   /*
-  ESPERA 1.5 SEGUNDOS
-  Y PASA AUTOMÁTICAMENTE
+     ESPERA 1.5 SEGUNDOS
+     Y AVANZA SOLO
   */
+
   setTimeout(()=>{
+
+    overlay.style.display="none";
+
     siguiente();
+
   },1500);
+
 }
-/* =========================
-   NOMBRE RESPUESTA
-========================= */
+
+
+/* NOMBRE */
+
 function nombre(x){
+
   return{
+
     hacer:"HACER AHORA",
+
     planificar:"PLANIFICAR",
+
     delegar:"DELEGAR",
+
     eliminar:"ELIMINAR"
+
   }[x];
+
 }
-/* =========================
-   SIGUIENTE
-========================= */
+
+
+/* SIGUIENTE */
+
 function siguiente(){
+
   actual++;
+
+
   if(actual>=preguntas.length){
+
     terminar();
+
   }
+
   else{
+
     cargar();
+
   }
+
 }
-/* =========================
-   FINAL
-========================= */
+
+
+/* FINAL */
+
 function terminar(){
+
   pantalla("final");
+
+
   document
   .getElementById("resultado")
   .textContent=puntos;
+
+
   if(puntos===80){
+
     document
     .getElementById("stars")
     .textContent="★★★★★";
+
+
     document
     .getElementById("mensaje")
     .textContent=
     "¡ERES UNA EXPERTA! 🏆";
+
+
     document
     .getElementById("consejo")
     .textContent=
     "Excelente trabajo. Sabes diferenciar muy bien lo urgente de lo importante.";
+
   }
+
   else if(puntos>=60){
+
     document
     .getElementById("stars")
     .textContent="★★★★☆";
+
+
     document
     .getElementById("mensaje")
     .textContent=
     "¡MUY BUEN TRABAJO! 🌟";
+
+
     document
     .getElementById("consejo")
     .textContent=
     "Tienes buenas habilidades para organizar tus prioridades.";
+
   }
+
   else if(puntos>=40){
+
     document
     .getElementById("stars")
     .textContent="★★★☆☆";
+
+
     document
     .getElementById("mensaje")
     .textContent=
     "¡VAS POR BUEN CAMINO! 💪";
+
+
     document
     .getElementById("consejo")
     .textContent=
     "Sigue practicando cómo diferenciar lo urgente de lo importante.";
+
   }
+
   else{
+
     document
     .getElementById("stars")
     .textContent="★★☆☆☆";
+
+
     document
     .getElementById("mensaje")
     .textContent=
     "¡A SEGUIR PRACTICANDO! 🌱";
+
+
     document
     .getElementById("consejo")
     .textContent=
     "Antes de actuar, analiza siempre la urgencia y la importancia.";
+
   }
+
 }
-/* =========================
-   REINICIAR
-========================= */
+
+
+/* REINICIAR */
+
 function reiniciar(){
+
   actual=0;
+
   puntos=0;
+
+
   document
   .getElementById("score")
   .textContent="0";
+
+
   pantalla("inicio");
+
 }
+
 </script>
+
 </body>
 </html>
