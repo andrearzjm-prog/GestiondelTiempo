@@ -3,99 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mi Jornada Laboral</title>
-
+<title>Un día en la oficina</title>
 <style>
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
-
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f4eee8;
+    font-family:Arial, sans-serif;
+    background:#f1e9e1;
     color:#40352d;
     min-height:100vh;
 }
-
 /* ================= INICIO ================= */
-
 .start{
     min-height:100vh;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     padding:20px;
 }
-
 .start-box{
     width:min(1050px,95%);
     min-height:620px;
-    background:#fff;
+    background:white;
     border-radius:30px;
     overflow:hidden;
     display:grid;
     grid-template-columns:45% 55%;
     box-shadow:0 20px 60px rgba(70,50,35,.16);
 }
-
 .start-text{
     padding:55px;
     display:flex;
     flex-direction:column;
     justify-content:center;
 }
-
 .tag{
+    color:#a17a59;
     font-size:13px;
     font-weight:bold;
     letter-spacing:2px;
-    color:#a07959;
     margin-bottom:15px;
 }
-
 .start-text h1{
-    font-size:48px;
-    line-height:1.05;
-    color:#49382c;
+    font-size:50px;
+    line-height:1;
+    color:#4c392c;
     margin-bottom:20px;
 }
-
 .start-text p{
+    color:#756c64;
     font-size:18px;
     line-height:1.6;
-    color:#756b63;
     margin-bottom:30px;
 }
-
-.start-button{
-    border:0;
-    background:#73533d;
-    color:white;
+.start-btn{
+    width:max-content;
     padding:17px 32px;
+    border:0;
     border-radius:13px;
+    background:#72533d;
+    color:white;
     font-size:17px;
     font-weight:bold;
     cursor:pointer;
-    width:max-content;
     transition:.2s;
 }
-
-.start-button:hover{
-    background:#583f2f;
+.start-btn:hover{
     transform:translateY(-3px);
+    background:#59402f;
 }
-
 /* ================= OFICINA ================= */
-
 .office{
     position:relative;
-    background:linear-gradient(#e7ddd2 0 72%,#a97e59 72%);
+    background:linear-gradient(#e6ddd3 0 72%,#a77b58 72%);
     overflow:hidden;
 }
-
 .window{
     position:absolute;
     top:60px;
@@ -106,7 +91,6 @@ body{
     background:#dceff3;
     border:10px solid white;
 }
-
 .window:before{
     content:"";
     position:absolute;
@@ -115,7 +99,6 @@ body{
     width:5px;
     background:white;
 }
-
 .window:after{
     content:"";
     position:absolute;
@@ -124,7 +107,6 @@ body{
     height:5px;
     background:white;
 }
-
 .desk{
     position:absolute;
     bottom:100px;
@@ -132,9 +114,7 @@ body{
     width:86%;
     height:18px;
     background:#79563e;
-    border-radius:5px;
 }
-
 .desk:before,
 .desk:after{
     content:"";
@@ -142,12 +122,10 @@ body{
     top:15px;
     width:12px;
     height:125px;
-    background:#624532;
+    background:#60442f;
 }
-
 .desk:before{left:25px}
 .desk:after{right:25px}
-
 .monitor{
     position:absolute;
     bottom:125px;
@@ -159,7 +137,6 @@ body{
     border:7px solid #252729;
     border-radius:10px;
 }
-
 .monitor:after{
     content:"";
     position:absolute;
@@ -170,31 +147,27 @@ body{
     left:50%;
     transform:translateX(-50%);
 }
-
 .cup{
     position:absolute;
     bottom:135px;
     right:13%;
-    width:42px;
-    height:35px;
+    width:43px;
+    height:36px;
     background:white;
     border-radius:5px 5px 12px 12px;
 }
-
 .cup:after{
     content:"";
     position:absolute;
     right:-12px;
     top:7px;
     width:14px;
-    height:17px;
+    height:18px;
     border:4px solid white;
     border-left:0;
     border-radius:0 10px 10px 0;
 }
-
-/* ================= PERSONAJES ================= */
-
+/* ================= PERSONAJE ================= */
 .person{
     position:absolute;
     bottom:105px;
@@ -203,8 +176,7 @@ body{
     width:190px;
     height:300px;
 }
-
-.person .head{
+.head{
     position:absolute;
     top:25px;
     left:51px;
@@ -214,8 +186,7 @@ body{
     border-radius:45%;
     z-index:3;
 }
-
-.person .hair{
+.hair{
     position:absolute;
     top:5px;
     left:40px;
@@ -225,8 +196,7 @@ body{
     border-radius:55% 55% 40% 45%;
     z-index:2;
 }
-
-.person .eye{
+.eye{
     position:absolute;
     top:68px;
     width:8px;
@@ -235,11 +205,9 @@ body{
     border-radius:50%;
     z-index:4;
 }
-
-.person .eye.one{left:68px}
-.person .eye.two{left:117px}
-
-.person .mouth{
+.eye.one{left:68px}
+.eye.two{left:117px}
+.mouth{
     position:absolute;
     top:91px;
     left:84px;
@@ -249,8 +217,7 @@ body{
     border-radius:50%;
     z-index:4;
 }
-
-.person .body{
+.body{
     position:absolute;
     top:125px;
     left:32px;
@@ -259,8 +226,7 @@ body{
     background:#6e5443;
     border-radius:28px 28px 12px 12px;
 }
-
-.person .shirt{
+.shirt{
     position:absolute;
     left:44px;
     top:0;
@@ -269,8 +235,7 @@ body{
     background:white;
     clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);
 }
-
-.person .arm{
+.arm{
     position:absolute;
     top:10px;
     width:27px;
@@ -278,228 +243,202 @@ body{
     background:#6e5443;
     border-radius:20px;
 }
-
-.person .arm.left{
+.arm.left{
     left:-17px;
     transform:rotate(12deg);
 }
-
-.person .arm.right{
+.arm.right{
     right:-17px;
     transform:rotate(-12deg);
 }
-
-.person .badge{
+.badge{
     position:absolute;
     right:12px;
     top:48px;
-    font-size:7px;
     background:white;
     padding:5px;
     border-radius:4px;
+    font-size:7px;
     color:#71513b;
 }
-
-/* Diferentes personajes */
-
-.p2 .hair{background:#2f2927}
-.p2 .body{background:#40566a}
-.p2 .shirt{background:#e8eef1}
-
-.p3 .hair{
-    background:#6d442d;
-    height:115px;
-}
-.p3 .body{background:#80604b}
-
-.p4 .hair{background:#3c302c}
-.p4 .body{background:#53656d}
-
-.p5 .hair{background:#8a5a3b}
-.p5 .body{background:#76543f}
-
-.p6 .hair{background:#302927}
-.p6 .body{background:#4c5f50}
-
-.p7 .hair{background:#54352d}
-.p7 .body{background:#765d78}
-
-.p8 .hair{background:#30343a}
-.p8 .body{background:#72523d}
-
 /* ================= JUEGO ================= */
-
 .game{
     display:none;
     min-height:100vh;
-    padding:20px;
+    padding:18px;
 }
-
-.header{
-    max-width:1050px;
+.top{
+    max-width:1100px;
     margin:auto;
     background:white;
     border-radius:18px;
-    padding:16px 22px;
+    padding:14px 20px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+    gap:15px;
     box-shadow:0 5px 20px rgba(70,50,35,.08);
 }
-
 .logo{
     font-weight:bold;
     color:#70513b;
 }
-
-.points{
-    background:#f2e7dc;
-    padding:9px 16px;
+.stats{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+.stat{
+    background:#f3e9df;
     border-radius:20px;
+    padding:9px 14px;
     font-weight:bold;
+    font-size:14px;
 }
-
-.content{
-    max-width:1050px;
-    margin:25px auto;
+.progress-wrap{
+    max-width:1100px;
+    margin:15px auto 0;
+    background:#ddd3ca;
+    height:8px;
+    border-radius:10px;
+    overflow:hidden;
+}
+.progress{
+    height:100%;
+    width:0%;
+    background:#8c6a50;
+    transition:.5s;
+}
+.layout{
+    max-width:1100px;
+    margin:18px auto;
     display:grid;
-    grid-template-columns:300px 1fr;
-    gap:22px;
+    grid-template-columns:350px 1fr;
+    gap:20px;
 }
-
+/* ESCENA */
 .scene{
-    background:white;
-    border-radius:23px;
-    min-height:540px;
+    min-height:550px;
     position:relative;
     overflow:hidden;
+    border-radius:25px;
+    background:linear-gradient(#e5dbd1 0 72%,#aa7f5c 72%);
     box-shadow:0 5px 20px rgba(70,50,35,.08);
 }
-
-.scene-office{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(#e7ddd2 0 73%,#ae8460 73%);
-}
-
 .scene .window{
-    top:40px;
     width:190px;
     height:110px;
+    top:35px;
 }
-
 .scene .desk{
-    bottom:90px;
     width:90%;
     left:5%;
+    bottom:90px;
 }
-
 .scene .monitor{
+    width:125px;
+    height:78px;
     bottom:115px;
-    width:120px;
-    height:75px;
 }
-
 .scene .cup{
     bottom:120px;
 }
-
 .scene .person{
-    transform:translateX(-50%) scale(.8);
+    transform:translateX(-50%) scale(.85);
     transform-origin:bottom center;
-    bottom:90px;
+    bottom:85px;
 }
-
 .character-name{
     position:absolute;
-    bottom:22px;
+    bottom:20px;
     width:100%;
     text-align:center;
     font-weight:bold;
-    color:#5d493b;
-    z-index:10;
+    color:#5b4637;
 }
-
-.card{
+/* PANEL */
+.panel{
     background:white;
-    border-radius:23px;
-    padding:38px;
+    border-radius:25px;
+    padding:35px;
     box-shadow:0 5px 20px rgba(70,50,35,.08);
 }
-
-.progress{
-    font-size:13px;
-    font-weight:bold;
+.time{
+    font-size:14px;
     color:#a07959;
+    font-weight:bold;
     letter-spacing:1px;
-    margin-bottom:14px;
+    margin-bottom:10px;
 }
-
-.question{
-    font-size:26px;
-    line-height:1.4;
+.panel h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+.description{
+    color:#746b63;
+    line-height:1.6;
     margin-bottom:25px;
 }
-
-.answers{
+.event{
+    background:#f7f1eb;
+    border-left:5px solid #8b684d;
+    padding:18px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+.event strong{
+    display:block;
+    margin-bottom:7px;
+}
+.choices{
     display:grid;
     gap:12px;
 }
-
-.answer{
-    width:100%;
-    padding:16px;
+.choice{
     border:2px solid #e3dbd3;
-    background:#fcfaf8;
+    background:#fffdfb;
+    padding:16px;
     border-radius:13px;
-    font-size:15px;
     text-align:left;
     cursor:pointer;
+    font-size:15px;
     transition:.2s;
 }
-
-.answer:hover{
-    border-color:#a57c5a;
+.choice:hover{
+    border-color:#a37b59;
     transform:translateX(3px);
 }
-
-.answer.correct{
+.choice.good{
     background:#e7f3e9;
-    border-color:#6d9e76;
+    border-color:#70a079;
 }
-
-.answer.wrong{
-    background:#f8e6e3;
-    border-color:#bb7067;
+.choice.bad{
+    background:#f8e5e2;
+    border-color:#bb7168;
 }
-
 .feedback{
-    min-height:25px;
     margin-top:18px;
+    min-height:28px;
     font-weight:bold;
 }
-
 .result{
     text-align:center;
-    padding:35px 10px;
+    padding:30px 10px;
 }
-
-.result .trophy{
+.result-icon{
     font-size:65px;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
-
 .result h2{
     font-size:35px;
     margin-bottom:12px;
 }
-
 .result p{
-    color:#777;
+    color:#706862;
+    line-height:1.6;
     margin:10px;
-    line-height:1.5;
 }
-
 .restart{
     margin-top:20px;
     border:0;
@@ -507,626 +446,639 @@ body{
     color:white;
     padding:14px 28px;
     border-radius:10px;
-    cursor:pointer;
     font-weight:bold;
+    cursor:pointer;
 }
-
 /* ================= CELULAR ================= */
-
-@media(max-width:750px){
-
+@media(max-width:800px){
     .start-box{
         grid-template-columns:1fr;
     }
-
     .start-text{
-        padding:35px 25px;
         order:2;
+        padding:35px 25px;
     }
-
-    .start-text h1{
-        font-size:38px;
-    }
-
     .office{
         min-height:420px;
-        order:1;
     }
-
-    .content{
+    .layout{
         grid-template-columns:1fr;
     }
-
     .scene{
-        min-height:300px;
+        min-height:330px;
     }
-
-    .card{
+    .panel{
         padding:24px 18px;
     }
-
-    .question{
-        font-size:21px;
+    .panel h2{
+        font-size:23px;
     }
 }
-
 @media(max-width:500px){
-
+    .top{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+    .stats{
+        justify-content:flex-start;
+    }
     .scene{
-        min-height:270px;
+        min-height:280px;
     }
-
     .scene .person{
-        transform:translateX(-50%) scale(.62);
-        bottom:65px;
+        transform:translateX(-50%) scale(.65);
+        bottom:60px;
     }
-
     .scene .desk{
         bottom:65px;
     }
-
     .scene .monitor{
         bottom:90px;
     }
-
     .scene .cup{
         bottom:95px;
-    }
-
-    .character-name{
-        bottom:10px;
     }
 }
 </style>
 </head>
-
 <body>
-
 <!-- =====================================================
-     PANTALLA DE INICIO
+     INICIO
 ===================================================== -->
-
 <section class="start" id="start">
-
 <div class="start-box">
-
 <div class="start-text">
-
 <div class="tag">
 JUEGO INTERACTIVO · GESTIÓN DEL TIEMPO
 </div>
-
-<h1>¡Buenos días!</h1>
-
+<h1>Un día en la oficina</h1>
 <p>
-Una nueva jornada laboral comienza.
-Tendrás que enfrentarte a diferentes situaciones,
-organizar tus prioridades y tomar decisiones.
+Son las <strong>8:00 a. m.</strong> y comienza una nueva jornada.
 <br><br>
-
-<strong>¿Estás listo para comenzar?</strong>
+Durante el día aparecerán reuniones, clientes,
+tareas urgentes e imprevistos.
+Tú decides qué hacer.
+<br><br>
+<strong>¿Podrás terminar la jornada con todo bajo control?</strong>
 </p>
-
-<button class="start-button" onclick="startGame()">
-▶ EMPEZAR JORNADA
+<button class="start-btn" onclick="startGame()">
+▶ COMENZAR JORNADA
 </button>
-
 </div>
-
 <div class="office">
-
 <div class="window"></div>
 <div class="desk"></div>
 <div class="monitor"></div>
 <div class="cup"></div>
-
-<div class="person p1">
-
+<div class="person">
 <div class="hair"></div>
-
 <div class="head">
 <div class="eye one"></div>
 <div class="eye two"></div>
 <div class="mouth"></div>
 </div>
-
 <div class="body">
 <div class="shirt"></div>
 <div class="badge">GESTIÓN</div>
 <div class="arm left"></div>
 <div class="arm right"></div>
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-
 <!-- =====================================================
      JUEGO
 ===================================================== -->
-
 <section class="game" id="game">
-
-<header class="header">
-
+<div class="top">
 <div class="logo">
-☕ MI JORNADA LABORAL
+☕ UN DÍA EN LA OFICINA
 </div>
-
-<div class="points" id="points">
-⭐ 0 puntos
+<div class="stats">
+<div class="stat" id="clock">
+🕐 8:00 a. m.
 </div>
-
-</header>
-
-
-<div class="content">
-
+<div class="stat" id="productivity">
+📈 Productividad: 100%
+</div>
+<div class="stat" id="points">
+⭐ 0
+</div>
+</div>
+</div>
+<div class="progress-wrap">
+<div class="progress" id="progress"></div>
+</div>
+<div class="layout">
+<!-- ================= ESCENA ================= -->
 <div class="scene">
-
-<div class="scene-office">
-
 <div class="window"></div>
 <div class="desk"></div>
 <div class="monitor"></div>
 <div class="cup"></div>
-
-<div class="person" id="character">
-
+<div class="person" id="person">
 <div class="hair"></div>
-
 <div class="head">
 <div class="eye one"></div>
 <div class="eye two"></div>
 <div class="mouth"></div>
 </div>
-
 <div class="body">
 <div class="shirt"></div>
 <div class="badge">OFICINA</div>
 <div class="arm left"></div>
 <div class="arm right"></div>
 </div>
-
 </div>
-
-</div>
-
 <div class="character-name" id="characterName">
 Tu compañera
 </div>
-
 </div>
-
-
-<div class="card" id="card"></div>
-
+<!-- ================= HISTORIA ================= -->
+<div class="panel" id="panel"></div>
 </div>
-
 </section>
-
-
 <script>
-
-/* ================= PERSONAJES ================= */
-
+/* =====================================================
+   PERSONAJES
+===================================================== */
 const characters=[
-
-{name:"Laura · Atención al cliente",class:"p1"},
-{name:"Daniel · Tecnología",class:"p2"},
-{name:"Camila · Comunicaciones",class:"p3"},
-{name:"Andrés · Coordinador",class:"p4"},
-{name:"Valentina · Recursos Humanos",class:"p5"},
-{name:"Sebastián · Finanzas",class:"p6"},
-{name:"Mariana · Asistente",class:"p7"},
-{name:"Carlos · Gerencia",class:"p8"}
-
+"Laura · Atención al cliente",
+"Daniel · Tecnología",
+"Camila · Comunicaciones",
+"Andrés · Coordinación",
+"Valentina · Recursos Humanos",
+"Sebastián · Finanzas",
+"Mariana · Asistencia",
+"Carlos · Gerencia"
 ];
-
-
-/* ================= PREGUNTAS ================= */
-
-const questions=[
-
+/* =====================================================
+   JORNADA
+===================================================== */
+const events=[
 {
-q:"Laura acaba de recibir un mensaje de un cliente que tiene un problema y necesita solución hoy. ¿Qué debería hacer?",
-a:[
-"Dejarlo para el final de la jornada.",
-"Atenderlo porque es importante y urgente.",
-"Revisar primero las redes sociales.",
-"Esperar a que alguien más lo solucione."
-],
-correct:1
+time:"8:00 a. m.",
+title:"Llegas a la oficina",
+text:"Laura te saluda y te cuenta que un cliente tiene un problema que necesita solución hoy.",
+choices:[
+{
+text:"Atender primero al cliente porque es urgente.",
+good:true,
+points:15,
+time:30,
+feedback:"¡Excelente! Identificaste una prioridad urgente."
 },
-
 {
-q:"Daniel tiene una presentación importante para mañana. Todavía tiene tiempo para prepararla. ¿Qué debería hacer?",
-a:[
-"Esperar hasta mañana.",
-"Planificarla y comenzar a trabajar con anticipación.",
-"Ignorarla por ahora.",
-"Hacer solamente tareas fáciles."
-],
-correct:1
+text:"Revisar primero las redes sociales.",
+good:false,
+points:-10,
+time:30,
+feedback:"Perdiste tiempo en una actividad que podía esperar."
 },
-
 {
-q:"Camila está concentrada en una tarea cuando recibe varias notificaciones que no son urgentes. ¿Qué debería hacer?",
-a:[
-"Revisarlas inmediatamente.",
-"Dejar todo lo que está haciendo.",
-"Continuar con su tarea y revisarlas después.",
-"Responderlas todas al mismo tiempo."
-],
-correct:2
-},
-
-{
-q:"Andrés tiene una tarea que puede realizar otro integrante del equipo que cuenta con las habilidades necesarias. ¿Qué puede hacer?",
-a:[
-"Delegarla adecuadamente.",
-"Hacerla siempre él.",
-"Ignorarla.",
-"Esperar hasta el último minuto."
-],
-correct:0
-},
-
-{
-q:"Valentina tiene cinco tareas pendientes. ¿Cuál es una buena forma de empezar?",
-a:[
-"Hacerlas todas al mismo tiempo.",
-"Escoger una al azar.",
-"Identificar cuáles son importantes y urgentes.",
-"Comenzar por la más sencilla."
-],
-correct:2
-},
-
-{
-q:"Sebastián tiene una tarea urgente justo antes de una reunión. ¿Qué debería hacer?",
-a:[
-"Ignorar la reunión.",
-"Organizar la prioridad y comunicar la situación si es necesario.",
-"Abandonar ambas tareas.",
-"Empezar otra actividad."
-],
-correct:1
-},
-
-{
-q:"Mariana tiene una actividad que no es importante ni urgente. ¿Qué puede hacer?",
-a:[
-"Priorizarla.",
-"Eliminarla o dejarla para después.",
-"Hacerla inmediatamente.",
-"Convertirla en urgente."
-],
-correct:1
-},
-
-{
-q:"Carlos quiere mejorar la productividad de su equipo. ¿Cuál es uno de los principales beneficios de gestionar bien el tiempo?",
-a:[
-"Tener más tareas.",
-"Estar ocupado todo el día.",
-"Organizar prioridades y aprovechar mejor el tiempo.",
-"Trabajar siempre bajo presión."
-],
-correct:2
+text:"Ignorar el problema hasta el final del día.",
+good:false,
+points:-15,
+time:30,
+feedback:"El cliente necesitaba atención prioritaria."
 }
-
+]
+},
+{
+time:"8:30 a. m.",
+title:"Una presentación pendiente",
+text:"Daniel te recuerda que mañana debes presentar un informe importante. Todavía tienes tiempo para prepararlo.",
+choices:[
+{
+text:"Planificar el trabajo y avanzar desde ahora.",
+good:true,
+points:15,
+time:60,
+feedback:"¡Muy bien! Evitaste dejar una tarea importante para el último momento."
+},
+{
+text:"Esperar hasta mañana.",
+good:false,
+points:-10,
+time:60,
+feedback:"Dejar tareas importantes para el último momento puede generar estrés."
+},
+{
+text:"Hacer otra tarea que no es urgente.",
+good:false,
+points:-5,
+time:60,
+feedback:"Había una actividad importante que podía aprovecharse mejor."
+}
+]
+},
+{
+time:"9:30 a. m.",
+title:"Llegan notificaciones",
+text:"Camila está trabajando cuando llegan varios mensajes y correos que no son urgentes.",
+choices:[
+{
+text:"Seguir concentrada y revisar los mensajes después.",
+good:true,
+points:15,
+time:30,
+feedback:"¡Perfecto! Evitaste una distracción."
+},
+{
+text:"Dejar todo y revisar cada notificación.",
+good:false,
+points:-10,
+time:30,
+feedback:"Las interrupciones constantes pueden hacerte perder concentración."
+},
+{
+text:"Responder absolutamente todo inmediatamente.",
+good:false,
+points:-5,
+time:30,
+feedback:"No todos los mensajes tienen la misma prioridad."
+}
+]
+},
+{
+time:"10:00 a. m.",
+title:"Trabajo en equipo",
+text:"Andrés tiene varias tareas y una de ellas puede realizarla otra persona del equipo que tiene las habilidades necesarias.",
+choices:[
+{
+text:"Delegar correctamente la tarea.",
+good:true,
+points:15,
+time:45,
+feedback:"¡Excelente! Delegar también es gestionar bien el tiempo."
+},
+{
+text:"Hacer absolutamente todo tú.",
+good:false,
+points:-10,
+time:45,
+feedback:"Intentar hacerlo todo puede sobrecargar tu jornada."
+},
+{
+text:"Dejar la tarea olvidada.",
+good:false,
+points:-15,
+time:45,
+feedback:"Una tarea pendiente no desaparece por ignorarla."
+}
+]
+},
+{
+time:"11:00 a. m.",
+title:"Cinco tareas pendientes",
+text:"Valentina te muestra cinco tareas. Algunas son urgentes, otras importantes y algunas pueden esperar.",
+choices:[
+{
+text:"Clasificarlas según su importancia y urgencia.",
+good:true,
+points:20,
+time:45,
+feedback:"¡Excelente! Las prioridades ayudan a organizar la jornada."
+},
+{
+text:"Hacerlas en el orden en que aparecieron.",
+good:false,
+points:-5,
+time:45,
+feedback:"El orden de llegada no siempre indica la prioridad."
+},
+{
+text:"Escoger solamente las más fáciles.",
+good:false,
+points:-10,
+time:45,
+feedback:"Una tarea fácil no necesariamente es la más importante."
+}
+]
+},
+{
+time:"12:00 p. m.",
+title:"Una reunión inesperada",
+text:"Sebastián necesita hablar contigo sobre una tarea urgente, pero también tienes una reunión programada.",
+choices:[
+{
+text:"Revisar prioridades y comunicar si necesitas reorganizar algo.",
+good:true,
+points:15,
+time:30,
+feedback:"¡Muy buena decisión! Comunicar y priorizar evita problemas."
+},
+{
+text:"Cancelar todo sin avisar.",
+good:false,
+points:-15,
+time:30,
+feedback:"Cambiar compromisos sin comunicarlo puede generar problemas."
+},
+{
+text:"Ignorar completamente la situación.",
+good:false,
+points:-10,
+time:30,
+feedback:"Los imprevistos deben gestionarse, no ignorarse."
+}
+]
+},
+{
+time:"1:00 p. m.",
+title:"Después del almuerzo",
+text:"Mariana tiene una actividad que no es importante ni urgente. Tu agenda está bastante llena.",
+choices:[
+{
+text:"Dejarla para después y concentrarte en prioridades.",
+good:true,
+points:15,
+time:30,
+feedback:"¡Correcto! No todo tiene que hacerse inmediatamente."
+},
+{
+text:"Hacerla antes que las tareas urgentes.",
+good:false,
+points:-10,
+time:30,
+feedback:"Una tarea poco importante no debería desplazar una prioridad."
+},
+{
+text:"Convertirla en una emergencia.",
+good:false,
+points:-15,
+time:30,
+feedback:"No todo necesita convertirse en urgente."
+}
+]
+},
+{
+time:"3:00 p. m.",
+title:"Última revisión",
+text:"Carlos, el gerente, te pregunta cómo terminó tu jornada. Tienes algunas tareas pendientes y debes decidir cómo cerrar el día.",
+choices:[
+{
+text:"Revisar pendientes, organizar prioridades y dejar planificado mañana.",
+good:true,
+points:20,
+time:60,
+feedback:"¡Excelente cierre! Una buena planificación también prepara el siguiente día."
+},
+{
+text:"Dejar todo para mañana sin revisar.",
+good:false,
+points:-10,
+time:60,
+feedback:"Cerrar la jornada sin revisar pendientes puede generar desorden."
+},
+{
+text:"Seguir trabajando sin organizar nada.",
+good:false,
+points:-5,
+time:60,
+feedback:"Trabajar más tiempo no siempre significa trabajar mejor."
+}
+]
+}
 ];
-
-
 let current=0;
-let score=0;
+let points=0;
+let productivity=100;
+let totalMinutes=0;
 let answered=false;
-
-
-/* ================= SONIDOS ================= */
-
-function playSound(type){
-
+/* =====================================================
+   SONIDOS
+===================================================== */
+function sound(type){
 const AudioContext=
 window.AudioContext||window.webkitAudioContext;
-
 if(!AudioContext)return;
-
 const ctx=new AudioContext();
-
-const oscillator=ctx.createOscillator();
+const osc=ctx.createOscillator();
 const gain=ctx.createGain();
-
-oscillator.connect(gain);
+osc.connect(gain);
 gain.connect(ctx.destination);
-
-if(type==="correct"){
-
-oscillator.frequency.setValueAtTime(
-600,ctx.currentTime
-);
-
-oscillator.frequency.setValueAtTime(
-800,ctx.currentTime+.12
-);
-
-oscillator.frequency.setValueAtTime(
-1000,ctx.currentTime+.24
-);
-
+if(type==="good"){
+osc.frequency.setValueAtTime(600,ctx.currentTime);
+osc.frequency.setValueAtTime(800,ctx.currentTime+.1);
+osc.frequency.setValueAtTime(1000,ctx.currentTime+.2);
 }
-
-if(type==="wrong"){
-
-oscillator.frequency.setValueAtTime(
-250,ctx.currentTime
-);
-
-oscillator.frequency.setValueAtTime(
-170,ctx.currentTime+.16
-);
-
+if(type==="bad"){
+osc.frequency.setValueAtTime(250,ctx.currentTime);
+osc.frequency.setValueAtTime(170,ctx.currentTime+.15);
 }
-
 if(type==="finish"){
-
-oscillator.frequency.setValueAtTime(
-500,ctx.currentTime
-);
-
-oscillator.frequency.setValueAtTime(
-650,ctx.currentTime+.12
-);
-
-oscillator.frequency.setValueAtTime(
-800,ctx.currentTime+.24
-);
-
-oscillator.frequency.setValueAtTime(
-1000,ctx.currentTime+.36
-);
-
+osc.frequency.setValueAtTime(500,ctx.currentTime);
+osc.frequency.setValueAtTime(650,ctx.currentTime+.12);
+osc.frequency.setValueAtTime(800,ctx.currentTime+.24);
+osc.frequency.setValueAtTime(1000,ctx.currentTime+.36);
 }
-
-gain.gain.setValueAtTime(
-0.001,
-ctx.currentTime
-);
-
+gain.gain.setValueAtTime(.001,ctx.currentTime);
 gain.gain.exponentialRampToValueAtTime(
-0.15,
+.15,
 ctx.currentTime+.02
 );
-
 gain.gain.exponentialRampToValueAtTime(
-0.001,
+.001,
 ctx.currentTime+.5
 );
-
-oscillator.start();
-
-oscillator.stop(ctx.currentTime+.5);
-
+osc.start();
+osc.stop(ctx.currentTime+.5);
 }
-
-
-/* ================= INICIAR ================= */
-
+/* =====================================================
+   FORMATO DE HORA
+===================================================== */
+function getTime(){
+let startHour=8;
+let minutes=totalMinutes;
+let hour=startHour+
+Math.floor(minutes/60);
+let mins=minutes%60;
+let suffix=hour>=12?"p. m.":"a. m.";
+let displayHour=hour;
+if(displayHour>12)displayHour-=12;
+if(displayHour===0)displayHour=12;
+return displayHour+
+":"+
+String(mins).padStart(2,"0")+
+" "+
+suffix;
+}
+/* =====================================================
+   INICIAR
+===================================================== */
 function startGame(){
-
 document.getElementById("start").style.display="none";
-
 document.getElementById("game").style.display="block";
-
 current=0;
-score=0;
-
-showQuestion();
-
+points=0;
+productivity=100;
+totalMinutes=0;
+showEvent();
 }
-
-
-/* ================= PREGUNTA ================= */
-
-function showQuestion(){
-
+/* =====================================================
+   MOSTRAR EVENTO
+===================================================== */
+function showEvent(){
 answered=false;
-
-const q=questions[current];
-const character=characters[current];
-
-const person=document.getElementById("character");
-
-person.className="person "+character.class;
-
-document.getElementById("characterName").textContent=
-character.name;
-
-document.getElementById("card").innerHTML=`
-
-<div class="progress">
-SITUACIÓN ${current+1} DE ${questions.length}
-</div>
-
-<div class="question">
-${q.q}
-</div>
-
-<div class="answers">
-
-${q.a.map((answer,index)=>`
-
-<button class="answer"
-onclick="checkAnswer(${index})">
-
-${answer}
-
-</button>
-
-`).join("")}
-
-</div>
-
-<div class="feedback" id="feedback"></div>
-
-`;
-
-}
-
-
-/* ================= RESPONDER ================= */
-
-function checkAnswer(selected){
-
-if(answered)return;
-
-answered=true;
-
-const q=questions[current];
-
-const buttons=document.querySelectorAll(".answer");
-
-const feedback=document.getElementById("feedback");
-
-if(selected===q.correct){
-
-score++;
-
-buttons[selected].classList.add("correct");
-
-feedback.textContent="✓ ¡Excelente decisión!";
-
-feedback.style.color="#4f8159";
-
-playSound("correct");
-
-}else{
-
-buttons[selected].classList.add("wrong");
-
-buttons[q.correct].classList.add("correct");
-
-feedback.textContent="✕ No es la mejor opción.";
-
-feedback.style.color="#a04f48";
-
-playSound("wrong");
-
-}
-
+const event=events[current];
+document.getElementById("clock").textContent=
+"🕐 "+event.time;
+document.getElementById("productivity").textContent=
+"📈 Productividad: "+productivity+"%";
 document.getElementById("points").textContent=
-"⭐ "+score+" puntos";
-
-
-/*
-   ESPERA UN MOMENTO PARA QUE EL JUGADOR
-   VEA SI ACERTÓ O FALLÓ.
-   DESPUÉS AVANZA AUTOMÁTICAMENTE.
-*/
-
-setTimeout(()=>{
-
-current++;
-
-if(current>=questions.length){
-
-finish();
-
-}else{
-
-showQuestion();
-
-}
-
-},1200);
-
-}
-
-
-/* ================= RESULTADO ================= */
-
-function finish(){
-
-playSound("finish");
-
-const percentage=
-(score/questions.length)*100;
-
-let message;
-
-if(percentage===100){
-
-message=
-"¡Perfecto! Has demostrado un excelente manejo de las prioridades.";
-
-}else if(percentage>=75){
-
-message=
-"¡Muy bien! Tienes excelentes bases para gestionar tu tiempo.";
-
-}else if(percentage>=50){
-
-message=
-"¡Buen trabajo! Con un poco más de práctica podrás mejorar.";
-
-}else{
-
-message=
-"¡No te preocupes! Cada jornada es una oportunidad para aprender.";
-
-}
-
-document.getElementById("card").innerHTML=`
-
-<div class="result">
-
-<div class="trophy">🏆</div>
-
-<h2>¡Jornada completada!</h2>
-
-<p>
-Conseguiste
-<strong>${score} de ${questions.length}</strong>
-respuestas correctas.
+"⭐ "+points;
+document.getElementById("progress").style.width=
+((current)/events.length*100)+"%";
+document.getElementById("characterName").textContent=
+characters[current];
+document.getElementById("panel").innerHTML=`
+<div class="time">
+${event.time}
+</div>
+<h2>
+${event.title}
+</h2>
+<p class="description">
+${event.text}
 </p>
-
-<p>${message}</p>
-
-<button class="restart" onclick="restart()">
-🔄 COMENZAR OTRA JORNADA
-</button>
-
+<div class="event">
+<strong>💼 ¿Qué haces?</strong>
+Elige la opción que consideres más adecuada.
 </div>
-
+<div class="choices">
+${event.choices.map((choice,index)=>`
+<button class="choice"
+onclick="choose(${index})">
+${choice.text}
+</button>
+`).join("")}
+</div>
+<div class="feedback" id="feedback"></div>
 `;
-
-document.getElementById("characterName").textContent=
-"¡Excelente jornada!";
-
 }
-
-
-/* ================= REINICIAR ================= */
-
-function restart(){
-
-current=0;
-score=0;
-
+/* =====================================================
+   ELEGIR
+===================================================== */
+function choose(index){
+if(answered)return;
+answered=true;
+const event=events[current];
+const choice=event.choices[index];
+const buttons=
+document.querySelectorAll(".choice");
+const feedback=
+document.getElementById("feedback");
+if(choice.good){
+buttons[index].classList.add("good");
+points+=choice.points;
+productivity+=3;
+if(productivity>100)
+productivity=100;
+feedback.textContent=
+"✓ "+choice.feedback;
+feedback.style.color="#4f8159";
+sound("good");
+}else{
+buttons[index].classList.add("bad");
+points+=choice.points;
+productivity-=8;
+if(productivity<0)
+productivity=0;
+feedback.textContent=
+"✕ "+choice.feedback;
+feedback.style.color="#a04f48";
+sound("bad");
+}
+totalMinutes+=choice.time;
 document.getElementById("points").textContent=
-"⭐ 0 puntos";
-
-showQuestion();
-
+"⭐ "+points;
+document.getElementById("productivity").textContent=
+"📈 Productividad: "+productivity+"%";
+/* AVANCE AUTOMÁTICO */
+setTimeout(()=>{
+current++;
+if(current>=events.length){
+finish();
+}else{
+showEvent();
 }
-
+},1400);
+}
+/* =====================================================
+   FINAL
+===================================================== */
+function finish(){
+sound("finish");
+document.getElementById("progress").style.width="100%";
+let title;
+let icon;
+let message;
+if(productivity>=90){
+icon="🏆";
+title="¡Jornada excelente!";
+message=
+"Organizaste tus prioridades, manejaste los imprevistos y terminaste el día con todo bajo control.";
+}else if(productivity>=70){
+icon="👏";
+title="¡Muy buen trabajo!";
+message=
+"Tu jornada estuvo bien organizada. Algunas decisiones pudieron mejorar, pero lograste mantener el control.";
+}else if(productivity>=50){
+icon="🙂";
+title="Jornada completada";
+message=
+"Terminaste el día, aunque todavía puedes mejorar la forma en que organizas tus prioridades.";
+}else{
+icon="😅";
+title="¡La jornada fue intensa!";
+message=
+"Algunas decisiones hicieron que perdieras tiempo. ¡La próxima jornada puede ser mucho mejor!";
+}
+document.getElementById("clock").textContent=
+"🏁 Jornada terminada";
+document.getElementById("characterName").textContent=
+"¡Fin de la jornada!";
+document.getElementById("panel").innerHTML=`
+<div class="result">
+<div class="result-icon">
+${icon}
+</div>
+<h2>
+${title}
+</h2>
+<p>
+${message}
+</p>
+<p>
+<strong>Puntuación:</strong> ${points} puntos
+</p>
+<p>
+<strong>Productividad final:</strong> ${productivity}%
+</p>
+<p>
+☕ Has terminado tu jornada laboral.
+</p>
+<button class="restart" onclick="restart()">
+🔄 VOLVER A JUGAR
+</button>
+</div>
+`;
+}
+/* =====================================================
+   REINICIAR
+===================================================== */
+function restart(){
+current=0;
+points=0;
+productivity=100;
+totalMinutes=0;
+document.getElementById("points").textContent="⭐ 0";
+document.getElementById("productivity").textContent=
+"📈 Productividad: 100%";
+showEvent();
+}
 </script>
-
 </body>
 </html>
