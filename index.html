@@ -3,234 +3,503 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>⏰ Reto: Gestiona tu tiempo</title>
+<title>⏰ Misión: Domina tu Tiempo</title>
 <style>
-  *{box-sizing:border-box}
-  body{
-    margin:0;font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(135deg,#eef6ff,#ffffff);
-    color:#12264a;min-height:100vh;
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#071a33,#0b3d62,#126e82);
+  color:white;
+  min-height:100vh;
+}
+.container{
+  width:95%;
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
+.screen{
+  display:none;
+}
+.screen.active{
+  display:block;
+}
+.card{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:22px;
+  padding:25px;
+  margin:15px 0;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  backdrop-filter:blur(8px);
+}
+h1{
+  text-align:center;
+  font-size:clamp(30px,7vw,58px);
+  margin:20px 0 10px;
+}
+h2{
+  text-align:center;
+}
+.subtitle{
+  text-align:center;
+  font-size:18px;
+  opacity:.9;
+}
+button{
+  border:none;
+  border-radius:14px;
+  padding:15px 22px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  margin:6px;
+  transition:.2s;
+}
+button:hover{
+  transform:scale(1.04);
+}
+.primary{
+  background:#22c7e8;
+  color:#062033;
+}
+.secondary{
+  background:#ffffff;
+  color:#07304c;
+}
+.danger{
+  background:#ff5b67;
+  color:white;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:15px;
+}
+.stat{
+  background:rgba(0,0,0,.25);
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
+}
+.stat strong{
+  display:block;
+  font-size:25px;
+  margin-top:5px;
+}
+.progress{
+  height:15px;
+  background:rgba(255,255,255,.2);
+  border-radius:20px;
+  overflow:hidden;
+  margin:10px 0 20px;
+}
+.progressBar{
+  height:100%;
+  width:100%;
+  background:#39e58c;
+  transition:.3s;
+}
+.task{
+  background:white;
+  color:#102a43;
+  border-radius:18px;
+  padding:18px;
+  margin:12px 0;
+  cursor:pointer;
+  transition:.2s;
+}
+.task:hover{
+  transform:translateY(-3px);
+}
+.task h3{
+  margin:0 0 8px;
+}
+.task p{
+  margin:6px 0;
+}
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+  margin:3px;
+}
+.important{
+  background:#ffe08a;
+}
+.urgent{
+  background:#ff9b9b;
+}
+.normal{
+  background:#b8f0d0;
+}
+.choiceButtons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+}
+.choiceButtons button{
+  flex:1;
+  min-width:150px;
+}
+.feedback{
+  text-align:center;
+  font-size:19px;
+  font-weight:bold;
+  min-height:30px;
+}
+.finalScore{
+  text-align:center;
+  font-size:55px;
+  font-weight:bold;
+}
+.center{
+  text-align:center;
+}
+.small{
+  opacity:.75;
+  font-size:14px;
+}
+@media(max-width:600px){
+  .stats{
+    grid-template-columns:1fr;
   }
-  .wrap{max-width:980px;margin:auto;padding:24px}
-  .card{
-    background:white;border-radius:24px;padding:28px;
-    box-shadow:0 12px 35px rgba(18,38,74,.12);
-    border:1px solid #dbe8f8;
+  .choiceButtons{
+    flex-direction:column;
   }
-  .hidden{display:none!important}
-  .hero{text-align:center;padding:35px 20px}
-  .emoji{font-size:64px}
-  h1{font-size:42px;margin:10px 0 8px}
-  h2{font-size:28px;margin:8px 0 18px}
-  p{font-size:18px;line-height:1.55}
-  .subtitle{color:#3568a8}
   button{
-    border:0;border-radius:14px;padding:14px 20px;font-size:17px;
-    font-weight:700;cursor:pointer;transition:.18s;
+    width:100%;
+    margin:5px 0;
   }
-  button:hover{transform:translateY(-2px);filter:brightness(.98)}
-  .primary{background:#165dcc;color:white}
-  .option{
-    width:100%;text-align:left;margin:10px 0;background:#f5f8fc;
-    border:2px solid #dce7f5;color:#17335f;
+  .card{
+    padding:18px;
   }
-  .option:hover{border-color:#6b9fe5;background:#edf5ff}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
-  .tag{padding:16px;border-radius:16px;font-weight:800;text-align:center}
-  .do{background:#ffe5e5;color:#b32626}
-  .plan{background:#e4f6e9;color:#20733a}
-  .delegate{background:#fff1d9;color:#9a5b00}
-  .delete{background:#eee7ff;color:#6840a8}
-  .top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
-  .score{font-size:18px;font-weight:800}
-  .progress{height:10px;background:#e7edf6;border-radius:99px;overflow:hidden;margin:12px 0 24px}
-  .bar{height:100%;background:#165dcc;width:0%;transition:.3s}
-  .feedback{padding:18px;border-radius:16px;margin-top:18px;font-size:17px;line-height:1.45}
-  .correct{background:#e8f7ed;border:1px solid #a9dfbb;color:#176b32}
-  .wrong{background:#fff0f0;border:1px solid #efb1b1;color:#8b2525}
-  .matrix{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
-  .matrix div{padding:15px;border-radius:14px;text-align:center;font-weight:800}
-  .small{font-size:14px;color:#55708f}
-  .final{text-align:center}
-  .bigscore{font-size:52px;font-weight:900;color:#165dcc}
-  @media(max-width:650px){
-    h1{font-size:32px}.grid,.matrix{grid-template-columns:1fr}.wrap{padding:12px}
-  }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-
-  <section id="start" class="card hero">
-    <div class="emoji">⏰🎯</div>
-    <h1>Reto: Gestiona tu tiempo</h1>
-    <p class="subtitle">Juego interactivo sobre la Matriz de Eisenhower</p>
-    <p>Lee cada situación y decide qué harías con esa tarea: <b>hacer, programar, delegar o eliminar.</b></p>
-    <div class="grid">
-      <div class="tag do">🔴 HACER</div>
-      <div class="tag plan">🟢 PROGRAMAR</div>
-      <div class="tag delegate">🟡 DELEGAR</div>
-      <div class="tag delete">🟣 ELIMINAR</div>
-    </div>
-    <br>
-    <button class="primary" onclick="startGame()">▶️ COMENZAR JUEGO</button>
-  </section>
-
-  <section id="game" class="card hidden">
-    <div class="top">
-      <div><b id="qnum">Pregunta 1 de 8</b></div>
-      <div class="score">🏆 <span id="score">0</span> puntos</div>
-    </div>
-    <div class="progress"><div class="bar" id="bar"></div></div>
-    <h2 id="question"></h2>
-    <p id="context" class="subtitle"></p>
-    <div id="options"></div>
-    <div id="feedback" class="feedback hidden"></div>
-    <br>
-    <button id="next" class="primary hidden" onclick="nextQuestion()">Siguiente ➜</button>
-  </section>
-
-  <section id="result" class="card final hidden">
-    <div class="emoji">🏆</div>
-    <h1>¡Reto terminado!</h1>
-    <div class="bigscore"><span id="finalScore">0</span>/80</div>
-    <p id="resultText"></p>
-    <div class="matrix">
-      <div class="do">🔴 HACER<br><span class="small">Urgente + importante</span></div>
-      <div class="plan">🟢 PROGRAMAR<br><span class="small">Importante + no urgente</span></div>
-      <div class="delegate">🟡 DELEGAR<br><span class="small">Urgente + no importante</span></div>
-      <div class="delete">🟣 ELIMINAR<br><span class="small">No urgente + no importante</span></div>
-    </div>
-    <button class="primary" onclick="restart()">🔄 JUGAR DE NUEVO</button>
-  </section>
+<div class="container">
+<!-- INICIO -->
+<section id="start" class="screen active">
+<div class="card">
+<h1>⏰</h1>
+<h1>Misión: Domina tu Tiempo</h1>
+<p class="subtitle">
+¿Puedes organizar un día de trabajo sin perder el control?
+</p>
+<br>
+<h2>🎯 Tu misión</h2>
+<p>
+Tienes <strong>12 tareas</strong> y un tiempo limitado.
+Deberás decidir qué hacer primero utilizando la
+<strong>Matriz de Eisenhower</strong>.
+</p>
+<p>
+🚨 Urgente + importante → hazlo primero<br>
+⭐ Importante + no urgente → planifícalo<br>
+⚡ Urgente + no importante → delega<br>
+🗑️ Ni urgente ni importante → elimínalo
+</p>
+<div class="center">
+<button class="primary" onclick="startGame()">
+🚀 COMENZAR MISIÓN
+</button>
 </div>
-
+</div>
+</section>
+<!-- JUEGO -->
+<section id="game" class="screen">
+<div class="stats">
+<div class="stat">
+⏱️ Tiempo
+<strong id="time">90</strong>
+</div>
+<div class="stat">
+❤️ Energía
+<strong id="energy">100</strong>
+</div>
+<div class="stat">
+⭐ Puntos
+<strong id="score">0</strong>
+</div>
+</div>
+<div class="progress">
+<div id="energyBar" class="progressBar"></div>
+</div>
+<div class="card">
+<h2 id="taskCounter">Tarea 1 de 12</h2>
+<div id="taskArea"></div>
+<div class="choiceButtons">
+<button class="primary" onclick="choose('do')">
+✅ Hacer ahora
+</button>
+<button class="secondary" onclick="choose('plan')">
+📅 Planificar
+</button>
+<button class="secondary" onclick="choose('delegate')">
+🤝 Delegar
+</button>
+<button class="danger" onclick="choose('delete')">
+🗑️ Eliminar
+</button>
+</div>
+<p id="feedback" class="feedback"></p>
+</div>
+</section>
+<!-- FINAL -->
+<section id="final" class="screen">
+<div class="card center">
+<h1>🏆</h1>
+<h2>¡Misión terminada!</h2>
+<p>Tu puntuación final fue:</p>
+<div id="finalScore" class="finalScore">0</div>
+<h2 id="finalTitle"></h2>
+<p id="finalMessage"></p>
+<hr>
+<p>
+📊 <strong>Recuerda:</strong><br>
+Gestionar el tiempo no significa hacer todo.
+Significa saber <strong>qué hacer primero</strong>.
+</p>
+<button class="primary" onclick="restartGame()">
+🔄 Jugar nuevamente
+</button>
+</div>
+</section>
+</div>
 <script>
-const questions = [
-  {
-    q:"Tu jefe necesita un informe que debe entregarse en 30 minutos.",
-    c:"La entrega es inmediata y el informe es necesario para una reunión.",
-    a:"hacer",
-    why:"Es urgente porque debe entregarse ya e importante porque afecta una actividad de la empresa."
-  },
-  {
-    q:"Debes preparar un proyecto que se presentará dentro de un mes.",
-    c:"El proyecto es importante, pero todavía tienes tiempo para organizarlo.",
-    a:"programar",
-    why:"Es importante, pero no es urgente. Lo mejor es ponerlo en el calendario y avanzar poco a poco."
-  },
-  {
-    q:"Hay que organizar 200 documentos y otra persona del equipo puede hacerlo.",
-    c:"Mientras tanto, tú tienes una tarea importante que requiere tu atención.",
-    a:"delegar",
-    why:"Si otra persona puede realizarlo y no requiere que tú lo hagas, puedes delegarlo."
-  },
-  {
-    q:"Un compañero te envía un mensaje con un meme durante la jornada laboral.",
-    c:"No tiene relación con el trabajo ni con tus objetivos.",
-    a:"eliminar",
-    why:"No es urgente ni importante para el trabajo, así que no necesitas dedicarle tiempo."
-  },
-  {
-    q:"Un cliente importante está esperando una respuesta hoy por un problema con su pedido.",
-    c:"La respuesta debe darse pronto para evitar una mala experiencia del cliente.",
-    a:"hacer",
-    why:"Es urgente e importante porque afecta directamente al cliente y al funcionamiento de la empresa."
-  },
-  {
-    q:"Quieres organizar una capacitación para tu equipo dentro de tres semanas.",
-    c:"Es útil para el equipo, pero no necesita hacerse hoy.",
-    a:"programar",
-    why:"Es importante para mejorar el trabajo, pero no es urgente. Debes planificarla."
-  },
-  {
-    q:"Necesitas sacar unas copias sencillas y un compañero puede encargarse mientras tú haces un informe urgente.",
-    c:"La tarea es necesaria, pero otra persona puede realizarla.",
-    a:"delegar",
-    why:"Es una tarea que puede realizar otra persona mientras tú atiendes algo más prioritario."
-  },
-  {
-    q:"Pasas 20 minutos revisando una página que no tiene ninguna relación con tus tareas.",
-    c:"No aporta a tus objetivos y tampoco es necesaria.",
-    a:"eliminar",
-    why:"No es urgente ni importante para el trabajo, por lo que es mejor eliminar esa distracción."
-  }
+const tasks = [
+{
+title:"🚨 Informe para entregar en 20 minutos",
+description:"Tu jefe necesita el informe inmediatamente y es fundamental para una reunión.",
+type:"do",
+tags:["URGENTE","IMPORTANTE"],
+time:8,
+energy:12
+},
+{
+title:"📅 Preparar presentación de la próxima semana",
+description:"Es importante, pero todavía tienes varios días para prepararla.",
+type:"plan",
+tags:["IMPORTANTE","NO URGENTE"],
+time:5,
+energy:7
+},
+{
+title:"📞 Llamada que puede realizar un compañero",
+description:"Es urgente responder, pero otra persona del equipo puede encargarse.",
+type:"delegate",
+tags:["URGENTE","NO IMPORTANTE"],
+time:4,
+energy:5
+},
+{
+title:"😂 Ver videos durante el trabajo",
+description:"No aporta nada a tus objetivos y no existe ninguna urgencia.",
+type:"delete",
+tags:["NO URGENTE","NO IMPORTANTE"],
+time:2,
+energy:3
+},
+{
+title:"🚨 Cliente esperando respuesta",
+description:"El cliente está esperando y la respuesta afecta directamente al negocio.",
+type:"do",
+tags:["URGENTE","IMPORTANTE"],
+time:7,
+energy:10
+},
+{
+title:"📚 Capacitación profesional",
+description:"Te ayudará mucho a futuro, pero no necesitas hacerla hoy.",
+type:"plan",
+tags:["IMPORTANTE","NO URGENTE"],
+time:5,
+energy:6
+},
+{
+title:"📦 Organizar archivos antiguos",
+description:"Alguien del equipo puede encargarse de ordenar estos archivos.",
+type:"delegate",
+tags:["URGENTE","NO IMPORTANTE"],
+time:4,
+energy:5
+},
+{
+title:"🛍️ Comprar algo que no necesitas",
+description:"No es importante para tu trabajo y puede esperar indefinidamente.",
+type:"delete",
+tags:["NO URGENTE","NO IMPORTANTE"],
+time:2,
+energy:3
+},
+{
+title:"🚨 Error grave en un documento",
+description:"El documento se enviará en pocos minutos y contiene un error importante.",
+type:"do",
+tags:["URGENTE","IMPORTANTE"],
+time:8,
+energy:12
+},
+{
+title:"🎯 Definir tus objetivos del próximo mes",
+description:"Es importante para tu organización, pero puedes programarlo.",
+type:"plan",
+tags:["IMPORTANTE","NO URGENTE"],
+time:5,
+energy:6
+},
+{
+title:"📧 Responder mensajes que puede contestar tu compañero",
+description:"Son mensajes sencillos y otra persona tiene autorización para responderlos.",
+type:"delegate",
+tags:["URGENTE","NO IMPORTANTE"],
+time:4,
+energy:5
+},
+{
+title:"🎮 Jugar durante la jornada laboral",
+description:"No tiene relación con tus objetivos ni con tus responsabilidades.",
+type:"delete",
+tags:["NO URGENTE","NO IMPORTANTE"],
+time:2,
+energy:3
+}
 ];
-
-const labels = {
-  hacer:"🔴 HACER",
-  programar:"🟢 PROGRAMAR",
-  delegar:"🟡 DELEGAR",
-  eliminar:"🟣 ELIMINAR"
-};
-
-let current=0, score=0, answered=false;
-
+let current=0;
+let score=0;
+let energy=100;
+let time=90;
+let timer;
+function showScreen(id){
+document.querySelectorAll(".screen")
+.forEach(s=>s.classList.remove("active"));
+document.getElementById(id)
+.classList.add("active");
+}
 function startGame(){
-  current=0; score=0; answered=false;
-  document.getElementById("start").classList.add("hidden");
-  document.getElementById("result").classList.add("hidden");
-  document.getElementById("game").classList.remove("hidden");
-  renderQuestion();
+current=0;
+score=0;
+energy=100;
+time=90;
+showScreen("game");
+updateStats();
+showTask();
+clearInterval(timer);
+timer=setInterval(()=>{
+time--;
+updateStats();
+if(time<=0){
+finishGame();
 }
-function renderQuestion(){
-  answered=false;
-  const item=questions[current];
-  document.getElementById("qnum").textContent=`Pregunta ${current+1} de ${questions.length}`;
-  document.getElementById("score").textContent=score;
-  document.getElementById("bar").style.width=((current)/questions.length*100)+"%";
-  document.getElementById("question").textContent=item.q;
-  document.getElementById("context").textContent=item.c;
-  document.getElementById("feedback").className="feedback hidden";
-  document.getElementById("next").classList.add("hidden");
-
-  const box=document.getElementById("options");
-  box.innerHTML="";
-  Object.keys(labels).forEach(key=>{
-    const b=document.createElement("button");
-    b.className="option";
-    b.textContent=labels[key];
-    b.onclick=()=>answer(key,b);
-    box.appendChild(b);
-  });
+},1000);
 }
-function answer(choice, button){
-  if(answered)return;
-  answered=true;
-  const item=questions[current];
-  const ok=choice===item.a;
-  if(ok)score+=10;
-  document.querySelectorAll(".option").forEach(b=>b.disabled=true);
-  button.style.borderColor=ok?"#38a169":"#d9534f";
-  button.style.background=ok?"#eaf8ef":"#fff0f0";
-
-  const fb=document.getElementById("feedback");
-  fb.className="feedback "+(ok?"correct":"wrong");
-  fb.innerHTML=(ok?"✅ <b>¡Correcto!</b>":"❌ <b>No exactamente.</b>")+
-    `<br>${item.why}<br><br><b>Respuesta:</b> ${labels[item.a]}`;
-  document.getElementById("score").textContent=score;
-  document.getElementById("next").classList.remove("hidden");
+function showTask(){
+if(current>=tasks.length){
+finishGame();
+return;
 }
-function nextQuestion(){
-  current++;
-  if(current>=questions.length)showResult();
-  else renderQuestion();
+const t=tasks[current];
+document.getElementById("taskCounter").textContent=
+`Tarea ${current+1} de ${tasks.length}`;
+document.getElementById("taskArea").innerHTML=`
+<div class="task">
+<h3>${t.title}</h3>
+<p>${t.description}</p>
+<div>
+${t.tags.map(tag=>`
+<span class="badge ${
+tag.includes("URGENTE") ? "urgent" :
+tag.includes("IMPORTANTE") ? "important" :
+"normal"
+}">
+${tag}
+</span>
+`).join("")}
+</div>
+<p class="small">
+⏱️ Consume aproximadamente ${t.time} segundos de tu jornada
+</p>
+</div>
+`;
+document.getElementById("feedback").textContent="";
 }
-function showResult(){
-  document.getElementById("game").classList.add("hidden");
-  document.getElementById("result").classList.remove("hidden");
-  document.getElementById("finalScore").textContent=score;
-  let text="";
-  if(score===80) text="🌟 ¡Excelente! Dominas la Matriz de Eisenhower.";
-  else if(score>=60) text="👏 ¡Muy bien! Tienes una buena idea de cómo priorizar tareas.";
-  else if(score>=40) text="💪 ¡Buen trabajo! Con un poco más de práctica podrás priorizar mejor.";
-  else text="📚 ¡A practicar! Revisa los cuatro cuadrantes y vuelve a intentarlo.";
-  document.getElementById("resultText").textContent=text;
+function choose(action){
+const t=tasks[current];
+let points=0;
+if(action===t.type){
+points=100;
+score+=points;
+document.getElementById("feedback").textContent=
+"🎯 ¡Excelente decisión! Aplicaste correctamente la Matriz de Eisenhower.";
+}else{
+points=-50;
+score=Math.max(0,score+points);
+energy-=15;
+document.getElementById("feedback").textContent=
+"⚠️ Mala decisión. Revisa qué tan urgente e importante era la tarea.";
 }
-function restart(){
-  document.getElementById("result").classList.add("hidden");
-  document.getElementById("game").classList.remove("hidden");
-  startGame();
+energy-=t.energy/3;
+time-=t.time;
+if(energy<0) energy=0;
+if(time<0) time=0;
+updateStats();
+current++;
+setTimeout(showTask,800);
+if(energy<=0 || time<=0){
+setTimeout(finishGame,900);
+}
+}
+function updateStats(){
+document.getElementById("time").textContent=
+Math.max(0,Math.floor(time));
+document.getElementById("energy").textContent=
+Math.max(0,Math.floor(energy));
+document.getElementById("score").textContent=
+score;
+document.getElementById("energyBar").style.width=
+Math.max(0,energy)+"%";
+if(energy<30){
+document.getElementById("energyBar").style.background=
+"#ff5b67";
+}
+}
+function finishGame(){
+clearInterval(timer);
+showScreen("final");
+document.getElementById("finalScore").textContent=
+score;
+let title="";
+let message="";
+if(score>=1000){
+title="🏆 ¡MAESTRO DE LA GESTIÓN DEL TIEMPO!";
+message=
+"Excelente. Sabes distinguir lo urgente de lo importante y tomar decisiones estratégicas.";
+}else if(score>=700){
+title="🥇 ¡MUY BUEN GESTOR!";
+message=
+"Organizaste la mayoría de tus prioridades correctamente. ¡Vas por muy buen camino!";
+}else if(score>=400){
+title="🥈 BUEN INTENTO";
+message=
+"Con un poco más de práctica puedes mejorar tus prioridades y aprovechar mejor tu tiempo.";
+}else{
+title="😵 ¡EL TIEMPO TE GANÓ!";
+message=
+"Necesitas practicar la Matriz de Eisenhower. Recuerda: no todo lo urgente es importante.";
+}
+document.getElementById("finalTitle").textContent=title;
+document.getElementById("finalMessage").textContent=message;
+}
+function restartGame(){
+startGame();
 }
 </script>
 </body>
