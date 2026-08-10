@@ -32,8 +32,6 @@ body{
   box-shadow:0 20px 60px rgba(50,100,110,.18);
 }
 
-/* HEADER */
-
 header{
   min-height:90px;
   padding:18px 25px;
@@ -74,8 +72,6 @@ header{
   font-size:25px;
 }
 
-/* PANTALLAS */
-
 .screen{
   display:none;
   min-height:610px;
@@ -106,8 +102,6 @@ p{
   line-height:1.5;
 }
 
-/* BOTÓN */
-
 .btn{
   border:0;
   padding:16px 30px;
@@ -125,9 +119,7 @@ p{
   transform:translateY(-3px);
 }
 
-/* =========================
-   PERSONAJE
-========================= */
+/* PERSONAJE */
 
 .avatar{
   width:210px;
@@ -138,15 +130,8 @@ p{
 }
 
 @keyframes float{
-
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-8px);
-  }
-
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
 }
 
 .leg{
@@ -159,13 +144,8 @@ p{
   z-index:1;
 }
 
-.leg.left{
-  left:76px;
-}
-
-.leg.right{
-  right:76px;
-}
+.leg.left{left:76px}
+.leg.right{right:76px}
 
 .shoe{
   position:absolute;
@@ -177,13 +157,8 @@ p{
   z-index:2;
 }
 
-.shoe.left{
-  left:57px;
-}
-
-.shoe.right{
-  right:57px;
-}
+.shoe.left{left:57px}
+.shoe.right{right:57px}
 
 .torso{
   position:absolute;
@@ -324,13 +299,8 @@ p{
   z-index:10;
 }
 
-.eye.left{
-  left:75px;
-}
-
-.eye.right{
-  right:75px;
-}
+.eye.left{left:75px}
+.eye.right{right:75px}
 
 .brow{
   position:absolute;
@@ -372,17 +342,10 @@ p{
   z-index:10;
 }
 
-.blush.left{
-  left:61px;
-}
+.blush.left{left:61px}
+.blush.right{right:61px}
 
-.blush.right{
-  right:61px;
-}
-
-/* =========================
-   INICIO
-========================= */
+/* INICIO */
 
 .hero{
   background:linear-gradient(145deg,#f1fcf8,#eff7ff);
@@ -396,9 +359,7 @@ p{
   font-size:17px;
 }
 
-/* =========================
-   MATRIZ
-========================= */
+/* MATRIZ */
 
 .matrix{
   display:grid;
@@ -447,9 +408,7 @@ p{
   max-width:700px;
 }
 
-/* =========================
-   JUEGO
-========================= */
+/* JUEGO */
 
 .topbar{
   display:flex;
@@ -566,9 +525,7 @@ p{
   z-index:4;
 }
 
-/* =========================
-   RESPUESTAS
-========================= */
+/* TARJETA */
 
 .situation-card{
   background:white;
@@ -617,7 +574,7 @@ p{
 }
 
 /* =========================
-   FEEDBACK GRANDE
+   RESULTADO GRANDE
 ========================= */
 
 .feedback-overlay{
@@ -672,6 +629,31 @@ p{
 
 .feedback-box.incorrect{
   border-top:12px solid #398fd0;
+  animation:shake .45s ease;
+}
+
+@keyframes shake{
+
+  0%,100%{
+    transform:translateX(0) scale(1);
+  }
+
+  20%{
+    transform:translateX(-10px) scale(1.02);
+  }
+
+  40%{
+    transform:translateX(10px) scale(1.02);
+  }
+
+  60%{
+    transform:translateX(-7px) scale(1.01);
+  }
+
+  80%{
+    transform:translateX(7px) scale(1.01);
+  }
+
 }
 
 .feedback-title{
@@ -699,9 +681,7 @@ p{
   margin-top:15px;
 }
 
-/* =========================
-   FINAL
-========================= */
+/* FINAL */
 
 .final-card{
   max-width:600px;
@@ -802,9 +782,7 @@ p{
 </header>
 
 
-<!-- =========================
-     INICIO
-========================= -->
+<!-- INICIO -->
 
 <section class="screen active" id="inicio">
 
@@ -815,29 +793,21 @@ p{
       <div class="hair-main"></div>
       <div class="hair-side"></div>
       <div class="fringe"></div>
-
       <div class="neck"></div>
 
       <div class="face">
-
         <div class="brow left"></div>
         <div class="brow right"></div>
-
         <div class="eye left"></div>
         <div class="eye right"></div>
-
         <div class="blush left"></div>
         <div class="blush right"></div>
-
         <div class="mouth"></div>
-
       </div>
 
       <div class="torso">
-
         <div class="shirt-detail"></div>
         <div class="badge"></div>
-
       </div>
 
       <div class="arm left"></div>
@@ -854,11 +824,7 @@ p{
 
     </div>
 
-
-    <h1>
-      ¡Bienvenida a TIME QUEST!
-    </h1>
-
+    <h1>¡Bienvenida a TIME QUEST!</h1>
 
     <p class="intro">
       Hoy tendrás que tomar decisiones en diferentes
@@ -866,13 +832,8 @@ p{
       distinguir lo urgente de lo importante.
     </p>
 
-
-    <button
-      class="btn"
-      onclick="mostrarMatriz()">
-
+    <button class="btn" onclick="mostrarMatriz()">
       COMENZAR MISIÓN
-
     </button>
 
   </div>
@@ -880,17 +841,13 @@ p{
 </section>
 
 
-<!-- =========================
-     MATRIZ
-========================= -->
+<!-- MATRIZ -->
 
 <section class="screen" id="matriz">
 
   <div class="center">
 
-    <h1>
-      La Matriz de Eisenhower
-    </h1>
+    <h1>La Matriz de Eisenhower</h1>
 
     <p>
       Antes de empezar, recuerda estas cuatro opciones:
@@ -898,75 +855,51 @@ p{
 
   </div>
 
-
   <div class="matrix">
 
     <div class="matrix-box m1">
-
       <h3>🔥 HACER</h3>
-
       <p>
         Urgente + importante.
         Debes actuar inmediatamente.
       </p>
-
     </div>
 
-
     <div class="matrix-box m2">
-
       <h3>📅 PLANIFICAR</h3>
-
       <p>
         Importante pero no urgente.
         Organízalo para después.
       </p>
-
     </div>
 
-
     <div class="matrix-box m3">
-
       <h3>👥 DELEGAR</h3>
-
       <p>
         Urgente pero no necesariamente importante.
         Otra persona puede hacerlo.
       </p>
-
     </div>
 
-
     <div class="matrix-box m4">
-
       <h3>🗑️ ELIMINAR</h3>
-
       <p>
         No urgente y no importante.
         Evita gastar tiempo en ello.
       </p>
-
     </div>
 
   </div>
 
-
   <div class="tip center">
-
     💡 <b>Consejo:</b>
     no respondas rápido. Analiza primero la situación.
-
   </div>
-
 
   <div class="center">
 
-    <button
-      class="btn"
-      onclick="comenzar()">
-
+    <button class="btn" onclick="comenzar()">
       ¡LISTA! 🎯
-
     </button>
 
   </div>
@@ -974,9 +907,7 @@ p{
 </section>
 
 
-<!-- =========================
-     JUEGO
-========================= -->
+<!-- JUEGO -->
 
 <section class="screen" id="juego">
 
@@ -991,7 +922,6 @@ p{
     </span>
 
   </div>
-
 
   <div class="progress">
 
@@ -1011,38 +941,27 @@ p{
 
     <div class="laptop"></div>
 
-
     <div class="avatar game-avatar">
 
       <div class="hair-main"></div>
       <div class="hair-side"></div>
       <div class="fringe"></div>
-
       <div class="neck"></div>
 
       <div class="face">
-
         <div class="brow left"></div>
         <div class="brow right"></div>
-
         <div class="eye left"></div>
         <div class="eye right"></div>
-
         <div class="blush left"></div>
         <div class="blush right"></div>
-
         <div class="mouth"></div>
-
       </div>
-
 
       <div class="torso">
-
         <div class="shirt-detail"></div>
         <div class="badge"></div>
-
       </div>
-
 
       <div class="arm left"></div>
       <div class="arm right"></div>
@@ -1075,12 +994,10 @@ p{
 
     </div>
 
-
     <div
       class="situation"
       id="situacion">
     </div>
-
 
     <div class="center">
 
@@ -1091,7 +1008,6 @@ p{
     </div>
 
     <br>
-
 
     <div class="answers">
 
@@ -1105,7 +1021,6 @@ p{
 
       </button>
 
-
       <button
         class="answer"
         onclick="responder('planificar')">
@@ -1116,7 +1031,6 @@ p{
 
       </button>
 
-
       <button
         class="answer"
         onclick="responder('delegar')">
@@ -1126,7 +1040,6 @@ p{
         Pedir ayuda a otra persona.
 
       </button>
-
 
       <button
         class="answer"
@@ -1145,9 +1058,7 @@ p{
 </section>
 
 
-<!-- =========================
-     RESULTADO GRANDE
-========================= -->
+<!-- RESULTADO GRANDE -->
 
 <div
   class="feedback-overlay"
@@ -1163,31 +1074,22 @@ p{
       ✔️
     </div>
 
-
     <div
       class="feedback-title"
       id="feedbackTitle">
-
       ¡ACERTASTE!
-
     </div>
-
 
     <div
       class="feedback-text"
       id="feedbackText">
-
       ¡Excelente decisión!
-
     </div>
-
 
     <div
       class="feedback-celebration"
       id="feedbackCelebration">
-
       🎉👏🎉👏🎉
-
     </div>
 
   </div>
@@ -1195,9 +1097,7 @@ p{
 </div>
 
 
-<!-- =========================
-     FINAL
-========================= -->
+<!-- FINAL -->
 
 <section class="screen" id="final">
 
@@ -1208,32 +1108,22 @@ p{
       <div class="hair-main"></div>
       <div class="hair-side"></div>
       <div class="fringe"></div>
-
       <div class="neck"></div>
 
       <div class="face">
-
         <div class="brow left"></div>
         <div class="brow right"></div>
-
         <div class="eye left"></div>
         <div class="eye right"></div>
-
         <div class="blush left"></div>
         <div class="blush right"></div>
-
         <div class="mouth"></div>
-
       </div>
-
 
       <div class="torso">
-
         <div class="shirt-detail"></div>
         <div class="badge"></div>
-
       </div>
-
 
       <div class="arm left"></div>
       <div class="arm right"></div>
@@ -1249,18 +1139,15 @@ p{
 
     </div>
 
-
     <h1>
       ¡MISIÓN COMPLETADA!
     </h1>
-
 
     <div
       class="stars"
       id="stars">
       ⭐⭐⭐⭐⭐
     </div>
-
 
     <div class="final-score">
 
@@ -1270,19 +1157,15 @@ p{
 
     </div>
 
-
     <h2 id="mensaje">
       ¡Excelente!
     </h2>
-
 
     <p id="consejo">
       Has terminado el reto.
     </p>
 
-
     <br>
-
 
     <button
       class="btn"
@@ -1309,114 +1192,66 @@ const preguntas=[
 
 {
 titulo:"El informe para el jefe",
-
 contexto:"Son las 4:30 de la tarde.",
-
-situacion:
-"Tu jefe necesita un informe importante en 30 minutos y todavía falta terminar una parte fundamental.",
-
+situacion:"Tu jefe necesita un informe importante en 30 minutos y todavía falta terminar una parte fundamental.",
 correcta:"hacer",
-
-explicacion:
-"Es urgente e importante porque debe entregarse pronto y afecta directamente al trabajo."
+explicacion:"Es urgente e importante porque debe entregarse pronto y afecta directamente al trabajo."
 },
 
 {
 titulo:"La capacitación del próximo mes",
-
 contexto:"Estás organizando las actividades del equipo.",
-
-situacion:
-"Debes preparar una capacitación que se realizará dentro de tres semanas.",
-
+situacion:"Debes preparar una capacitación que se realizará dentro de tres semanas.",
 correcta:"planificar",
-
-explicacion:
-"Es importante, pero no es urgente. Lo ideal es organizarla con anticipación."
+explicacion:"Es importante, pero no es urgente. Lo ideal es organizarla con anticipación."
 },
 
 {
 titulo:"Una tarea repetitiva",
-
 contexto:"Tienes un proyecto importante que terminar.",
-
-situacion:
-"Una compañera tiene tiempo disponible y sabe realizar perfectamente una tarea administrativa repetitiva.",
-
+situacion:"Una compañera tiene tiempo disponible y sabe realizar perfectamente una tarea administrativa repetitiva.",
 correcta:"delegar",
-
-explicacion:
-"Delegar permite que otra persona haga la tarea mientras tú te concentras en actividades más importantes."
+explicacion:"Delegar permite que otra persona haga la tarea mientras tú te concentras en actividades más importantes."
 },
 
 {
 titulo:"Una distracción",
-
 contexto:"Estás preparando una exposición.",
-
-situacion:
-"Empiezas a mirar videos y redes sociales que no tienen ninguna relación con la exposición.",
-
+situacion:"Empiezas a mirar videos y redes sociales que no tienen ninguna relación con la exposición.",
 correcta:"eliminar",
-
-explicacion:
-"No es importante ni urgente. Es una distracción que puede quitarte mucho tiempo."
+explicacion:"No es importante ni urgente. Es una distracción que puede quitarte mucho tiempo."
 },
 
 {
 titulo:"El cliente esperando",
-
 contexto:"Estás trabajando en varias actividades.",
-
-situacion:
-"Un cliente importante necesita una respuesta para poder continuar con su pedido hoy.",
-
+situacion:"Un cliente importante necesita una respuesta para poder continuar con su pedido hoy.",
 correcta:"hacer",
-
-explicacion:
-"Es urgente e importante porque afecta directamente al cliente."
+explicacion:"Es urgente e importante porque afecta directamente al cliente."
 },
 
 {
 titulo:"Organizar la próxima semana",
-
 contexto:"Es viernes en la tarde.",
-
-situacion:
-"Quieres organizar tus actividades de la próxima semana para evitar trabajar a última hora.",
-
+situacion:"Quieres organizar tus actividades de la próxima semana para evitar trabajar a última hora.",
 correcta:"planificar",
-
-explicacion:
-"No es urgente, pero sí importante. Planificar te ayudará a trabajar mejor."
+explicacion:"No es urgente, pero sí importante. Planificar te ayudará a trabajar mejor."
 },
 
 {
 titulo:"Confirmar un dato",
-
 contexto:"Estás concentrada en una tarea importante.",
-
-situacion:
-"Un compañero puede confirmar rápidamente un dato sencillo que otra persona necesita.",
-
+situacion:"Un compañero puede confirmar rápidamente un dato sencillo que otra persona necesita.",
 correcta:"delegar",
-
-explicacion:
-"Si alguien más puede resolverlo correctamente, puedes delegar y mantener tu concentración."
+explicacion:"Si alguien más puede resolverlo correctamente, puedes delegar y mantener tu concentración."
 },
 
 {
 titulo:"Una hora perdida",
-
 contexto:"Tienes una tarea importante pendiente.",
-
-situacion:
-"Decides pasar una hora viendo contenido que no aporta nada a tu trabajo ni a tus objetivos.",
-
+situacion:"Decides pasar una hora viendo contenido que no aporta nada a tu trabajo ni a tus objetivos.",
 correcta:"eliminar",
-
-explicacion:
-"No es urgente ni importante. Es mejor eliminar esa distracción."
+explicacion:"No es urgente ni importante. Es mejor eliminar esa distracción."
 }
 
 ];
@@ -1429,7 +1264,108 @@ let puntos=0;
 let respondida=false;
 
 
-/* CAMBIAR PANTALLA */
+/* =========================
+   SONIDO DE APLAUSOS
+========================= */
+
+function aplausos(){
+
+  try{
+
+    const AudioContext=
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+    if(!AudioContext){
+      return;
+    }
+
+    const audio=
+      new AudioContext();
+
+    const ahora=
+      audio.currentTime;
+
+
+    /*
+      Creamos varios pequeños
+      sonidos de "palmada"
+      para simular aplausos.
+    */
+
+    for(let i=0;i<8;i++){
+
+      const inicio=
+        ahora + i*0.09;
+
+
+      const oscilador=
+        audio.createOscillator();
+
+
+      const ganancia=
+        audio.createGain();
+
+
+      oscilador.type="square";
+
+
+      oscilador.frequency
+        .setValueAtTime(
+          650 + Math.random()*300,
+          inicio
+        );
+
+
+      ganancia.gain
+        .setValueAtTime(
+          0.0001,
+          inicio
+        );
+
+
+      ganancia.gain
+        .linearRampToValueAtTime(
+          0.16,
+          inicio+0.008
+        );
+
+
+      ganancia.gain
+        .exponentialRampToValueAtTime(
+          0.0001,
+          inicio+0.075
+        );
+
+
+      oscilador.connect(ganancia);
+
+      ganancia.connect(audio.destination);
+
+
+      oscilador.start(inicio);
+
+      oscilador.stop(inicio+0.08);
+
+    }
+
+
+    setTimeout(()=>{
+      audio.close();
+    },1200);
+
+  }catch(error){
+
+    console.log("El sonido no pudo reproducirse.");
+
+  }
+
+}
+
+
+/* =========================
+   CAMBIAR PANTALLA
+========================= */
 
 function pantalla(id){
 
@@ -1476,7 +1412,7 @@ function comenzar(){
 }
 
 
-/* CARGAR PREGUNTA */
+/* CARGAR */
 
 function cargar(){
 
@@ -1555,37 +1491,44 @@ function responder(opcion){
   respondida=true;
 
 
-  const q=preguntas[actual];
+  const q=
+    preguntas[actual];
 
 
   const overlay=
-  document
-  .getElementById("feedbackOverlay");
+    document.getElementById(
+      "feedbackOverlay"
+    );
 
 
   const box=
-  document
-  .getElementById("feedbackBox");
+    document.getElementById(
+      "feedbackBox"
+    );
 
 
   const icon=
-  document
-  .getElementById("feedbackIcon");
+    document.getElementById(
+      "feedbackIcon"
+    );
 
 
   const title=
-  document
-  .getElementById("feedbackTitle");
+    document.getElementById(
+      "feedbackTitle"
+    );
 
 
   const text=
-  document
-  .getElementById("feedbackText");
+    document.getElementById(
+      "feedbackText"
+    );
 
 
   const celebration=
-  document
-  .getElementById("feedbackCelebration");
+    document.getElementById(
+      "feedbackCelebration"
+    );
 
 
   document
@@ -1597,7 +1540,9 @@ function responder(opcion){
   });
 
 
-  /* CORRECTA */
+  /* =====================
+     CORRECTA
+  ===================== */
 
   if(opcion===q.correcta){
 
@@ -1610,49 +1555,59 @@ function responder(opcion){
 
 
     box.className=
-    "feedback-box correct";
+      "feedback-box correct";
 
 
     icon.textContent="✔️";
 
 
     title.textContent=
-    "¡ACERTASTE!";
+      "¡ACERTASTE!";
 
 
     text.textContent=
-    q.explicacion;
+      q.explicacion;
 
 
     celebration.textContent=
-    "🎉👏🎉👏🎉";
+      "🎉👏🎉👏🎉";
+
+
+    /*
+      APLAUDIR
+    */
+
+    aplausos();
 
   }
 
 
-  /* INCORRECTA */
+  /* =====================
+     INCORRECTA
+  ===================== */
 
   else{
 
     box.className=
-    "feedback-box incorrect";
+      "feedback-box incorrect";
 
 
     icon.textContent="❌";
 
 
     title.textContent=
-    "¡CASI!";
+      "¡CASI!";
 
 
     text.textContent=
-    "La respuesta correcta era "+
-    nombre(q.correcta)+
-    ". "+q.explicacion;
+      "La respuesta correcta era "+
+      nombre(q.correcta)+
+      ". "+
+      q.explicacion;
 
 
     celebration.textContent=
-    "💙 ¡SIGUE INTENTANDO! 💙";
+      "💙 ¡SIGUE INTENTANDO! 💙";
 
   }
 
@@ -1661,8 +1616,7 @@ function responder(opcion){
 
 
   /*
-     ESPERA 1.5 SEGUNDOS
-     Y AVANZA SOLO
+    ESPERAR 1.5 SEGUNDOS
   */
 
   setTimeout(()=>{
@@ -1739,13 +1693,13 @@ function terminar(){
     document
     .getElementById("mensaje")
     .textContent=
-    "¡ERES UNA EXPERTA! 🏆";
+      "¡ERES UNA EXPERTA! 🏆";
 
 
     document
     .getElementById("consejo")
     .textContent=
-    "Excelente trabajo. Sabes diferenciar muy bien lo urgente de lo importante.";
+      "Excelente trabajo. Sabes diferenciar muy bien lo urgente de lo importante.";
 
   }
 
@@ -1759,13 +1713,13 @@ function terminar(){
     document
     .getElementById("mensaje")
     .textContent=
-    "¡MUY BUEN TRABAJO! 🌟";
+      "¡MUY BUEN TRABAJO! 🌟";
 
 
     document
     .getElementById("consejo")
     .textContent=
-    "Tienes buenas habilidades para organizar tus prioridades.";
+      "Tienes buenas habilidades para organizar tus prioridades.";
 
   }
 
@@ -1779,13 +1733,13 @@ function terminar(){
     document
     .getElementById("mensaje")
     .textContent=
-    "¡VAS POR BUEN CAMINO! 💪";
+      "¡VAS POR BUEN CAMINO! 💪";
 
 
     document
     .getElementById("consejo")
     .textContent=
-    "Sigue practicando cómo diferenciar lo urgente de lo importante.";
+      "Sigue practicando cómo diferenciar lo urgente de lo importante.";
 
   }
 
@@ -1799,13 +1753,13 @@ function terminar(){
     document
     .getElementById("mensaje")
     .textContent=
-    "¡A SEGUIR PRACTICANDO! 🌱";
+      "¡A SEGUIR PRACTICANDO! 🌱";
 
 
     document
     .getElementById("consejo")
     .textContent=
-    "Antes de actuar, analiza siempre la urgencia y la importancia.";
+      "Antes de actuar, analiza siempre la urgencia y la importancia.";
 
   }
 
