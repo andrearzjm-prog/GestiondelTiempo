@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Time Quest 💚🩷</title>
+<title>Time Quest 💙💜🩷</title>
 
 <style>
 *{
@@ -14,27 +13,27 @@
 }
 
 body{
-  font-family:Arial,sans-serif;
+  font-family:"Trebuchet MS",Arial,sans-serif;
   min-height:100vh;
-  background:linear-gradient(135deg,#e9fff5,#ffe8f1);
-  color:#31535a;
+  background:linear-gradient(135deg,#dff5ff,#eee4ff,#ffe5f0);
+  color:#47516b;
   padding:12px;
 }
 
 .game{
   max-width:1000px;
-  min-height:700px;
   margin:auto;
+  min-height:700px;
   background:white;
-  border-radius:30px;
+  border-radius:32px;
   overflow:hidden;
-  box-shadow:0 20px 60px rgba(70,80,90,.18);
+  box-shadow:0 20px 70px rgba(83,76,120,.2);
 }
 
-/* CABECERA */
+/* ================= HEADER ================= */
 
 header{
-  background:linear-gradient(110deg,#54bd98,#f28ba9);
+  background:linear-gradient(110deg,#69bfe8,#9d83df,#ec8fb3);
   color:white;
   padding:18px 25px;
   display:flex;
@@ -50,14 +49,14 @@ header{
 .logo small{
   display:block;
   font-size:12px;
-  font-weight:normal;
   margin-top:4px;
+  font-weight:normal;
 }
 
 .score{
   background:rgba(255,255,255,.22);
-  border-radius:18px;
   padding:8px 18px;
+  border-radius:18px;
   text-align:center;
 }
 
@@ -70,12 +69,12 @@ header{
   font-size:25px;
 }
 
-/* PANTALLAS */
+/* ================= PANTALLAS ================= */
 
 .screen{
   display:none;
-  padding:30px;
   min-height:610px;
+  padding:30px;
 }
 
 .screen.active{
@@ -87,48 +86,46 @@ header{
 }
 
 h1{
-  color:#365c62;
   font-size:38px;
+  color:#555b83;
   margin-bottom:10px;
 }
 
 h2{
-  color:#41636a;
+  color:#596080;
 }
 
 p{
+  color:#737b8e;
   line-height:1.5;
-  color:#65777b;
 }
 
-/* BOTONES */
+/* ================= BOTONES ================= */
 
 .btn{
   border:none;
   padding:16px 30px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#51b992,#ee8eaa);
+  border-radius:20px;
   color:white;
   font-size:17px;
   font-weight:bold;
   cursor:pointer;
-  box-shadow:0 8px 20px rgba(80,170,140,.25);
+  background:linear-gradient(135deg,#63bfe8,#9b82dc,#ea8faf);
+  box-shadow:0 9px 25px rgba(120,120,200,.25);
   transition:.2s;
 }
 
 .btn:hover{
-  transform:translateY(-3px) scale(1.02);
+  transform:translateY(-3px) scale(1.03);
 }
 
-/* ==============================
-   PERSONAJE CARICATURA
-================================ */
+/* ================= PERSONAJE ================= */
 
 .character{
+  width:220px;
+  height:255px;
   position:relative;
-  width:210px;
-  height:250px;
-  margin:0 auto;
+  margin:auto;
   animation:float 3s ease-in-out infinite;
 }
 
@@ -137,344 +134,446 @@ p{
   50%{transform:translateY(-7px)}
 }
 
+/* cabeza */
+
 .char-head{
   position:absolute;
-  width:105px;
+  width:106px;
   height:100px;
-  left:52px;
-  top:12px;
-  background:#ffd1b7;
-  border:4px solid #3c5960;
+  left:57px;
+  top:15px;
+  background:#ffd0b8;
+  border:4px solid #50576c;
   border-radius:50%;
-  z-index:5;
+  z-index:6;
 }
+
+/* cabello */
 
 .hair{
   position:absolute;
-  width:115px;
-  height:78px;
-  left:47px;
-  top:2px;
-  background:#76556c;
-  border-radius:60px 60px 25px 30px;
-  z-index:7;
-}
-
-.hair:after{
-  content:"";
-  position:absolute;
-  width:28px;
-  height:65px;
-  background:#76556c;
-  left:3px;
-  top:38px;
-  border-radius:20px;
+  width:120px;
+  height:82px;
+  left:50px;
+  top:5px;
+  background:#765fa6;
+  border-radius:65px 65px 28px 30px;
+  z-index:8;
 }
 
 .fringe{
   position:absolute;
-  width:75px;
-  height:34px;
-  left:67px;
-  top:23px;
-  background:#76556c;
+  width:80px;
+  height:38px;
+  left:70px;
+  top:27px;
+  background:#765fa6;
   border-radius:0 0 40px 40px;
-  z-index:8;
+  z-index:9;
 }
+
+/* cara */
 
 .eye{
   position:absolute;
   width:10px;
   height:14px;
-  background:#34464b;
+  background:#40495d;
   border-radius:50%;
-  top:60px;
-  z-index:10;
+  top:61px;
+  z-index:12;
 }
 
-.eye.left{left:74px}
-.eye.right{right:74px}
+.eye.left{left:77px}
+.eye.right{right:77px}
 
 .brow{
   position:absolute;
   width:19px;
-  border-top:3px solid #634b4e;
-  top:51px;
-  z-index:10;
+  border-top:3px solid #624f62;
+  top:52px;
+  z-index:12;
 }
 
 .brow.left{
-  left:68px;
+  left:70px;
   transform:rotate(-8deg);
 }
 
 .brow.right{
-  right:68px;
+  right:70px;
   transform:rotate(8deg);
 }
 
 .blush{
   position:absolute;
-  width:17px;
+  width:18px;
   height:8px;
-  background:#f08fa8;
+  background:#ef8cae;
   opacity:.5;
   border-radius:50%;
-  top:75px;
-  z-index:10;
+  top:76px;
+  z-index:12;
 }
 
-.blush.left{left:60px}
-.blush.right{right:60px}
+.blush.left{left:63px}
+.blush.right{right:63px}
 
 .mouth{
   position:absolute;
   width:28px;
-  height:13px;
-  left:88px;
-  top:78px;
-  border-bottom:4px solid #bd637b;
+  height:14px;
+  left:90px;
+  top:79px;
+  border-bottom:4px solid #c36c84;
   border-radius:0 0 50% 50%;
-  z-index:10;
+  z-index:12;
 }
 
-/* EXPRESIONES */
+/* expresiones */
 
-.character.happy .mouth{
-  height:20px;
+.happy .mouth{
+  height:21px;
 }
 
-.character.sad .mouth{
+.sad .mouth{
   border-bottom:none;
-  border-top:4px solid #bd637b;
-  top:85px;
+  border-top:4px solid #c36c84;
+  top:86px;
 }
 
-.character.surprised .mouth{
+.surprised .mouth{
   width:18px;
-  height:20px;
-  border:4px solid #bd637b;
+  height:21px;
+  border:4px solid #c36c84;
   border-radius:50%;
-  left:96px;
-  top:76px;
+  left:95px;
+  top:77px;
 }
 
-.character.thinking .mouth{
-  width:22px;
+.thinking .mouth{
   border-bottom:0;
-  border-top:3px solid #bd637b;
-  top:82px;
+  border-top:3px solid #c36c84;
+  top:84px;
 }
 
-.character.happy .brow.left{
+.happy .brow.left{
   transform:rotate(8deg);
 }
 
-.character.happy .brow.right{
+.happy .brow.right{
   transform:rotate(-8deg);
 }
 
-/* CUERPO */
+/* cuello */
 
 .neck{
   position:absolute;
   width:28px;
   height:28px;
-  left:91px;
-  top:93px;
-  background:#ffd1b7;
-  z-index:2;
+  left:96px;
+  top:96px;
+  background:#ffd0b8;
+  z-index:3;
 }
+
+/* cuerpo */
 
 .body{
   position:absolute;
-  width:110px;
-  height:105px;
-  left:50px;
-  top:103px;
-  background:#55b996;
-  border:4px solid #3c5960;
+  width:112px;
+  height:108px;
+  left:54px;
+  top:105px;
+  background:#62bde1;
+  border:4px solid #50576c;
   border-radius:40px 40px 22px 22px;
-  z-index:3;
+  z-index:4;
 }
 
 .shirt{
   position:absolute;
-  width:34px;
-  height:34px;
+  width:36px;
+  height:35px;
   left:34px;
-  top:3px;
+  top:4px;
   background:white;
   clip-path:polygon(0 0,100% 0,50% 100%);
 }
 
 .badge{
   position:absolute;
-  width:21px;
-  height:27px;
-  right:16px;
+  width:23px;
+  height:28px;
+  right:15px;
   top:35px;
-  background:#ffe0ea;
-  border:2px solid #df7f9b;
-  border-radius:5px;
+  background:#ffd8e8;
+  border:2px solid #d57d9d;
+  border-radius:6px;
 }
 
-/* BRAZOS */
+/* brazos */
 
 .arm{
   position:absolute;
   width:27px;
-  height:80px;
-  background:#55b996;
-  border:4px solid #3c5960;
+  height:82px;
+  background:#62bde1;
+  border:4px solid #50576c;
   border-radius:20px;
-  top:114px;
-  z-index:2;
+  top:116px;
+  z-index:3;
 }
 
 .arm.left{
-  left:26px;
+  left:30px;
   transform:rotate(20deg);
 }
 
 .arm.right{
-  right:26px;
+  right:30px;
   transform:rotate(-20deg);
 }
 
+/* manos */
+
 .hand{
   position:absolute;
-  width:24px;
-  height:26px;
-  background:#ffd1b7;
-  border:3px solid #3c5960;
+  width:25px;
+  height:27px;
+  background:#ffd0b8;
+  border:3px solid #50576c;
   border-radius:50%;
-  top:180px;
-  z-index:6;
+  top:182px;
+  z-index:8;
 }
 
-.hand.left{left:17px}
-.hand.right{right:17px}
+.hand.left{left:20px}
+.hand.right{right:20px}
 
-/* PIERNAS */
+/* piernas */
 
 .leg{
   position:absolute;
-  width:29px;
-  height:63px;
-  background:#456a7a;
-  top:196px;
+  width:30px;
+  height:65px;
+  background:#6570aa;
+  top:200px;
   border-radius:16px;
   z-index:1;
 }
 
-.leg.left{left:76px}
-.leg.right{right:76px}
+.leg.left{left:80px}
+.leg.right{right:80px}
 
 .shoe{
   position:absolute;
-  width:47px;
+  width:48px;
   height:20px;
-  background:#394d57;
+  background:#4c5369;
   border-radius:20px;
-  top:240px;
+  top:242px;
   z-index:2;
 }
 
-.shoe.left{left:57px}
-.shoe.right{right:57px}
+.shoe.left{left:60px}
+.shoe.right{right:60px}
 
-/* POSES */
+/* ================= VARIACIONES ================= */
 
-.pose-computer .arm.right{
-  transform:rotate(65deg);
+/* PERSONAJE 1 */
+
+.style1 .hair{
+  background:#6f5aa4;
 }
 
-.pose-computer .arm.left{
-  transform:rotate(50deg);
+/* PERSONAJE 2 */
+
+.style2 .hair{
+  background:#e28eae;
+  border-radius:55px 55px 18px 18px;
 }
 
-.pose-thinking .arm.right{
-  transform:rotate(-70deg);
+.style2 .fringe{
+  background:#e28eae;
 }
 
-.pose-thinking .hand.right{
-  top:105px;
-  right:35px;
+.style2 .body{
+  background:#8e82d9;
 }
 
-.pose-paper .arm.left{
-  transform:rotate(-60deg);
+/* PERSONAJE 3 */
+
+.style3 .hair{
+  background:#4f8fc2;
+  border-radius:50%;
 }
 
-.pose-paper .arm.right{
-  transform:rotate(60deg);
+.style3 .fringe{
+  background:#4f8fc2;
 }
 
-.pose-phone .arm.right{
-  transform:rotate(-75deg);
+.style3 .body{
+  background:#f09ab9;
 }
 
-.pose-phone .hand.right{
-  top:105px;
-  right:37px;
+/* PERSONAJE 4 */
+
+.style4 .hair{
+  background:#704f88;
+  width:130px;
+  left:45px;
 }
 
-.pose-point .arm.right{
-  transform:rotate(-85deg);
+.style4 .fringe{
+  background:#704f88;
 }
 
-.pose-point .hand.right{
-  top:104px;
-  right:43px;
+.style4 .body{
+  background:#65bfe3;
 }
 
-.pose-calendar .arm.left{
-  transform:rotate(-70deg);
+/* PERSONAJE 5 */
+
+.style5 .hair{
+  background:#d9789b;
 }
 
-.pose-calendar .hand.left{
-  top:105px;
-  left:35px;
+.style5 .fringe{
+  background:#d9789b;
 }
 
-.pose-talking .arm.left{
-  transform:rotate(65deg);
+.style5 .body{
+  background:#8c7dd2;
 }
 
-.pose-talking .arm.right{
-  transform:rotate(-65deg);
+/* PERSONAJE 6 */
+
+.style6 .hair{
+  background:#4f79ad;
 }
 
-.pose-shock .arm.left{
-  transform:rotate(-55deg);
+.style6 .fringe{
+  background:#4f79ad;
 }
 
-.pose-shock .arm.right{
-  transform:rotate(55deg);
+.style6 .body{
+  background:#72c7ad;
 }
 
-/* INICIO */
+/* PERSONAJE 7 */
 
-.hero{
-  padding:25px;
-  background:linear-gradient(145deg,#f2fff9,#fff0f5);
-  border-radius:28px;
+.style7 .hair{
+  background:#865b99;
 }
 
-.intro{
-  max-width:650px;
-  margin:0 auto 25px;
-  font-size:17px;
+.style7 .fringe{
+  background:#865b99;
 }
 
-/* MATRIZ */
+.style7 .body{
+  background:#ee8dac;
+}
+
+/* PERSONAJE 8 */
+
+.style8 .hair{
+  background:#527da8;
+}
+
+.style8 .fringe{
+  background:#527da8;
+}
+
+.style8 .body{
+  background:#6ebfe3;
+}
+
+/* accesorios */
+
+.accessory{
+  position:absolute;
+  z-index:20;
+}
+
+/* gafas */
+
+.glasses{
+  display:none;
+  top:53px;
+  left:70px;
+  width:82px;
+  height:23px;
+}
+
+.glasses:before,
+.glasses:after{
+  content:"";
+  position:absolute;
+  width:25px;
+  height:18px;
+  border:3px solid #59627d;
+  border-radius:50%;
+}
+
+.glasses:before{left:0}
+.glasses:after{right:0}
+
+.has-glasses .glasses{
+  display:block;
+}
+
+/* moño */
+
+.bow{
+  display:none;
+  top:9px;
+  right:42px;
+  width:40px;
+  height:25px;
+}
+
+.bow:before,
+.bow:after{
+  content:"";
+  position:absolute;
+  width:25px;
+  height:25px;
+  background:#ef8eae;
+  border-radius:50%;
+}
+
+.bow:before{left:0}
+.bow:after{right:0}
+
+.has-bow .bow{
+  display:block;
+}
+
+/* audífonos */
+
+.headphones{
+  display:none;
+  top:48px;
+  left:47px;
+  width:125px;
+  height:75px;
+  border:6px solid #69bde5;
+  border-bottom:0;
+  border-radius:70px 70px 0 0;
+}
+
+.has-headphones .headphones{
+  display:block;
+}
+
+/* ================= MATRIZ ================= */
 
 .matrix{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:15px;
-  max-width:750px;
+  max-width:760px;
   margin:25px auto;
 }
 
@@ -485,28 +584,32 @@ p{
   border:3px solid;
 }
 
-.green{
-  background:#e4faef;
-  border-color:#65c5a5;
+.blue{
+  background:#e4f6ff;
+  border-color:#70c4e7;
+}
+
+.purple{
+  background:#eee8ff;
+  border-color:#9d88db;
 }
 
 .pink{
-  background:#ffe9f0;
-  border-color:#ed9db3;
+  background:#ffeaf2;
+  border-color:#e697b4;
 }
 
-/* JUEGO */
+/* ================= JUEGO ================= */
 
 .topbar{
   display:flex;
   justify-content:space-between;
-  font-size:14px;
-  color:#728184;
+  color:#7a8194;
 }
 
 .progress{
   height:11px;
-  background:#edf0f1;
+  background:#edf0f4;
   border-radius:20px;
   overflow:hidden;
   margin:8px 0 22px;
@@ -515,19 +618,19 @@ p{
 .progress-fill{
   height:100%;
   width:0;
-  background:linear-gradient(90deg,#51b992,#ed8fa9);
+  background:linear-gradient(90deg,#67c3e7,#9d87dc,#eb91b2);
   transition:.4s;
 }
 
-/* ESCENA */
+/* escena */
 
 .office{
-  height:245px;
+  height:250px;
   position:relative;
   overflow:hidden;
-  border-radius:25px;
-  background:linear-gradient(#e9faff 0 64%,#dff3e9 64%);
-  border:3px solid #d8e8e7;
+  border-radius:26px;
+  background:linear-gradient(#e9f8ff 0 65%,#e5e3fa 65%);
+  border:3px solid #dfe6f0;
   margin-bottom:18px;
 }
 
@@ -537,7 +640,7 @@ p{
   height:90px;
   left:20px;
   top:18px;
-  background:#cceeff;
+  background:#c8efff;
   border:8px solid white;
 }
 
@@ -563,7 +666,7 @@ p{
   position:absolute;
   width:290px;
   height:18px;
-  background:#82aaa0;
+  background:#8e9dc5;
   left:50%;
   bottom:25px;
   transform:translateX(-50%);
@@ -577,8 +680,8 @@ p{
   height:58px;
   left:25px;
   top:15px;
-  background:#638b83;
-  box-shadow:222px 0 #638b83;
+  background:#7381a8;
+  box-shadow:222px 0 #7381a8;
 }
 
 .laptop{
@@ -588,33 +691,33 @@ p{
   left:50%;
   bottom:43px;
   transform:translateX(-50%);
-  background:#365b65;
+  background:#4e5c78;
   border-radius:6px;
   z-index:3;
 }
 
 .question-character{
   position:absolute;
-  bottom:-9px;
+  bottom:-10px;
   left:50%;
-  margin-left:-105px;
+  margin-left:-110px;
   transform:scale(.72);
   transform-origin:bottom center;
   z-index:5;
 }
 
-/* TARJETA */
+/* ================= TARJETA ================= */
 
 .card{
   background:white;
-  border:2px solid #e6edef;
+  border:2px solid #e7eaf0;
   border-radius:24px;
   padding:22px;
 }
 
 .situation{
   background:#fff0f5;
-  border-left:7px solid #e58ca7;
+  border-left:7px solid #e391b1;
   padding:18px;
   border-radius:14px;
   font-size:18px;
@@ -629,38 +732,38 @@ p{
 }
 
 .answer{
-  border:3px solid #e4eaec;
+  border:3px solid #e5e8ef;
   background:white;
   border-radius:17px;
   padding:17px;
   cursor:pointer;
   text-align:left;
-  color:#3d5c62;
+  color:#505b72;
   font-size:15px;
   transition:.2s;
 }
 
 .answer:hover{
   transform:translateY(-3px);
-  border-color:#61b99d;
-  background:#f1fff9;
+  border-color:#8e83d9;
+  background:#f5f2ff;
 }
 
 .answer:disabled{
   cursor:default;
 }
 
-/* RESULTADO */
+/* ================= RESULTADO ================= */
 
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(40,65,70,.72);
+  background:rgba(56,59,86,.7);
   display:none;
   align-items:center;
   justify-content:center;
   z-index:999;
-  backdrop-filter:blur(5px);
+  backdrop-filter:blur(6px);
 }
 
 .feedback{
@@ -670,7 +773,16 @@ p{
   padding:32px 25px;
   text-align:center;
   box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
+
+.feedback.correct{
+  border-top:12px solid #65bfe2;
   animation:pop .35s ease;
+}
+
+.feedback.incorrect{
+  border-top:12px solid #e58cae;
+  animation:shake .45s ease;
 }
 
 @keyframes pop{
@@ -679,21 +791,12 @@ p{
   100%{transform:scale(1);opacity:1}
 }
 
-.feedback.correct{
-  border-top:12px solid #51b992;
-}
-
-.feedback.incorrect{
-  border-top:12px solid #ed8fa9;
-  animation:shake .45s ease;
-}
-
 @keyframes shake{
   0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-10px)}
-  40%{transform:translateX(10px)}
-  60%{transform:translateX(-7px)}
-  80%{transform:translateX(7px)}
+  20%{transform:translateX(-11px)}
+  40%{transform:translateX(11px)}
+  60%{transform:translateX(-8px)}
+  80%{transform:translateX(8px)}
 }
 
 .icon{
@@ -707,15 +810,11 @@ p{
 }
 
 .feedback.correct h2{
-  color:#42a887;
+  color:#56a9cf;
 }
 
 .feedback.incorrect h2{
-  color:#dc7896;
-}
-
-.feedback p{
-  font-size:16px;
+  color:#d97c9b;
 }
 
 .celebration{
@@ -723,20 +822,20 @@ p{
   margin-top:14px;
 }
 
-/* FINAL */
+/* ================= FINAL ================= */
 
 .final{
   max-width:600px;
   margin:auto;
   padding:30px;
-  background:linear-gradient(145deg,#effff8,#fff0f5);
-  border-radius:28px;
+  background:linear-gradient(145deg,#eaf8ff,#f0eaff,#ffeaf2);
+  border-radius:30px;
   text-align:center;
 }
 
 .final-score{
   font-size:70px;
-  color:#50ad91;
+  color:#7f78c9;
   font-weight:900;
   margin:10px;
 }
@@ -746,7 +845,7 @@ p{
   letter-spacing:4px;
 }
 
-/* CELULAR */
+/* ================= CELULAR ================= */
 
 @media(max-width:650px){
 
@@ -780,7 +879,7 @@ p{
   }
 
   .office{
-    height:220px;
+    height:225px;
   }
 
   .window{
@@ -818,198 +917,197 @@ p{
 </header>
 
 
-<!-- INICIO -->
+<!-- ================= INICIO ================= -->
 
 <section class="screen active" id="inicio">
 
 <div class="hero center">
 
-  <div class="character happy">
+<div class="character happy style1">
 
-    <div class="hair"></div>
-    <div class="fringe"></div>
-    <div class="neck"></div>
+  <div class="hair"></div>
+  <div class="fringe"></div>
+  <div class="neck"></div>
 
-    <div class="char-head">
-      <div class="brow left"></div>
-      <div class="brow right"></div>
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-      <div class="blush left"></div>
-      <div class="blush right"></div>
-      <div class="mouth"></div>
-    </div>
-
-    <div class="body">
-      <div class="shirt"></div>
-      <div class="badge"></div>
-    </div>
-
-    <div class="arm left"></div>
-    <div class="arm right"></div>
-
-    <div class="hand left"></div>
-    <div class="hand right"></div>
-
-    <div class="leg left"></div>
-    <div class="leg right"></div>
-
-    <div class="shoe left"></div>
-    <div class="shoe right"></div>
-
+  <div class="char-head">
+    <div class="brow left"></div>
+    <div class="brow right"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="blush left"></div>
+    <div class="blush right"></div>
+    <div class="mouth"></div>
   </div>
 
-  <h1>¡Bienvenida a TIME QUEST! 💚🩷</h1>
+  <div class="body">
+    <div class="shirt"></div>
+    <div class="badge"></div>
+  </div>
 
-  <p class="intro">
-    Pon a prueba tus conocimientos sobre la
-    <b>Gestión del Tiempo</b> y la
-    <b>Matriz de Eisenhower</b>.
-  </p>
+  <div class="arm left"></div>
+  <div class="arm right"></div>
+  <div class="hand left"></div>
+  <div class="hand right"></div>
 
-  <button class="btn" onclick="mostrarMatriz()">
-    COMENZAR MISIÓN 🚀
-  </button>
+  <div class="leg left"></div>
+  <div class="leg right"></div>
+  <div class="shoe left"></div>
+  <div class="shoe right"></div>
+
+</div>
+
+<h1>¡Bienvenida a TIME QUEST! 💙💜🩷</h1>
+
+<p style="max-width:650px;margin:0 auto 25px;font-size:17px;">
+Pon a prueba tus conocimientos sobre la
+<b>Gestión del Tiempo</b> y la
+<b>Matriz de Eisenhower</b>.
+</p>
+
+<button class="btn" onclick="mostrarMatriz()">
+COMENZAR MISIÓN 🚀
+</button>
 
 </div>
 
 </section>
 
 
-<!-- MATRIZ -->
+<!-- ================= MATRIZ ================= -->
 
 <section class="screen" id="matriz">
 
 <div class="center">
 
-  <h1>🧠 Matriz de Eisenhower</h1>
+<h1>🧠 Matriz de Eisenhower</h1>
 
-  <p>
-    Recuerda estas cuatro opciones antes de comenzar:
-  </p>
+<p>
+Recuerda estas cuatro opciones antes de comenzar:
+</p>
 
 </div>
 
 <div class="matrix">
 
-  <div class="box green">
-    <h3>🔥 HACER</h3>
-    <p>
-      Urgente + importante.
-      Hazlo inmediatamente.
-    </p>
-  </div>
+<div class="box blue">
+<h3>🔥 HACER</h3>
+<p>
+Urgente + importante.
+Hazlo inmediatamente.
+</p>
+</div>
 
-  <div class="box pink">
-    <h3>📅 PLANIFICAR</h3>
-    <p>
-      Importante pero no urgente.
-      Organízalo para después.
-    </p>
-  </div>
+<div class="box purple">
+<h3>📅 PLANIFICAR</h3>
+<p>
+Importante pero no urgente.
+Organízalo para después.
+</p>
+</div>
 
-  <div class="box green">
-    <h3>👥 DELEGAR</h3>
-    <p>
-      Urgente pero no necesariamente importante.
-      Otra persona puede hacerlo.
-    </p>
-  </div>
+<div class="box pink">
+<h3>👥 DELEGAR</h3>
+<p>
+Urgente pero no necesariamente importante.
+Otra persona puede hacerlo.
+</p>
+</div>
 
-  <div class="box pink">
-    <h3>🗑️ ELIMINAR</h3>
-    <p>
-      No urgente y no importante.
-      Evita gastar tiempo en ello.
-    </p>
-  </div>
+<div class="box purple">
+<h3>🗑️ ELIMINAR</h3>
+<p>
+No urgente y no importante.
+Evita gastar tiempo en ello.
+</p>
+</div>
 
 </div>
 
 <div class="center">
 
-  <button class="btn" onclick="comenzar()">
-    ¡ESTOY LISTA! 🎯
-  </button>
+<button class="btn" onclick="comenzar()">
+¡ESTOY LISTA! 🎯
+</button>
 
 </div>
 
 </section>
 
 
-<!-- JUEGO -->
+<!-- ================= JUEGO ================= -->
 
 <section class="screen" id="juego">
 
 <div class="topbar">
 
-  <span id="contador">
-    Situación 1 de 8
-  </span>
+<span id="contador">
+Situación 1 de 8
+</span>
 
-  <span id="porcentaje">
-    0%
-  </span>
+<span id="porcentaje">
+0%
+</span>
 
 </div>
 
 <div class="progress">
-
-  <div class="progress-fill" id="barra"></div>
-
+<div class="progress-fill" id="barra"></div>
 </div>
 
 
 <div class="office">
 
-  <div class="window"></div>
+<div class="window"></div>
+<div class="desk"></div>
+<div class="laptop"></div>
 
-  <div class="desk"></div>
 
-  <div class="laptop"></div>
+<!-- MUÑEQUITO DE CADA PREGUNTA -->
 
-  <!-- EL MUÑEQUITO CAMBIA AQUÍ -->
+<div id="questionCharacter"
+class="character question-character style1 happy">
 
-  <div id="questionCharacter"
-       class="character question-character">
+<div class="hair"></div>
+<div class="fringe"></div>
+<div class="neck"></div>
 
-    <div class="hair"></div>
-    <div class="fringe"></div>
-    <div class="neck"></div>
+<div class="char-head">
 
-    <div class="char-head">
+<div class="brow left"></div>
+<div class="brow right"></div>
 
-      <div class="brow left"></div>
-      <div class="brow right"></div>
+<div class="eye left"></div>
+<div class="eye right"></div>
 
-      <div class="eye left"></div>
-      <div class="eye right"></div>
+<div class="blush left"></div>
+<div class="blush right"></div>
 
-      <div class="blush left"></div>
-      <div class="blush right"></div>
+<div class="mouth"></div>
 
-      <div class="mouth"></div>
+</div>
 
-    </div>
+<div class="body">
+<div class="shirt"></div>
+<div class="badge"></div>
+</div>
 
-    <div class="body">
-      <div class="shirt"></div>
-      <div class="badge"></div>
-    </div>
+<div class="arm left"></div>
+<div class="arm right"></div>
 
-    <div class="arm left"></div>
-    <div class="arm right"></div>
+<div class="hand left"></div>
+<div class="hand right"></div>
 
-    <div class="hand left"></div>
-    <div class="hand right"></div>
+<div class="leg left"></div>
+<div class="leg right"></div>
 
-    <div class="leg left"></div>
-    <div class="leg right"></div>
+<div class="shoe left"></div>
+<div class="shoe right"></div>
 
-    <div class="shoe left"></div>
-    <div class="shoe right"></div>
+<div class="accessory glasses"></div>
+<div class="accessory bow"></div>
+<div class="accessory headphones"></div>
 
-  </div>
+</div>
 
 </div>
 
@@ -1018,22 +1116,18 @@ p{
 
 <div class="center">
 
-  <h2 id="titulo">
-    Situación
-  </h2>
+<h2 id="titulo">Situación</h2>
 
-  <p id="contexto">
-    Analiza cuidadosamente.
-  </p>
+<p id="contexto">
+Analiza cuidadosamente.
+</p>
 
 </div>
 
 <div class="situation" id="situacion"></div>
 
 <div class="center">
-
-  <b>¿Qué debería hacer?</b>
-
+<b>¿Qué debería hacer?</b>
 </div>
 
 <br>
@@ -1041,23 +1135,23 @@ p{
 <div class="answers">
 
 <button class="answer" onclick="responder('hacer')">
-  <b>🔥 HACER AHORA</b><br>
-  Es urgente e importante.
+<b>🔥 HACER AHORA</b><br>
+Es urgente e importante.
 </button>
 
 <button class="answer" onclick="responder('planificar')">
-  <b>📅 PLANIFICAR</b><br>
-  Organizarlo para después.
+<b>📅 PLANIFICAR</b><br>
+Organizarlo para después.
 </button>
 
 <button class="answer" onclick="responder('delegar')">
-  <b>👥 DELEGAR</b><br>
-  Pedir ayuda a otra persona.
+<b>👥 DELEGAR</b><br>
+Pedir ayuda a otra persona.
 </button>
 
 <button class="answer" onclick="responder('eliminar')">
-  <b>🗑️ ELIMINAR</b><br>
-  No dedicarle tiempo.
+<b>🗑️ ELIMINAR</b><br>
+No dedicarle tiempo.
 </button>
 
 </div>
@@ -1067,93 +1161,58 @@ p{
 </section>
 
 
-<!-- RESULTADO -->
+<!-- ================= RESULTADO ================= -->
 
 <div class="overlay" id="overlay">
 
-  <div class="feedback" id="feedback">
+<div class="feedback" id="feedback">
 
-    <div class="icon" id="feedbackIcon">
-      ✔️
-    </div>
+<div class="icon" id="feedbackIcon">
+✔️
+</div>
 
-    <h2 id="feedbackTitle">
-      ¡ACERTASTE!
-    </h2>
+<h2 id="feedbackTitle">
+¡ACERTASTE!
+</h2>
 
-    <p id="feedbackText"></p>
+<p id="feedbackText"></p>
 
-    <div class="celebration" id="celebration">
-      🎉👏🎉👏🎉
-    </div>
+<div class="celebration" id="celebration">
+🎉👏💙👏🎉
+</div>
 
-  </div>
+</div>
 
 </div>
 
 
-<!-- FINAL -->
+<!-- ================= FINAL ================= -->
 
 <section class="screen" id="final">
 
 <div class="final">
 
-  <div class="character happy">
+<h1>🏆 ¡MISIÓN COMPLETADA!</h1>
 
-    <div class="hair"></div>
-    <div class="fringe"></div>
-    <div class="neck"></div>
+<div class="stars" id="stars">
+⭐⭐⭐⭐⭐
+</div>
 
-    <div class="char-head">
-      <div class="brow left"></div>
-      <div class="brow right"></div>
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-      <div class="blush left"></div>
-      <div class="blush right"></div>
-      <div class="mouth"></div>
-    </div>
+<div class="final-score">
+<span id="resultado">0</span>/80
+</div>
 
-    <div class="body">
-      <div class="shirt"></div>
-      <div class="badge"></div>
-    </div>
+<h2 id="mensaje">
+¡Excelente trabajo!
+</h2>
 
-    <div class="arm left"></div>
-    <div class="arm right"></div>
+<p id="consejo"></p>
 
-    <div class="hand left"></div>
-    <div class="hand right"></div>
+<br>
 
-    <div class="leg left"></div>
-    <div class="leg right"></div>
-
-    <div class="shoe left"></div>
-    <div class="shoe right"></div>
-
-  </div>
-
-  <h1>🏆 ¡MISIÓN COMPLETADA!</h1>
-
-  <div class="stars" id="stars">
-    ⭐⭐⭐⭐⭐
-  </div>
-
-  <div class="final-score">
-    <span id="resultado">0</span>/80
-  </div>
-
-  <h2 id="mensaje">
-    ¡Excelente trabajo!
-  </h2>
-
-  <p id="consejo"></p>
-
-  <br>
-
-  <button class="btn" onclick="reiniciar()">
-    VOLVER A JUGAR 🔄
-  </button>
+<button class="btn" onclick="reiniciar()">
+VOLVER A JUGAR 🔄
+</button>
 
 </div>
 
@@ -1164,9 +1223,9 @@ p{
 
 <script>
 
-/* =================================
-   PREGUNTAS + POSES
-================================= */
+/* ==============================
+   PREGUNTAS
+============================== */
 
 const preguntas=[
 
@@ -1175,9 +1234,11 @@ titulo:"El informe para el jefe",
 contexto:"Son las 4:30 de la tarde.",
 situacion:"Tu jefe necesita un informe importante en 30 minutos y todavía falta terminar una parte fundamental.",
 correcta:"hacer",
-explicacion:"Es urgente e importante porque debe entregarse pronto y afecta directamente al trabajo.",
+explicacion:"Es urgente e importante porque debe entregarse pronto.",
+style:"style1",
 pose:"pose-computer",
-expresion:"surprised"
+expresion:"surprised",
+accessory:"has-glasses"
 },
 
 {
@@ -1185,9 +1246,11 @@ titulo:"La capacitación del próximo mes",
 contexto:"Estás organizando las actividades del equipo.",
 situacion:"Debes preparar una capacitación que se realizará dentro de tres semanas.",
 correcta:"planificar",
-explicacion:"Es importante, pero no es urgente. Lo ideal es organizarla con anticipación.",
+explicacion:"Es importante, pero todavía no es urgente.",
+style:"style2",
 pose:"pose-thinking",
-expresion:"thinking"
+expresion:"thinking",
+accessory:"has-bow"
 },
 
 {
@@ -1195,19 +1258,23 @@ titulo:"Una tarea repetitiva",
 contexto:"Tienes un proyecto importante que terminar.",
 situacion:"Una compañera tiene tiempo disponible y sabe realizar perfectamente una tarea administrativa repetitiva.",
 correcta:"delegar",
-explicacion:"Delegar permite que otra persona haga la tarea mientras tú te concentras en actividades más importantes.",
+explicacion:"Delegar permite concentrarte en las actividades más importantes.",
+style:"style3",
 pose:"pose-talking",
-expresion:"happy"
+expresion:"happy",
+accessory:"has-headphones"
 },
 
 {
 titulo:"Una distracción",
 contexto:"Estás preparando una exposición.",
-situacion:"Empiezas a mirar videos y redes sociales que no tienen ninguna relación con la exposición.",
+situacion:"Empiezas a mirar videos y redes sociales que no tienen relación con la exposición.",
 correcta:"eliminar",
-explicacion:"No es importante ni urgente. Es una distracción que puede quitarte mucho tiempo.",
+explicacion:"No es importante ni urgente y puede quitarte mucho tiempo.",
+style:"style4",
 pose:"pose-phone",
-expresion:"surprised"
+expresion:"surprised",
+accessory:""
 },
 
 {
@@ -1216,8 +1283,10 @@ contexto:"Estás trabajando en varias actividades.",
 situacion:"Un cliente importante necesita una respuesta para poder continuar con su pedido hoy.",
 correcta:"hacer",
 explicacion:"Es urgente e importante porque afecta directamente al cliente.",
+style:"style5",
 pose:"pose-point",
-expresion:"surprised"
+expresion:"surprised",
+accessory:"has-glasses"
 },
 
 {
@@ -1225,9 +1294,11 @@ titulo:"Organizar la próxima semana",
 contexto:"Es viernes en la tarde.",
 situacion:"Quieres organizar tus actividades de la próxima semana para evitar trabajar a última hora.",
 correcta:"planificar",
-explicacion:"No es urgente, pero sí importante. Planificar te ayudará a trabajar mejor.",
+explicacion:"No es urgente, pero sí importante. Planificar ayuda a trabajar mejor.",
+style:"style6",
 pose:"pose-calendar",
-expresion:"happy"
+expresion:"happy",
+accessory:"has-bow"
 },
 
 {
@@ -1235,9 +1306,11 @@ titulo:"Confirmar un dato",
 contexto:"Estás concentrada en una tarea importante.",
 situacion:"Un compañero puede confirmar rápidamente un dato sencillo que otra persona necesita.",
 correcta:"delegar",
-explicacion:"Si alguien más puede resolverlo correctamente, puedes delegar y mantener tu concentración.",
+explicacion:"Puedes delegar y mantener tu concentración.",
+style:"style7",
 pose:"pose-talking",
-expresion:"happy"
+expresion:"happy",
+accessory:"has-headphones"
 },
 
 {
@@ -1246,592 +1319,430 @@ contexto:"Tienes una tarea importante pendiente.",
 situacion:"Decides pasar una hora viendo contenido que no aporta nada a tu trabajo ni a tus objetivos.",
 correcta:"eliminar",
 explicacion:"No es urgente ni importante. Es mejor eliminar esa distracción.",
+style:"style8",
 pose:"pose-phone",
-expresion:"sad"
+expresion:"sad",
+accessory:""
 }
 
 ];
-
-
-/* VARIABLES */
 
 let actual=0;
 let puntos=0;
 let respondida=false;
 
 
-/* =================================
-   AUDIO
-   TODO SE CREA CON JAVASCRIPT
-================================= */
+/* ==============================
+   AUDIO DE ACIERTO
+============================== */
 
 function sonidoVictoria(){
 
-  const AudioContext =
-    window.AudioContext ||
-    window.webkitAudioContext;
+const AudioContext=window.AudioContext||window.webkitAudioContext;
 
-  if(!AudioContext)return;
+if(!AudioContext)return;
 
-  const audio=new AudioContext();
+const audio=new AudioContext();
+const now=audio.currentTime;
 
-  const ahora=audio.currentTime;
+const notas=[
+[523.25,0],
+[659.25,.13],
+[783.99,.26],
+[1046.5,.40]
+];
 
-  /*
-    Pequeña melodía alegre
-  */
+notas.forEach(([freq,time])=>{
 
-  const notas=[
-    [523.25,0],
-    [659.25,.13],
-    [783.99,.26],
-    [1046.5,.40]
-  ];
+const osc=audio.createOscillator();
+const gain=audio.createGain();
 
-  notas.forEach(([frecuencia,tiempo])=>{
+osc.type="sine";
+osc.frequency.value=freq;
 
-    const osc=audio.createOscillator();
-    const gain=audio.createGain();
+gain.gain.setValueAtTime(.001,now+time);
+gain.gain.linearRampToValueAtTime(.2,now+time+.03);
+gain.gain.exponentialRampToValueAtTime(.001,now+time+.35);
 
-    osc.type="sine";
+osc.connect(gain);
+gain.connect(audio.destination);
 
-    osc.frequency.setValueAtTime(
-      frecuencia,
-      ahora+tiempo
-    );
+osc.start(now+time);
+osc.stop(now+time+.4);
 
-    gain.gain.setValueAtTime(
-      .0001,
-      ahora+tiempo
-    );
+});
 
-    gain.gain.linearRampToValueAtTime(
-      .20,
-      ahora+tiempo+.03
-    );
+setTimeout(()=>{
+audio.close();
+},1500);
 
-    gain.gain.exponentialRampToValueAtTime(
-      .0001,
-      ahora+tiempo+.35
-    );
-
-    osc.connect(gain);
-    gain.connect(audio.destination);
-
-    osc.start(ahora+tiempo);
-    osc.stop(ahora+tiempo+.4);
-
-  });
-
-
-  /* Aplausitos */
-
-  for(let i=0;i<7;i++){
-
-    const tiempo=.48+i*.09;
-
-    const osc=audio.createOscillator();
-    const gain=audio.createGain();
-
-    osc.type="square";
-
-    osc.frequency.value=
-      650+Math.random()*350;
-
-    gain.gain.setValueAtTime(
-      .0001,
-      ahora+tiempo
-    );
-
-    gain.gain.linearRampToValueAtTime(
-      .12,
-      ahora+tiempo+.01
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-      .0001,
-      ahora+tiempo+.06
-    );
-
-    osc.connect(gain);
-    gain.connect(audio.destination);
-
-    osc.start(ahora+tiempo);
-    osc.stop(ahora+tiempo+.07);
-
-  }
-
-  setTimeout(()=>{
-    audio.close();
-  },1800);
 }
 
 
-/* SONIDO DE ERROR */
+/* ==============================
+   AUDIO DE ERROR
+============================== */
 
 function sonidoError(){
 
-  const AudioContext =
-    window.AudioContext ||
-    window.webkitAudioContext;
+const AudioContext=window.AudioContext||window.webkitAudioContext;
 
-  if(!AudioContext)return;
+if(!AudioContext)return;
 
-  const audio=new AudioContext();
+const audio=new AudioContext();
+const now=audio.currentTime;
 
-  const ahora=audio.currentTime;
+[330,240,170].forEach((freq,i)=>{
 
+const osc=audio.createOscillator();
+const gain=audio.createGain();
 
-  const notas=[
-    [330,0],
-    [240,.16],
-    [170,.32]
-  ];
+osc.type="sawtooth";
+osc.frequency.value=freq;
 
+gain.gain.setValueAtTime(.001,now+i*.16);
+gain.gain.linearRampToValueAtTime(.15,now+i*.16+.03);
+gain.gain.exponentialRampToValueAtTime(.001,now+i*.16+.22);
 
-  notas.forEach(([frecuencia,tiempo])=>{
+osc.connect(gain);
+gain.connect(audio.destination);
 
-    const osc=audio.createOscillator();
-    const gain=audio.createGain();
+osc.start(now+i*.16);
+osc.stop(now+i*.16+.25);
 
-    osc.type="sawtooth";
+});
 
-    osc.frequency.setValueAtTime(
-      frecuencia,
-      ahora+tiempo
-    );
-
-    gain.gain.setValueAtTime(
-      .0001,
-      ahora+tiempo
-    );
-
-    gain.gain.linearRampToValueAtTime(
-      .16,
-      ahora+tiempo+.03
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-      .0001,
-      ahora+tiempo+.22
-    );
-
-    osc.connect(gain);
-    gain.connect(audio.destination);
-
-    osc.start(ahora+tiempo);
-    osc.stop(ahora+tiempo+.25);
-
-  });
-
-
-  setTimeout(()=>{
-    audio.close();
-  },1000);
 }
 
 
-/* =================================
+/* ==============================
+   VIBRACIÓN
+============================== */
+
+function vibrar(){
+
+if(navigator.vibrate){
+
+navigator.vibrate([
+80,50,80,50,120
+]);
+
+}
+
+}
+
+
+/* ==============================
    PANTALLAS
-================================= */
+============================== */
 
 function pantalla(id){
 
-  document
-    .querySelectorAll(".screen")
-    .forEach(x=>{
-      x.classList.remove("active");
-    });
+document.querySelectorAll(".screen")
+.forEach(x=>x.classList.remove("active"));
 
-  document
-    .getElementById(id)
-    .classList.add("active");
+document.getElementById(id)
+.classList.add("active");
 
-  window.scrollTo(0,0);
+window.scrollTo(0,0);
+
 }
 
 
 function mostrarMatriz(){
-
-  pantalla("matriz");
-
+pantalla("matriz");
 }
 
 
 function comenzar(){
 
-  actual=0;
-  puntos=0;
+actual=0;
+puntos=0;
 
-  document
-    .getElementById("score")
-    .textContent="0";
+document.getElementById("score")
+.textContent="0";
 
-  pantalla("juego");
+pantalla("juego");
 
-  cargarPregunta();
+cargarPregunta();
+
 }
 
 
-/* =================================
+/* ==============================
    CARGAR PREGUNTA
-================================= */
+============================== */
 
 function cargarPregunta(){
 
-  respondida=false;
+respondida=false;
 
-  const q=preguntas[actual];
+const q=preguntas[actual];
 
+document.getElementById("titulo")
+.textContent=q.titulo;
 
-  document
-    .getElementById("titulo")
-    .textContent=q.titulo;
+document.getElementById("contexto")
+.textContent=q.contexto;
 
+document.getElementById("situacion")
+.textContent=q.situacion;
 
-  document
-    .getElementById("contexto")
-    .textContent=q.contexto;
+document.getElementById("contador")
+.textContent=
+"Situación "+
+(actual+1)+
+" de "+
+preguntas.length;
 
+const porcentaje=Math.round(
+actual/preguntas.length*100
+);
 
-  document
-    .getElementById("situacion")
-    .textContent=q.situacion;
+document.getElementById("porcentaje")
+.textContent=porcentaje+"%";
 
-
-  document
-    .getElementById("contador")
-    .textContent=
-      "Situación "+
-      (actual+1)+
-      " de "+
-      preguntas.length;
-
-
-  const porcentaje=
-    Math.round(
-      actual/
-      preguntas.length*
-      100
-    );
+document.getElementById("barra")
+.style.width=porcentaje+"%";
 
 
-  document
-    .getElementById("porcentaje")
-    .textContent=
-      porcentaje+"%";
+/* CAMBIO DEL MUÑEQUITO */
+
+const personaje=
+document.getElementById(
+"questionCharacter"
+);
+
+personaje.className=
+"character question-character "+
+q.style+" "+
+q.pose+" "+
+q.expresion+" "+
+q.accessory;
 
 
-  document
-    .getElementById("barra")
-    .style.width=
-      porcentaje+"%";
-
-
-  /*
-    CAMBIAR MUÑEQUITO
-  */
-
-  const personaje=
-    document.getElementById(
-      "questionCharacter"
-    );
-
-
-  personaje.className=
-    "character question-character "+
-    q.pose+" "+
-    q.expresion;
-
-
-  /*
-    Activar respuestas
-  */
-
-  document
-    .querySelectorAll(".answer")
-    .forEach(b=>{
-      b.disabled=false;
-      b.style.opacity="1";
-    });
+document.querySelectorAll(".answer")
+.forEach(b=>{
+b.disabled=false;
+b.style.opacity="1";
+});
 
 }
 
 
-/* =================================
+/* ==============================
    RESPONDER
-================================= */
+============================== */
 
 function responder(opcion){
 
-  if(respondida)return;
+if(respondida)return;
 
-  respondida=true;
+respondida=true;
 
+const q=preguntas[actual];
 
-  const q=preguntas[actual];
+document.querySelectorAll(".answer")
+.forEach(b=>{
+b.disabled=true;
+});
 
+const overlay=document.getElementById("overlay");
+const feedback=document.getElementById("feedback");
 
-  document
-    .querySelectorAll(".answer")
-    .forEach(b=>{
-      b.disabled=true;
-    });
-
-
-  const overlay=
-    document.getElementById("overlay");
-
-  const feedback=
-    document.getElementById("feedback");
-
-  const icon=
-    document.getElementById("feedbackIcon");
-
-  const title=
-    document.getElementById("feedbackTitle");
-
-  const text=
-    document.getElementById("feedbackText");
-
-  const celebration=
-    document.getElementById("celebration");
+const icon=document.getElementById("feedbackIcon");
+const title=document.getElementById("feedbackTitle");
+const text=document.getElementById("feedbackText");
+const celebration=document.getElementById("celebration");
 
 
-  if(opcion===q.correcta){
+if(opcion===q.correcta){
 
-    puntos+=10;
+puntos+=10;
 
+document.getElementById("score")
+.textContent=puntos;
 
-    document
-      .getElementById("score")
-      .textContent=puntos;
+feedback.className="feedback correct";
 
+icon.textContent="✔️";
 
-    feedback.className=
-      "feedback correct";
+title.textContent="¡ACERTASTE!";
 
+text.textContent=q.explicacion;
 
-    icon.textContent="✔️";
+celebration.textContent="🎉👏💙👏💜👏🩷";
 
+sonidoVictoria();
 
-    title.textContent=
-      "¡ACERTASTE!";
+}
 
+else{
 
-    text.textContent=
-      q.explicacion;
+feedback.className="feedback incorrect";
 
+icon.textContent="❌";
 
-    celebration.textContent=
-      "🎉👏💚👏🎉";
+title.textContent="¡CASI!";
 
+text.textContent=
+"La respuesta correcta era: "+
+nombre(q.correcta)+
+". "+
+q.explicacion;
 
-    sonidoVictoria();
+celebration.textContent="🩷 ¡SIGUE INTENTANDO! 🩷";
 
-  }
+sonidoError();
 
-  else{
+vibrar();
 
-    feedback.className=
-      "feedback incorrect";
+}
 
-
-    icon.textContent="❌";
-
-
-    title.textContent=
-      "¡CASI!";
-
-
-    text.textContent=
-      "La respuesta correcta era: "+
-      nombre(q.correcta)+
-      ". "+
-      q.explicacion;
+overlay.style.display="flex";
 
 
-    celebration.textContent=
-      "🩷 ¡SIGUE INTENTANDO! 🩷";
+/* PASA AUTOMÁTICAMENTE */
 
+setTimeout(()=>{
 
-    sonidoError();
+overlay.style.display="none";
 
-  }
+siguiente();
 
-
-  overlay.style.display="flex";
-
-
-  /*
-    Cambiar automáticamente
-  */
-
-  setTimeout(()=>{
-
-    overlay.style.display="none";
-
-    siguiente();
-
-  },1700);
+},1700);
 
 }
 
 
-/* =================================
-   NOMBRE RESPUESTA
-================================= */
+/* ==============================
+   NOMBRE DE RESPUESTA
+============================== */
 
 function nombre(opcion){
 
-  return{
+return{
 
-    hacer:"🔥 HACER AHORA",
+hacer:"🔥 HACER AHORA",
+planificar:"📅 PLANIFICAR",
+delegar:"👥 DELEGAR",
+eliminar:"🗑️ ELIMINAR"
 
-    planificar:"📅 PLANIFICAR",
-
-    delegar:"👥 DELEGAR",
-
-    eliminar:"🗑️ ELIMINAR"
-
-  }[opcion];
+}[opcion];
 
 }
 
 
-/* =================================
+/* ==============================
    SIGUIENTE
-================================= */
+============================== */
 
 function siguiente(){
 
-  actual++;
+actual++;
 
+if(actual>=preguntas.length){
 
-  if(actual>=preguntas.length){
+terminar();
 
-    terminar();
+}
 
-  }else{
+else{
 
-    cargarPregunta();
+cargarPregunta();
 
-  }
+}
 
 }
 
 
-/* =================================
+/* ==============================
    FINAL
-================================= */
+============================== */
 
 function terminar(){
 
-  pantalla("final");
+pantalla("final");
+
+document.getElementById("resultado")
+.textContent=puntos;
 
 
-  document
-    .getElementById("resultado")
-    .textContent=puntos;
+if(puntos===80){
 
+document.getElementById("stars")
+.textContent="⭐⭐⭐⭐⭐";
 
-  if(puntos===80){
+document.getElementById("mensaje")
+.textContent="¡PERFECTO! 🏆";
 
-    document
-      .getElementById("stars")
-      .textContent="⭐⭐⭐⭐⭐";
+document.getElementById("consejo")
+.textContent=
+"¡Dominaste la Matriz de Eisenhower!";
 
+}
 
-    document
-      .getElementById("mensaje")
-      .textContent=
-        "¡PERFECTO! 🏆";
+else if(puntos>=60){
 
+document.getElementById("stars")
+.textContent="⭐⭐⭐⭐";
 
-    document
-      .getElementById("consejo")
-      .textContent=
-        "¡Dominaste la Matriz de Eisenhower!";
+document.getElementById("mensaje")
+.textContent=
+"¡MUY BUEN TRABAJO! 🌟";
 
-  }
+document.getElementById("consejo")
+.textContent=
+"Tienes muy buen manejo de tus prioridades.";
 
-  else if(puntos>=60){
+}
 
-    document
-      .getElementById("stars")
-      .textContent="⭐⭐⭐⭐";
+else if(puntos>=40){
 
+document.getElementById("stars")
+.textContent="⭐⭐⭐";
 
-    document
-      .getElementById("mensaje")
-      .textContent=
-        "¡MUY BUEN TRABAJO! 🌟";
+document.getElementById("mensaje")
+.textContent=
+"¡VAS MUY BIEN! 💙";
 
+document.getElementById("consejo")
+.textContent=
+"Sigue practicando para mejorar tus decisiones.";
 
-    document
-      .getElementById("consejo")
-      .textContent=
-        "Tienes muy buen manejo de tus prioridades.";
+}
 
-  }
+else{
 
-  else if(puntos>=40){
+document.getElementById("stars")
+.textContent="⭐⭐";
 
-    document
-      .getElementById("stars")
-      .textContent="⭐⭐⭐";
+document.getElementById("mensaje")
+.textContent=
+"¡A SEGUIR PRACTICANDO! 🩷";
 
+document.getElementById("consejo")
+.textContent=
+"Recuerda analizar siempre qué es urgente y qué es importante.";
 
-    document
-      .getElementById("mensaje")
-      .textContent=
-        "¡VAS MUY BIEN! 💚";
-
-
-    document
-      .getElementById("consejo")
-      .textContent=
-        "Sigue practicando para mejorar tus decisiones.";
-
-  }
-
-  else{
-
-    document
-      .getElementById("stars")
-      .textContent="⭐⭐";
-
-
-    document
-      .getElementById("mensaje")
-      .textContent=
-        "¡A SEGUIR PRACTICANDO! 🩷";
-
-
-    document
-      .getElementById("consejo")
-      .textContent=
-        "Recuerda analizar siempre qué es urgente y qué es importante.";
-
-  }
+}
 
 }
 
 
-/* =================================
+/* ==============================
    REINICIAR
-================================= */
+============================== */
 
 function reiniciar(){
 
-  actual=0;
-  puntos=0;
+actual=0;
+puntos=0;
 
-  document
-    .getElementById("score")
-    .textContent="0";
+document.getElementById("score")
+.textContent="0";
 
-  pantalla("inicio");
+pantalla("inicio");
 
 }
 
