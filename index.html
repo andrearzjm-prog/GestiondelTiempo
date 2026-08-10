@@ -2,24 +2,33 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>⏰ Misión: Domina tu Tiempo</title>
 <style>
 *{
   box-sizing:border-box;
 }
-body{
+html,body{
   margin:0;
+  padding:0;
+  min-height:100%;
   font-family:Arial,sans-serif;
-  min-height:100vh;
-  background:linear-gradient(135deg,#061a35,#087f8c,#35c8ec);
+}
+body{
+  background:linear-gradient(145deg,#062044,#087b8c,#25b9d6);
   color:white;
 }
-.container{
-  width:94%;
-  max-width:900px;
+button{
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+  font-weight:bold;
+}
+.app{
+  width:100%;
+  max-width:700px;
   margin:auto;
-  padding:10px;
+  padding:8px;
 }
 .screen{
   display:none;
@@ -27,377 +36,457 @@ body{
 .screen.active{
   display:block;
 }
-.card{
+/* ---------- MENÚ ---------- */
+.menu{
+  min-height:96vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.menuCard{
+  width:100%;
   background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:24px;
-  padding:18px;
-  margin:8px 0;
-  box-shadow:0 10px 30px rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:25px;
+  padding:22px 14px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+.clock{
+  font-size:65px;
 }
 h1{
-  text-align:center;
-  font-size:clamp(30px,8vw,55px);
-  margin:10px 0;
+  font-size:clamp(30px,8vw,48px);
+  line-height:1;
+  margin:8px 0 14px;
 }
 h2{
-  text-align:center;
-  margin:8px 0 12px;
-}
-.center{
-  text-align:center;
+  margin:6px 0 12px;
 }
 .subtitle{
-  text-align:center;
+  font-size:17px;
+  line-height:1.4;
+}
+.menuInfo{
+  background:rgba(0,0,0,.22);
+  border-radius:16px;
+  padding:12px;
+  line-height:1.6;
+  margin:15px 0;
+}
+.levelBtn{
+  width:94%;
+  max-width:430px;
+  padding:17px 12px;
+  margin:7px auto;
+  display:block;
+  border-radius:16px;
   font-size:18px;
 }
-.info{
-  background:rgba(0,0,0,.22);
-  border-radius:15px;
-  padding:12px;
-  line-height:1.5;
-  margin:12px 0;
-}
-button{
-  border:0;
-  border-radius:14px;
-  padding:14px;
-  margin:4px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-button:active{
-  transform:scale(.97);
-}
-.menuButton{
-  width:90%;
-  max-width:420px;
-  display:block;
-  margin:10px auto;
-  font-size:19px;
-  padding:17px;
-}
-.medium{
-  background:#35c8ec;
+.mediumBtn{
+  background:#38c9ec;
   color:#06233b;
 }
-.hard{
-  background:#ff5c69;
+.hardBtn{
+  background:#ff5968;
   color:white;
 }
-.white{
-  background:white;
-  color:#092d49;
-}
-.dark{
-  background:#10253b;
-  color:white;
+/* ---------- JUEGO ---------- */
+.gameHeader{
+  background:rgba(0,0,0,.18);
+  border-radius:16px;
+  padding:8px;
+  margin-bottom:7px;
 }
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:6px;
-  margin-bottom:7px;
+  gap:5px;
 }
 .stat{
-  background:rgba(0,0,0,.28);
-  border-radius:13px;
-  padding:8px 3px;
+  background:rgba(0,0,0,.3);
+  border-radius:11px;
+  padding:6px 2px;
   text-align:center;
-  font-size:12px;
+  font-size:11px;
 }
-.stat strong{
+.stat b{
   display:block;
-  font-size:22px;
+  font-size:20px;
   margin-top:2px;
 }
-.bar{
-  height:10px;
+.energyBar{
+  height:8px;
   background:rgba(255,255,255,.2);
   border-radius:20px;
   overflow:hidden;
-  margin-bottom:9px;
+  margin-top:7px;
 }
-.bar div{
+.energyFill{
   width:100%;
   height:100%;
-  background:#35e68b;
-  transition:.3s;
+  background:#38e58a;
+  transition:.25s;
 }
-/* PERSONAJES */
-.characterBox{
+/* ---------- TARJETA PRINCIPAL ---------- */
+.gameCard{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:21px;
+  padding:10px;
+}
+/* ---------- PERSONAJE ---------- */
+.character{
+  background:white;
+  color:#16334b;
+  border-radius:17px;
   display:flex;
   align-items:center;
-  gap:10px;
-  background:white;
-  color:#102a43;
-  border-radius:18px;
-  padding:10px;
-  margin-bottom:8px;
+  gap:9px;
+  padding:8px 10px;
+  margin-bottom:7px;
+  min-height:68px;
 }
-.character{
-  width:65px;
-  min-width:65px;
+.characterEmoji{
+  width:55px;
+  min-width:55px;
+  font-size:42px;
   text-align:center;
-  font-size:48px;
-  animation:flotar 2s ease-in-out infinite;
+  animation:float 2s ease-in-out infinite;
 }
-@keyframes flotar{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-5px)}
-}
-.characterInfo{
-  flex:1;
+@keyframes float{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-4px);
+  }
 }
 .characterName{
   color:#087f8c;
-  font-size:12px;
+  font-size:11px;
   font-weight:bold;
   margin-bottom:3px;
 }
 .dialog{
-  font-size:14px;
-  line-height:1.3;
+  font-size:13px;
+  line-height:1.25;
 }
-/* SITUACIÓN */
-.question{
+/* ---------- SITUACIÓN ---------- */
+.situation{
   background:white;
-  color:#102a43;
-  border-radius:18px;
-  padding:14px;
-  margin-bottom:8px;
+  color:#15334c;
+  border-radius:17px;
+  padding:10px 12px;
+  margin-bottom:7px;
 }
-.question h3{
-  margin:0 0 7px;
-  font-size:16px;
+.situationNumber{
+  color:#087f8c;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:4px;
 }
-.question p{
-  margin:0;
-  line-height:1.35;
+.situationText{
+  font-size:15px;
+  line-height:1.3;
+  font-weight:bold;
 }
-/* BOTONES */
+/* ---------- PREGUNTA ---------- */
+.questionText{
+  text-align:center;
+  font-size:14px;
+  font-weight:bold;
+  margin:6px 0;
+}
+/* ---------- OPCIONES ---------- */
 .choices{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:7px;
+  gap:6px;
 }
 .choice{
+  min-height:55px;
+  border-radius:13px;
+  padding:8px 4px;
+  font-size:13px;
+  line-height:1.15;
   margin:0;
-  min-height:58px;
-  font-size:14px;
 }
-.doNow{
-  background:#ff7777;
+.do{
+  background:#ff7474;
   color:white;
 }
 .plan{
-  background:#ffd96a;
-  color:#352900;
+  background:#ffd969;
+  color:#3b3000;
 }
 .delegate{
-  background:#78c9ff;
-  color:#062b45;
+  background:#73c8fa;
+  color:#062d47;
 }
 .delete{
-  background:#bce9c8;
-  color:#123b1d;
+  background:#bce9c9;
+  color:#153c1e;
 }
 .feedback{
-  min-height:25px;
+  min-height:23px;
   text-align:center;
-  font-size:16px;
+  font-size:14px;
   font-weight:bold;
-  margin:6px 0 0;
+  margin:5px 0 0;
 }
-/* FINAL */
-.finalEmoji{
-  font-size:70px;
+/* ---------- FINAL ---------- */
+.finalCard{
   text-align:center;
+  background:rgba(255,255,255,.13);
+  border-radius:25px;
+  padding:25px 14px;
+  margin-top:25px;
+}
+.finalEmoji{
+  font-size:65px;
 }
 .finalScore{
-  text-align:center;
   font-size:58px;
   font-weight:bold;
+  margin:5px;
 }
-/* CELULAR */
-@media(max-width:600px){
-  .container{
-    width:96%;
-    padding:6px;
+.finalInfo{
+  background:rgba(0,0,0,.22);
+  padding:12px;
+  border-radius:14px;
+  line-height:1.4;
+  margin:12px 0;
+}
+.finalBtn{
+  width:94%;
+  max-width:400px;
+  padding:15px;
+  border-radius:15px;
+  margin:5px auto;
+  font-size:16px;
+  display:block;
+}
+@media(max-width:380px){
+  .app{
+    padding:5px;
   }
-  .card{
-    padding:12px;
-    border-radius:20px;
-  }
-  .stats{
-    grid-template-columns:repeat(4,1fr);
-  }
-  .stat{
-    font-size:10px;
-  }
-  .stat strong{
-    font-size:18px;
+  .gameCard{
+    padding:7px;
   }
   .character{
-    width:55px;
-    min-width:55px;
-    font-size:40px;
+    min-height:62px;
+    padding:6px;
+  }
+  .characterEmoji{
+    font-size:37px;
+    width:48px;
+    min-width:48px;
   }
   .dialog{
-    font-size:13px;
+    font-size:12px;
   }
-  .question{
-    padding:12px;
+  .situation{
+    padding:9px;
+  }
+  .situationText{
+    font-size:14px;
   }
   .choice{
-    min-height:55px;
-    padding:8px 5px;
-    font-size:13px;
+    min-height:52px;
+    font-size:12px;
   }
 }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="app">
 <!-- ================= MENÚ ================= -->
 <section id="menu" class="screen active">
-<div class="card center">
-<div style="font-size:65px">⏰</div>
-<h1>MISIÓN:<br>DOMINA TU TIEMPO</h1>
+<div class="menu">
+<div class="menuCard">
+<div class="clock">⏰</div>
+<h1>
+MISIÓN:<br>
+DOMINA TU TIEMPO
+</h1>
 <p class="subtitle">
-¿Tienes lo necesario para organizar tu día?
+🎯 Aprende a tomar mejores decisiones<br>
+y demuestra que sabes organizar tu tiempo.
 </p>
-<div class="info">
-🧠 Aprende a priorizar.<br>
-🎯 Toma decisiones inteligentes.<br>
-🏆 ¡Demuestra cuánto sabes administrar tu tiempo!
+<div class="menuInfo">
+👩‍💼 Organiza tu trabajo<br>
+🧠 Prioriza tus tareas<br>
+🏆 Consigue la mejor puntuación
 </div>
 <h2>ELIGE TU NIVEL</h2>
-<button class="medium menuButton" onclick="startMedium()">
+<button class="levelBtn mediumBtn" onclick="startMedium()">
 🟦 NIVEL MEDIO
+<br>
+<small>90 segundos</small>
 </button>
-<button class="hard menuButton" onclick="startHard()">
+<button class="levelBtn hardBtn" onclick="startHard()">
 🔴 NIVEL DIFÍCIL
+<br>
+<small>60 segundos</small>
 </button>
 </div>
+</div>
 </section>
-<!-- ================= NIVEL MEDIO ================= -->
+<!-- ================= MEDIO ================= -->
 <section id="mediumGame" class="screen">
+<div class="gameHeader">
 <div class="stats">
 <div class="stat">
 ⏱️
-<strong id="mTime">90</strong>
+<b id="mTime">90</b>
 </div>
 <div class="stat">
 ❤️
-<strong id="mEnergy">100</strong>
+<b id="mEnergy">100</b>
 </div>
 <div class="stat">
 ⭐
-<strong id="mScore">0</strong>
+<b id="mScore">0</b>
 </div>
 <div class="stat">
 📋
-<strong id="mCounter">1/10</strong>
+<b id="mNumber">1/10</b>
 </div>
 </div>
-<div class="bar">
-<div id="mEnergyBar"></div>
+<div class="energyBar">
+<div id="mEnergyFill" class="energyFill"></div>
 </div>
-<div class="card">
+</div>
+<div class="gameCard">
 <h2>🟦 NIVEL MEDIO</h2>
-<div id="mTask"></div>
+<div id="mContent"></div>
+<div class="questionText">
+¿Qué harías?
+</div>
 <div class="choices">
-<button class="choice doNow"
-onclick="mediumChoose('do')">
-🚨 Hacer ahora
+<button class="choice do"
+onclick="mediumAnswer('do')">
+🚨<br>Hacer ahora
 </button>
 <button class="choice plan"
-onclick="mediumChoose('plan')">
-⭐ Planificar
+onclick="mediumAnswer('plan')">
+⭐<br>Planificar
 </button>
 <button class="choice delegate"
-onclick="mediumChoose('delegate')">
-📞 Delegar
+onclick="mediumAnswer('delegate')">
+📞<br>Delegar
 </button>
 <button class="choice delete"
-onclick="mediumChoose('delete')">
-🗑️ Eliminar
+onclick="mediumAnswer('delete')">
+🗑️<br>Eliminar
 </button>
 </div>
-<p id="mFeedback" class="feedback"></p>
+<div id="mFeedback" class="feedback"></div>
 </div>
 </section>
-<!-- ================= NIVEL DIFÍCIL ================= -->
+<!-- ================= DIFÍCIL ================= -->
 <section id="hardGame" class="screen">
+<div class="gameHeader">
 <div class="stats">
 <div class="stat">
 ⏱️
-<strong id="hTime">60</strong>
+<b id="hTime">60</b>
 </div>
 <div class="stat">
 ❤️
-<strong id="hEnergy">100</strong>
+<b id="hEnergy">100</b>
 </div>
 <div class="stat">
 ⭐
-<strong id="hScore">0</strong>
+<b id="hScore">0</b>
 </div>
 <div class="stat">
 🔥
-<strong id="hStreak">0</strong>
+<b id="hStreak">0</b>
 </div>
 </div>
-<div class="bar">
-<div id="hEnergyBar"></div>
+<div class="energyBar">
+<div id="hEnergyFill" class="energyFill"></div>
 </div>
-<div class="card">
+</div>
+<div class="gameCard">
 <h2>🔴 NIVEL DIFÍCIL</h2>
-<p class="center">
-Lee la situación y decide rápidamente.
-</p>
-<div id="hTask"></div>
-<div id="hChoices"></div>
-<p id="hFeedback" class="feedback"></p>
+<div id="hContent"></div>
+<div class="questionText">
+¿Qué harías con esta situación?
+</div>
+<div class="choices">
+<button class="choice do"
+onclick="hardAnswer('do')">
+🚨<br>Hacer ahora
+</button>
+<button class="choice plan"
+onclick="hardAnswer('plan')">
+⭐<br>Planificar
+</button>
+<button class="choice delegate"
+onclick="hardAnswer('delegate')">
+📞<br>Delegar
+</button>
+<button class="choice delete"
+onclick="hardAnswer('delete')">
+🗑️<br>Eliminar
+</button>
+</div>
+<div id="hFeedback" class="feedback"></div>
 </div>
 </section>
 <!-- ================= FINAL ================= -->
 <section id="final" class="screen">
-<div class="card center">
-<div class="finalEmoji" id="finalEmoji">🏆</div>
-<h2 id="finalTitle"></h2>
-<p>Tu puntuación:</p>
-<div id="finalScore" class="finalScore">0</div>
+<div class="finalCard">
+<div id="finalEmoji" class="finalEmoji">
+🏆
+</div>
+<h2 id="finalTitle">
+¡Buen trabajo!
+</h2>
+<p>
+Tu puntuación:
+</p>
+<div id="finalScore" class="finalScore">
+0
+</div>
 <p id="finalMessage"></p>
-<div class="info">
-🧠 Gestionar el tiempo no significa hacer todo.
+<div class="finalInfo">
+🧠 Gestionar bien el tiempo no significa hacer todo.
+<br>
 Significa saber qué merece tu atención primero.
 </div>
-<button class="medium menuButton" onclick="goMenu()">
+<button class="finalBtn mediumBtn"
+onclick="goMenu()">
 🏠 Volver al menú
 </button>
-<button class="hard menuButton" onclick="replayLevel()">
-🔄 Repetir nivel
+<button class="finalBtn hardBtn"
+onclick="replay()">
+🔄 Jugar otra vez
 </button>
 </div>
 </section>
 </div>
 <script>
-/* =====================================================
+/* ==================================================
    CONTROL
-===================================================== */
+================================================== */
 let timer=null;
-let finalMode="";
-function show(id){
+let currentLevel="";
+function showScreen(id){
 document.querySelectorAll(".screen")
-.forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
+.forEach(screen=>{
+  screen.classList.remove("active");
+});
+document.getElementById(id)
+.classList.add("active");
 }
-/* =====================================================
+/* ==================================================
    PERSONAJES
-===================================================== */
-const characters={
+================================================== */
+const people={
 boss:{
 emoji:"👨‍💼",
 name:"JEFE"
@@ -418,10 +507,6 @@ worker:{
 emoji:"👩‍💼",
 name:"TÚ"
 },
-distractor:{
-emoji:"😎",
-name:"DISTRACTOR"
-},
 team:{
 emoji:"👥",
 name:"EQUIPO"
@@ -429,138 +514,140 @@ name:"EQUIPO"
 teacher:{
 emoji:"👩‍🏫",
 name:"CAPACITADORA"
+},
+distractor:{
+emoji:"😎",
+name:"DISTRACTOR"
+},
+customer:{
+emoji:"👩‍🦱",
+name:"CLIENTA"
 }
 };
-/* =====================================================
+/* ==================================================
    NIVEL MEDIO
-===================================================== */
+================================================== */
 const mediumTasks=[
 {
-title:"🚨 Informe para entregar en 20 minutos",
-desc:"Tu jefe necesita el informe para una reunión que comienza en pocos minutos.",
-answer:"do",
+text:"🚨 Tu jefe necesita un informe para una reunión que empieza en 20 minutos.",
 person:"boss",
-dialog:"Necesito el informe antes de la reunión."
+dialog:"Necesito el informe antes de la reunión.",
+answer:"do"
 },
 {
-title:"📚 Preparar una capacitación para el próximo mes",
-desc:"Es importante para tu crecimiento, pero todavía tienes tiempo.",
-answer:"plan",
-person:"worker",
-dialog:"Puedo organizar esto con tiempo."
+text:"📚 Preparar una capacitación que se realizará el próximo mes.",
+person:"teacher",
+dialog:"Todavía tienes tiempo para prepararte.",
+answer:"plan"
 },
 {
-title:"📞 Contestar una llamada que puede atender tu compañera",
-desc:"La llamada es urgente, pero ella está autorizada para resolverla.",
-answer:"delegate",
+text:"📞 Una llamada puede ser atendida por tu compañera.",
 person:"coworker",
-dialog:"Yo puedo encargarme de esa llamada."
+dialog:"Yo puedo encargarme de esa llamada.",
+answer:"delegate"
 },
 {
-title:"📱 Revisar redes sociales durante el trabajo",
-desc:"No existe ninguna consecuencia si lo dejas para después.",
-answer:"delete",
+text:"📱 Revisar redes sociales durante la jornada laboral.",
 person:"distractor",
-dialog:"¡Solo mira un momentico! 😂"
+dialog:"¡Solo mira un momentico! 😂",
+answer:"delete"
 },
 {
-title:"🚨 Cliente esperando una solución",
-desc:"El problema afecta directamente al negocio.",
-answer:"do",
+text:"🚨 Un cliente está esperando solución a un problema importante.",
 person:"client",
-dialog:"Necesito una solución lo antes posible."
+dialog:"Necesito que me ayuden lo antes posible.",
+answer:"do"
 },
 {
-title:"🎯 Organizar tus metas del próximo trimestre",
-desc:"Es importante, pero no necesita hacerse hoy.",
-answer:"plan",
+text:"🎯 Organizar tus metas para los próximos meses.",
 person:"worker",
-dialog:"Quiero organizar bien mis objetivos."
+dialog:"Quiero organizar mis objetivos con tiempo.",
+answer:"plan"
 },
 {
-title:"📦 Ordenar archivos que puede organizar otra persona",
-desc:"La tarea puede ser realizada por un auxiliar.",
-answer:"delegate",
+text:"📦 Ordenar unos archivos que puede organizar un auxiliar.",
 person:"assistant",
-dialog:"Puedo ayudarte organizando esos archivos."
+dialog:"Yo puedo organizar esos archivos.",
+answer:"delegate"
 },
 {
-title:"🎮 Jugar durante la jornada laboral",
-desc:"No contribuye a ninguna meta laboral.",
-answer:"delete",
+text:"🎮 Jugar durante el horario de trabajo.",
 person:"distractor",
-dialog:"¡Vamos! Solo una partida. 😂"
+dialog:"¡Una partida y vuelves al trabajo! 😂",
+answer:"delete"
 },
 {
-title:"🚨 Corregir un error antes de enviar un documento",
-desc:"El documento se enviará en 10 minutos.",
-answer:"do",
+text:"🚨 Corregir un documento que se enviará en 10 minutos.",
 person:"boss",
-dialog:"Hay poco tiempo para corregirlo."
+dialog:"Necesito que lo revises ahora.",
+answer:"do"
 },
 {
-title:"💡 Crear una idea para mejorar el proceso de trabajo",
-desc:"Es importante, pero no existe una fecha límite inmediata.",
-answer:"plan",
+text:"💡 Pensar una idea para mejorar la productividad del equipo.",
 person:"worker",
-dialog:"Esta idea merece tiempo para desarrollarla."
+dialog:"Es importante, pero puedo planificarla.",
+answer:"plan"
 }
 ];
-/* VARIABLES MEDIO */
+/* MEDIO */
 let mIndex=0;
 let mScore=0;
 let mEnergy=100;
 let mTime=90;
 function startMedium(){
-finalMode="medium";
+currentLevel="medium";
 mIndex=0;
 mScore=0;
 mEnergy=100;
 mTime=90;
 clearInterval(timer);
-show("mediumGame");
-showMediumTask();
+showScreen("mediumGame");
+renderMedium();
 timer=setInterval(()=>{
 mTime--;
 updateMedium();
 if(mTime<=0){
-finish("medium");
+finishGame("medium");
 }
 },1000);
 }
-function showMediumTask(){
+function renderMedium(){
 if(mIndex>=mediumTasks.length){
-finish("medium");
+finishGame("medium");
 return;
 }
-const t=mediumTasks[mIndex];
-const p=characters[t.person];
-document.getElementById("mCounter").textContent=
+const task=mediumTasks[mIndex];
+const person=people[task.person];
+document.getElementById("mNumber").textContent=
 `${mIndex+1}/${mediumTasks.length}`;
-document.getElementById("mTask").innerHTML=`
-<div class="characterBox">
+document.getElementById("mContent").innerHTML=`
 <div class="character">
-${p.emoji}
+<div class="characterEmoji">
+${person.emoji}
 </div>
-<div class="characterInfo">
+<div>
 <div class="characterName">
-${p.name}
+${person.name}
 </div>
 <div class="dialog">
-💬 "${t.dialog}"
+💬 "${task.dialog}"
 </div>
 </div>
 </div>
-<div class="question">
-<h3>${t.title}</h3>
-<p>${t.desc}</p>
+<div class="situation">
+<div class="situationNumber">
+SITUACIÓN ${mIndex+1}
+</div>
+<div class="situationText">
+${task.text}
+</div>
 </div>
 `;
 document.getElementById("mFeedback").textContent="";
 }
-function mediumChoose(choice){
-const t=mediumTasks[mIndex];
-if(choice===t.answer){
+function mediumAnswer(answer){
+const task=mediumTasks[mIndex];
+if(answer===task.answer){
 mScore+=100;
 document.getElementById("mFeedback").textContent=
 "🎉 ¡Excelente decisión! +100";
@@ -568,7 +655,7 @@ document.getElementById("mFeedback").textContent=
 mScore=Math.max(0,mScore-50);
 mEnergy-=15;
 document.getElementById("mFeedback").textContent=
-"😵 ¡No era la mejor decisión!";
+"😵 ¡No era la mejor opción!";
 }
 mEnergy-=5;
 mTime-=4;
@@ -577,10 +664,12 @@ if(mTime<0)mTime=0;
 updateMedium();
 mIndex++;
 if(mEnergy<=0 || mTime<=0){
-setTimeout(()=>finish("medium"),450);
+setTimeout(()=>{
+finishGame("medium");
+},350);
 return;
 }
-setTimeout(showMediumTask,450);
+setTimeout(renderMedium,350);
 }
 function updateMedium(){
 document.getElementById("mTime").textContent=
@@ -589,139 +678,138 @@ document.getElementById("mEnergy").textContent=
 Math.max(0,Math.floor(mEnergy));
 document.getElementById("mScore").textContent=
 mScore;
-document.getElementById("mEnergyBar").style.width=
+document.getElementById("mEnergyFill").style.width=
 Math.max(0,mEnergy)+"%";
-if(mEnergy<30){
-document.getElementById("mEnergyBar").style.background=
-"#ff5c69";
+if(mEnergy<=30){
+document.getElementById("mEnergyFill").style.background=
+"#ff5968";
 }
 }
-/* =====================================================
+/* ==================================================
    NIVEL DIFÍCIL
-===================================================== */
+================================================== */
 const hardTasks=[
 {
-title:"🚨 Hay un error en una factura que vence hoy.",
-answer:"do",
+text:"🚨 Hay un error en una factura que vence hoy.",
 person:"client",
-dialog:"Necesito que solucionen este problema hoy."
+dialog:"Necesito que solucionen este problema hoy.",
+answer:"do"
 },
 {
-title:"📚 Diseñar un plan para mejorar tus habilidades durante los próximos meses.",
-answer:"plan",
+text:"📚 Diseñar un plan para mejorar tus habilidades profesionales durante los próximos meses.",
 person:"worker",
-dialog:"Esto es importante para mi futuro."
+dialog:"Esto es importante para mi futuro.",
+answer:"plan"
 },
 {
-title:"📞 Un compañero pide ayuda con algo que él mismo puede resolver.",
-answer:"delegate",
+text:"📞 Un compañero pide ayuda con algo que él mismo puede resolver.",
 person:"coworker",
-dialog:"Yo también puedo encargarme de esto."
+dialog:"Yo también puedo encargarme de esto.",
+answer:"delegate"
 },
 {
-title:"📱 Revisar memes durante tu jornada laboral.",
-answer:"delete",
+text:"📱 Revisar memes durante tu jornada laboral.",
 person:"distractor",
-dialog:"¡Solo serán cinco minutos! 😂"
+dialog:"¡Solo serán cinco minutos! 😂",
+answer:"delete"
 },
 {
-title:"🚨 Tu jefe necesita corregir un informe antes de una reunión en 10 minutos.",
-answer:"do",
+text:"🚨 Tu jefe necesita un informe corregido en 10 minutos.",
 person:"boss",
-dialog:"Necesito este informe antes de la reunión."
+dialog:"Necesito este informe antes de la reunión.",
+answer:"do"
 },
 {
-title:"🎯 Planificar las metas del próximo semestre.",
-answer:"plan",
+text:"🎯 Planificar las metas del próximo semestre.",
 person:"worker",
-dialog:"Quiero organizar mis objetivos con tiempo."
+dialog:"Quiero organizar mis objetivos con tiempo.",
+answer:"plan"
 },
 {
-title:"📦 Organizar documentos que puede ordenar un auxiliar.",
-answer:"delegate",
+text:"📦 Organizar documentos que puede ordenar un auxiliar.",
 person:"assistant",
-dialog:"Puedo encargarme de esos documentos."
+dialog:"Puedo encargarme de esos documentos.",
+answer:"delegate"
 },
 {
-title:"🎮 Ver una serie durante el horario de trabajo.",
-answer:"delete",
+text:"🎮 Ver una serie durante el horario de trabajo.",
 person:"distractor",
-dialog:"¡Nadie se va a enterar! 😂"
+dialog:"¡Nadie se va a enterar! 😂",
+answer:"delete"
 },
 {
-title:"🚨 Una falla está deteniendo el trabajo de todo el equipo.",
-answer:"do",
+text:"🚨 Una falla está deteniendo el trabajo de todo el equipo.",
 person:"team",
-dialog:"¡Necesitamos solucionar esto cuanto antes!"
+dialog:"¡Necesitamos solucionarlo cuanto antes!",
+answer:"do"
 },
 {
-title:"📖 Preparar un curso que debes realizar dentro de dos meses.",
-answer:"plan",
+text:"📖 Preparar un curso que debes realizar dentro de dos meses.",
 person:"teacher",
-dialog:"Todavía tienes tiempo para prepararte."
+dialog:"Todavía tienes tiempo para prepararte.",
+answer:"plan"
 },
 {
-title:"📞 Responder una solicitud sencilla que puede resolver otra persona.",
-answer:"delegate",
+text:"📞 Responder una solicitud sencilla que puede resolver otra persona.",
 person:"coworker",
-dialog:"Yo puedo responderla."
+dialog:"Yo puedo responderla.",
+answer:"delegate"
 },
 {
-title:"🛍️ Revisar una tienda online mientras trabajas.",
-answer:"delete",
+text:"🛍️ Revisar una tienda online mientras trabajas.",
 person:"distractor",
-dialog:"¡Mira esta oferta! 😂"
+dialog:"¡Mira esta oferta! 😂",
+answer:"delete"
 },
 {
-title:"🚨 Entregar un documento obligatorio que vence en una hora.",
-answer:"do",
+text:"🚨 Entregar un documento obligatorio que vence en una hora.",
 person:"boss",
-dialog:"Este documento tiene que estar listo."
+dialog:"Este documento tiene que estar listo.",
+answer:"do"
 },
 {
-title:"💡 Crear una propuesta para mejorar la productividad.",
-answer:"plan",
+text:"💡 Crear una propuesta para mejorar la productividad.",
 person:"worker",
-dialog:"Es una buena idea, pero puedo planificarla."
+dialog:"Es una buena idea, pero puedo planificarla.",
+answer:"plan"
 },
 {
-title:"📧 Responder correos rutinarios que otra persona puede gestionar.",
-answer:"delegate",
+text:"📧 Responder correos rutinarios que otra persona puede gestionar.",
 person:"coworker",
-dialog:"Déjame responder esos correos."
+dialog:"Déjame responder esos correos.",
+answer:"delegate"
 },
 {
-title:"🎥 Ver videos sin relación con el trabajo.",
-answer:"delete",
+text:"🎥 Ver videos sin relación con el trabajo.",
 person:"distractor",
-dialog:"¡Este video es buenísimo! 😂"
+dialog:"¡Este video es buenísimo! 😂",
+answer:"delete"
 },
 {
-title:"🚨 Un sistema importante dejó de funcionar.",
-answer:"do",
+text:"🚨 Un sistema importante dejó de funcionar.",
 person:"team",
-dialog:"¡El sistema está detenido!"
+dialog:"¡El sistema está detenido!",
+answer:"do"
 },
 {
-title:"🧠 Diseñar una estrategia para alcanzar tus objetivos del próximo año.",
-answer:"plan",
+text:"🧠 Diseñar una estrategia para alcanzar tus objetivos del próximo año.",
 person:"worker",
-dialog:"Quiero pensar esto con calma."
+dialog:"Quiero pensar esto con calma.",
+answer:"plan"
 },
 {
-title:"📞 Atender una solicitud urgente que no requiere tus conocimientos.",
-answer:"delegate",
+text:"📞 Atender una solicitud urgente que no requiere tus conocimientos.",
 person:"assistant",
-dialog:"Yo tengo los conocimientos para resolverlo."
+dialog:"Yo tengo los conocimientos para resolverlo.",
+answer:"delegate"
 },
 {
-title:"🗑️ Una tarea no aporta valor y no tiene consecuencias si se elimina.",
-answer:"delete",
+text:"🗑️ Una tarea no aporta valor y puede eliminarse.",
 person:"worker",
-dialog:"Realmente no necesito hacer esto."
+dialog:"Realmente no necesito hacer esto.",
+answer:"delete"
 }
 ];
-/* VARIABLES DIFÍCIL */
 let hTasks=[];
 let hIndex=0;
 let hScore=0;
@@ -729,77 +817,60 @@ let hEnergy=100;
 let hTime=60;
 let hStreak=0;
 function startHard(){
-finalMode="hard";
-hTasks=[...hardTasks].sort(()=>Math.random()-.5);
+currentLevel="hard";
+hTasks=[...hardTasks]
+.sort(()=>Math.random()-.5);
 hIndex=0;
 hScore=0;
 hEnergy=100;
 hTime=60;
 hStreak=0;
 clearInterval(timer);
-show("hardGame");
-showHardTask();
+showScreen("hardGame");
+renderHard();
 timer=setInterval(()=>{
 hTime--;
 updateHard();
 if(hTime<=0){
-finish("hard");
+finishGame("hard");
 }
 },1000);
 }
-function showHardTask(){
+function renderHard(){
 if(hIndex>=hTasks.length){
-finish("hard");
+finishGame("hard");
 return;
 }
-const t=hTasks[hIndex];
-const p=characters[t.person];
-document.getElementById("hTask").innerHTML=`
-<div class="characterBox">
+const task=hTasks[hIndex];
+const person=people[task.person];
+document.getElementById("hContent").innerHTML=`
 <div class="character">
-${p.emoji}
+<div class="characterEmoji">
+${person.emoji}
 </div>
-<div class="characterInfo">
+<div>
 <div class="characterName">
-${p.name}
+${person.name}
 </div>
 <div class="dialog">
-💬 "${t.dialog}"
+💬 "${task.dialog}"
 </div>
 </div>
 </div>
-<div class="question">
-<h3>
-Situación ${hIndex+1} de ${hTasks.length}
-</h3>
-<p>${t.title}</p>
+<div class="situation">
+<div class="situationNumber">
+SITUACIÓN ${hIndex+1} DE ${hTasks.length}
 </div>
-`;
-document.getElementById("hChoices").innerHTML=`
-<div class="choices">
-<button class="choice doNow"
-onclick="hardChoose('do')">
-🚨 Hacer ahora
-</button>
-<button class="choice plan"
-onclick="hardChoose('plan')">
-⭐ Planificar
-</button>
-<button class="choice delegate"
-onclick="hardChoose('delegate')">
-📞 Delegar
-</button>
-<button class="choice delete"
-onclick="hardChoose('delete')">
-🗑️ Eliminar
-</button>
+<div class="situationText">
+${task.text}
+</div>
 </div>
 `;
 document.getElementById("hFeedback").textContent="";
 }
-function hardChoose(choice){
-const t=hTasks[hIndex];
-if(choice===t.answer){
+function hardAnswer(answer){
+const task=hTasks[hIndex];
+if(answer===task.answer){
 hStreak++;
 let points=100;
 if(hStreak>=3){
@@ -818,32 +889,17 @@ hScore=Math.max(0,hScore-100);
 hEnergy-=20;
 hTime-=5;
 document.getElementById("hFeedback").textContent=
-"😵 ¡Error! -100 puntos y -5 segundos.";
+"😵 ¡Error! -100 puntos y -5 segundos";
 }
 hIndex++;
 updateHard();
 if(hEnergy<=0 || hTime<=0){
-setTimeout(()=>finish("hard"),450);
+setTimeout(()=>{
+finishGame("hard");
+},350);
 return;
 }
-setTimeout(showHardTask,400);
-}
-function randomEvent(){
-if(finalMode!=="hard")return;
-if(Math.random()<0.20){
-const events=[
-"📞 ¡Interrupción! Pierdes 3 segundos.",
-"📧 ¡Nuevo correo! Pierdes 4 segundos.",
-"🚨 ¡Problema inesperado! Pierdes 5 segundos.",
-"🔔 ¡Notificación! Pierdes 2 segundos."
-];
-const event=
-events[Math.floor(Math.random()*events.length)];
-document.getElementById("hFeedback").textContent=
-event;
-hTime-=Math.floor(Math.random()*4)+2;
-updateHard();
-}
+setTimeout(renderHard,350);
 }
 function updateHard(){
 document.getElementById("hTime").textContent=
@@ -854,87 +910,109 @@ document.getElementById("hScore").textContent=
 hScore;
 document.getElementById("hStreak").textContent=
 hStreak;
-document.getElementById("hEnergyBar").style.width=
+document.getElementById("hEnergyFill").style.width=
 Math.max(0,hEnergy)+"%";
-if(hEnergy<30){
-document.getElementById("hEnergyBar").style.background=
-"#ff5c69";
+if(hEnergy<=30){
+document.getElementById("hEnergyFill").style.background=
+"#ff5968";
 }
 }
-/* =====================================================
-   IMPREVISTOS
-===================================================== */
-setInterval(()=>{
-randomEvent();
-},7000);
-/* =====================================================
+/* ==================================================
+   IMPREVISTOS DEL NIVEL DIFÍCIL
+================================================== */
+function randomEvent(){
+if(currentLevel!=="hard")return;
+if(Math.random()<0.18){
+const events=[
+"📞 ¡Interrupción! -3 segundos",
+"📧 ¡Nuevo correo! -4 segundos",
+"🔔 ¡Notificación! -2 segundos",
+"🚨 ¡Problema inesperado! -5 segundos"
+];
+const event=
+events[Math.floor(Math.random()*events.length)];
+document.getElementById("hFeedback").textContent=
+event;
+hTime-=Math.floor(Math.random()*4)+2;
+updateHard();
+}
+}
+setInterval(randomEvent,7000);
+/* ==================================================
    FINAL
-===================================================== */
-function finish(mode){
-if(document.getElementById("final").classList.contains("active"))
+================================================== */
+function finishGame(level){
+if(document.getElementById("final")
+.classList.contains("active")){
 return;
+}
 clearInterval(timer);
 let score=
-mode==="medium"?mScore:hScore;
-show("final");
-document.getElementById("finalScore").textContent=
-score;
+level==="medium"
+?mScore
+:hScore;
 let title="";
 let message="";
 let emoji="🏆";
-if(mode==="hard"){
+if(level==="hard"){
 if(score>=1600){
-title="🧠 MAESTRO ESTRATEGA";
-message=
-"¡Impresionante! Tomas decisiones excelentes bajo presión.";
 emoji="🤩";
-}else if(score>=1100){
-title="🔥 EXPERTO EN PRIORIDADES";
+title="🧠 MAESTRA DEL TIEMPO";
 message=
-"¡Muy buen manejo de tu tiempo!";
+"¡Increíble! Tomaste excelentes decisiones bajo presión.";
+}else if(score>=1000){
 emoji="😎";
-}else if(score>=600){
-title="🥈 BUEN INTENTO";
+title="🔥 EXPERTA EN PRIORIDADES";
 message=
-"Vas por buen camino. Puedes mejorar con más práctica.";
+"¡Muy buen trabajo! Sabes organizar lo importante.";
+}else if(score>=500){
 emoji="🙂";
+title="🥈 VAS POR BUEN CAMINO";
+message=
+"Practica un poco más y podrás dominar el nivel difícil.";
 }else{
+emoji="😵";
 title="💀 EL TIEMPO TE GANÓ";
 message=
-"Necesitas practicar un poco más. ¡Inténtalo otra vez!";
-emoji="😵";
+"¡No te rindas! Inténtalo nuevamente.";
 }
 }else{
 if(score>=800){
-title="🏆 EXCELENTE GESTOR";
-message=
-"Has demostrado una gran capacidad para priorizar.";
 emoji="🤩";
+title="🏆 EXCELENTE GESTORA";
+message=
+"¡Tienes una muy buena capacidad para priorizar!";
 }else if(score>=500){
-title="🥇 BUEN TRABAJO";
-message=
-"Vas por buen camino.";
 emoji="😎";
-}else{
-title="📚 EN ENTRENAMIENTO";
+title="🥇 MUY BUEN TRABAJO";
 message=
-"Practica y vuelve a intentarlo.";
+"Vas por muy buen camino.";
+}else{
 emoji="🙂";
+title="📚 SIGUE PRACTICANDO";
+message=
+"Cada partida te ayudará a mejorar.";
 }
 }
-document.getElementById("finalEmoji").textContent=
-emoji;
-document.getElementById("finalTitle").textContent=
-title;
-document.getElementById("finalMessage").textContent=
-message;
+document.getElementById("finalEmoji")
+.textContent=emoji;
+document.getElementById("finalTitle")
+.textContent=title;
+document.getElementById("finalScore")
+.textContent=score;
+document.getElementById("finalMessage")
+.textContent=message;
+showScreen("final");
 }
+/* ==================================================
+   BOTONES FINALES
+================================================== */
 function goMenu(){
 clearInterval(timer);
-show("menu");
+showScreen("menu");
 }
-function replayLevel(){
-if(finalMode==="medium"){
+function replay(){
+if(currentLevel==="medium"){
 startMedium();
 }else{
 startHard();
