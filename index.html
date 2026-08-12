@@ -2,983 +2,1356 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Misión: Domina tu Tiempo</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Desafío: Domina tu Tiempo</title>
+
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
+
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#e7ebf0;
-  color:#252b35;
+margin:0;
+font-family:Arial,sans-serif;
+background:#e8ebef;
+color:#252a31;
 }
+
 .app{
-  width:96%;
-  max-width:720px;
-  margin:auto;
-  padding:10px;
+width:96%;
+max-width:700px;
+margin:auto;
+padding:8px;
 }
-/* =========================
-   PANTALLAS
-========================= */
-.screen{
-  display:none;
-}
-.screen.active{
-  display:block;
-}
-/* =========================
-   INICIO
-========================= */
+
+.screen{display:none}
+.screen.active{display:block}
+
+/* ================= INICIO ================= */
+
 .menu{
-  min-height:96vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+min-height:96vh;
+display:flex;
+align-items:center;
+justify-content:center;
 }
-.menu-card{
-  width:100%;
-  max-width:600px;
-  background:white;
-  border-radius:28px;
-  padding:28px 18px;
-  text-align:center;
-  box-shadow:0 12px 35px rgba(0,0,0,.15);
-  border-top:9px solid #1769aa;
+
+.card{
+background:white;
+border-radius:26px;
+padding:25px 16px;
+box-shadow:0 12px 35px rgba(0,0,0,.14);
+text-align:center;
+border-top:9px solid #1769aa;
 }
+
 .logo{
-  width:85px;
-  height:85px;
-  margin:auto;
-  border-radius:50%;
-  background:#1769aa;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:43px;
-  border:7px solid #f5c842;
+width:88px;
+height:88px;
+margin:auto;
+border-radius:50%;
+background:#1769aa;
+border:7px solid #f4c542;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:43px;
 }
+
 h1{
-  color:#1769aa;
-  font-size:clamp(30px,8vw,48px);
-  line-height:1;
-  margin:15px 0 10px;
+color:#1769aa;
+font-size:clamp(30px,8vw,47px);
+line-height:1;
+margin:15px 0 10px;
 }
+
 .subtitle{
-  color:#59636f;
-  font-size:16px;
-  line-height:1.5;
+color:#59636e;
+line-height:1.45;
 }
+
 .info{
-  background:#eef1f4;
-  border-radius:17px;
-  padding:14px;
-  margin:18px 0;
-  line-height:1.7;
-  text-align:left;
+background:#eef1f4;
+border-radius:16px;
+padding:13px;
+text-align:left;
+line-height:1.65;
+margin:16px 0;
 }
-.start-btn{
-  width:95%;
-  padding:17px;
-  border:none;
-  border-radius:17px;
-  background:#1769aa;
-  color:white;
-  font-size:19px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 5px 0 #0d4d80;
+
+.start{
+width:95%;
+border:0;
+border-radius:16px;
+padding:17px;
+background:#1769aa;
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 0 #0d4d80;
 }
-.start-btn:active{
-  transform:translateY(4px);
-  box-shadow:none;
+
+.start:active{
+transform:translateY(4px);
+box-shadow:none;
 }
-/* =========================
-   BARRA SUPERIOR
-========================= */
+
+/* ================= BARRA ================= */
+
 .top{
-  background:white;
-  border-radius:18px;
-  padding:8px;
-  margin-bottom:8px;
-  box-shadow:0 5px 18px rgba(0,0,0,.1);
+background:white;
+border-radius:17px;
+padding:7px;
+margin-bottom:7px;
+box-shadow:0 5px 18px rgba(0,0,0,.1);
 }
+
 .stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:5px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:5px;
 }
+
 .stat{
-  background:#eef1f4;
-  border-radius:12px;
-  text-align:center;
-  padding:5px 2px;
-  font-size:9px;
-  color:#626b75;
-  font-weight:bold;
+background:#eef1f4;
+border-radius:11px;
+padding:5px 2px;
+font-size:9px;
+font-weight:bold;
+color:#69727d;
+text-align:center;
 }
+
 .stat strong{
-  display:block;
-  color:#1769aa;
-  font-size:20px;
-  margin-top:2px;
+display:block;
+font-size:19px;
+color:#1769aa;
+margin-top:2px;
 }
-.progress{
-  height:8px;
-  background:#d7dce2;
-  border-radius:20px;
-  margin-top:7px;
-  overflow:hidden;
+
+.bar{
+height:8px;
+background:#d7dce1;
+border-radius:20px;
+overflow:hidden;
+margin-top:6px;
 }
-.progress-fill{
-  width:100%;
-  height:100%;
-  background:#f5c842;
-  transition:.25s;
+
+.barFill{
+height:100%;
+width:100%;
+background:#f4c542;
+transition:.25s;
 }
-/* =========================
-   JUEGO
-========================= */
+
+/* ================= JUEGO ================= */
+
 .game{
-  background:white;
-  border-radius:22px;
-  padding:10px;
-  box-shadow:0 8px 25px rgba(0,0,0,.12);
+background:white;
+border-radius:21px;
+padding:9px;
+box-shadow:0 8px 25px rgba(0,0,0,.11);
 }
-.title-game{
-  margin:2px 0 7px;
-  color:#1769aa;
-  text-align:center;
-  font-size:20px;
+
+.gameTitle{
+text-align:center;
+color:#1769aa;
+font-size:20px;
+font-weight:bold;
+margin:2px 0 7px;
 }
-/* =========================
-   ESCENA
-========================= */
+
+/* ================= PERSONAJE ================= */
+
 .scene{
-  background:#f2f4f6;
-  border-radius:18px;
-  min-height:125px;
-  display:flex;
-  align-items:center;
-  padding:8px;
-  gap:8px;
-  margin-bottom:7px;
-  border:2px solid #e1e5e9;
+background:#f2f4f6;
+border:2px solid #e1e5e9;
+border-radius:17px;
+min-height:120px;
+display:flex;
+align-items:center;
+gap:7px;
+padding:7px;
+margin-bottom:7px;
 }
-/* =========================
-   PERSONAJE
-========================= */
+
 .character{
-  position:relative;
-  width:105px;
-  min-width:105px;
-  height:115px;
+position:relative;
+width:100px;
+min-width:100px;
+height:112px;
 }
-/* cabeza */
+
 .face{
-  position:absolute;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:#f0b38d;
-  left:28px;
-  top:8px;
-  border:2px solid #343b44;
-  z-index:3;
+position:absolute;
+width:47px;
+height:47px;
+left:27px;
+top:7px;
+background:#f1b38d;
+border:2px solid #303741;
+border-radius:50%;
+z-index:3;
 }
-/* cabello */
+
 .hair{
-  position:absolute;
-  width:52px;
-  height:28px;
-  left:26px;
-  top:4px;
-  background:#3b281e;
-  border-radius:28px 28px 10px 10px;
-  z-index:4;
+position:absolute;
+width:52px;
+height:30px;
+left:24px;
+top:3px;
+background:#3a271c;
+border-radius:28px 28px 12px 12px;
+z-index:4;
 }
-/* ojos */
+
 .eye{
-  position:absolute;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:#222;
-  top:31px;
-  z-index:5;
+position:absolute;
+width:5px;
+height:5px;
+border-radius:50%;
+background:#222;
+top:29px;
+z-index:5;
 }
-.eye.left{
-  left:40px;
-}
-.eye.right{
-  left:59px;
-}
-/* nariz */
-.nose{
-  position:absolute;
-  width:5px;
-  height:7px;
-  border-right:2px solid #a4674d;
-  top:35px;
-  left:51px;
-  z-index:5;
-}
-/* boca */
+
+.eye.left{left:39px}
+.eye.right{left:58px}
+
 .mouth{
-  position:absolute;
-  width:15px;
-  height:7px;
-  border-bottom:2px solid #8e3d3d;
-  border-radius:50%;
-  top:43px;
-  left:45px;
-  z-index:5;
+position:absolute;
+width:15px;
+height:7px;
+border-bottom:2px solid #8a3c3c;
+border-radius:50%;
+top:42px;
+left:43px;
+z-index:5;
 }
-/* cuello */
+
 .neck{
-  position:absolute;
-  width:14px;
-  height:12px;
-  background:#f0b38d;
-  left:45px;
-  top:50px;
-  z-index:2;
+position:absolute;
+width:14px;
+height:12px;
+background:#f1b38d;
+left:44px;
+top:50px;
+z-index:2;
 }
-/* cuerpo */
-.torso{
-  position:absolute;
-  width:60px;
-  height:48px;
-  left:22px;
-  top:58px;
-  background:#1769aa;
-  border-radius:18px 18px 8px 8px;
-  border:2px solid #343b44;
-  z-index:2;
+
+.body{
+position:absolute;
+width:59px;
+height:48px;
+left:21px;
+top:58px;
+background:#1769aa;
+border:2px solid #303741;
+border-radius:18px 18px 8px 8px;
+z-index:2;
 }
-/* brazos */
+
 .arm{
-  position:absolute;
-  width:14px;
-  height:39px;
-  background:#f0b38d;
-  border-radius:12px;
-  top:61px;
-  z-index:1;
+position:absolute;
+width:13px;
+height:38px;
+background:#f1b38d;
+border-radius:12px;
+top:62px;
+z-index:1;
 }
+
 .arm.left{
-  left:11px;
-  transform:rotate(25deg);
+left:9px;
+transform:rotate(25deg);
 }
+
 .arm.right{
-  left:78px;
-  transform:rotate(-25deg);
+left:79px;
+transform:rotate(-25deg);
 }
-/* piernas */
+
 .leg{
-  position:absolute;
-  width:16px;
-  height:30px;
-  background:#343b44;
-  top:101px;
-  border-radius:5px;
+position:absolute;
+width:15px;
+height:29px;
+background:#303741;
+top:101px;
+border-radius:5px;
 }
-.leg.left{
-  left:35px;
+
+.leg.left{left:33px}
+.leg.right{left:55px}
+
+/* PERSONAJES */
+
+.you .hair{
+background:#42291d;
+height:34px;
 }
-.leg.right{
-  left:56px;
+
+.you .body{
+background:#1769aa;
 }
-/* =========================
-   PERSONAJES DIFERENTES
-========================= */
-.woman .hair{
-  background:#3c2418;
-  height:35px;
-  border-radius:30px 30px 18px 18px;
-}
-.woman .torso{
-  background:#6d58b5;
-}
+
 .boss .hair{
-  background:#222;
+background:#202020;
 }
-.boss .torso{
-  background:#34495e;
+
+.boss .body{
+background:#364b63;
 }
+
 .client .hair{
-  background:#75472d;
+background:#75472c;
 }
-.client .torso{
-  background:#d87962;
+
+.client .body{
+background:#d97861;
 }
-.teacher .hair{
-  background:#b86d3c;
-}
-.teacher .torso{
-  background:#d9a7c7;
-}
-.assistant .hair{
-  background:#242424;
-}
-.assistant .torso{
-  background:#5caa78;
-}
+
 .coworker .hair{
-  background:#d19a42;
+background:#d09a40;
 }
-.coworker .torso{
-  background:#f0b93c;
+
+.coworker .body{
+background:#7b63bd;
 }
-/* =========================
-   DIÁLOGO
-========================= */
-.dialog-area{
-  flex:1;
+
+.assistant .hair{
+background:#222;
 }
+
+.assistant .body{
+background:#5ca875;
+}
+
+.teacher .hair{
+background:#b66e43;
+}
+
+.teacher .body{
+background:#c783aa;
+}
+
+/* ================= DIÁLOGO ================= */
+
+.dialogArea{
+flex:1;
+}
+
 .name{
-  color:#1769aa;
-  font-size:11px;
-  font-weight:bold;
-  margin-bottom:5px;
+color:#1769aa;
+font-size:11px;
+font-weight:bold;
+margin-bottom:4px;
 }
+
 .dialog{
-  color:#343b44;
-  font-size:14px;
-  line-height:1.35;
+font-size:13px;
+line-height:1.35;
 }
-/* =========================
-   SITUACIÓN
-========================= */
+
+/* ================= SITUACIÓN ================= */
+
 .situation{
-  background:#f8f9fa;
-  border-left:6px solid #f5c842;
-  border-radius:14px;
-  padding:10px;
-  margin-bottom:7px;
+background:#fafbfc;
+border-left:6px solid #f4c542;
+border-radius:13px;
+padding:10px;
+margin-bottom:7px;
 }
-.situation-label{
-  color:#1769aa;
-  font-size:10px;
-  font-weight:bold;
-  margin-bottom:4px;
+
+.label{
+font-size:10px;
+color:#1769aa;
+font-weight:bold;
+margin-bottom:4px;
 }
-.situation-text{
-  font-size:14px;
-  line-height:1.35;
-  font-weight:bold;
+
+.situationText{
+font-size:14px;
+line-height:1.35;
+font-weight:bold;
 }
-/* =========================
-   MATRIZ
-========================= */
-.matrix{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:5px;
-  margin-bottom:7px;
-}
-.matrix-box{
-  border-radius:11px;
-  padding:6px;
-  font-size:10px;
-  font-weight:bold;
-  text-align:center;
-}
-.urgent{
-  background:#f6d6d6;
-  color:#873737;
-}
-.important{
-  background:#d7e8f7;
-  color:#174e78;
-}
-.delegate-box{
-  background:#fff0bc;
-  color:#705700;
-}
-.eliminate-box{
-  background:#dfe3e7;
-  color:#4e5862;
-}
-/* =========================
-   RESPUESTAS
-========================= */
+
+/* ================= RESPUESTAS ================= */
+
 .question{
-  text-align:center;
-  font-weight:bold;
-  font-size:13px;
-  margin:5px 0;
-  color:#343b44;
+text-align:center;
+font-size:13px;
+font-weight:bold;
+margin:5px 0;
 }
+
 .answers{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:6px;
 }
+
 .answer{
-  min-height:57px;
-  border:0;
-  border-radius:14px;
-  padding:7px 4px;
-  font-size:12px;
-  font-weight:bold;
-  cursor:pointer;
-  color:#252b35;
-  border-bottom:4px solid rgba(0,0,0,.12);
+min-height:55px;
+border:0;
+border-radius:13px;
+font-size:12px;
+font-weight:bold;
+cursor:pointer;
+border-bottom:4px solid rgba(0,0,0,.13);
 }
+
 .answer:active{
-  transform:translateY(3px);
-  border-bottom-width:1px;
+transform:translateY(3px);
+border-bottom-width:1px;
 }
-.a1{
-  background:#b8d8f0;
-}
-.a2{
-  background:#f8d96b;
-}
-.a3{
-  background:#d4c8ed;
-}
-.a4{
-  background:#d8dde2;
-}
+
+.a1{background:#b9d9ef}
+.a2{background:#f5d66b}
+.a3{background:#d4c8ed}
+.a4{background:#d8dde2}
+
 .feedback{
-  min-height:20px;
-  text-align:center;
-  font-size:13px;
-  font-weight:bold;
-  padding-top:4px;
+min-height:25px;
+text-align:center;
+font-size:14px;
+font-weight:bold;
+padding:5px 0;
 }
-/* =========================
-   FINAL
-========================= */
+
+/* ================= REACCIÓN ================= */
+
+.reaction{
+display:none;
+position:fixed;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+z-index:20;
+width:85%;
+max-width:360px;
+background:white;
+border-radius:25px;
+padding:22px;
+text-align:center;
+box-shadow:0 15px 45px rgba(0,0,0,.3);
+animation:pop .25s ease;
+}
+
+.reaction.show{
+display:block;
+}
+
+.reactionFace{
+font-size:65px;
+}
+
+.reactionTitle{
+font-size:25px;
+font-weight:bold;
+color:#1769aa;
+margin:5px 0;
+}
+
+.reactionText{
+color:#59636e;
+line-height:1.4;
+}
+
+@keyframes pop{
+from{
+transform:translate(-50%,-50%) scale(.7);
+opacity:0;
+}
+to{
+transform:translate(-50%,-50%) scale(1);
+opacity:1;
+}
+}
+
+/* ================= FINAL ================= */
+
 .final{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+min-height:92vh;
+display:flex;
+align-items:center;
+justify-content:center;
 }
-.final-card{
-  width:100%;
-  background:white;
-  border-radius:28px;
-  padding:30px 18px;
-  text-align:center;
-  box-shadow:0 12px 35px rgba(0,0,0,.15);
+
+.finalCard{
+background:white;
+border-radius:27px;
+padding:28px 17px;
+width:100%;
+text-align:center;
+box-shadow:0 12px 35px rgba(0,0,0,.14);
 }
-.final-icon{
-  font-size:65px;
+
+.finalIcon{
+font-size:68px;
 }
-.final-card h2{
-  color:#1769aa;
-  font-size:28px;
+
+.finalTitle{
+color:#1769aa;
+font-size:28px;
 }
-.score{
-  font-size:60px;
-  color:#1769aa;
-  font-weight:bold;
+
+.finalScore{
+font-size:62px;
+font-weight:bold;
+color:#1769aa;
 }
-.final-message{
-  color:#59636f;
-  line-height:1.5;
+
+.finalMessage{
+color:#59636e;
+line-height:1.5;
 }
+
+.record{
+background:#eef1f4;
+border-radius:15px;
+padding:11px;
+margin:12px 0;
+}
+
 .restart{
-  width:95%;
-  border:0;
-  border-radius:16px;
-  padding:16px;
-  background:#1769aa;
-  color:white;
-  font-size:17px;
-  font-weight:bold;
+width:95%;
+border:0;
+border-radius:16px;
+padding:16px;
+background:#1769aa;
+color:white;
+font-size:17px;
+font-weight:bold;
 }
-/* =========================
-   CELULAR
-========================= */
+
+/* ================= CELULAR ================= */
+
 @media(max-width:430px){
-  .app{
-    padding:5px;
-  }
-  .game{
-    padding:7px;
-  }
-  .scene{
-    min-height:108px;
-  }
-  .character{
-    width:85px;
-    min-width:85px;
-    transform:scale(.82);
-    transform-origin:left center;
-    margin-right:-12px;
-  }
-  .dialog{
-    font-size:12px;
-  }
-  .situation-text{
-    font-size:13px;
-  }
-  .answer{
-    min-height:52px;
-    font-size:11px;
-  }
-  .stat strong{
-    font-size:17px;
-  }
+
+.app{
+width:97%;
+padding:4px;
+}
+
+.game{
+padding:7px;
+}
+
+.scene{
+min-height:105px;
+}
+
+.character{
+width:82px;
+min-width:82px;
+transform:scale(.82);
+transform-origin:left center;
+margin-right:-14px;
+}
+
+.dialog{
+font-size:12px;
+}
+
+.situationText{
+font-size:13px;
+}
+
+.answer{
+min-height:51px;
+font-size:11px;
+}
+
+.stat strong{
+font-size:17px;
+}
+
+.reaction{
+width:88%;
+}
 }
 </style>
 </head>
+
 <body>
+
 <div class="app">
-<!-- =========================
-     INICIO
-========================= -->
+
+<!-- ================= INICIO ================= -->
+
 <section id="menu" class="screen active">
+
 <div class="menu">
-<div class="menu-card">
+
+<div class="card">
+
 <div class="logo">⏱</div>
+
 <h1>
-MISIÓN:<br>
-DOMINA TU TIEMPO
+DOMINA<br>
+TU TIEMPO
 </h1>
+
 <p class="subtitle">
-Pon a prueba tus conocimientos de la
-<strong>Matriz de Eisenhower</strong>.
+🔥 Un desafío para demostrar qué tan bien
+manejas tus prioridades.
 </p>
+
 <div class="info">
+
 <strong>🔥 NIVEL DIFÍCIL</strong>
+
 <br><br>
-⏱ Tienes 60 segundos.<br>
-🎯 Resuelve situaciones de trabajo.<br>
-🧠 Decide qué hacer primero.<br>
-🏆 Consigue la mayor puntuación posible.
+
+⏱ 60 segundos<br>
+❤️ 3 vidas<br>
+🔥 Consigue rachas<br>
+🎯 Gana puntos por rapidez<br>
+😈 ¡Cuidado con las situaciones trampa!
+
 </div>
-<button class="start-btn" onclick="startGame()">
+
+<button class="start" onclick="startGame()">
 COMENZAR DESAFÍO
 </button>
+
 </div>
+
 </div>
+
 </section>
-<!-- =========================
-     JUEGO
-========================= -->
+
+
+<!-- ================= JUEGO ================= -->
+
 <section id="gameScreen" class="screen">
+
 <div class="top">
+
 <div class="stats">
+
 <div class="stat">
 TIEMPO
 <strong id="time">60</strong>
 </div>
+
 <div class="stat">
-ENERGÍA
-<strong id="energy">100</strong>
+VIDAS
+<strong id="lives">3</strong>
 </div>
+
 <div class="stat">
 PUNTOS
 <strong id="score">0</strong>
 </div>
+
 <div class="stat">
 RACHA
 <strong id="streak">0</strong>
 </div>
+
 </div>
-<div class="progress">
-<div id="energyBar" class="progress-fill"></div>
+
+<div class="bar">
+<div id="timeBar" class="barFill"></div>
 </div>
+
 </div>
+
+
 <div class="game">
-<div class="title-game">
-🔥 DESAFÍO DE TIEMPO
+
+<div class="gameTitle">
+🔥 DESAFÍO DE PRIORIDADES
 </div>
+
 <div id="content"></div>
-<div class="matrix">
-<div class="matrix-box urgent">
-URGENTE + IMPORTANTE<br>
-HACER
-</div>
-<div class="matrix-box important">
-NO URGENTE + IMPORTANTE<br>
-PLANIFICAR
-</div>
-<div class="matrix-box delegate-box">
-URGENTE + NO IMPORTANTE<br>
-DELEGAR
-</div>
-<div class="matrix-box eliminate-box">
-NO URGENTE + NO IMPORTANTE<br>
-ELIMINAR
-</div>
-</div>
+
 <div class="question">
-¿Qué decisión tomarías?
+¿Qué debería hacer?
 </div>
+
 <div class="answers">
+
 <button class="answer a1" onclick="answer('do')">
 HACER AHORA
 </button>
+
 <button class="answer a2" onclick="answer('plan')">
 PLANIFICAR
 </button>
+
 <button class="answer a3" onclick="answer('delegate')">
 DELEGAR
 </button>
+
 <button class="answer a4" onclick="answer('delete')">
 ELIMINAR
 </button>
+
 </div>
+
 <div id="feedback" class="feedback"></div>
+
 </div>
+
 </section>
-<!-- =========================
-     FINAL
-========================= -->
+
+
+<!-- ================= FINAL ================= -->
+
 <section id="finalScreen" class="screen">
+
 <div class="final">
-<div class="final-card">
-<div id="finalIcon" class="final-icon">
+
+<div class="finalCard">
+
+<div id="finalIcon" class="finalIcon">
 🏆
 </div>
-<h2 id="finalTitle">
-¡Desafío terminado!
+
+<h2 id="finalTitle" class="finalTitle">
+DESAFÍO TERMINADO
 </h2>
+
 <p>
-Tu puntuación
+Puntuación final
 </p>
-<div id="finalScore" class="score">
+
+<div id="finalScore" class="finalScore">
 0
 </div>
-<p id="finalMessage" class="final-message">
-</p>
+
+<p id="finalMessage" class="finalMessage"></p>
+
+<div class="record">
+
+🏆 Récord personal:
+<strong id="record">0</strong>
+
+</div>
+
 <button class="restart" onclick="startGame()">
 VOLVER A JUGAR
 </button>
+
 </div>
+
 </div>
+
 </section>
+
 </div>
+
+
+<!-- ================= REACCIÓN ================= -->
+
+<div id="reaction" class="reaction">
+
+<div id="reactionFace" class="reactionFace">
+🎉
+</div>
+
+<div id="reactionTitle" class="reactionTitle">
+¡EXCELENTE!
+</div>
+
+<div id="reactionText" class="reactionText">
+¡Muy buena decisión!
+</div>
+
+</div>
+
+
 <script>
+
 /* ==========================================
    PERSONAJES
 ========================================== */
+
 const people={
-woman:{
-class:"woman",
-name:"ANDREA",
-dialog:"Tengo que organizar mis prioridades antes de empezar."
+
+you:{
+class:"you",
+name:"TÚ",
+dialog:"Tengo que analizar bien mis prioridades."
 },
+
 boss:{
 class:"boss",
 name:"JEFE",
-dialog:"Necesito este informe antes de la reunión."
+dialog:"Necesito que resuelvas esto cuanto antes."
 },
+
 client:{
 class:"client",
 name:"CLIENTE",
 dialog:"Tengo un problema que necesita solución."
 },
-teacher:{
-class:"teacher",
-name:"CAPACITADORA",
-dialog:"Esta actividad puede prepararse con tiempo."
-},
-assistant:{
-class:"assistant",
-name:"AUXILIAR",
-dialog:"Puedo encargarme de esa tarea."
-},
+
 coworker:{
 class:"coworker",
 name:"COMPAÑERA",
-dialog:"Yo puedo ayudarte con esto."
+dialog:"Yo puedo ayudarte con esa tarea."
+},
+
+assistant:{
+class:"assistant",
+name:"AUXILIAR",
+dialog:"Puedo encargarme de esto."
+},
+
+teacher:{
+class:"teacher",
+name:"CAPACITADORA",
+dialog:"Puedes prepararlo con anticipación."
 }
+
 };
+
+
 /* ==========================================
-   PREGUNTAS
+   SITUACIONES
 ========================================== */
+
 const tasks=[
+
 {
 text:"Tu jefe necesita un informe para una reunión que comienza en 10 minutos.",
 person:"boss",
 answer:"do"
 },
+
 {
-text:"Debes preparar una presentación para dentro de tres semanas.",
-person:"woman",
+text:"Debes preparar una exposición que será dentro de tres semanas.",
+person:"you",
 answer:"plan"
 },
+
 {
-text:"Una tarea sencilla puede hacerla el auxiliar mientras tú resuelves un problema importante.",
-person:"assistant",
-answer:"delegate"
-},
-{
-text:"Recibes una notificación de una red social mientras trabajas.",
-person:"woman",
-answer:"delete"
-},
-{
-text:"Un cliente importante tiene un problema que está afectando una venta de hoy.",
-person:"client",
-answer:"do"
-},
-{
-text:"Quieres organizar tus metas profesionales para los próximos seis meses.",
-person:"woman",
-answer:"plan"
-},
-{
-text:"Un compañero puede responder un correo rutinario que no requiere tus conocimientos.",
+text:"Un compañero puede responder un correo sencillo mientras tú solucionas un problema importante.",
 person:"coworker",
 answer:"delegate"
 },
+
 {
-text:"Encuentras una actividad que no aporta ningún valor y solo te hace perder tiempo.",
-person:"woman",
+text:"Recibes una notificación de una red social durante tu jornada laboral.",
+person:"you",
 answer:"delete"
 },
+
+{
+text:"Un cliente tiene un problema que está afectando una venta de hoy.",
+person:"client",
+answer:"do"
+},
+
+{
+text:"Quieres organizar tus metas profesionales para los próximos seis meses.",
+person:"you",
+answer:"plan"
+},
+
+{
+text:"El auxiliar puede organizar unos documentos rutinarios por ti.",
+person:"assistant",
+answer:"delegate"
+},
+
+{
+text:"Te llega un video gracioso mientras estás realizando una tarea importante.",
+person:"you",
+answer:"delete"
+},
+
 {
 text:"El sistema de la empresa dejó de funcionar y todo el equipo está detenido.",
 person:"boss",
 answer:"do"
 },
+
 {
-text:"Tienes que estudiar un tema para una exposición dentro de un mes.",
+text:"Tienes una capacitación programada para dentro de un mes.",
 person:"teacher",
 answer:"plan"
 },
+
 {
 text:"Un cliente solicita información básica que puede entregar otra persona.",
 person:"client",
 answer:"delegate"
 },
+
 {
-text:"Alguien te invita a conversar de un tema que no tiene relación con tu trabajo.",
+text:"Un compañero quiere conversar de un tema que no tiene relación con el trabajo.",
 person:"coworker",
 answer:"delete"
 },
+
 {
 text:"Debes corregir un documento obligatorio que se entrega en una hora.",
 person:"boss",
 answer:"do"
 },
+
 {
-text:"Quieres diseñar una estrategia para mejorar tu productividad durante el semestre.",
-person:"woman",
+text:"Quieres crear una estrategia para mejorar tu productividad durante el semestre.",
+person:"you",
 answer:"plan"
 },
+
 {
-text:"Un compañero puede organizar unos archivos que no necesitan tu intervención.",
-person:"coworker",
+text:"Una persona del equipo puede encargarse de una tarea rutinaria.",
+person:"assistant",
 answer:"delegate"
 },
+
 {
 text:"Pasas tiempo revisando videos que no tienen relación con tus objetivos.",
-person:"woman",
+person:"you",
 answer:"delete"
 },
+
 {
 text:"Hay un error grave en un documento que debe enviarse hoy.",
 person:"boss",
 answer:"do"
 },
+
 {
-text:"Debes preparar un proyecto que se presentará dentro de dos meses.",
+text:"Debes preparar un proyecto que presentarás dentro de dos meses.",
 person:"teacher",
 answer:"plan"
 },
+
 {
-text:"Una persona del equipo puede realizar una tarea rutinaria por ti.",
-person:"assistant",
+text:"Una solicitud sencilla puede ser atendida por tu compañera.",
+person:"coworker",
 answer:"delegate"
 },
+
 {
-text:"Una tarea repetitiva no aporta resultados y puede eliminarse.",
-person:"woman",
+text:"Una tarea repetitiva no aporta ningún resultado y puede eliminarse.",
+person:"you",
 answer:"delete"
+},
+
+/* TRAMPAS */
+
+{
+text:"Tu jefe te pide organizar los archivos para la próxima semana. Parece importante porque te lo pidió él, pero no es urgente.",
+person:"boss",
+answer:"plan"
+},
+
+{
+text:"Un cliente te escribe 'URGENTE', pero solo necesita información que puede entregar el auxiliar.",
+person:"client",
+answer:"delegate"
+},
+
+{
+text:"Tu compañera dice que necesita ayuda ahora, pero su tarea puede esperar hasta mañana.",
+person:"coworker",
+answer:"plan"
+},
+
+{
+text:"Tienes una reunión importante en 5 minutos, pero alguien te manda un meme.",
+person:"you",
+answer:"delete"
+},
+
+{
+text:"Una tarea no es urgente, pero es muy importante para alcanzar una meta futura.",
+person:"teacher",
+answer:"plan"
 }
+
 ];
+
+
 /* ==========================================
    VARIABLES
 ========================================== */
+
 let index=0;
 let score=0;
-let energy=100;
-let time=60;
+let lives=3;
 let streak=0;
+let time=60;
 let timer=null;
+let questionStart=0;
+let locked=false;
+
+
 /* ==========================================
-   CAMBIAR PANTALLA
+   PANTALLAS
 ========================================== */
+
 function show(id){
+
 document.querySelectorAll(".screen")
-.forEach(screen=>{
-screen.classList.remove("active");
-});
+.forEach(s=>s.classList.remove("active"));
+
 document.getElementById(id)
 .classList.add("active");
+
 }
+
+
 /* ==========================================
    INICIAR
 ========================================== */
+
 function startGame(){
+
 clearInterval(timer);
+
 index=0;
 score=0;
-energy=100;
-time=60;
+lives=3;
 streak=0;
+time=60;
+locked=false;
+
 show("gameScreen");
+
 render();
+
+questionStart=Date.now();
+
 timer=setInterval(()=>{
+
 time--;
+
 update();
+
 if(time<=0){
+
 finish();
+
 }
+
 },1000);
+
 }
+
+
 /* ==========================================
-   MOSTRAR PREGUNTA
+   MOSTRAR
 ========================================== */
+
 function render(){
+
 if(index>=tasks.length){
+
 finish();
 return;
+
 }
+
 const task=tasks[index];
 const person=people[task.person];
+
+locked=false;
+
 document.getElementById("content").innerHTML=
+
 `
+
 <div class="scene">
+
 <div class="character ${person.class}">
+
 <div class="hair"></div>
+
 <div class="face"></div>
+
 <div class="eye left"></div>
 <div class="eye right"></div>
-<div class="nose"></div>
+
 <div class="mouth"></div>
+
 <div class="neck"></div>
-<div class="torso"></div>
+
+<div class="body"></div>
+
 <div class="arm left"></div>
 <div class="arm right"></div>
+
 <div class="leg left"></div>
 <div class="leg right"></div>
+
 </div>
-<div class="dialog-area">
+
+<div class="dialogArea">
+
 <div class="name">
 ${person.name}
 </div>
+
 <div class="dialog">
 "${person.dialog}"
 </div>
+
 </div>
+
 </div>
+
+
 <div class="situation">
-<div class="situation-label">
-SITUACIÓN ${index+1} DE ${tasks.length}
+
+<div class="label">
+SITUACIÓN ${index+1}
 </div>
-<div class="situation-text">
+
+<div class="situationText">
 ${task.text}
 </div>
+
 </div>
+
 `;
+
 document.getElementById("feedback").textContent="";
+
+questionStart=Date.now();
+
 }
+
+
 /* ==========================================
    RESPONDER
 ========================================== */
+
 function answer(choice){
-const task=tasks[index];
-if(choice===task.answer){
-streak++;
-let points=100;
-if(streak>=3){
-points=150;
-document.getElementById("feedback").textContent=
-"🔥 ¡RACHA! +150 puntos";
-}else{
-document.getElementById("feedback").textContent=
-"✅ ¡Excelente decisión! +100 puntos";
-}
-score+=points;
-energy-=3;
-}else{
-streak=0;
-score=Math.max(0,score-75);
-energy-=18;
-time-=4;
-document.getElementById("feedback").textContent=
-"❌ ¡Cuidado! -75 puntos y -4 segundos";
-}
-if(energy<0)
-energy=0;
-index++;
-update();
-if(energy<=0 || time<=0){
-setTimeout(finish,350);
+
+if(locked)
 return;
+
+locked=true;
+
+const task=tasks[index];
+
+const seconds=Math.floor(
+(Date.now()-questionStart)/1000
+);
+
+if(choice===task.answer){
+
+streak++;
+
+let points=100;
+
+if(seconds<=3)
+points+=50;
+
+if(streak>=3)
+points+=50;
+
+score+=points;
+
+document.getElementById("feedback").textContent=
+"¡Muy buena decisión!";
+
+showReaction(
+"🎉",
+"¡EXCELENTE!",
+`+${points} puntos`
+);
+
+}else{
+
+streak=0;
+lives--;
+score=Math.max(0,score-75);
+
+time=Math.max(0,time-4);
+
+document.getElementById("feedback").textContent=
+"¡Cuidado! Esa no era la mejor opción.";
+
+showReaction(
+"😢",
+"¡OH NO!",
+"-75 puntos y -4 segundos"
+);
+
 }
-setTimeout(render,350);
+
+update();
+
+index++;
+
+if(lives<=0 || time<=0){
+
+setTimeout(finish,900);
+
+return;
+
 }
+
+setTimeout(render,900);
+
+}
+
+
+/* ==========================================
+   REACCIÓN
+========================================== */
+
+function showReaction(face,title,text){
+
+const box=document.getElementById("reaction");
+
+document.getElementById("reactionFace")
+.textContent=face;
+
+document.getElementById("reactionTitle")
+.textContent=title;
+
+document.getElementById("reactionText")
+.textContent=text;
+
+box.classList.add("show");
+
+setTimeout(()=>{
+box.classList.remove("show");
+},750);
+
+}
+
+
 /* ==========================================
    ACTUALIZAR
 ========================================== */
+
 function update(){
+
 document.getElementById("time")
 .textContent=Math.max(0,time);
-document.getElementById("energy")
-.textContent=Math.max(0,Math.floor(energy));
+
+document.getElementById("lives")
+.textContent="❤️".repeat(Math.max(0,lives));
+
 document.getElementById("score")
 .textContent=score;
+
 document.getElementById("streak")
 .textContent=streak;
-document.getElementById("energyBar")
-.style.width=Math.max(0,energy)+"%";
+
+document.getElementById("timeBar")
+.style.width=Math.max(0,(time/60)*100)+"%";
+
 }
+
+
+/* ==========================================
+   RÉCORD
+========================================== */
+
+function getRecord(){
+
+return Number(
+localStorage.getItem("tiempoRecord") || 0
+);
+
+}
+
+function saveRecord(){
+
+const oldRecord=getRecord();
+
+if(score>oldRecord){
+
+localStorage.setItem(
+"tiempoRecord",
+score
+);
+
+return score;
+
+}
+
+return oldRecord;
+
+}
+
+
 /* ==========================================
    FINAL
 ========================================== */
+
 function finish(){
+
 clearInterval(timer);
-let icon="🏆";
+
+const record=saveRecord();
+
+let icon="";
 let title="";
 let message="";
-if(score>=1500){
+
+if(score>=1800){
+
+icon="👑";
+title="¡MAESTRO/A DEL TIEMPO!";
+message=
+"Impresionante. Identificaste muy bien las prioridades y resististe las trampas.";
+
+}
+
+else if(score>=1200){
+
 icon="🌟";
-title="¡MAESTRA DEL TIEMPO!";
+title="¡EXPERTO/A EN PRIORIDADES!";
+
 message=
-"¡Excelente! Demostraste que sabes identificar qué es urgente, importante y qué puede esperar.";
+"¡Excelente trabajo! Tienes muy buen dominio de la Matriz de Eisenhower.";
+
 }
-else if(score>=1000){
+
+else if(score>=700){
+
 icon="😎";
-title="¡EXCELENTE TRABAJO!";
+title="¡MUY BUEN TRABAJO!";
+
 message=
-"Tomaste muy buenas decisiones y manejaste muy bien tus prioridades.";
+"Vas muy bien. Ya sabes distinguir qué merece tu atención.";
+
 }
-else if(score>=500){
-icon="🙂";
-title="¡VAS POR BUEN CAMINO!";
-message=
-"Ya entiendes la lógica de la matriz. Un poco más de práctica y dominarás el desafío.";
-}
+
 else{
-icon="😵";
-title="¡EL TIEMPO TE GANÓ!";
+
+icon="😢";
+title="¡PUEDES MEJORAR!";
+
 message=
-"Revisa la Matriz de Eisenhower e inténtalo nuevamente.";
+"Revisa las prioridades e inténtalo otra vez. ¡Seguro puedes superar tu puntuación!";
+
 }
+
+
 document.getElementById("finalIcon")
 .textContent=icon;
+
 document.getElementById("finalTitle")
 .textContent=title;
+
 document.getElementById("finalScore")
 .textContent=score;
+
 document.getElementById("finalMessage")
 .textContent=message;
+
+document.getElementById("record")
+.textContent=record;
+
 show("finalScreen");
+
 }
+
 </script>
+
 </body>
 </html>
