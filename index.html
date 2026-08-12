@@ -3,1128 +3,981 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Un Día en la Oficina</title>
+<title>Misión: Domina tu Tiempo</title>
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
 }
 body{
-    font-family:Arial, sans-serif;
-    background:#eee6df;
-    color:#40352d;
-    min-height:100vh;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#e7ebf0;
+  color:#252b35;
+}
+.app{
+  width:96%;
+  max-width:720px;
+  margin:auto;
+  padding:10px;
+}
+/* =========================
+   PANTALLAS
+========================= */
+.screen{
+  display:none;
+}
+.screen.active{
+  display:block;
 }
 /* =========================
    INICIO
 ========================= */
-.start{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
+.menu{
+  min-height:96vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.start-box{
-    width:min(1100px,95%);
-    min-height:650px;
-    background:#fff;
-    border-radius:30px;
-    overflow:hidden;
-    display:grid;
-    grid-template-columns:45% 55%;
-    box-shadow:0 20px 60px rgba(60,45,35,.18);
+.menu-card{
+  width:100%;
+  max-width:600px;
+  background:white;
+  border-radius:28px;
+  padding:28px 18px;
+  text-align:center;
+  box-shadow:0 12px 35px rgba(0,0,0,.15);
+  border-top:9px solid #1769aa;
 }
-.start-text{
-    padding:60px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.logo{
+  width:85px;
+  height:85px;
+  margin:auto;
+  border-radius:50%;
+  background:#1769aa;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:43px;
+  border:7px solid #f5c842;
 }
-.tag{
-    color:#9b7557;
-    font-size:13px;
-    font-weight:bold;
-    letter-spacing:2px;
-    margin-bottom:16px;
+h1{
+  color:#1769aa;
+  font-size:clamp(30px,8vw,48px);
+  line-height:1;
+  margin:15px 0 10px;
 }
-.start-text h1{
-    font-size:50px;
-    line-height:1;
-    color:#49372b;
-    margin-bottom:22px;
+.subtitle{
+  color:#59636f;
+  font-size:16px;
+  line-height:1.5;
 }
-.start-text p{
-    color:#756b64;
-    font-size:18px;
-    line-height:1.65;
-    margin-bottom:30px;
+.info{
+  background:#eef1f4;
+  border-radius:17px;
+  padding:14px;
+  margin:18px 0;
+  line-height:1.7;
+  text-align:left;
 }
 .start-btn{
-    width:max-content;
-    border:0;
-    padding:17px 32px;
-    border-radius:13px;
-    background:#70513b;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
+  width:95%;
+  padding:17px;
+  border:none;
+  border-radius:17px;
+  background:#1769aa;
+  color:white;
+  font-size:19px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 5px 0 #0d4d80;
 }
-.start-btn:hover{
-    transform:translateY(-3px);
-    background:#553d2e;
-}
-/* =========================
-   OFICINA
-========================= */
-.office{
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(#e4dbd1 0 72%,#a97d59 72%);
-}
-.window{
-    position:absolute;
-    top:65px;
-    left:50%;
-    transform:translateX(-50%);
-    width:270px;
-    height:160px;
-    background:#dceff3;
-    border:10px solid white;
-}
-.window:before{
-    content:"";
-    position:absolute;
-    left:50%;
-    height:100%;
-    width:5px;
-    background:white;
-}
-.window:after{
-    content:"";
-    position:absolute;
-    top:50%;
-    width:100%;
-    height:5px;
-    background:white;
-}
-.desk{
-    position:absolute;
-    left:7%;
-    bottom:100px;
-    width:86%;
-    height:18px;
-    background:#76533b;
-    border-radius:5px;
-}
-.desk:before,
-.desk:after{
-    content:"";
-    position:absolute;
-    top:15px;
-    width:12px;
-    height:130px;
-    background:#5e422f;
-}
-.desk:before{left:25px}
-.desk:after{right:25px}
-.monitor{
-    position:absolute;
-    bottom:125px;
-    left:50%;
-    transform:translateX(-50%);
-    width:180px;
-    height:110px;
-    background:#303234;
-    border:7px solid #242628;
-    border-radius:10px;
-}
-.monitor:after{
-    content:"";
-    position:absolute;
-    bottom:-28px;
-    left:50%;
-    transform:translateX(-50%);
-    width:60px;
-    height:17px;
-    background:#444;
-}
-.cup{
-    position:absolute;
-    right:13%;
-    bottom:135px;
-    width:43px;
-    height:36px;
-    background:white;
-    border-radius:5px 5px 12px 12px;
-}
-.cup:after{
-    content:"";
-    position:absolute;
-    right:-12px;
-    top:7px;
-    width:14px;
-    height:18px;
-    border:4px solid white;
-    border-left:0;
-    border-radius:0 10px 10px 0;
+.start-btn:active{
+  transform:translateY(4px);
+  box-shadow:none;
 }
 /* =========================
-   PERSONAJE ORIGINAL
+   BARRA SUPERIOR
 ========================= */
-.person{
-    position:absolute;
-    left:50%;
-    bottom:105px;
-    transform:translateX(-50%);
-    width:190px;
-    height:320px;
-    transition:.25s;
+.top{
+  background:white;
+  border-radius:18px;
+  padding:8px;
+  margin-bottom:8px;
+  box-shadow:0 5px 18px rgba(0,0,0,.1);
 }
-.hair{
-    position:absolute;
-    top:3px;
-    left:33px;
-    width:125px;
-    height:125px;
-    background:#382b27;
-    border-radius:55% 55% 45% 45%;
-    z-index:1;
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:5px;
 }
-.head{
-    position:absolute;
-    top:30px;
-    left:53px;
-    width:86px;
-    height:96px;
-    background:#efc3a3;
-    border-radius:45%;
-    z-index:3;
+.stat{
+  background:#eef1f4;
+  border-radius:12px;
+  text-align:center;
+  padding:5px 2px;
+  font-size:9px;
+  color:#626b75;
+  font-weight:bold;
 }
-.glasses{
-    position:absolute;
-    top:67px;
-    left:57px;
-    width:82px;
-    height:27px;
-    z-index:5;
+.stat strong{
+  display:block;
+  color:#1769aa;
+  font-size:20px;
+  margin-top:2px;
 }
-.glass{
-    position:absolute;
-    width:34px;
-    height:25px;
-    border:3px solid #4a3931;
-    border-radius:8px;
-    background:rgba(255,255,255,.3);
+.progress{
+  height:8px;
+  background:#d7dce2;
+  border-radius:20px;
+  margin-top:7px;
+  overflow:hidden;
 }
-.glass.left{left:0}
-.glass.right{right:0}
-.glasses:after{
-    content:"";
-    position:absolute;
-    left:33px;
-    top:10px;
-    width:16px;
-    height:3px;
-    background:#4a3931;
-}
-.eye{
-    position:absolute;
-    top:74px;
-    width:6px;
-    height:7px;
-    background:#302724;
-    border-radius:50%;
-    z-index:6;
-}
-.eye.one{left:72px}
-.eye.two{left:115px}
-.nose{
-    position:absolute;
-    top:82px;
-    left:91px;
-    width:8px;
-    height:15px;
-    border-right:2px solid #bd856d;
-    transform:rotate(10deg);
-    z-index:5;
-}
-.mouth{
-    position:absolute;
-    top:101px;
-    left:84px;
-    width:24px;
-    height:9px;
-    border-bottom:3px solid #914f4c;
-    border-radius:50%;
-    z-index:6;
-}
-.body{
-    position:absolute;
-    top:130px;
-    left:30px;
-    width:130px;
-    height:155px;
-    background:#665345;
-    border-radius:25px 25px 12px 12px;
-}
-.blouse{
-    position:absolute;
-    left:45px;
-    top:0;
-    width:40px;
-    height:90px;
-    background:#f7f3ef;
-    clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);
-}
-.collar{
-    position:absolute;
-    left:57px;
-    top:5px;
-    width:18px;
-    height:25px;
-    background:#735746;
-    transform:rotate(45deg);
-}
-.arm{
-    position:absolute;
-    top:15px;
-    width:27px;
-    height:105px;
-    background:#665345;
-    border-radius:20px;
-}
-.arm.left{
-    left:-18px;
-    transform:rotate(10deg);
-}
-.arm.right{
-    right:-18px;
-    transform:rotate(-10deg);
-}
-.skirt{
-    position:absolute;
-    top:278px;
-    left:39px;
-    width:112px;
-    height:42px;
-    background:#443a38;
-    clip-path:polygon(12% 0,88% 0,100% 100%,0 100%);
+.progress-fill{
+  width:100%;
+  height:100%;
+  background:#f5c842;
+  transition:.25s;
 }
 /* =========================
    JUEGO
 ========================= */
 .game{
-    display:none;
-    min-height:100vh;
-    padding:18px;
+  background:white;
+  border-radius:22px;
+  padding:10px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
-.top{
-    max-width:1100px;
-    margin:auto;
-    background:white;
-    border-radius:18px;
-    padding:13px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    box-shadow:0 5px 20px rgba(60,45,35,.08);
-}
-.logo{
-    font-weight:bold;
-    color:#70513b;
-}
-.stats{
-    display:flex;
-    gap:9px;
-    flex-wrap:wrap;
-    justify-content:flex-end;
-}
-.stat{
-    background:#f3e9df;
-    padding:9px 13px;
-    border-radius:20px;
-    font-weight:bold;
-    font-size:14px;
-}
-.timer{
-    background:#e9d8c8;
-}
-.timer.warning{
-    background:#f4c7c2;
-    color:#8d3028;
-    animation:pulse .6s infinite alternate;
-}
-@keyframes pulse{
-    from{transform:scale(1)}
-    to{transform:scale(1.08)}
-}
-.progress-wrap{
-    max-width:1100px;
-    margin:14px auto;
-    height:8px;
-    background:#d8cec5;
-    border-radius:10px;
-    overflow:hidden;
-}
-.progress{
-    height:100%;
-    width:0;
-    background:#8a674c;
-    transition:.3s;
-}
-.layout{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:350px 1fr;
-    gap:20px;
+.title-game{
+  margin:2px 0 7px;
+  color:#1769aa;
+  text-align:center;
+  font-size:20px;
 }
 /* =========================
    ESCENA
 ========================= */
 .scene{
-    position:relative;
-    min-height:570px;
-    overflow:hidden;
-    border-radius:25px;
-    background:linear-gradient(#e4dbd1 0 72%,#a97d59 72%);
-    box-shadow:0 5px 20px rgba(60,45,35,.08);
-}
-.scene .window{
-    width:190px;
-    height:110px;
-    top:35px;
-}
-.scene .desk{
-    width:90%;
-    left:5%;
-    bottom:90px;
-}
-.scene .monitor{
-    width:125px;
-    height:78px;
-    bottom:115px;
-}
-.scene .cup{
-    bottom:120px;
-}
-.scene .person{
-    transform:translateX(-50%) scale(.82);
-    transform-origin:bottom center;
-    bottom:83px;
-}
-.character-name{
-    position:absolute;
-    bottom:20px;
-    width:100%;
-    text-align:center;
-    font-weight:bold;
-    color:#594536;
+  background:#f2f4f6;
+  border-radius:18px;
+  min-height:125px;
+  display:flex;
+  align-items:center;
+  padding:8px;
+  gap:8px;
+  margin-bottom:7px;
+  border:2px solid #e1e5e9;
 }
 /* =========================
-   PANEL
+   PERSONAJE
 ========================= */
-.panel{
-    background:white;
-    border-radius:25px;
-    padding:34px;
-    box-shadow:0 5px 20px rgba(60,45,35,.08);
+.character{
+  position:relative;
+  width:105px;
+  min-width:105px;
+  height:115px;
 }
-.round{
-    color:#a07959;
-    font-size:13px;
-    font-weight:bold;
-    letter-spacing:1px;
-    margin-bottom:10px;
+/* cabeza */
+.face{
+  position:absolute;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#f0b38d;
+  left:28px;
+  top:8px;
+  border:2px solid #343b44;
+  z-index:3;
 }
-.panel h2{
-    font-size:28px;
-    margin-bottom:14px;
+/* cabello */
+.hair{
+  position:absolute;
+  width:52px;
+  height:28px;
+  left:26px;
+  top:4px;
+  background:#3b281e;
+  border-radius:28px 28px 10px 10px;
+  z-index:4;
 }
-.description{
-    color:#716861;
-    line-height:1.6;
-    margin-bottom:20px;
+/* ojos */
+.eye{
+  position:absolute;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#222;
+  top:31px;
+  z-index:5;
 }
-.event{
-    padding:17px;
-    background:#f7f0e9;
-    border-left:5px solid #89664b;
-    border-radius:9px;
-    margin-bottom:20px;
+.eye.left{
+  left:40px;
 }
-.event strong{
-    display:block;
-    margin-bottom:6px;
+.eye.right{
+  left:59px;
 }
-.choices{
-    display:grid;
-    gap:11px;
+/* nariz */
+.nose{
+  position:absolute;
+  width:5px;
+  height:7px;
+  border-right:2px solid #a4674d;
+  top:35px;
+  left:51px;
+  z-index:5;
 }
-.choice{
-    width:100%;
-    border:2px solid #e2dad2;
-    background:#fffdfb;
-    border-radius:13px;
-    padding:15px;
-    text-align:left;
-    cursor:pointer;
-    font-size:15px;
-    transition:.2s;
+/* boca */
+.mouth{
+  position:absolute;
+  width:15px;
+  height:7px;
+  border-bottom:2px solid #8e3d3d;
+  border-radius:50%;
+  top:43px;
+  left:45px;
+  z-index:5;
 }
-.choice:hover{
-    border-color:#9c7556;
-    transform:translateX(3px);
+/* cuello */
+.neck{
+  position:absolute;
+  width:14px;
+  height:12px;
+  background:#f0b38d;
+  left:45px;
+  top:50px;
+  z-index:2;
 }
-.choice.good{
-    background:#e7f2e9;
-    border-color:#6d9a74;
+/* cuerpo */
+.torso{
+  position:absolute;
+  width:60px;
+  height:48px;
+  left:22px;
+  top:58px;
+  background:#1769aa;
+  border-radius:18px 18px 8px 8px;
+  border:2px solid #343b44;
+  z-index:2;
 }
-.choice.bad{
-    background:#f7e3e0;
-    border-color:#b96d64;
+/* brazos */
+.arm{
+  position:absolute;
+  width:14px;
+  height:39px;
+  background:#f0b38d;
+  border-radius:12px;
+  top:61px;
+  z-index:1;
+}
+.arm.left{
+  left:11px;
+  transform:rotate(25deg);
+}
+.arm.right{
+  left:78px;
+  transform:rotate(-25deg);
+}
+/* piernas */
+.leg{
+  position:absolute;
+  width:16px;
+  height:30px;
+  background:#343b44;
+  top:101px;
+  border-radius:5px;
+}
+.leg.left{
+  left:35px;
+}
+.leg.right{
+  left:56px;
+}
+/* =========================
+   PERSONAJES DIFERENTES
+========================= */
+.woman .hair{
+  background:#3c2418;
+  height:35px;
+  border-radius:30px 30px 18px 18px;
+}
+.woman .torso{
+  background:#6d58b5;
+}
+.boss .hair{
+  background:#222;
+}
+.boss .torso{
+  background:#34495e;
+}
+.client .hair{
+  background:#75472d;
+}
+.client .torso{
+  background:#d87962;
+}
+.teacher .hair{
+  background:#b86d3c;
+}
+.teacher .torso{
+  background:#d9a7c7;
+}
+.assistant .hair{
+  background:#242424;
+}
+.assistant .torso{
+  background:#5caa78;
+}
+.coworker .hair{
+  background:#d19a42;
+}
+.coworker .torso{
+  background:#f0b93c;
+}
+/* =========================
+   DIÁLOGO
+========================= */
+.dialog-area{
+  flex:1;
+}
+.name{
+  color:#1769aa;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+.dialog{
+  color:#343b44;
+  font-size:14px;
+  line-height:1.35;
+}
+/* =========================
+   SITUACIÓN
+========================= */
+.situation{
+  background:#f8f9fa;
+  border-left:6px solid #f5c842;
+  border-radius:14px;
+  padding:10px;
+  margin-bottom:7px;
+}
+.situation-label{
+  color:#1769aa;
+  font-size:10px;
+  font-weight:bold;
+  margin-bottom:4px;
+}
+.situation-text{
+  font-size:14px;
+  line-height:1.35;
+  font-weight:bold;
+}
+/* =========================
+   MATRIZ
+========================= */
+.matrix{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+  margin-bottom:7px;
+}
+.matrix-box{
+  border-radius:11px;
+  padding:6px;
+  font-size:10px;
+  font-weight:bold;
+  text-align:center;
+}
+.urgent{
+  background:#f6d6d6;
+  color:#873737;
+}
+.important{
+  background:#d7e8f7;
+  color:#174e78;
+}
+.delegate-box{
+  background:#fff0bc;
+  color:#705700;
+}
+.eliminate-box{
+  background:#dfe3e7;
+  color:#4e5862;
+}
+/* =========================
+   RESPUESTAS
+========================= */
+.question{
+  text-align:center;
+  font-weight:bold;
+  font-size:13px;
+  margin:5px 0;
+  color:#343b44;
+}
+.answers{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+.answer{
+  min-height:57px;
+  border:0;
+  border-radius:14px;
+  padding:7px 4px;
+  font-size:12px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#252b35;
+  border-bottom:4px solid rgba(0,0,0,.12);
+}
+.answer:active{
+  transform:translateY(3px);
+  border-bottom-width:1px;
+}
+.a1{
+  background:#b8d8f0;
+}
+.a2{
+  background:#f8d96b;
+}
+.a3{
+  background:#d4c8ed;
+}
+.a4{
+  background:#d8dde2;
 }
 .feedback{
-    margin-top:16px;
-    min-height:42px;
-    font-weight:bold;
-    line-height:1.4;
+  min-height:20px;
+  text-align:center;
+  font-size:13px;
+  font-weight:bold;
+  padding-top:4px;
 }
-.result{
-    text-align:center;
-    padding:30px 5px;
+/* =========================
+   FINAL
+========================= */
+.final{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.result-icon{
-    font-size:65px;
-    margin-bottom:12px;
+.final-card{
+  width:100%;
+  background:white;
+  border-radius:28px;
+  padding:30px 18px;
+  text-align:center;
+  box-shadow:0 12px 35px rgba(0,0,0,.15);
 }
-.result h2{
-    font-size:35px;
-    margin-bottom:14px;
+.final-icon{
+  font-size:65px;
 }
-.result p{
-    color:#706862;
-    line-height:1.6;
-    margin:9px;
+.final-card h2{
+  color:#1769aa;
+  font-size:28px;
+}
+.score{
+  font-size:60px;
+  color:#1769aa;
+  font-weight:bold;
+}
+.final-message{
+  color:#59636f;
+  line-height:1.5;
 }
 .restart{
-    margin-top:20px;
-    border:0;
-    background:#70513b;
-    color:white;
-    padding:14px 28px;
-    border-radius:10px;
-    font-weight:bold;
-    cursor:pointer;
+  width:95%;
+  border:0;
+  border-radius:16px;
+  padding:16px;
+  background:#1769aa;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
 }
 /* =========================
    CELULAR
 ========================= */
-@media(max-width:800px){
-    .start-box{
-        grid-template-columns:1fr;
-    }
-    .office{
-        min-height:400px;
-    }
-    .start-text{
-        order:2;
-        padding:35px 25px;
-    }
-    .layout{
-        grid-template-columns:1fr;
-    }
-    .scene{
-        min-height:330px;
-    }
-    .panel{
-        padding:24px 18px;
-    }
-    .panel h2{
-        font-size:23px;
-    }
-}
-@media(max-width:500px){
-    .top{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-    .stats{
-        justify-content:flex-start;
-    }
-    .scene{
-        min-height:280px;
-    }
-    .scene .person{
-        transform:translateX(-50%) scale(.65);
-        bottom:58px;
-    }
-    .scene .desk{
-        bottom:65px;
-    }
-    .scene .monitor{
-        bottom:90px;
-    }
-    .scene .cup{
-        bottom:95px;
-    }
+@media(max-width:430px){
+  .app{
+    padding:5px;
+  }
+  .game{
+    padding:7px;
+  }
+  .scene{
+    min-height:108px;
+  }
+  .character{
+    width:85px;
+    min-width:85px;
+    transform:scale(.82);
+    transform-origin:left center;
+    margin-right:-12px;
+  }
+  .dialog{
+    font-size:12px;
+  }
+  .situation-text{
+    font-size:13px;
+  }
+  .answer{
+    min-height:52px;
+    font-size:11px;
+  }
+  .stat strong{
+    font-size:17px;
+  }
 }
 </style>
 </head>
 <body>
-<!-- =====================================================
+<div class="app">
+<!-- =========================
      INICIO
-===================================================== -->
-<section class="start" id="start">
-<div class="start-box">
-<div class="start-text">
-<div class="tag">
-JUEGO INTERACTIVO · GESTIÓN DEL TIEMPO
-</div>
-<h1>Un día en la oficina</h1>
-<p>
-Son las <strong>8:00 a. m.</strong>.
-Tu jornada acaba de comenzar.
-<br><br>
-Tienes <strong>60 segundos</strong>, solo
-<strong>3 vidas</strong> y una oficina llena
-de imprevistos.
-<br><br>
-<strong>Piensa rápido. No todo lo urgente es importante.</strong>
+========================= -->
+<section id="menu" class="screen active">
+<div class="menu">
+<div class="menu-card">
+<div class="logo">⏱</div>
+<h1>
+MISIÓN:<br>
+DOMINA TU TIEMPO
+</h1>
+<p class="subtitle">
+Pon a prueba tus conocimientos de la
+<strong>Matriz de Eisenhower</strong>.
 </p>
+<div class="info">
+<strong>🔥 NIVEL DIFÍCIL</strong>
+<br><br>
+⏱ Tienes 60 segundos.<br>
+🎯 Resuelve situaciones de trabajo.<br>
+🧠 Decide qué hacer primero.<br>
+🏆 Consigue la mayor puntuación posible.
+</div>
 <button class="start-btn" onclick="startGame()">
-▶ COMENZAR JORNADA
+COMENZAR DESAFÍO
 </button>
 </div>
-<div class="office">
-<div class="window"></div>
-<div class="desk"></div>
-<div class="monitor"></div>
-<div class="cup"></div>
-<div class="person">
-<div class="hair"></div>
-<div class="head">
-<div class="eye one"></div>
-<div class="eye two"></div>
-<div class="glasses">
-<div class="glass left"></div>
-<div class="glass right"></div>
-</div>
-<div class="nose"></div>
-<div class="mouth"></div>
-</div>
-<div class="body">
-<div class="blouse"></div>
-<div class="collar"></div>
-<div class="arm left"></div>
-<div class="arm right"></div>
-</div>
-<div class="skirt"></div>
-</div>
-</div>
 </div>
 </section>
-<!-- =====================================================
+<!-- =========================
      JUEGO
-===================================================== -->
-<section class="game" id="game">
+========================= -->
+<section id="gameScreen" class="screen">
 <div class="top">
-<div class="logo">
-☕ UN DÍA EN LA OFICINA
-</div>
 <div class="stats">
-<div class="stat timer" id="timer">
-⏱️ 60
+<div class="stat">
+TIEMPO
+<strong id="time">60</strong>
 </div>
-<div class="stat" id="lives">
-❤️❤️❤️
+<div class="stat">
+ENERGÍA
+<strong id="energy">100</strong>
 </div>
-<div class="stat" id="points">
-⭐ 0
+<div class="stat">
+PUNTOS
+<strong id="score">0</strong>
 </div>
-</div>
-</div>
-<div class="progress-wrap">
-<div class="progress" id="progress"></div>
-</div>
-<div class="layout">
-<div class="scene">
-<div class="window"></div>
-<div class="desk"></div>
-<div class="monitor"></div>
-<div class="cup"></div>
-<div class="person" id="person">
-<div class="hair"></div>
-<div class="head">
-<div class="eye one"></div>
-<div class="eye two"></div>
-<div class="glasses">
-<div class="glass left"></div>
-<div class="glass right"></div>
-</div>
-<div class="nose"></div>
-<div class="mouth"></div>
-</div>
-<div class="body">
-<div class="blouse"></div>
-<div class="collar"></div>
-<div class="arm left"></div>
-<div class="arm right"></div>
-</div>
-<div class="skirt"></div>
-</div>
-<div class="character-name" id="characterName">
-La nueva asistente
+<div class="stat">
+RACHA
+<strong id="streak">0</strong>
 </div>
 </div>
-<div class="panel" id="panel"></div>
+<div class="progress">
+<div id="energyBar" class="progress-fill"></div>
+</div>
+</div>
+<div class="game">
+<div class="title-game">
+🔥 DESAFÍO DE TIEMPO
+</div>
+<div id="content"></div>
+<div class="matrix">
+<div class="matrix-box urgent">
+URGENTE + IMPORTANTE<br>
+HACER
+</div>
+<div class="matrix-box important">
+NO URGENTE + IMPORTANTE<br>
+PLANIFICAR
+</div>
+<div class="matrix-box delegate-box">
+URGENTE + NO IMPORTANTE<br>
+DELEGAR
+</div>
+<div class="matrix-box eliminate-box">
+NO URGENTE + NO IMPORTANTE<br>
+ELIMINAR
+</div>
+</div>
+<div class="question">
+¿Qué decisión tomarías?
+</div>
+<div class="answers">
+<button class="answer a1" onclick="answer('do')">
+HACER AHORA
+</button>
+<button class="answer a2" onclick="answer('plan')">
+PLANIFICAR
+</button>
+<button class="answer a3" onclick="answer('delegate')">
+DELEGAR
+</button>
+<button class="answer a4" onclick="answer('delete')">
+ELIMINAR
+</button>
+</div>
+<div id="feedback" class="feedback"></div>
 </div>
 </section>
+<!-- =========================
+     FINAL
+========================= -->
+<section id="finalScreen" class="screen">
+<div class="final">
+<div class="final-card">
+<div id="finalIcon" class="final-icon">
+🏆
+</div>
+<h2 id="finalTitle">
+¡Desafío terminado!
+</h2>
+<p>
+Tu puntuación
+</p>
+<div id="finalScore" class="score">
+0
+</div>
+<p id="finalMessage" class="final-message">
+</p>
+<button class="restart" onclick="startGame()">
+VOLVER A JUGAR
+</button>
+</div>
+</div>
+</section>
+</div>
 <script>
-/* =====================================================
-   10 SITUACIONES DIFÍCILES
-===================================================== */
-const situations=[
+/* ==========================================
+   PERSONAJES
+========================================== */
+const people={
+woman:{
+class:"woman",
+name:"ANDREA",
+dialog:"Tengo que organizar mis prioridades antes de empezar."
+},
+boss:{
+class:"boss",
+name:"JEFE",
+dialog:"Necesito este informe antes de la reunión."
+},
+client:{
+class:"client",
+name:"CLIENTE",
+dialog:"Tengo un problema que necesita solución."
+},
+teacher:{
+class:"teacher",
+name:"CAPACITADORA",
+dialog:"Esta actividad puede prepararse con tiempo."
+},
+assistant:{
+class:"assistant",
+name:"AUXILIAR",
+dialog:"Puedo encargarme de esa tarea."
+},
+coworker:{
+class:"coworker",
+name:"COMPAÑERA",
+dialog:"Yo puedo ayudarte con esto."
+}
+};
+/* ==========================================
+   PREGUNTAS
+========================================== */
+const tasks=[
 {
-title:"El correo del jefe",
-text:"Son las 8:00 a. m. Tu jefe te pide un informe para las 11:00. Al mismo tiempo tienes 18 correos sin leer.",
-choices:[
-["Empezar inmediatamente el informe.",true,15,"¡Muy bien! Tiene una fecha límite concreta."],
-["Responder primero los 18 correos.",false,-10,"Perdón... muchos correos no significan que todos sean prioridad."],
-["Dejar el informe para después.",false,-15,"Ay, perdón... acabas de dejar una tarea importante para después."]
-]
+text:"Tu jefe necesita un informe para una reunión que comienza en 10 minutos.",
+person:"boss",
+answer:"do"
 },
 {
-title:"La llamada inesperada",
-text:"Estás preparando el informe cuando un compañero te llama. Dice que necesita ayuda con algo que puede esperar hasta la tarde.",
-choices:[
-["Interrumpir el informe para ayudarlo.",false,-10,"Ay, perdón... caíste en una interrupción que no era urgente."],
-["Explicarle que terminarás tu tarea y luego lo ayudarás.",true,15,"¡Exacto! Protegiste tu tiempo sin ignorar a tu compañero."],
-["No responderle nunca.",false,-10,"Perdón... priorizar no significa ignorar a los demás."]
-]
+text:"Debes preparar una presentación para dentro de tres semanas.",
+person:"woman",
+answer:"plan"
 },
 {
-title:"El cliente molesto",
-text:"Un cliente llama molesto. Tu informe tiene fecha límite dentro de dos horas, pero el problema del cliente puede resolverse en cinco minutos.",
-choices:[
-["Ignorar al cliente hasta terminar el informe.",false,-15,"¡Ay no! Perdón... una situación urgente también necesita atención."],
-["Resolver rápidamente el problema y volver al informe.",true,20,"¡Excelente! Resuelves una urgencia pequeña y vuelves a tu prioridad."],
-["Abandonar completamente el informe.",false,-10,"Perdón... solucionaste una urgencia, pero olvidaste la tarea principal."]
-]
+text:"Una tarea sencilla puede hacerla el auxiliar mientras tú resuelves un problema importante.",
+person:"assistant",
+answer:"delegate"
 },
 {
-title:"La reunión sorpresa",
-text:"Tu jefe anuncia una reunión de 30 minutos. Justo ahora estás concentrada en una tarea que vence hoy.",
-choices:[
-["Asistir sin decir nada y dejar la tarea.",false,-10,"Mmm... perdón. También era importante comunicar el conflicto."],
-["Explicar que tienes una entrega y preguntar si necesitas asistir.",true,20,"¡Muy bien! Comunicar prioridades también es gestionar el tiempo."],
-["No asistir sin avisar.",false,-15,"¡Perdón! Desaparecer de una reunión tampoco es organización."]
-]
+text:"Recibes una notificación de una red social mientras trabajas.",
+person:"woman",
+answer:"delete"
 },
 {
-title:"Tres tareas, una hora",
-text:"Tienes tres tareas: una urgente pero poco importante, una importante que vence hoy y una que puede esperar.",
-choices:[
-["Hacer primero la urgente poco importante.",false,-10,"Perdón... confundiste urgencia con verdadera prioridad."],
-["Trabajar primero en la importante que vence hoy.",true,20,"¡Correcto! Analizaste importancia y plazo."],
-["Hacer la que puede esperar porque es más fácil.",false,-15,"Ay, perdón... que sea fácil no significa que sea prioritaria."]
-]
+text:"Un cliente importante tiene un problema que está afectando una venta de hoy.",
+person:"client",
+answer:"do"
 },
 {
-title:"La bandeja de entrada",
-text:"Llegan 12 correos mientras trabajas. Solo uno contiene una verdadera emergencia.",
-choices:[
-["Responder los 12 en orden.",false,-10,"Perdón... trabajar por orden de llegada no siempre es lo más eficiente."],
-["Identificar el urgente y clasificar los demás.",true,20,"¡Perfecto! Filtrar también es administrar el tiempo."],
-["Cerrar el correo y olvidarte de todos.",false,-10,"Ay, perdón... ignorar todo tampoco funciona."]
-]
+text:"Quieres organizar tus metas profesionales para los próximos seis meses.",
+person:"woman",
+answer:"plan"
 },
 {
-title:"La tarea que puedes delegar",
-text:"Tienes una tarea repetitiva que un compañero sabe hacer perfectamente. Tú tienes una entrega importante.",
-choices:[
-["Hacerla tú porque así tienes control.",false,-15,"Perdón... intentaste hacerlo todo y perdiste una oportunidad de delegar."],
-["Delegarla y explicar claramente el resultado esperado.",true,20,"¡Excelente! Delegaste sin abandonar la responsabilidad."],
-["Dársela al compañero sin explicarle nada.",false,-10,"Ay... perdón. Delegar también requiere comunicar bien."]
-]
+text:"Un compañero puede responder un correo rutinario que no requiere tus conocimientos.",
+person:"coworker",
+answer:"delegate"
 },
 {
-title:"El compañero desesperado",
-text:"Un compañero llega diciendo: “¡Necesito esto YA!”. Pero no explica para cuándo lo necesita.",
-choices:[
-["Abandonar tu tarea inmediatamente.",false,-15,"Perdón... que alguien diga 'YA' no determina automáticamente la prioridad."],
-["Preguntar plazo, importancia y consecuencias.",true,20,"¡Brillante! Antes de cambiar prioridades, necesitas información."],
-["Decirle que no puedes ayudarlo.",false,-10,"Ay, perdón... primero debías conocer la situación."]
-]
+text:"Encuentras una actividad que no aporta ningún valor y solo te hace perder tiempo.",
+person:"woman",
+answer:"delete"
 },
 {
-title:"Quedan pocos minutos",
-text:"Solo te quedan 10 minutos de jornada. Tienes tres pendientes: uno de 5 minutos, uno de 30 y uno de 1 hora.",
-choices:[
-["Empezar el de una hora.",false,-15,"¡Ay, perdón! No tendrás tiempo suficiente para terminarlo."],
-["Completar el de 5 minutos y dejar organizado el siguiente.",true,20,"¡Excelente! Aprovechaste el tiempo disponible y preparaste lo siguiente."],
-["No hacer nada porque queda poco tiempo.",false,-10,"Perdón... incluso pocos minutos pueden aprovecharse."]
-]
+text:"El sistema de la empresa dejó de funcionar y todo el equipo está detenido.",
+person:"boss",
+answer:"do"
 },
 {
-title:"El cierre de la jornada",
-text:"Son las 4:55. Antes de irte, tienes cinco minutos. ¿Cuál es la mejor decisión?",
-choices:[
-["Cerrar todo y salir sin revisar nada.",false,-10,"Ay, perdón... dejar todo desorganizado puede complicar mañana."],
-["Revisar pendientes, registrar avances y preparar prioridades para mañana.",true,20,"¡Perfecto! Un buen cierre prepara una mejor jornada."],
-["Empezar una tarea nueva.",false,-15,"Perdón... comenzar algo grande sin tiempo para terminarlo no era conveniente."]
-]
+text:"Tienes que estudiar un tema para una exposición dentro de un mes.",
+person:"teacher",
+answer:"plan"
+},
+{
+text:"Un cliente solicita información básica que puede entregar otra persona.",
+person:"client",
+answer:"delegate"
+},
+{
+text:"Alguien te invita a conversar de un tema que no tiene relación con tu trabajo.",
+person:"coworker",
+answer:"delete"
+},
+{
+text:"Debes corregir un documento obligatorio que se entrega en una hora.",
+person:"boss",
+answer:"do"
+},
+{
+text:"Quieres diseñar una estrategia para mejorar tu productividad durante el semestre.",
+person:"woman",
+answer:"plan"
+},
+{
+text:"Un compañero puede organizar unos archivos que no necesitan tu intervención.",
+person:"coworker",
+answer:"delegate"
+},
+{
+text:"Pasas tiempo revisando videos que no tienen relación con tus objetivos.",
+person:"woman",
+answer:"delete"
+},
+{
+text:"Hay un error grave en un documento que debe enviarse hoy.",
+person:"boss",
+answer:"do"
+},
+{
+text:"Debes preparar un proyecto que se presentará dentro de dos meses.",
+person:"teacher",
+answer:"plan"
+},
+{
+text:"Una persona del equipo puede realizar una tarea rutinaria por ti.",
+person:"assistant",
+answer:"delegate"
+},
+{
+text:"Una tarea repetitiva no aporta resultados y puede eliminarse.",
+person:"woman",
+answer:"delete"
 }
 ];
-/* =====================================================
-   FRASES ORIGINALES DEL PERSONAJE
-===================================================== */
-const reactionsGood=[
-"¡Ay, qué alivio! ¡Esta vez sí lo hice bien!",
-"¡Sí! Creo que estoy empezando a entender esto.",
-"¡Perfecto! ¡No perdí el tiempo!",
-"¡Qué bien! Eso salió mejor de lo que esperaba.",
-"¡Sí! ¡Una prioridad menos!",
-"¡Ay, qué felicidad! ¡Esa era la decisión correcta!",
-"¡Lo logré! ¡Estoy organizándome de verdad!",
-"¡Muy bien! ¡Respiremos y sigamos!",
-"¡Eso! ¡Todavía puedo salvar la jornada!",
-"¡Perfecto! ¡Hoy sí voy a salir a tiempo!"
-];
-const reactionsBad=[
-"¡Ay, perdón! Creo que acabo de complicarlo todo.",
-"Perdón, perdón... pensé que esa era la prioridad.",
-"¡Ay no! Discúlpeme, se me fue el tiempo.",
-"Perdón... definitivamente esa no fue mi mejor decisión.",
-"¡Qué pena! Creo que me equivoqué.",
-"¡Ay, no! Esto se me está saliendo de control.",
-"Perdón... prometo que la próxima vez lo organizo mejor.",
-"¡Ay! Creo que confundí lo urgente con lo importante.",
-"Perdón... todavía tengo mucho que aprender.",
-"¡Ay, Dios mío! ¡Solo me quedan pocas oportunidades!"
-];
-/* =====================================================
+/* ==========================================
    VARIABLES
-===================================================== */
-let current=0;
-let lives=3;
-let points=0;
-let timeLeft=60;
-let timerInterval=null;
-let answered=false;
-/* =====================================================
-   SONIDOS
-===================================================== */
-function sound(type){
-const AudioContext=window.AudioContext||window.webkitAudioContext;
-if(!AudioContext)return;
-const ctx=new AudioContext();
-const osc=ctx.createOscillator();
-const gain=ctx.createGain();
-osc.connect(gain);
-gain.connect(ctx.destination);
-if(type==="good"){
-    osc.frequency.setValueAtTime(650,ctx.currentTime);
-    osc.frequency.setValueAtTime(850,ctx.currentTime+.1);
-    osc.frequency.setValueAtTime(1050,ctx.currentTime+.2);
+========================================== */
+let index=0;
+let score=0;
+let energy=100;
+let time=60;
+let streak=0;
+let timer=null;
+/* ==========================================
+   CAMBIAR PANTALLA
+========================================== */
+function show(id){
+document.querySelectorAll(".screen")
+.forEach(screen=>{
+screen.classList.remove("active");
+});
+document.getElementById(id)
+.classList.add("active");
 }
-if(type==="bad"){
-    osc.frequency.setValueAtTime(260,ctx.currentTime);
-    osc.frequency.setValueAtTime(170,ctx.currentTime+.15);
-}
-if(type==="life"){
-    osc.frequency.setValueAtTime(300,ctx.currentTime);
-    osc.frequency.setValueAtTime(180,ctx.currentTime+.12);
-    osc.frequency.setValueAtTime(100,ctx.currentTime+.25);
-}
-if(type==="warning"){
-    osc.frequency.setValueAtTime(700,ctx.currentTime);
-}
-if(type==="finish"){
-    osc.frequency.setValueAtTime(500,ctx.currentTime);
-    osc.frequency.setValueAtTime(650,ctx.currentTime+.12);
-    osc.frequency.setValueAtTime(800,ctx.currentTime+.24);
-    osc.frequency.setValueAtTime(1000,ctx.currentTime+.36);
-}
-gain.gain.setValueAtTime(.001,ctx.currentTime);
-gain.gain.exponentialRampToValueAtTime(
-.12,
-ctx.currentTime+.02
-);
-gain.gain.exponentialRampToValueAtTime(
-.001,
-ctx.currentTime+.5
-);
-osc.start();
-osc.stop(ctx.currentTime+.5);
-}
-/* =====================================================
+/* ==========================================
    INICIAR
-===================================================== */
+========================================== */
 function startGame(){
-document.getElementById("start").style.display="none";
-document.getElementById("game").style.display="block";
-current=0;
-lives=3;
-points=0;
-timeLeft=60;
-answered=false;
-showSituation();
-startTimer();
-}
-/* =====================================================
-   CRONÓMETRO
-===================================================== */
-function startTimer(){
-clearInterval(timerInterval);
-timerInterval=setInterval(()=>{
-timeLeft--;
-updateTimer();
-if(timeLeft<=0){
-clearInterval(timerInterval);
-timeUp();
+clearInterval(timer);
+index=0;
+score=0;
+energy=100;
+time=60;
+streak=0;
+show("gameScreen");
+render();
+timer=setInterval(()=>{
+time--;
+update();
+if(time<=0){
+finish();
 }
 },1000);
 }
-function updateTimer(){
-const timer=document.getElementById("timer");
-timer.textContent="⏱️ "+timeLeft;
-if(timeLeft<=10){
-timer.classList.add("warning");
-if(timeLeft>0){
-    sound("warning");
-}
-}else{
-timer.classList.remove("warning");
-}
-}
-/* =====================================================
-   MOSTRAR SITUACIÓN
-===================================================== */
-function showSituation(){
-answered=false;
-const s=situations[current];
-document.getElementById("progress").style.width=
-((current)/situations.length*100)+"%";
-document.getElementById("lives").textContent=
-"❤️".repeat(lives)+"🖤".repeat(3-lives);
-document.getElementById("points").textContent=
-"⭐ "+points;
-document.getElementById("panel").innerHTML=`
-<div class="round">
-SITUACIÓN ${current+1} DE ${situations.length}
-</div>
-<h2>
-${s.title}
-</h2>
-<p class="description">
-${s.text}
-</p>
-<div class="event">
-<strong>💼 ¿QUÉ HARÍAS?</strong>
-Piensa rápido. Algunas opciones parecen correctas...
-pero solo una es realmente la mejor.
-</div>
-<div class="choices">
-${s.choices.map((c,i)=>`
-<button class="choice" onclick="choose(${i})">
-${c[0]}
-</button>
-`).join("")}
-</div>
-<div class="feedback" id="feedback"></div>
-`;
-}
-/* =====================================================
-   ELEGIR
-===================================================== */
-function choose(index){
-if(answered)return;
-answered=true;
-const s=situations[current];
-const choice=s.choices[index];
-const buttons=document.querySelectorAll(".choice");
-const feedback=document.getElementById("feedback");
-if(choice[1]===true){
-buttons[index].classList.add("good");
-points+=choice[2];
-feedback.innerHTML=
-"✓ "+choice[3]+"<br><br>"+
-"<em>"+reactionsGood[current]+"</em>";
-feedback.style.color="#4f8159";
-sound("good");
-}else{
-buttons[index].classList.add("bad");
-points+=choice[2];
-lives--;
-if(lives<0)lives=0;
-document.getElementById("lives").textContent=
-"❤️".repeat(lives)+"🖤".repeat(3-lives);
-feedback.innerHTML=
-"✕ "+choice[3]+"<br><br>"+
-"<em>"+reactionsBad[current]+"</em>";
-feedback.style.color="#a04f48";
-sound("bad");
-setTimeout(()=>sound("life"),180);
-}
-document.getElementById("points").textContent=
-"⭐ "+points;
-/* =========================
-   FIN SI NO QUEDAN VIDAS
-========================= */
-if(lives<=0){
-setTimeout(()=>{
-clearInterval(timerInterval);
-gameOver("lives");
-},1300);
+/* ==========================================
+   MOSTRAR PREGUNTA
+========================================== */
+function render(){
+if(index>=tasks.length){
+finish();
 return;
 }
-/* =========================
-   SIGUIENTE AUTOMÁTICAMENTE
-========================= */
-setTimeout(()=>{
-current++;
-if(current>=situations.length){
-finish();
-}else{
-showSituation();
-}
-},1300);
-}
-/* =====================================================
-   TIEMPO AGOTADO
-===================================================== */
-function timeUp(){
-gameOver("time");
-}
-/* =====================================================
-   DERROTA
-===================================================== */
-function gameOver(reason){
-clearInterval(timerInterval);
-let message;
-if(reason==="time"){
-message=
-"¡Se acabó el tiempo! La oficina ganó esta vez.";
-}else{
-message=
-"¡Te quedaste sin vidas! La jornada se salió de control.";
-}
-document.getElementById("progress").style.width="100%";
-document.getElementById("characterName").textContent=
-"Necesito unas vacaciones... 😭";
-document.getElementById("panel").innerHTML=`
-<div class="result">
-<div class="result-icon">
-😵‍💫
+const task=tasks[index];
+const person=people[task.person];
+document.getElementById("content").innerHTML=
+`
+<div class="scene">
+<div class="character ${person.class}">
+<div class="hair"></div>
+<div class="face"></div>
+<div class="eye left"></div>
+<div class="eye right"></div>
+<div class="nose"></div>
+<div class="mouth"></div>
+<div class="neck"></div>
+<div class="torso"></div>
+<div class="arm left"></div>
+<div class="arm right"></div>
+<div class="leg left"></div>
+<div class="leg right"></div>
 </div>
-<h2>
-¡Jornada terminada!
-</h2>
-<p>
-<strong>${message}</strong>
-</p>
-<p>
-⭐ Puntuación: <strong>${points}</strong>
-</p>
-<p>
-❤️ Vidas restantes: <strong>${lives}/3</strong>
-</p>
-<p>
-⏱️ Tiempo: <strong>0 segundos</strong>
-</p>
-<button class="restart" onclick="restart()">
-🔄 INTENTAR DE NUEVO
-</button>
+<div class="dialog-area">
+<div class="name">
+${person.name}
+</div>
+<div class="dialog">
+"${person.dialog}"
+</div>
+</div>
+</div>
+<div class="situation">
+<div class="situation-label">
+SITUACIÓN ${index+1} DE ${tasks.length}
+</div>
+<div class="situation-text">
+${task.text}
+</div>
 </div>
 `;
+document.getElementById("feedback").textContent="";
 }
-/* =====================================================
-   VICTORIA
-===================================================== */
+/* ==========================================
+   RESPONDER
+========================================== */
+function answer(choice){
+const task=tasks[index];
+if(choice===task.answer){
+streak++;
+let points=100;
+if(streak>=3){
+points=150;
+document.getElementById("feedback").textContent=
+"🔥 ¡RACHA! +150 puntos";
+}else{
+document.getElementById("feedback").textContent=
+"✅ ¡Excelente decisión! +100 puntos";
+}
+score+=points;
+energy-=3;
+}else{
+streak=0;
+score=Math.max(0,score-75);
+energy-=18;
+time-=4;
+document.getElementById("feedback").textContent=
+"❌ ¡Cuidado! -75 puntos y -4 segundos";
+}
+if(energy<0)
+energy=0;
+index++;
+update();
+if(energy<=0 || time<=0){
+setTimeout(finish,350);
+return;
+}
+setTimeout(render,350);
+}
+/* ==========================================
+   ACTUALIZAR
+========================================== */
+function update(){
+document.getElementById("time")
+.textContent=Math.max(0,time);
+document.getElementById("energy")
+.textContent=Math.max(0,Math.floor(energy));
+document.getElementById("score")
+.textContent=score;
+document.getElementById("streak")
+.textContent=streak;
+document.getElementById("energyBar")
+.style.width=Math.max(0,energy)+"%";
+}
+/* ==========================================
+   FINAL
+========================================== */
 function finish(){
-clearInterval(timerInterval);
-sound("finish");
-document.getElementById("progress").style.width="100%";
-let title;
-let icon;
-let message;
-if(lives===3 && points>=150){
-icon="🏆";
-title="¡GERENTE DEL TIEMPO!";
+clearInterval(timer);
+let icon="🏆";
+let title="";
+let message="";
+if(score>=1500){
+icon="🌟";
+title="¡MAESTRA DEL TIEMPO!";
 message=
-"¡Impresionante! Tomaste decisiones inteligentes bajo presión y conservaste todas tus vidas.";
-}else if(lives>=2 && points>=100){
-icon="🥇";
-title="¡EXCELENTE GESTORA!";
-message=
-"Supiste distinguir entre urgencia e importancia y mantuviste el control de la jornada.";
-}else if(points>=50){
-icon="👏";
-title="¡BUEN TRABAJO!";
-message=
-"Lograste completar la jornada, aunque todavía puedes mejorar algunas decisiones.";
-}else{
-icon="😅";
-title="¡SOBREVIVISTE!";
-message=
-"La jornada fue complicada. Necesitas practicar un poco más la gestión de prioridades.";
+"¡Excelente! Demostraste que sabes identificar qué es urgente, importante y qué puede esperar.";
 }
-document.getElementById("characterName").textContent=
-"¡Terminamos la jornada!";
-document.getElementById("panel").innerHTML=`
-<div class="result">
-<div class="result-icon">
-${icon}
-</div>
-<h2>
-${title}
-</h2>
-<p>
-${message}
-</p>
-<p>
-⭐ Puntuación:
-<strong>${points}</strong>
-</p>
-<p>
-❤️ Vidas restantes:
-<strong>${lives}/3</strong>
-</p>
-<p>
-⏱️ Tiempo restante:
-<strong>${timeLeft} segundos</strong>
-</p>
-<p>
-📋 Situaciones completadas:
-<strong>10/10</strong>
-</p>
-<button class="restart" onclick="restart()">
-🔄 JUGAR DE NUEVO
-</button>
-</div>
-`;
+else if(score>=1000){
+icon="😎";
+title="¡EXCELENTE TRABAJO!";
+message=
+"Tomaste muy buenas decisiones y manejaste muy bien tus prioridades.";
 }
-/* =====================================================
-   REINICIAR
-===================================================== */
-function restart(){
-clearInterval(timerInterval);
-current=0;
-lives=3;
-points=0;
-timeLeft=60;
-document.getElementById("timer").textContent="⏱️ 60";
-document.getElementById("timer").classList.remove("warning");
-document.getElementById("lives").textContent="❤️❤️❤️";
-document.getElementById("points").textContent="⭐ 0";
-showSituation();
-startTimer();
+else if(score>=500){
+icon="🙂";
+title="¡VAS POR BUEN CAMINO!";
+message=
+"Ya entiendes la lógica de la matriz. Un poco más de práctica y dominarás el desafío.";
+}
+else{
+icon="😵";
+title="¡EL TIEMPO TE GANÓ!";
+message=
+"Revisa la Matriz de Eisenhower e inténtalo nuevamente.";
+}
+document.getElementById("finalIcon")
+.textContent=icon;
+document.getElementById("finalTitle")
+.textContent=title;
+document.getElementById("finalScore")
+.textContent=score;
+document.getElementById("finalMessage")
+.textContent=message;
+show("finalScreen");
 }
 </script>
 </body>
